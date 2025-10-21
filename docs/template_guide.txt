@@ -1,0 +1,550 @@
+# Template Variables Reference
+
+Complete guide to all variables available in Jinja2 templates.
+
+---
+
+## Template Context Structure
+
+The following variables are available in all templates:
+
+```python
+{
+    'metadata': { ... },
+    'executive_summary': "...",
+    'scoring': { ... },
+    'cyber_requirements': [ ... ],
+    'categories': [ ... ],
+    'boilerplate': { ... },
+    'has_high_risk': True/False
+}
+```
+
+---
+
+## Global Variables
+
+### metadata
+
+Member and assessment information.
+
+**Usage:**
+```jinja2
+{{ metadata.member_name }}
+{{ metadata.assessment_date }}
+{{ metadata.conducted_by }}
+{{ metadata.member_contact }}
+{{ metadata.version }}
+```
+
+**Example:**
+```jinja2
+<div>{{ metadata.member_name }}</div>
+<!-- Outputs: Christian Brothers Services -->
+```
+
+---
+
+### executive_summary
+
+Custom summary text from CRM.
+
+**Usage:**
+```jinja2
+{{ executive_summary }}
+```
+
+**Conditional Display:**
+```jinja2
+{% if executive_summary and executive_summary|length > 10 %}
+    <div class="executive-summary-content">
+        {{ executive_summary }}
+    </div>
+{% else %}
+    <div class="executive-summary-placeholder">
+        [Placeholder content]
+    </div>
+{% endif %}
+```
+
+---
+
+### scoring
+
+Overall scores and risk distribution.
+
+**Usage:**
+```jinja2
+{{ scoring.overall_score }}          <!-- 95 -->
+{{ scoring.overall_grade }}          <!-- A -->
+{{ scoring.risk_distribution.high }} <!-- 1 -->
+{{ scoring.risk_distribution.moderate }} <!-- 1 -->
+{{ scoring.risk_distribution.low }}  <!-- 49 -->
+```
+
+**Section Scores Loop:**
+```jinja2
+{% for key, section in scoring.section_scores.items() %}
+    <tr>
+        <td>{{ key }}</td>
+        <td>{{ section.name }}</td>
+        <td>{{ section.score }}%</td>
+    </tr>
+{% endfor %}
+```
+
+**Example:**
+```jinja2
+<div class="overall-score">{{ scoring.overall_score }}%</div>
+{% set progress_width = scoring.overall_score - 5 %}
+{% if progress_width < 0 %}{% set progress_width = 0 %}{% endif %}
+{% if progress_width > 95 %}{% set progress_width = 95 %}{% endif %}
+<div class="overall-progress-track">
+    <div class="overall-progress-fill" style="width: {{ progress_width }}%;"></div>
+</div>
+```
+
+> `scoring.overall_grade` is still available if you want to show a letter grade, but the default templates use a progress bar instead to reinforce “continuous improvement” messaging.
+
+---
+
+### cyber_requirements
+
+Compliance checklist array.
+
+**Usage:**
+```jinja2
+{% for req in cyber_requirements %}
+    <tr>
+        <td>{{ req.question }}</td>
+        <td>
+            {% if req.compliance %}
+                <span class="compliance-yes">✓ Yes</span>
+            {% else %}
+                <span class="compliance-no">✗ No</span>
+            {% endif %}
+        </td>
+    </tr>
+{% endfor %}
+```
+
+---
+
+### categories
+
+Array of assessment categories with questions.
+
+**Category Loop:**
+```jinja2
+{% for category in categories %}
+    <h1>{{ category.number }} {{ category.name }}</h1>
+    <div>Score: {{ category.score }}%</div>
+    <p>{{ category.overview }}</p>
+    <p>{{ category.importance }}</p>
+    
+    {% for question in category.questions %}
+        <!-- Question content -->
+    {% endfor %}
+{% endfor %}
+```
+
+**Category Fields:**
+- `category.number` - "1.0", "2.0", etc.
+- `category.name` - Category name
+- `category.score` - Category score (0-100)
+- `category.overview` - Description text
+- `category.importance` - Importance text
+- `category.questions` - Array of questions
+
+---
+
+### boilerplate
+
+Extracted content from CBS report.
+
+**Structure:**
+```python
+{
+    'introduction': {
+        'what_is_assessment': "...",
+        'methodology': "...",
+        'recommendation': "...",
+        'grading_update': "...",
+        'emphasis': "...",
+        'contact': "..."
+    },
+    'rating_legends': {
+        'control_ratings': { ... },
+        'impact_ratings': { ... },
+        'risk_ratings': { ... },
+        'example': { ... }
+    },
+    'categories': {
+        '1.0': {
+            'name': "...",
+            'overview': "...",
+            'importance': "..."
+        },
+        ...
+    }
+}
+```
+
+**Usage:**
+```jinja2
+{{ boilerplate.introduction.what_is_assessment }}
+{{ boilerplate.rating_legends.control_ratings.fully_implemented.description }}
+{{ boilerplate.categories['1.0'].overview }}
+```
+
+---
+
+### has_high_risk
+
+Boolean flag for high risk findings.
+
+**Usage:**
+```jinja2
+{% if has_high_risk %}
+    {% include 'partials/high_risk_findings.html' %}
+{% endif %}
+```
+
+---
+
+## Question Object Variables
+
+Within a question loop:
+
+```jinja2
+{% for question in category.questions %}
+    {{ question.number }}              <!-- "1.1" -->
+    {{ question.text }}                <!-- Question text -->
+    {{ question.control_description }} <!-- Control description -->
+    {{ question.control_status }}      <!-- 0, 1, 3, 5 -->
+    {{ question.control_status_text }} <!-- "Fully Implemented" -->
+    {{ question.impact_score }}        <!-- 0, 1, 3, 5 -->
+    {{ question.risk_score }}          <!-- 0-25 -->
+    {{ question.risk_level }}          <!-- "low", "moderate", "high", "na" -->
+    {{ question.comments }}            <!-- Assessment notes -->
+{% endfor %}
+```
+
+---
+
+## Jinja2 Filters
+
+### Built-in Filters
+
+```jinja2
+{{ text|upper }}                    <!-- UPPERCASE -->
+{{ text|lower }}                    <!-- lowercase -->
+{{ text|capitalize }}               <!-- Capitalize first letter -->
+{{ text|title }}                    <!-- Title Case -->
+{{ number|round }}                  <!-- Round to integer -->
+{{ number|round(2) }}               <!-- Round to 2 decimals -->
+{{ text|length }}                   <!-- String/array length -->
+{{ text|trim }}                     <!-- Remove whitespace -->
+{{ text|default('N/A') }}          <!-- Default if empty -->
+```
+
+### Common Usage Examples
+
+**Calculate percentage:**
+```jinja2
+<div style="width: {{ (count / total * 100)|round }}%;">
+    {{ count }}
+</div>
+```
+
+**Default value:**
+```jinja2
+{{ question.comments|default('No comments provided') }}
+```
+
+---
+
+## Conditional Logic
+
+### If Statements
+
+```jinja2
+{% if condition %}
+    <!-- content -->
+{% endif %}
+
+{% if condition %}
+    <!-- content -->
+{% else %}
+    <!-- alternative -->
+{% endif %}
+
+{% if condition1 %}
+    <!-- option 1 -->
+{% elif condition2 %}
+    <!-- option 2 -->
+{% else %}
+    <!-- default -->
+{% endif %}
+```
+
+### Common Conditionals
+
+**Check for high risk:**
+```jinja2
+{% if question.risk_score >= 16 %}
+    <span class="badge-danger">High Risk</span>
+{% elif question.risk_score >= 10 %}
+    <span class="badge-warning">Moderate Risk</span>
+{% else %}
+    <span class="badge-success">Low Risk</span>
+{% endif %}
+```
+
+**Check control status:**
+```jinja2
+{% if question.control_status == 1 %}
+    <span class="badge-success">Fully Implemented</span>
+{% elif question.control_status == 3 %}
+    <span class="badge-warning">Partially Implemented</span>
+{% elif question.control_status == 5 %}
+    <span class="badge-danger">Not Implemented</span>
+{% else %}
+    <span class="badge-secondary">Not Applicable</span>
+{% endif %}
+```
+
+**Check if content exists:**
+```jinja2
+{% if question.comments %}
+    <div class="comments-section">
+        {{ question.comments }}
+    </div>
+{% endif %}
+```
+
+---
+
+## Loops
+
+### Basic Loop
+
+```jinja2
+{% for item in items %}
+    {{ item }}
+{% endfor %}
+```
+
+### Loop with Index
+
+```jinja2
+{% for item in items %}
+    <div>Item {{ loop.index }}: {{ item }}</div>
+{% endfor %}
+```
+
+### Loop Variables
+
+- `loop.index` - Current iteration (1-indexed)
+- `loop.index0` - Current iteration (0-indexed)
+- `loop.first` - True on first iteration
+- `loop.last` - True on last iteration
+- `loop.length` - Total items
+
+**Example:**
+```jinja2
+{% for category in categories %}
+    <div class="page-number">Page {{ loop.index + 6 }}</div>
+    
+    {% if loop.first %}
+        <!-- Special content for first item -->
+    {% endif %}
+    
+    {% if loop.last %}
+        <!-- Special content for last item -->
+    {% endif %}
+{% endfor %}
+```
+
+---
+
+## Including Partials
+
+```jinja2
+{% include 'partials/cover.html' %}
+{% include 'partials/introduction.html' %}
+
+{% for category in categories %}
+    {% include 'partials/category.html' %}
+{% endfor %}
+```
+
+**Note:** Variables from parent template are automatically available in included partials.
+
+---
+
+## Comments
+
+```jinja2
+{# This is a comment and won't appear in output #}
+
+{# 
+Multi-line comment
+for documentation
+#}
+```
+
+---
+
+## Whitespace Control
+
+```jinja2
+{%- if condition -%}    <!-- Remove whitespace before and after -->
+    content
+{%- endif -%}
+
+{{ variable -}}          <!-- Remove whitespace after -->
+{{- variable }}          <!-- Remove whitespace before -->
+```
+
+---
+
+## Common Patterns
+
+### Badge Based on Score
+
+```jinja2
+{% if score >= 90 %}
+    <span class="badge-success">Excellent</span>
+{% elif score >= 75 %}
+    <span class="badge-warning">Good</span>
+{% else %}
+    <span class="badge-danger">Needs Improvement</span>
+{% endif %}
+```
+
+### Progress Bar
+
+```jinja2
+<div class="score-bar-visual">
+    <div class="score-bar-fill high" style="width: {{ score }}%;"></div>
+</div>
+```
+
+### Conditional Section
+
+```jinja2
+{% if has_high_risk %}
+    <div class="high-risk-section">
+        {% for category in categories %}
+            {% for question in category.questions %}
+                {% if question.risk_score >= 16 %}
+                    <!-- High risk item -->
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endif %}
+```
+
+### Table Row with Alternating Colors
+
+```jinja2
+{% for item in items %}
+    <tr class="{% if loop.index0 % 2 == 0 %}even{% else %}odd{% endif %}">
+        <td>{{ item.name }}</td>
+    </tr>
+{% endfor %}
+```
+
+---
+
+## Debugging
+
+### Print Variable
+
+```jinja2
+{{ variable }}
+```
+
+### Print Variable Type
+
+```jinja2
+{{ variable|string }}
+```
+
+### Check if Variable Exists
+
+```jinja2
+{% if variable is defined %}
+    {{ variable }}
+{% else %}
+    Variable not defined
+{% endif %}
+```
+
+---
+
+## Best Practices
+
+1. **Use meaningful variable names** in loops
+2. **Add comments** to explain complex logic
+3. **Use filters** for formatting instead of Python code
+4. **Test conditionals** with all possible data states
+5. **Keep templates modular** using partials
+6. **Use consistent indentation** for readability
+7. **Escape HTML** when necessary (automatic with autoescape)
+
+---
+
+## Troubleshooting
+
+### Variable Not Displaying
+
+```jinja2
+<!-- Check if defined -->
+{% if variable is defined %}
+    {{ variable }}
+{% else %}
+    Variable is undefined
+{% endif %}
+
+<!-- Check if empty -->
+{% if variable %}
+    {{ variable }}
+{% else %}
+    Variable is empty
+{% endif %}
+```
+
+### Loop Not Working
+
+```jinja2
+<!-- Check if array exists and has items -->
+{% if items and items|length > 0 %}
+    {% for item in items %}
+        {{ item }}
+    {% endfor %}
+{% else %}
+    No items to display
+{% endif %}
+```
+
+### Unexpected Output
+
+```jinja2
+<!-- Use |safe only for trusted HTML -->
+{{ html_content|safe }}
+
+<!-- Escape special characters (default) -->
+{{ user_input }}
+```
+
+---
+
+## Additional Resources
+
+- [Jinja2 Documentation](https://jinja.palletsprojects.com/)
+- [Jinja2 Template Designer Documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/)
+- Project: `boilerplate.json` for all boilerplate content
+- Project: `sample_data.json` for example data structure

@@ -1,0 +1,359 @@
+{
+  "5adc321e-9478-f011-b4cc-00224804279b": {
+    "number": "1.1",
+    "text": "Does the organization inventory all company-owned devices?",
+    "control_description": "Establish and maintain an inventory of all end-user assets with the potential to store, transmit, or change data. This often includes devices such as desktops, laptops, and mobile devices (tablets and cellphones).",
+    "impact_score": 3,
+    "category": "772120000"
+  },
+  "5cdc321e-9478-f011-b4cc-00224804279b": {
+    "number": "1.2",
+    "text": "Does the organization have a way to identify and address any unauthorized assets from the network (wired and wireless)?",
+    "control_description": "Ensure a process exists to identify and address unauthorized assets frequently. This includes wireless access and wired network ports. The enterprise may choose to remove the asset from the network, deny the asset from connecting remotely to the network, or quarantine the asset.",
+    "impact_score": 3,
+    "category": "772120000"
+  },
+  "5bdc321e-9478-f011-b4cc-00224804279b": {
+    "number": "1.3",
+    "text": "Does the organization maintain an inventory of all licensed software installed across the organization?",
+    "control_description": "Establish and maintain a detailed inventory of all licensed software installed on enterprise assets. The software inventory should document important attributes such as the title, publisher, initial install/use date, and business purpose for each entry; where appropriate, include the Uniform Resource Locator (URL), app store(s), version(s), deployment mechanism, and decommission date. Review and update the software inventory bi-annually, or more frequently.",
+    "impact_score": 3,
+    "category": "772120000"
+  },
+  "f80f521b-9478-f011-b4cc-6045bd020f75": {
+    "number": "1.4",
+    "text": "Has the organization adopted and implemented plans to retire or protect and segregate end-of-life software?",
+    "control_description": "Ensure that only currently supported software is designated as authorized in the software inventory for enterprise assets. Any end-of-life (EOL) software, which is unsupported, yet necessary for the fulfillment of the enterprise's mission, should be segmented, with proper controls and regular audits to ensure that the software is free of any compromises.",
+    "impact_score": 5,
+    "category": "772120000"
+  },
+  "11e3d61d-9478-f011-b4cb-0022480aaebb": {
+    "number": "2.1",
+    "text": "Does the organization have an inventory of all user accounts including users/admins/service accounts?",
+    "control_description": "Establish and maintain an inventory of all user, administrator, and service accounts, including names, usernames, start/stop dates, and departments. Validate account authorization at least quarterly. Service accounts should follow the principle of least privilege, use complex passwords with 180-day rotations (if feasible), and undergo regular monitoring for abnormal activity.",
+    "impact_score": 3,
+    "category": "772120001"
+  },
+  "b9c7ed21-9478-f011-b4cb-000d3a34656f": {
+    "number": "2.2",
+    "text": "Does the organization enforce a password policy that adheres to industry best practices?",
+    "control_description": "Ensure the organization has implemented and enforces a password policy that aligns with current best practices as outlined by leading authorities such as NIST, CISA, Microsoft, and other cybersecurity experts.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "b049e21b-9478-f011-b4cb-000d3a34656f": {
+    "number": "2.3",
+    "text": "Is MFA enabled and enforced for all cloud resources, including email, document repositories, messaging or meeting platforms, and identity and access management tools?",
+    "control_description": "MFA is essential for safeguarding critical assets, ensuring that unauthorized individuals cannot access sensitive systems or data even if one factor is compromised. It should be implemented for all user accounts interacting with organizational data or systems, prioritizing high-risk assets and accounts.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "4c466f03-9478-f011-b4cb-000d3a34656f": {
+    "number": "2.4",
+    "text": "Is MFA implemented for remote access to on-premises or hub networks?",
+    "control_description": "MFA is essential for safeguarding critical assets, ensuring that unauthorized individuals cannot access sensitive systems or data even if one factor is compromised.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "43fce405-9478-f011-b4cb-0022480aaebb": {
+    "number": "2.5",
+    "text": "Is MFA in place for all admin or privileged user accounts to ensure enhanced protection against unauthorized access?",
+    "control_description": "MFA is essential for safeguarding critical assets, ensuring that unauthorized individuals cannot access sensitive systems or data even if one factor is compromised.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "ba646c09-9478-f011-b4cb-000d3a34656f": {
+    "number": "2.6",
+    "text": "Does the organization enforce MFA for access to all critical systems and data?",
+    "control_description": "MFA is essential for safeguarding critical assets, ensuring that unauthorized individuals cannot access sensitive systems or data even if one factor is compromised.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "4d466f03-9478-f011-b4cb-000d3a34656f": {
+    "number": "2.7",
+    "text": "Does the organization have a process to identify and disable dormant accounts after a defined period of inactivity?",
+    "control_description": "The organization should implement a process to regularly monitor and identify dormant or inactive accounts. Disable or remove such accounts after 45 days of inactivity (or a timeframe aligned with organizational policy) to minimize security risks from unused credentials.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "f9fae405-9478-f011-b4cb-0022480aaebb": {
+    "number": "2.8",
+    "text": "Does the organization have a policy and standard operating procedures outlined for onboarding or change in position?",
+    "control_description": "Implement and maintain a policy with clear, documented procedures for granting access to enterprise assets during onboarding or role changes. This process should include automated workflows where possible to ensure timely, consistent, and secure access provisioning.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "5ffce405-9478-f011-b4cb-0022480aaebb": {
+    "number": "2.9",
+    "text": "Does the organization have a policy and standard operating procedures outlined for off-boarding?",
+    "control_description": "Establish and maintain a policy with clear procedures for promptly revoking access to enterprise assets during off-boarding. Utilize automated processes where possible to disable accounts immediately upon termination while preserving audit trails.",
+    "impact_score": 5,
+    "category": "772120001"
+  },
+  "c5646c09-9478-f011-b4cb-000d3a34656f": {
+    "number": "3.1",
+    "text": "Does the organization have an inventory of critical data?",
+    "control_description": "Establish and maintain a data inventory, based on the enterprise's data management process. Inventory sensitive data, at a minimum. Review and update inventory annually, at a minimum, with a priority on sensitive data.",
+    "impact_score": 1,
+    "category": "772120002"
+  },
+  "92a1970a-9478-f011-b4cc-00224804279b": {
+    "number": "3.2",
+    "text": "Do administrators have separate dedicated admin accounts for conducting high-privilege tasks?",
+    "control_description": "Restrict administrator privileges to dedicated administrator accounts on enterprise assets. Conduct general computing activities, such as internet browsing, email, and productivity suite use, from the user's primary, non-privileged account.",
+    "impact_score": 3,
+    "category": "772120002"
+  },
+  "f3542c09-9478-f011-b4cc-6045bd020f75": {
+    "number": "3.3",
+    "text": "Does the organization encrypt hard drives on endpoints, servers, and on-premises backups?",
+    "control_description": "Encrypt data on end-user devices containing sensitive data. Example implementations can include Windows BitLocker, Apple FileVault, Linux dm-crypt.",
+    "impact_score": 5,
+    "category": "772120002"
+  },
+  "739b690f-9478-f011-b4cb-000d3a34656f": {
+    "number": "4.1",
+    "text": "Does the organization have physical security measures in place to protect on-premises network and system infrastructure?",
+    "control_description": "Implement and maintain physical security measures to protect on-premises network and system infrastructure. This includes securing server rooms, network closets, and other critical infrastructure locations against unauthorized access, environmental threats, and physical tampering.",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "c9646c09-9478-f011-b4cb-000d3a34656f": {
+    "number": "4.2",
+    "text": "Does the organization have a secure configuration process for endpoint devices?",
+    "control_description": "Establish and maintain a secure configuration process for all enterprise assets, including end-user devices, IoT devices, servers, and software. This process should include creating a standardized 'golden image' for endpoint deployment that incorporates the latest OS patches, removal or hardening of default accounts, and restrictions on software installations to approved applications only.",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "c697eb0b-9478-f011-b4cb-0022480aaebb": {
+    "number": "4.3",
+    "text": "Does the organization have a Patch Management Process to install all software patches within 30 or fewer days and critical and high-severity patches within 7 days?",
+    "control_description": "Perform operating system updates on enterprise assets on a monthly, or more frequent, basis (preferably automated).",
+    "impact_score": 5,
+    "category": "772120003"
+  },
+  "0b98eb0b-9478-f011-b4cb-0022480aaebb": {
+    "number": "4.4",
+    "text": "Does the organization's Patch Management Process address both operating systems and installed applications?",
+    "control_description": "Perform operating system updates on enterprise assets on a monthly, or more frequent, basis (preferably automated).",
+    "impact_score": 5,
+    "category": "772120003"
+  },
+  "9da1970a-9478-f011-b4cc-00224804279b": {
+    "number": "4.5",
+    "text": "Does the organization have a secure configuration process for networking devices?",
+    "control_description": "Establish and maintain a secure configuration process for network devices. This includes management of default accounts on enterprise assets and software, such as root, administrator, and other pre-configured vendor accounts.",
+    "impact_score": 5,
+    "category": "772120003"
+  },
+  "7d9b690f-9478-f011-b4cb-000d3a34656f": {
+    "number": "4.6",
+    "text": "Does the organization have a process to ensure that network infrastructure (e.g., routers, switches, firewalls, network appliances) remain updated and supported with the latest security patches and firmware updates?",
+    "control_description": "Establish and maintain a secure configuration process for network devices to ensure they remain updated and supported with the latest security patches and firmware updates.",
+    "impact_score": 5,
+    "category": "772120003"
+  },
+  "0198eb0b-9478-f011-b4cb-0022480aaebb": {
+    "number": "4.7",
+    "text": "Does the organization conduct regular external vulnerability scans?",
+    "control_description": "Regular external-facing vulnerability scans help identify and address potential system weaknesses and reduce security risks. It is recommended to conduct vulnerability scans at least quarterly to maintain a strong security posture.",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "7114c210-9478-f011-b4cc-00224804279b": {
+    "number": "4.8",
+    "text": "Has the organization configured session lockout times for endpoints?",
+    "control_description": "Configure automatic session locking on enterprise assets after a defined period of inactivity. For general-purpose operating systems, the period should not exceed 15 minutes. For mobile end-user devices, the period should not exceed 2 minutes.",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "b7863c0f-9478-f011-b4cc-6045bd020f75": {
+    "number": "4.9",
+    "text": "Does the organization have different networks or subnets for employees and non-employees?",
+    "control_description": "Deploy and maintain a secure network architecture to ensure networks are configured based on the purpose of the workload in the respective network. Each network or subnet in an organization should be segmented to prevent unauthorized access.",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "809b690f-9478-f011-b4cb-000d3a34656f": {
+    "number": "4.10",
+    "text": "Are the wireless networks segmented from each other?",
+    "control_description": "Deploy and maintain a secure wireless network architecture to ensure networks are configured based on the purpose of the workload in the respective network.",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "f9863c0f-9478-f011-b4cc-6045bd020f75": {
+    "number": "4.11",
+    "text": "Does the organization use WPA2 or better for its wireless network(s)?",
+    "control_description": "The wireless network access controls should be deployed with the latest accepted encryption standards (WPA2 or better).",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "7a14c210-9478-f011-b4cc-00224804279b": {
+    "number": "4.12",
+    "text": "Does the organization protect access via 802.1X or similar?",
+    "control_description": "Wireless access should be deployed so that each user is given access with their enterprise credentials.",
+    "impact_score": 3,
+    "category": "772120003"
+  },
+  "7b14c210-9478-f011-b4cc-00224804279b": {
+    "number": "4.13",
+    "text": "Does the organization change any wireless PSKs annually?",
+    "control_description": "PSK should only be used for guest wireless access. PSK should be changed annually to prevent any unwanted or unauthorized access from intruders.",
+    "impact_score": 0,
+    "category": "772120003"
+  },
+  "25dbe311-9478-f011-b4cb-0022480aaebb": {
+    "number": "5.1",
+    "text": "Does the organization use a DNS filtering service?",
+    "control_description": "Implement and maintain DNS filtering services across the organization to protect against cyber threats. DNS filtering services should actively block access to known malicious domains, phishing sites, and other harmful web content.",
+    "impact_score": 5,
+    "category": "772120004"
+  },
+  "d1313c15-9478-f011-b4cc-6045bd020f75": {
+    "number": "5.2",
+    "text": "Does the organization utilize an Email filtering service?",
+    "control_description": "Email filtering services should detect and filter spam, phishing attempts, and emails containing malicious attachments or links, safeguarding the organization from email-based threats.",
+    "impact_score": 5,
+    "category": "772120004"
+  },
+  "bbdbe311-9478-f011-b4cb-0022480aaebb": {
+    "number": "5.3",
+    "text": "Does the organization utilize an Anti-Malware service?",
+    "control_description": "Deploy and maintain robust anti-malware solutions on all enterprise assets to protect against viruses, ransomware, spyware, and other malicious software. This can include traditional antivirus software like McAfee or Windows Defender, as well as more advanced Endpoint Protection Platforms (EPP).",
+    "impact_score": 5,
+    "category": "772120004"
+  },
+  "051bd215-9478-f011-b4cb-000d3a34656f": {
+    "number": "5.4",
+    "text": "Has the organization adopted and implemented endpoint detection and response (EDR) software services?",
+    "control_description": "Implement an Endpoint Detection and Response (EDR) solution across all enterprise assets to detect, investigate, and respond to advanced threats in real time. EDR tools provide capabilities like threat detection, behavioral analysis, and automated remediation.",
+    "impact_score": 5,
+    "category": "772120004"
+  },
+  "c6dbe311-9478-f011-b4cb-0022480aaebb": {
+    "number": "6.1",
+    "text": "Does the organization perform backups of critical data/systems?",
+    "control_description": "Organizations should implement and maintain a comprehensive data backup strategy to ensure critical data and systems are protected and recoverable in case of cyber incidents, hardware failures, or other disruptions.",
+    "impact_score": 5,
+    "category": "772120005"
+  },
+  "0a1bd215-9478-f011-b4cb-000d3a34656f": {
+    "number": "6.2",
+    "text": "How often does the organization perform backups?",
+    "control_description": "Perform regular backups of critical data/systems to minimize potential data loss, aligning the frequency with the importance and usage of the data.",
+    "impact_score": 3,
+    "category": "772120005"
+  },
+  "0b323c15-9478-f011-b4cc-6045bd020f75": {
+    "number": "6.3",
+    "text": "Does the organization have an air gap or immutable backup of critical data/systems?",
+    "control_description": "Maintain air-gapped and/or immutable backups to safeguard against ransomware attacks and unauthorized access. Air-gapped backups are physically isolated from the network, while immutable backups are designed to prevent alteration or deletion.",
+    "impact_score": 5,
+    "category": "772120005"
+  },
+  "3301bc17-9478-f011-b4cc-00224804279b": {
+    "number": "6.4",
+    "text": "Does the organization perform bi-annual checks of the backups including testing and validation of recoverability capability?",
+    "control_description": "Conduct bi-annual testing and validation of backups to ensure recoverability.",
+    "impact_score": 5,
+    "category": "772120005"
+  },
+  "0b1bd215-9478-f011-b4cb-000d3a34656f": {
+    "number": "7.1",
+    "text": "Does the organization have a security awareness program?",
+    "control_description": "Establish and maintain a comprehensive security awareness program to educate the workforce on recognizing, preventing, and responding to cybersecurity threats.",
+    "impact_score": 3,
+    "category": "772120006"
+  },
+  "0c1bd215-9478-f011-b4cb-000d3a34656f": {
+    "number": "7.2",
+    "text": "Does the organization conduct phishing simulation tests and training at least quarterly?",
+    "control_description": "This program should include regular phishing simulation tests conducted at least quarterly, and follow-up training sessions to address identified gaps or emerging risks.",
+    "impact_score": 3,
+    "category": "772120006"
+  },
+  "14323c15-9478-f011-b4cc-6045bd020f75": {
+    "number": "7.3",
+    "text": "Does the organization offer follow-up security training?",
+    "control_description": "Security Awareness Training should be conducted during onboarding and reinforced through ongoing or event-driven sessions to ensure sustained awareness and readiness.",
+    "impact_score": 1,
+    "category": "772120006"
+  },
+  "15323c15-9478-f011-b4cc-6045bd020f75": {
+    "number": "8.1",
+    "text": "Does the organization have a process for vetting their vendors?",
+    "control_description": "Establish a vendor management process that includes vetting vendors through certifications like SOC 2 or ISO 27001, reviewing security policies, assessing data sharing practices, and aligning service level agreements with organizational needs.",
+    "impact_score": 3,
+    "category": "772120007"
+  },
+  "201bd215-9478-f011-b4cb-000d3a34656f": {
+    "number": "8.2",
+    "text": "Does the organization keep an inventory of their vendors?",
+    "control_description": "Establish and maintain an inventory of vendors who hold sensitive data or are responsible for critical IT platforms or processes.",
+    "impact_score": 1,
+    "category": "772120007"
+  },
+  "241bd215-9478-f011-b4cb-000d3a34656f": {
+    "number": "8.3",
+    "text": "Does the organization verify vendor/supplier bank accounts before adding their accounts to payable systems?",
+    "control_description": "Verify bank accounts, authenticate transfer requests, and prevent unauthorized wire transfers, ensuring compliance with industry regulations.",
+    "impact_score": 3,
+    "category": "772120007"
+  },
+  "d20f521b-9478-f011-b4cc-6045bd020f75": {
+    "number": "8.4",
+    "text": "Does the organization authenticate funds transfer requests (e.g., by calling vendor/customer to verify request at a predetermined phone number)?",
+    "control_description": "Authenticate funds transfer requests to prevent unauthorized wire transfers and ensure compliance with industry regulations.",
+    "impact_score": 3,
+    "category": "772120007"
+  },
+  "8a49e21b-9478-f011-b4cb-000d3a34656f": {
+    "number": "8.5",
+    "text": "Does the organization prevent unauthorized employees from initiating wire transfers?",
+    "control_description": "Prevent unauthorized employees from initiating wire transfers, ensuring compliance with industry regulations and protecting against fraud.",
+    "impact_score": 3,
+    "category": "772120007"
+  },
+  "8b49e21b-9478-f011-b4cb-000d3a34656f": {
+    "number": "9.1",
+    "text": "Does the organization have a Cyber Incident Response Plan (CIRP)?",
+    "control_description": "Establish and maintain an enterprise process for the workforce to report security incidents. The process includes reporting timeframe, personnel to report to, mechanism for reporting, and the minimum information to be reported.",
+    "impact_score": 3,
+    "category": "772120008"
+  },
+  "e90f521b-9478-f011-b4cc-6045bd020f75": {
+    "number": "9.2",
+    "text": "Does the organization outline clear responsibilities in the CIRP?",
+    "control_description": "Ensure the incident response plan includes clear responsibilities for all team members.",
+    "impact_score": 3,
+    "category": "772120008"
+  },
+  "3b01bc17-9478-f011-b4cc-00224804279b": {
+    "number": "9.3",
+    "text": "Has the organization identified a CISO or a cybersecurity contact?",
+    "control_description": "Identify a Chief Information Security Officer (CISO) or cybersecurity contact responsible for coordinating incident response activities.",
+    "impact_score": 1,
+    "category": "772120008"
+  },
+  "9549e21b-9478-f011-b4cb-000d3a34656f": {
+    "number": "9.4",
+    "text": "Does the organization have a communication plan and contact information in the CIRP?",
+    "control_description": "Include a communication plan and contact information in the Cyber Incident Response Plan to ensure effective coordination during incidents.",
+    "impact_score": 1,
+    "category": "772120008"
+  },
+  "d80f521b-9478-f011-b4cc-6045bd020f75": {
+    "number": "9.5",
+    "text": "Does the organization perform periodic exercises such as tabletops to test the plan with the CIRP team members?",
+    "control_description": "Perform periodic exercises such as tabletops to test the Cyber Incident Response Plan with team members and ensure readiness.",
+    "impact_score": 3,
+    "category": "772120008"
+  },
+  "b032c58a-fc8f-f011-b4cb-0022480aaebb": {
+    "number": "9.6",
+    "text": "Outside of the CBS Pool, does the organization purchase cyber insurance?",
+    "control_description": "Consider purchasing cyber insurance to provide financial protection and support in the event of a cybersecurity incident.",
+    "impact_score": 0,
+    "category": "772120008"
+  }
+}

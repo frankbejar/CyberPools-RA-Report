@@ -1,0 +1,69 @@
+# CyberPools Report Repository Map
+
+Use this as the "you are here" guide when orienting new teammates.
+
+**Last Updated:** October 20, 2025
+
+```
+cyberpools-report/
+├── content/                      # Boilerplate copy consumed by templates
+│   └── boilerplate.json          # Reusable narrative text (introductions, category overviews)
+├── docs/                         # Documentation (setup, template guide, requirements)
+│   ├── readme_setup.md           # Main setup guide (start here!)
+│   ├── file_organization_master.txt  # This file - repository map
+│   ├── template_guide.txt        # Jinja2 template variable reference
+│   ├── mac_readme_stepbystep.txt # Guided setup for new engineers
+│   ├── mac_auto_setup.sh         # Automated installation script
+│   └── requirements.txt          # Python dependencies (pip install -r)
+├── example /                     # Design reference files ONLY
+│   └── CyberPools-Style Guide.html   # Official style guide (colors, typography, components)
+├── input/                        # Raw CRM exports (user supplied)
+│   └── cb-ra.json                # Example/actual assessment data
+├── logo/                         # Brand assets (currently unused)
+│   └── cp-white-logo.png         # White logo (cover uses text instead)
+├── mappings/                     # Question/category metadata lookup tables
+│   ├── category_mapping.json    # Category IDs → section numbers/names (1.0-9.0)
+│   └── question_mapping.json    # Question GUIDs → text/impact/description
+├── output/                       # Generated PDFs (gitignored, created on-demand)
+│   ├── Sample_Organization_Risk_Assessment_[date].pdf
+│   └── example-reference.pdf
+├── scripts/                      # Python command-line utilities
+│   ├── transform_and_generate.py     # PRIMARY CLI - CRM JSON → PDF (use this!)
+│   ├── generate_pdf_playwright.py    # Playwright renderer wrapper class
+│   ├── generate_report.py            # Render from pre-transformed JSON
+│   └── run.sh                        # macOS/Linux convenience wrapper
+├── styles/                       # Shared CSS (design system)
+│   ├── main.css                  # Core tokens, components, grid layouts
+│   └── print.css                 # PDF/print overrides for Chromium
+└── templates/                    # Jinja2 HTML templates
+    ├── main_template.html        # Master composition template
+    └── partials/                 # Modular page sections (9 files)
+        ├── cover.html            # Cover page (CYBERPOOLS text branding)
+        ├── introduction.html     # Assessment overview
+        ├── executive_summary.html    # Executive summary (optional)
+        ├── results_summary.html  # Overall score + risk distribution (4-col grid)
+        ├── rating_legends.html   # Risk level definitions
+        ├── high_risk_findings.html   # Critical findings (conditional)
+        ├── cyber_requirements.html   # Mandatory controls compliance table
+        ├── category.html         # Category page (per section 1.0-9.0)
+        └── question.html         # Individual control/question block
+```
+
+### Data Flow Summary
+
+1. **CRM export → `input/*.json`**  
+   Raw question responses, one array entry per control.
+
+2. **Mappings → `mappings/*.json`**  
+   Provide numbering, wording, and impact scores for each GUID.
+
+3. **Boilerplate → `content/boilerplate.json`**  
+   Supplies shared narrative content (introductions, category importance).
+
+4. **Templates + Styles**  
+   `scripts/transform_and_generate.py` renders `templates/` with the data context and inlines CSS from `styles/`.
+
+5. **PDF Output → `output/`**  
+   Playwright prints the final HTML to Chromium-based PDF by default.
+
+Keep this structure intact—scripts depend on these relative paths.

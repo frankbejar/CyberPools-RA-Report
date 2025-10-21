@@ -1,0 +1,174 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <div class="findings-section">
+        <div class="findings-header">
+            <span style="font-size: 32pt;">⚠</span>
+            <span>KEY FINDINGS</span>
+        </div>
+
+        <p style="font-weight: 600; margin-bottom: 20px; color: var(--gray-dark);">
+            The following items have been identified as requiring attention based on their risk assessment scores.
+        </p>
+
+        {% if 'high' in selected_risk_levels %}
+        <!-- High Risk Findings -->
+        {% set high_findings = findings.high %}
+        {% if high_findings %}
+        <div class="findings-risk-section">
+            <h2 style="color: var(--risk-high); border-left: 4px solid var(--risk-high); padding-left: 12px; margin-top: 25px;">
+                High Risk Findings ({{ high_findings|length }})
+            </h2>
+            <p style="color: #721c24; font-weight: 600; margin-bottom: 15px; font-size: 12px;">
+                Risk Score 16-25 - Requires immediate attention and remediation planning.
+            </p>
+
+            {% for finding in high_findings %}
+            <div class="finding-item high-risk-item">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; color: var(--risk-high); font-size: 16px;">
+                            <span class="question-number">{{ finding.question_number }}</span>
+                            {{ finding.question_text }}
+                        </h3>
+                        <div style="font-size: 11px; color: var(--gray-medium); margin-top: 4px;">
+                            Category: {{ finding.category }}
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-left: 15px;">
+                        <div class="badge-danger badge" style="font-size: 10pt; padding: 5px 12px; white-space: nowrap;">
+                            Risk: {{ finding.risk_score }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-status" style="margin: 10px 0;">
+                    <div class="status-item">
+                        <span class="status-label">Status:</span>
+                        <span class="badge-danger badge">{{ finding.control_status_text }}</span>
+                    </div>
+                </div>
+
+                {% if finding.comments %}
+                <div class="comments-section">
+                    <span class="comments-label">Assessment Notes:</span>
+                    <div class="comments-text" style="border-left-color: var(--risk-high);">
+                        {{ finding.comments }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endif %}
+
+        {% if 'moderate' in selected_risk_levels %}
+        <!-- Moderate Risk Findings -->
+        {% set moderate_findings = findings.moderate %}
+        {% if moderate_findings %}
+        <div class="findings-risk-section" style="margin-top: 30px;">
+            <h2 style="color: var(--risk-moderate); border-left: 4px solid var(--risk-moderate); padding-left: 12px;">
+                Moderate Risk Findings ({{ moderate_findings|length }})
+            </h2>
+            <p style="color: #856404; font-weight: 600; margin-bottom: 15px; font-size: 12px;">
+                Risk Score 11-15 - Should be addressed in upcoming improvement cycles.
+            </p>
+
+            {% for finding in moderate_findings %}
+            <div class="finding-item moderate-risk-item">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; color: var(--risk-moderate); font-size: 16px;">
+                            <span class="question-number">{{ finding.question_number }}</span>
+                            {{ finding.question_text }}
+                        </h3>
+                        <div style="font-size: 11px; color: var(--gray-medium); margin-top: 4px;">
+                            Category: {{ finding.category }}
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-left: 15px;">
+                        <div class="badge-warning badge" style="font-size: 10pt; padding: 5px 12px; white-space: nowrap;">
+                            Risk: {{ finding.risk_score }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-status" style="margin: 10px 0;">
+                    <div class="status-item">
+                        <span class="status-label">Status:</span>
+                        <span class="badge-warning badge">{{ finding.control_status_text }}</span>
+                    </div>
+                </div>
+
+                {% if finding.comments %}
+                <div class="comments-section">
+                    <span class="comments-label">Assessment Notes:</span>
+                    <div class="comments-text" style="border-left-color: var(--risk-moderate);">
+                        {{ finding.comments }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endif %}
+
+        {% if 'low' in selected_risk_levels %}
+        <!-- Low Risk Findings -->
+        {% set low_findings = findings.low %}
+        {% if low_findings %}
+        <div class="findings-risk-section" style="margin-top: 30px;">
+            <h2 style="color: var(--success); border-left: 4px solid var(--success); padding-left: 12px;">
+                Low Risk Findings ({{ low_findings|length }})
+            </h2>
+            <p style="color: #155724; font-weight: 600; margin-bottom: 15px; font-size: 12px;">
+                Risk Score 0-10 - Monitor and address as resources permit.
+            </p>
+
+            {% for finding in low_findings %}
+            <div class="finding-item low-risk-item">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div style="flex: 1;">
+                        <h3 style="margin: 0; color: var(--success); font-size: 16px;">
+                            <span class="question-number">{{ finding.question_number }}</span>
+                            {{ finding.question_text }}
+                        </h3>
+                        <div style="font-size: 11px; color: var(--gray-medium); margin-top: 4px;">
+                            Category: {{ finding.category }}
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-left: 15px;">
+                        <div class="badge-success badge" style="font-size: 10pt; padding: 5px 12px; white-space: nowrap;">
+                            Risk: {{ finding.risk_score }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-status" style="margin: 10px 0;">
+                    <div class="status-item">
+                        <span class="status-label">Status:</span>
+                        <span class="badge-success badge">{{ finding.control_status_text }}</span>
+                    </div>
+                </div>
+
+                {% if finding.comments %}
+                <div class="comments-section">
+                    <span class="comments-label">Assessment Notes:</span>
+                    <div class="comments-text" style="border-left-color: var(--success);">
+                        {{ finding.comments }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endif %}
+
+    </div>
+
+</div>

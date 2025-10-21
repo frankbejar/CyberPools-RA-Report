@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CyberPools Risk Assessment — {{ metadata.member_name }}</title>
+
+  <!-- Main + print styles (Chromium will honor print media for PDF) -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/print.css" media="print" />
+
+  <!--
+    Note:
+    Our Playwright renderer injects a <base href="..."> at runtime so relative
+    URLs like styles/, images/, fonts/ resolve from the project root.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body class="report-body">
+
+  <!-- Cover page -->
+  {% include 'partials/cover.html' %}
+
+  <!-- Introduction -->
+  {% include 'partials/introduction.html' %}
+
+  <!-- Executive Summary -->
+  {% include 'partials/executive_summary.html' %}
+
+  <!-- Summary of Results -->
+  {% include 'partials/results_summary.html' %}
+
+  <!-- Rating Legends -->
+  {% include 'partials/rating_legends.html' %}
+
+  <!-- Findings Section (based on selected risk levels) -->
+  {% if has_high_risk or has_moderate_risk %}
+    {% include 'partials/findings.html' %}
+  {% endif %}
+
+  <!-- Cyber Requirements -->
+  {% include 'partials/cyber_requirements.html' %}
+
+  <!-- Category pages -->
+  {% for category in categories %}
+    {% set category_index = loop.index0 %}
+    {% include 'partials/category.html' %}
+  {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+    
+    <h1>Executive Summary</h1>
+    
+    {% if executive_summary_raw and executive_summary_raw|length > 10 %}
+        <div class="executive-summary-content">
+            {{ executive_summary_html|safe }}
+        </div>
+    {% else %}
+        <div class="executive-summary-placeholder">
+            <h3 style="color: #6c757d; margin-top: 0;">[EXECUTIVE SUMMARY - CUSTOMIZED BY ACCOUNT MANAGER]</h3>
+            
+            <p>This section provides a high-level strategic overview of the assessment findings. The Account Manager reviews the detailed results and synthesizes key strengths and priority opportunities for improvement.</p>
+            
+            <p><strong>Sample Executive Summary:</strong></p>
+            
+            <p>"The organization demonstrates strong cybersecurity fundamentals with excellent performance in access management and incident response capabilities. A mature backup strategy and comprehensive security awareness program reflect the organization's commitment to operational resilience. Primary opportunity exists in implementing DNS filtering to strengthen malware defense posture. Overall, the assessment reveals a well-managed security program with focused areas for enhancement."</p>
+            
+            <p style="margin-top: 20px;"><em>Note: This placeholder text will be replaced with custom content entered by the Account Manager in the CRM system. The executive summary should be 4-8 sentences highlighting strategic insights, key strengths, and priority recommendations.</em></p>
+        </div>
+    {% endif %}
+    
+</div>

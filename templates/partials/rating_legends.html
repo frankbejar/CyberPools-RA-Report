@@ -1,0 +1,116 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <h1>Assessment Methodology</h1>
+
+    <h2>Rating Legend</h2>
+    <div class="table-wrapper">
+        <table class="legend-table">
+            <thead>
+                <tr>
+                    <th>Control Rating</th>
+                    <th>Impact Rating</th>
+                    <th>Risk Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.fully_implemented.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.fully_implemented.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.low.label }} ({{ boilerplate.rating_legends.impact_ratings.low.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.low.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.low.label }} ({{ boilerplate.rating_legends.risk_ratings.low.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.low.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.partially_implemented.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.partially_implemented.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.moderate.label }} ({{ boilerplate.rating_legends.impact_ratings.moderate.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.moderate.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.moderate.label }} ({{ boilerplate.rating_legends.risk_ratings.moderate.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.moderate.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.not_implemented.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.not_implemented.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.high.label }} ({{ boilerplate.rating_legends.impact_ratings.high.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.high.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.high.label }} ({{ boilerplate.rating_legends.risk_ratings.high.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.high.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.not_applicable.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.not_applicable.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.not_applicable.label }} ({{ boilerplate.rating_legends.impact_ratings.not_applicable.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.not_applicable.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.not_applicable.label }} ({{ boilerplate.rating_legends.risk_ratings.not_applicable.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.not_applicable.description }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Scoring Methodology</h2>
+
+    <h3>Raw Score Calculation</h3>
+    <p>Each control is evaluated using a two-factor calculation that multiplies the implementation status by the potential impact to the organization.</p>
+    <div class="info-box legend-info">
+        <h4>Formula: Control Rating × Impact Rating</h4>
+        <p><strong>Control Rating:</strong> Indicates control implementation status.</p>
+        <ul>
+            <li>1 = Fully Implemented</li>
+            <li>3 = Partially Implemented</li>
+            <li>5 = Not Implemented</li>
+        </ul>
+        <p><strong>Impact Rating:</strong> Reflects the level of organizational disruption if the control fails.</p>
+        <ul>
+            <li>1 = Low impact (minimal disruption, no data compromise)</li>
+            <li>3 = Moderate impact (operational disruption, no sensitive data compromise)</li>
+            <li>5 = High impact (significant disruption and/or data compromise)</li>
+        </ul>
+    </div>
+
+    <h3>Score Normalization</h3>
+    <p>Raw scores are normalized to a 0–100 scale to produce comparable category and overall scores across assessments.</p>
+    <ul>
+        <li>Ensures organizations can be measured consistently year over year.</li>
+        <li>Maintains alignment with industry benchmarks and CyberPools grading standards.</li>
+        <li>Keeps the model sensitive to partially implemented controls versus complete gaps.</li>
+    </ul>
+
+    <h2>Risk Calculation Example</h2>
+    <div class="info-box legend-info">
+        <p><strong>Control:</strong> {{ boilerplate.rating_legends.example.control }}</p>
+        <p><strong>Control Rating:</strong> {{ boilerplate.rating_legends.example.control_rating }}</p>
+        <p><strong>Impact Rating:</strong> {{ boilerplate.rating_legends.example.impact_rating }}</p>
+        <p><strong>Raw Risk Score:</strong> {{ boilerplate.rating_legends.example.calculation }}</p>
+        <p><strong>Result:</strong> {{ boilerplate.rating_legends.example.result }}</p>
+    </div>
+
+</div>

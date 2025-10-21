@@ -1,0 +1,430 @@
+/* CyberPools Risk Assessment Report - Enhanced Print/PDF Styles */
+/* PHASE 1: Fixed Page Breaks and Spacing for WeasyPrint */
+
+/* ========================================
+   PDF PAGE SETUP
+   ======================================== */
+@page {
+  size: letter portrait;
+  margin: 0;
+}
+
+@page :first {
+  margin: 0;
+}
+
+/* ========================================
+   PDF-SPECIFIC OVERRIDES
+   ======================================== */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--white) !important;
+}
+
+.page {
+  width: var(--page-width);
+  min-height: calc(var(--page-height) - 0.5in);
+  padding: var(--page-margin-vertical) var(--page-margin-horizontal) !important;
+  margin: 0 auto !important;
+  page-break-after: always;
+  page-break-inside: avoid;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: none !important;
+}
+
+.page:last-child {
+  page-break-after: auto;
+}
+
+body.example-report .page {
+  width: 8.5in;
+  min-height: calc(11in - 0.5in);
+  padding: 0.6in 0.7in !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: none !important;
+  page-break-after: always !important;
+  page-break-inside: avoid !important;
+}
+
+body.example-report .page:last-child {
+  page-break-after: auto !important;
+}
+
+
+body.example-report .print-button {
+  display: none !important;
+}
+
+/* ========================================
+   STRICT PAGE BREAK CONTROLS
+   ======================================== */
+
+/* Never break these elements */
+h1, h2, h3, h4, h5, h6 {
+  page-break-after: avoid !important;
+  page-break-inside: avoid !important;
+  break-after: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Question block spacing */
+.question-block {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+}
+
+.question-core {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Keep category sections on same page as first question */
+.category-header {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+  margin-bottom: 20px;
+}
+
+.category-overview {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+/* Keep high-risk items together */
+.high-risk-item {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  margin-bottom: 15px;
+}
+
+.high-risk-section {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Keep info boxes together */
+.info-box,
+.warning-box,
+.alert-box,
+.card {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Table handling */
+table {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tbody {
+  display: table-row-group;
+}
+
+tr {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Keep question components together */
+.question-status,
+.comments-section {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.question-text + .question-status {
+  page-break-before: avoid !important;
+  break-before: avoid !important;
+}
+
+.control-description + .question-text {
+  page-break-before: avoid !important;
+  break-before: avoid !important;
+}
+
+/* ========================================
+   COVER PAGE
+   ======================================== */
+.cover-page {
+  page-break-after: always !important;
+  height: 100vh;
+  padding: 60px 40px !important;
+}
+
+/* Fix cover metadata spacing */
+.cover-metadata {
+  margin-top: 60px;
+}
+
+.cover-metadata-item {
+  min-height: 40px !important;
+  padding: 12px 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+/* ========================================
+   FORCE COLOR PRINTING
+   ======================================== */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+/* Remove screen-only elements */
+@media print {
+  .screen-only {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   BACKGROUND COLORS (Force for PDF)
+   ======================================== */
+.dashboard,
+.category-overview,
+.info-box,
+.comments-text,
+.control-description {
+  background-color: #F5F7FA !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.high-risk-section {
+  background-color: #fdeaea !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.executive-summary-placeholder {
+  background-color: #F5F7FA !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ========================================
+   GRADIENT BACKGROUNDS FOR PDF
+   ======================================== */
+.cover-page {
+  background: linear-gradient(135deg, #2C5F7C 0%, #4A9FB8 100%) !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.category-header {
+  background: linear-gradient(135deg, #2C5F7C 0%, #4A9FB8 100%) !important;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ========================================
+   BADGE AND SCORE BAR COLORS
+   ======================================== */
+.badge,
+.grade-badge,
+.risk-bar-visual,
+.score-bar-fill {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.score-bar-fill.high,
+.risk-bar-visual.low {
+  background-color: #4CAF50 !important;
+}
+
+.score-bar-fill.medium,
+.risk-bar-visual.moderate {
+  background-color: #F39C12 !important;
+}
+
+.score-bar-fill.low,
+.risk-bar-visual.high {
+  background-color: #C10000 !important;
+}
+
+/* ========================================
+   BORDERS (Force colors)
+   ======================================== */
+.page-header,
+.page-footer {
+  border-color: #4A9FB8 !important;
+}
+
+/* ========================================
+   FOOTER POSITIONING FIX
+   ======================================== */
+
+/* ========================================
+   SPACING ADJUSTMENTS FOR PDF
+   ======================================== */
+
+/* Reduce spacing between questions to fit more per page */
+.question-block {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+}
+
+/* Tighter spacing for category headers */
+.category-header {
+  margin-bottom: 18px;
+  padding: 18px;
+}
+
+/* Optimize control description spacing */
+.control-description {
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+/* Optimize comments section */
+.comments-section {
+  margin-top: 12px;
+}
+
+.comments-text {
+  padding: 10px 12px;
+}
+
+/* Tighter status badges */
+.question-status {
+  margin: 10px 0;
+  gap: 10px;
+}
+
+/* ========================================
+   TYPOGRAPHY OPTIMIZATION
+   ======================================== */
+
+/* Slightly reduce font sizes for better page fitting */
+p {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 20px 0 12px 0;
+}
+
+h3 {
+  margin: 15px 0 8px 0;
+}
+
+/* ========================================
+   TABLE OPTIMIZATION
+   ======================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 15px 0;
+}
+
+th, td {
+  padding: 10px 12px;
+}
+
+/* ========================================
+   ORPHANS AND WIDOWS
+   ======================================== */
+p, li {
+  orphans: 3;
+  widows: 3;
+}
+
+/* ========================================
+   IMAGE OPTIMIZATION
+   ======================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  page-break-inside: avoid;
+}
+
+/* ========================================
+   LINK STYLING FOR PDF
+   ======================================== */
+a {
+  color: #2C5F7C;
+  text-decoration: none;
+}
+
+a[href]:after {
+  content: none;
+}
+
+/* ========================================
+   WEASYPRINT SPECIFIC FIXES
+   ======================================== */
+
+/* WeasyPrint doesn't handle flexbox well in some cases */
+.dashboard-header {
+  display: block !important;
+}
+
+.dashboard-header > div {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+}
+
+/* Fix grid layouts for WeasyPrint */
+.grid-3col {
+  display: block !important;
+}
+
+.grid-3col > div {
+  display: inline-block;
+  vertical-align: top;
+  width: 32%;
+  margin-right: 1%;
+}
+
+/* ========================================
+   RATING LEGENDS PAGE FIX
+   ======================================== */
+.grid-3col .info-box {
+  margin-bottom: 12px;
+}
+
+/* ========================================
+   HIGH RISK SECTION OPTIMIZATION
+   ======================================== */
+.high-risk-header {
+  margin-bottom: 15px;
+}
+
+.high-risk-item {
+  padding: 12px 15px;
+  margin-bottom: 12px;
+}
+
+/* ========================================
+   DASHBOARD OPTIMIZATION
+   ======================================== */
+.dashboard {
+  padding: 18px;
+  margin: 18px 0;
+}
+
+.risk-chart {
+  margin: 15px 0;
+}
+
+.risk-bar {
+  margin-bottom: 8px;
+}

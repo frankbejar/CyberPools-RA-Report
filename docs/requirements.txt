@@ -1,0 +1,29 @@
+# CyberPools Risk Assessment Report Generator
+# Python Package Requirements
+
+## Core Template Stack
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+
+## Default PDF Engine (recommended)
+playwright==1.48.0
+
+### One-time browser install (after pip install)
+# python3 -m playwright install chromium
+
+## Optional Alternative Engine (WeasyPrint)
+# Install these only if you plan to use --engine weasyprint
+WeasyPrint==59.0
+cffi==1.15.1
+pycparser==2.21
+Pillow==10.0.0
+cssselect2==0.7.0
+tinycss2==1.2.1
+fonttools==4.42.0
+pydyf==0.7.0
+pyphen==0.14.0
+
+## Developer Utilities (optional)
+# colorlog==6.7.0    # ANSI-enhanced logging
+# pytest==7.4.2      # Unit testing
+# pytest-cov==4.1.0  # Coverage reports

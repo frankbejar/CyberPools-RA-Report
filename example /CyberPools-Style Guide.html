@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpools Style Guide</title>
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            /* Primary Colors */
+            --primary-navy: #2C5F7C;
+            --primary-teal: #4A9FB8;
+            --accent-cyan: #6BC4D9;
+            
+            /* Severity Colors */
+            --critical: #7B0000;
+            --high: #C10000;
+            --moderate: #F39C12;
+            --low: #4CAF50;
+            --info: #3498DB;
+            
+            /* Status Colors */
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --danger: #F44336;
+            --neutral: #718096;
+            
+            /* Grayscale */
+            --gray-dark: #333333;
+            --gray-medium: #666666;
+            --gray-light: #CCCCCC;
+            --gray-bg: #F5F7FA;
+            --white: #FFFFFF;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --body-size: 14px;
+            --body-line-height: 1.6;
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 15px;
+            --space-lg: 20px;
+            --space-xl: 30px;
+            
+            /* Borders */
+            --border-radius: 8px;
+            --border-color: #CCCCCC;
+        }
+        
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--body-size);
+            line-height: var(--body-line-height);
+            color: var(--gray-dark);
+            background: white;
+        }
+        
+        /* ===== PAGE LAYOUT ===== */
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.6in 0.7in;
+            margin: 0 auto 20px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        /* ===== COVER PAGE ===== */
+        .cover-page {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .cover-logo {
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+        
+        .cover-title {
+            font-size: 56px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        
+        .cover-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 60px;
+        }
+        
+        .cover-version {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        /* ===== HEADER ===== */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary-teal);
+            margin-bottom: 30px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            letter-spacing: 1px;
+        }
+        
+        .page-number {
+            font-size: 14px;
+            color: var(--gray-medium);
+        }
+        
+        /* ===== FOOTER ===== */
+        .page-footer {
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--gray-medium);
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-teal);
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin: 25px 0 15px 0;
+        }
+        
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin: 20px 0 10px 0;
+        }
+        
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin: 15px 0 8px 0;
+        }
+        
+        p {
+            margin-bottom: 12px;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background: var(--gray-bg);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        
+        /* ===== COLOR SWATCHES ===== */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .color-swatch {
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            page-break-inside: avoid;
+        }
+        
+        .color-block {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .color-info {
+            padding: 10px;
+            background: white;
+        }
+        
+        .color-name {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--gray-dark);
+            margin-bottom: 4px;
+        }
+        
+        .color-value {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: var(--gray-medium);
+        }
+        
+        /* ===== COMPONENTS ===== */
+        .component-example {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--gray-bg);
+            border-radius: var(--border-radius);
+            page-break-inside: avoid;
+        }
+        
+        .example-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-navy);
+            margin-bottom: 15px;
+        }
+        
+        .card.critical { border-left-color: var(--critical); }
+        .card.high { border-left-color: var(--high); }
+        .card.medium { border-left-color: var(--moderate); }
+        .card.low { border-left-color: var(--low); }
+        .card.info { border-left-color: var(--info); }
+        
+        .card h4 {
+            margin-top: 0;
+        }
+        
+        /* Badges */
+        .badge-examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge.critical {
+            background: var(--critical);
+            color: white;
+        }
+        
+        .badge.high {
+            background: var(--high);
+            color: white;
+        }
+        
+        .badge.medium {
+            background: var(--moderate);
+            color: white;
+        }
+        
+        .badge.low {
+            background: var(--low);
+            color: white;
+        }
+        
+        .badge.info {
+            background: var(--info);
+            color: white;
+        }
+        
+        .badge.success {
+            background: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+        }
+        
+        .badge.warning {
+            background: rgba(255, 152, 0, 0.1);
+            color: var(--warning);
+        }
+        
+        .badge.danger {
+            background: rgba(244, 67, 54, 0.1);
+            color: var(--danger);
+        }
+        
+        .badge.neutral {
+            background: rgba(204, 204, 204, 0.2);
+            color: var(--gray-medium);
+        }
+        
+        /* Buttons */
+        .button-primary {
+            background: var(--primary-navy);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        .button-secondary {
+            background: var(--primary-teal);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        .button-outline {
+            background: white;
+            color: var(--primary-navy);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 2px solid var(--primary-navy);
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* Tables */
+        .table-wrapper {
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-light);
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        thead {
+            background: var(--primary-navy);
+            color: white;
+        }
+        
+        th {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tbody tr {
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        tbody tr:nth-child(even) {
+            background: var(--gray-bg);
+        }
+        
+        td {
+            padding: 12px 15px;
+            font-size: 13px;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: var(--gray-bg);
+            border-left: 4px solid var(--primary-teal);
+            padding: 18px;
+            margin: 15px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            page-break-inside: avoid;
+        }
+        
+        .info-box h4 {
+            margin-top: 0;
+        }
+        
+        /* Typography Scale */
+        .type-scale {
+            margin: 20px 0;
+        }
+        
+        .type-example {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            page-break-inside: avoid;
+        }
+        
+        .type-label {
+            font-size: 11px;
+            color: var(--gray-medium);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        /* Spacing Examples */
+        .spacing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .spacing-example {
+            background: white;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .spacing-box {
+            background: var(--primary-teal);
+            margin: 10px auto;
+        }
+        
+        .spacing-label {
+            font-size: 12px;
+            color: var(--gray-medium);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Grid Examples */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .grid-item {
+            background: var(--gray-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid var(--gray-light);
+        }
+        
+        /* Brand Values */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .value-card {
+            background: white;
+            border: 2px solid var(--primary-teal);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .value-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .value-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
+        }
+        
+        .value-desc {
+            font-size: 12px;
+            color: var(--gray-medium);
+            line-height: 1.4;
+        }
+        
+        /* Print Button */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .btn-print {
+            background: var(--primary-navy);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            box-shadow: 0 4px 12px rgba(44, 95, 124, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-print:hover {
+            background: var(--primary-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 95, 124, 0.4);
+        }
+        
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+            
+            .page {
+                width: 8.5in;
+                height: 11in;
+                margin: 0;
+                padding: 0.6in 0.7in;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            
+            .page:last-child {
+                page-break-after: auto;
+            }
+            
+            .print-button {
+                display: none;
+            }
+            
+            .component-example,
+            .color-swatch,
+            .card,
+            .table-wrapper,
+            .info-box,
+            .type-example {
+                page-break-inside: avoid;
+            }
+            
+            @page {
+                size: letter portrait;
+                margin: 0;
+            }
+        }
+        
+        /* ===== SCREEN ONLY ===== */
+        @media screen {
+            body {
+                background: var(--gray-bg);
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Print Button -->
+    <div class="print-button">
+        <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <!-- COVER PAGE -->
+    <div class="page cover-page">
+        <div class="cover-logo">CYBERPOOLS</div>
+        <h1 class="cover-title">Style Guide</h1>
+        <p class="cover-subtitle">Report Design Standards & Guidelines</p>
+        <p class="cover-version">Version 1.0 | October 2025</p>
+    </div>
+
+    <!-- PAGE 1: BRAND VALUES & COLORS -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 1</div>
+        </div>
+
+        <h1>Brand Foundation</h1>
+
+        <h2>Brand Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">✓</div>
+                <div class="value-name">Simple</div>
+                <div class="value-desc">Easily understood and implemented</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">◆</div>
+                <div class="value-name">Clear</div>
+                <div class="value-desc">No room for misunderstanding</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚙</div>
+                <div class="value-name">Manageable</div>
+                <div class="value-desc">Effective with existing resources</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">→</div>
+                <div class="value-name">Actionable</div>
+                <div class="value-desc">Direct path to improvements</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">★</div>
+                <div class="value-name">Impactful</div>
+                <div class="value-desc">Measurable security results</div>
+            </div>
+        </div>
+
+        <h2>Primary Color Palette</h2>
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="color-block" style="background: #2C5F7C;">Primary Navy</div>
+                <div class="color-info">
+                    <div class="color-name">Primary Navy</div>
+                    <div class="color-value">#2C5F7C</div>
+                    <div class="color-value">--primary-navy</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #4A9FB8;">Primary Teal</div>
+                <div class="color-info">
+                    <div class="color-name">Primary Teal</div>
+                    <div class="color-value">#4A9FB8</div>
+                    <div class="color-value">--primary-teal</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #6BC4D9;">Accent Cyan</div>
+                <div class="color-info">
+                    <div class="color-name">Accent Cyan</div>
+                    <div class="color-value">#6BC4D9</div>
+                    <div class="color-value">--accent-cyan</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Severity & Status Colors</h2>
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="color-block" style="background: #7B0000;">Critical</div>
+                <div class="color-info">
+                    <div class="color-name">Critical</div>
+                    <div class="color-value">#7B0000</div>
+                    <div class="color-value">--critical</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #C10000;">High</div>
+                <div class="color-info">
+                    <div class="color-name">High</div>
+                    <div class="color-value">#C10000</div>
+                    <div class="color-value">--high</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #F39C12;">Moderate</div>
+                <div class="color-info">
+                    <div class="color-name">Moderate</div>
+                    <div class="color-value">#F39C12</div>
+                    <div class="color-value">--moderate</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #4CAF50;">Low / Success</div>
+                <div class="color-info">
+                    <div class="color-name">Low / Success</div>
+                    <div class="color-value">#4CAF50</div>
+                    <div class="color-value">--low / --success</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #3498DB;">Info</div>
+                <div class="color-info">
+                    <div class="color-name">Info</div>
+                    <div class="color-value">#3498DB</div>
+                    <div class="color-value">--info</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #FF9800;">Warning</div>
+                <div class="color-info">
+                    <div class="color-name">Warning</div>
+                    <div class="color-value">#FF9800</div>
+                    <div class="color-value">--warning</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Neutral Colors</h2>
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="color-block" style="background: #333333;">Gray Dark</div>
+                <div class="color-info">
+                    <div class="color-name">Gray Dark</div>
+                    <div class="color-value">#333333</div>
+                    <div class="color-value">--gray-dark</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #666666;">Gray Medium</div>
+                <div class="color-info">
+                    <div class="color-name">Gray Medium</div>
+                    <div class="color-value">#666666</div>
+                    <div class="color-value">--gray-medium</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #CCCCCC; color: #333;">Gray Light</div>
+                <div class="color-info">
+                    <div class="color-name">Gray Light</div>
+                    <div class="color-value">#CCCCCC</div>
+                    <div class="color-value">--gray-light</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #F5F7FA; color: #333;">Gray BG</div>
+                <div class="color-info">
+                    <div class="color-name">Gray Background</div>
+                    <div class="color-value">#F5F7FA</div>
+                    <div class="color-value">--gray-bg</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: TYPOGRAPHY -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 2</div>
+        </div>
+
+        <h1>Typography</h1>
+
+        <h2>Font Family</h2>
+        <div class="info-box">
+            <p><strong>Primary Font:</strong> Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif</p>
+            <p><strong>Monospace (code):</strong> 'Courier New', monospace</p>
+        </div>
+
+        <h2>Type Scale</h2>
+        <div class="type-scale">
+            <div class="type-example">
+                <div class="type-label">H1 - Page Title (32px / 700)</div>
+                <h1 style="margin: 0; border: none; padding: 0;">This is a page title heading</h1>
+            </div>
+            
+            <div class="type-example">
+                <div class="type-label">H2 - Section Header (24px / 600)</div>
+                <h2 style="margin: 0;">This is a section header</h2>
+            </div>
+            
+            <div class="type-example">
+                <div class="type-label">H3 - Subsection Header (18px / 600)</div>
+                <h3 style="margin: 0;">This is a subsection header</h3>
+            </div>
+            
+            <div class="type-example">
+                <div class="type-label">H4 - Card Title (16px / 600)</div>
+                <h4 style="margin: 0;">This is a card title</h4>
+            </div>
+            
+            <div class="type-example">
+                <div class="type-label">Body Text (14px / 400 / 1.6 line-height)</div>
+                <p style="margin: 0;">This is body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Body text should be easy to read with proper line height and spacing.</p>
+            </div>
+            
+            <div class="type-example">
+                <div class="type-label">Small Text (12px / 400)</div>
+                <p style="margin: 0; font-size: 12px;">This is small text used for labels, footnotes, and supplementary information.</p>
+            </div>
+            
+            <div class="type-example">
+                <div class="type-label">Code / Monospace (13px)</div>
+                <code>--primary-navy: #2C5F7C;</code>
+            </div>
+        </div>
+
+        <h2>Typography Rules</h2>
+        <div class="info-box">
+            <ul style="margin-left: 20px;">
+                <li><strong>Minimum font size:</strong> 11px (12px preferred)</li>
+                <li><strong>Body line height:</strong> 1.5-1.6</li>
+                <li><strong>Heading line height:</strong> 1.2-1.3</li>
+                <li><strong>Letter spacing:</strong> 0.5px for uppercase labels</li>
+                <li><strong>Paragraph spacing:</strong> 12-15px</li>
+                <li><strong>Max line length:</strong> 80 characters for readability</li>
+            </ul>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: COMPONENTS - CARDS & BADGES -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 3</div>
+        </div>
+
+        <h1>Components</h1>
+
+        <h2>Cards</h2>
+        <div class="component-example">
+            <div class="example-label">Default Card</div>
+            <div class="card">
+                <h4>Card Title</h4>
+                <p>Cards are used to contain related information. They have a 4px left border, 8px border radius, white background, and subtle shadow.</p>
+            </div>
+        </div>
+
+        <div class="component-example">
+            <div class="example-label">Severity Cards</div>
+            <div class="card critical">
+                <h4>Critical Card</h4>
+                <p>Used for critical findings or issues requiring immediate attention.</p>
+            </div>
+            <div class="card high">
+                <h4>High Severity Card</h4>
+                <p>Used for high severity findings or significant security concerns.</p>
+            </div>
+            <div class="card medium">
+                <h4>Medium Severity Card</h4>
+                <p>Used for moderate risk concerns that should be addressed.</p>
+            </div>
+            <div class="card low">
+                <h4>Low Severity Card</h4>
+                <p>Used for minor security improvements or successful validations.</p>
+            </div>
+            <div class="card info">
+                <h4>Info Card</h4>
+                <p>Used for informational findings or general guidance.</p>
+            </div>
+        </div>
+
+        <h2>Badges</h2>
+        <div class="component-example">
+            <div class="example-label">Severity Badges (White Text)</div>
+            <div class="badge-examples">
+                <span class="badge critical">Critical</span>
+                <span class="badge high">High</span>
+                <span class="badge medium">Medium</span>
+                <span class="badge low">Low</span>
+                <span class="badge info">Info</span>
+            </div>
+        </div>
+
+        <div class="component-example">
+            <div class="example-label">Status Badges (Colored Text)</div>
+            <div class="badge-examples">
+                <span class="badge success">Completed</span>
+                <span class="badge warning">In Progress</span>
+                <span class="badge danger">Failed</span>
+                <span class="badge neutral">Not Started</span>
+            </div>
+        </div>
+
+        <h2>Buttons</h2>
+        <div class="component-example">
+            <div class="example-label">Button Styles</div>
+            <button class="button-primary">Primary Button</button>
+            <button class="button-secondary">Secondary Button</button>
+            <button class="button-outline">Outline Button</button>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: COMPONENTS - TABLES & INFO BOXES -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 4</div>
+        </div>
+
+        <h1>Tables & Info Boxes</h1>
+
+        <h2>Table Styling</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Finding</th>
+                        <th>Severity</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Missing MFA on critical systems</td>
+                        <td><span class="badge high">High</span></td>
+                        <td><span class="badge warning">In Progress</span></td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Outdated security policies</td>
+                        <td><span class="badge medium">Medium</span></td>
+                        <td><span class="badge neutral">Not Started</span></td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Security awareness training</td>
+                        <td><span class="badge low">Low</span></td>
+                        <td><span class="badge success">Completed</span></td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Backup testing verification</td>
+                        <td><span class="badge critical">Critical</span></td>
+                        <td><span class="badge danger">Failed</span></td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <h4>Table Guidelines</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Header background:</strong> Primary Navy with white text</li>
+                <li><strong>Row striping:</strong> Alternate rows with gray-bg</li>
+                <li><strong>Hover state:</strong> Gray-light background on hover</li>
+                <li><strong>Borders:</strong> 1px solid gray-light</li>
+                <li><strong>Cell padding:</strong> 12px 15px</li>
+                <li><strong>Font size:</strong> 13px for table content</li>
+            </ul>
+        </div>
+
+        <h2>Info Boxes</h2>
+        <div class="component-example">
+            <div class="example-label">Standard Info Box</div>
+            <div class="info-box">
+                <h4>Info Box Title</h4>
+                <p>Info boxes are used for additional context, recommendations, or important notes. They have a 4px left border in primary-teal and a gray background.</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Use for recommendations</li>
+                    <li>Use for methodology explanations</li>
+                    <li>Use for important callouts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: LAYOUT & SPACING -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 5</div>
+        </div>
+
+        <h1>Layout & Spacing</h1>
+
+        <h2>Page Structure</h2>
+        <div class="info-box">
+            <h4>Standard Page Dimensions</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Page size:</strong> 8.5in × 11in (US Letter)</li>
+                <li><strong>Padding:</strong> 0.6in top/bottom, 0.7in left/right</li>
+                <li><strong>Header margin:</strong> 30px bottom</li>
+                <li><strong>Footer margin:</strong> 15px top</li>
+                <li><strong>Section spacing:</strong> 20-30px between sections</li>
+            </ul>
+        </div>
+
+        <h2>Spacing Scale</h2>
+        <div class="spacing-grid">
+            <div class="spacing-example">
+                <div class="spacing-box" style="height: 4px; width: 40px;"></div>
+                <div class="spacing-label">XS: 4px<br>--space-xs</div>
+            </div>
+            <div class="spacing-example">
+                <div class="spacing-box" style="height: 8px; width: 40px;"></div>
+                <div class="spacing-label">SM: 8px<br>--space-sm</div>
+            </div>
+            <div class="spacing-example">
+                <div class="spacing-box" style="height: 15px; width: 40px;"></div>
+                <div class="spacing-label">MD: 15px<br>--space-md</div>
+            </div>
+            <div class="spacing-example">
+                <div class="spacing-box" style="height: 20px; width: 40px;"></div>
+                <div class="spacing-label">LG: 20px<br>--space-lg</div>
+            </div>
+            <div class="spacing-example">
+                <div class="spacing-box" style="height: 30px; width: 40px;"></div>
+                <div class="spacing-label">XL: 30px<br>--space-xl</div>
+            </div>
+        </div>
+
+        <h2>Grid Layouts</h2>
+        <div class="component-example">
+            <div class="example-label">2-Column Grid</div>
+            <div class="grid-2">
+                <div class="grid-item">Column 1</div>
+                <div class="grid-item">Column 2</div>
+            </div>
+        </div>
+
+        <div class="component-example">
+            <div class="example-label">3-Column Grid</div>
+            <div class="grid-3">
+                <div class="grid-item">Column 1</div>
+                <div class="grid-item">Column 2</div>
+                <div class="grid-item">Column 3</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>Grid Guidelines</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Gap spacing:</strong> 15-20px between grid items</li>
+                <li><strong>2-column:</strong> Use for balanced content (charts, stats)</li>
+                <li><strong>3-column:</strong> Use for dashboard cards, metrics</li>
+                <li><strong>Responsive:</strong> Grids should collapse on smaller screens</li>
+            </ul>
+        </div>
+
+        <h2>Border Radius</h2>
+        <div class="info-box">
+            <p><strong>Standard radius:</strong> 8px for cards, boxes, and containers</p>
+            <p><strong>Small radius:</strong> 4-6px for buttons and small elements</p>
+            <p><strong>Pill radius:</strong> 12px+ for badges and pills</p>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+    <!-- PAGE 6: HEADER & FOOTER EXAMPLES -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 6</div>
+        </div>
+
+        <h1>Headers & Footers</h1>
+
+        <h2>Standard Report Header</h2>
+        <div class="component-example">
+            <div class="example-label">Header Example</div>
+            <div class="page-header" style="margin-bottom: 0;">
+                <div class="logo-text">CYBERPOOLS</div>
+                <div class="page-number">Page X</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>Header Specifications</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Logo placement:</strong> Left side</li>
+                <li><strong>Logo text:</strong> 24px, bold, primary-navy, 1px letter-spacing</li>
+                <li><strong>Page number:</strong> Right side, 14px, gray-medium</li>
+                <li><strong>Bottom border:</strong> 2px solid primary-teal</li>
+                <li><strong>Padding bottom:</strong> 15px</li>
+                <li><strong>Margin bottom:</strong> 30px</li>
+            </ul>
+        </div>
+
+        <h2>Standard Report Footer</h2>
+        <div class="component-example">
+            <div class="example-label">Footer Example</div>
+            <div class="page-footer" style="margin-top: 0;">
+                <div>Confidential - Client Name</div>
+                <div>Generated: October 15, 2025</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>Footer Specifications</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Position:</strong> Bottom of page</li>
+                <li><strong>Top border:</strong> 1px solid gray-light</li>
+                <li><strong>Padding top:</strong> 15px</li>
+                <li><strong>Font size:</strong> 12px</li>
+                <li><strong>Color:</strong> gray-medium</li>
+                <li><strong>Left content:</strong> "Confidential - [Client Name]"</li>
+                <li><strong>Right content:</strong> "Generated: [Date]"</li>
+            </ul>
+        </div>
+
+        <h2>Cover Page Header</h2>
+        <div class="component-example">
+            <div class="example-label">Cover Page Header (on gradient background)</div>
+            <div style="background: linear-gradient(135deg, #2C5F7C 0%, #4A9FB8 100%); padding: 20px; border-radius: 8px;">
+                <div class="page-header" style="border-bottom-color: rgba(255, 255, 255, 0.3);">
+                    <div class="logo-text" style="color: white;">CYBERPOOLS</div>
+                    <div class="page-number" style="color: rgba(255, 255, 255, 0.8);">Page 1</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h4>Cover Page Variations</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Background:</strong> Gradient from primary-navy to primary-teal</li>
+                <li><strong>Logo color:</strong> White</li>
+                <li><strong>Page number color:</strong> rgba(255, 255, 255, 0.8)</li>
+                <li><strong>Border color:</strong> rgba(255, 255, 255, 0.3)</li>
+            </ul>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+    <!-- PAGE 7: ACCESSIBILITY & PRINT -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 7</div>
+        </div>
+
+        <h1>Accessibility & Print</h1>
+
+        <h2>WCAG 2.1 AA Compliance</h2>
+        <div class="info-box">
+            <h4>Color Contrast Requirements</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Body text:</strong> Minimum 4.5:1 contrast ratio</li>
+                <li><strong>Large text (18px+):</strong> Minimum 3:1 contrast ratio</li>
+                <li><strong>Headings (bold):</strong> Minimum 3:1 contrast ratio</li>
+                <li><strong>Never use color alone</strong> to convey information</li>
+                <li><strong>Test with:</strong> WebAIM Contrast Checker</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4>Typography Accessibility</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Minimum font size:</strong> 12px (11px absolute minimum)</li>
+                <li><strong>Line height:</strong> 1.5-1.6 for body text</li>
+                <li><strong>Line length:</strong> Maximum 80 characters</li>
+                <li><strong>Heading hierarchy:</strong> Proper H1 → H2 → H3 structure</li>
+                <li><strong>Link text:</strong> Descriptive (not "click here")</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4>Color Blindness Considerations</h4>
+            <ul style="margin-left: 20px;">
+                <li>Use icons and text labels with colors</li>
+                <li>Avoid red/green combinations alone</li>
+                <li>Test with color blindness simulators</li>
+                <li>Use patterns in addition to colors where possible</li>
+            </ul>
+        </div>
+
+        <h2>Print Specifications</h2>
+        <div class="info-box">
+            <h4>Print Setup</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Paper size:</strong> US Letter (8.5" × 11")</li>
+                <li><strong>Orientation:</strong> Portrait</li>
+                <li><strong>Margins:</strong> 0.6in top/bottom, 0.7in left/right</li>
+                <li><strong>Color mode:</strong> RGB for digital, CMYK for commercial</li>
+                <li><strong>Resolution:</strong> 300 DPI minimum for images</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4>Print Optimization</h4>
+            <ul style="margin-left: 20px;">
+                <li><strong>Page breaks:</strong> Avoid breaking cards, tables, findings</li>
+                <li><strong>Headers/footers:</strong> Print on every page</li>
+                <li><strong>Hide in print:</strong> Interactive controls, buttons, navigation</li>
+                <li><strong>Test:</strong> Always preview before printing</li>
+                <li><strong>PDF export:</strong> Use browser print-to-PDF function</li>
+            </ul>
+        </div>
+
+        <h2>Quality Checklist</h2>
+        <div class="info-box">
+            <h4>Before Finalizing Reports</h4>
+            <ul style="margin-left: 20px;">
+                <li>☐ Client name correct throughout</li>
+                <li>☐ Dates accurate and consistent</li>
+                <li>☐ Color palette matches style guide</li>
+                <li>☐ Typography consistent</li>
+                <li>☐ Color contrast meets WCAG AA</li>
+                <li>☐ Proper heading hierarchy</li>
+                <li>☐ Tables properly formatted</li>
+                <li>☐ All charts render correctly</li>
+                <li>☐ Page breaks appropriate</li>
+                <li>☐ Print preview looks correct</li>
+            </ul>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+    <!-- PAGE 8: QUICK REFERENCE -->
+    <div class="page">
+        <div class="page-header">
+            <div class="logo-text">CYBERPOOLS</div>
+            <div class="page-number">Page 8</div>
+        </div>
+
+        <h1>Quick Reference</h1>
+
+        <h2>CSS Variables</h2>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.8; margin: 20px 0;">
+:root {<br>
+&nbsp;&nbsp;/* Primary Colors */<br>
+&nbsp;&nbsp;--primary-navy: #2C5F7C;<br>
+&nbsp;&nbsp;--primary-teal: #4A9FB8;<br>
+&nbsp;&nbsp;--accent-cyan: #6BC4D9;<br>
+<br>
+&nbsp;&nbsp;/* Severity Colors */<br>
+&nbsp;&nbsp;--critical: #7B0000;<br>
+&nbsp;&nbsp;--high: #C10000;<br>
+&nbsp;&nbsp;--moderate: #F39C12;<br>
+&nbsp;&nbsp;--low: #4CAF50;<br>
+&nbsp;&nbsp;--info: #3498DB;<br>
+<br>
+&nbsp;&nbsp;/* Grayscale */<br>
+&nbsp;&nbsp;--gray-dark: #333333;<br>
+&nbsp;&nbsp;--gray-medium: #666666;<br>
+&nbsp;&nbsp;--gray-light: #CCCCCC;<br>
+&nbsp;&nbsp;--gray-bg: #F5F7FA;<br>
+&nbsp;&nbsp;--white: #FFFFFF;<br>
+<br>
+&nbsp;&nbsp;/* Typography */<br>
+&nbsp;&nbsp;--font-family: 'Inter', sans-serif;<br>
+&nbsp;&nbsp;--body-size: 14px;<br>
+&nbsp;&nbsp;--body-line-height: 1.6;<br>
+<br>
+&nbsp;&nbsp;/* Spacing */<br>
+&nbsp;&nbsp;--space-xs: 4px;<br>
+&nbsp;&nbsp;--space-sm: 8px;<br>
+&nbsp;&nbsp;--space-md: 15px;<br>
+&nbsp;&nbsp;--space-lg: 20px;<br>
+&nbsp;&nbsp;--space-xl: 30px;<br>
+<br>
+&nbsp;&nbsp;/* Borders */<br>
+&nbsp;&nbsp;--border-radius: 8px;<br>
+&nbsp;&nbsp;--border-color: #CCCCCC;<br>
+}
+        </div>
+
+        <h2>Common Use Cases</h2>
+        
+        <h3>Card with Severity</h3>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 11px; line-height: 1.6; margin: 15px 0;">
+&lt;div class="card critical"&gt;<br>
+&nbsp;&nbsp;&lt;h4&gt;Finding Title&lt;/h4&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Finding description...&lt;/p&gt;<br>
+&lt;/div&gt;
+        </div>
+
+        <h3>Severity Badge</h3>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 11px; line-height: 1.6; margin: 15px 0;">
+&lt;span class="badge high"&gt;High&lt;/span&gt;
+        </div>
+
+        <h3>Info Box</h3>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 11px; line-height: 1.6; margin: 15px 0;">
+&lt;div class="info-box"&gt;<br>
+&nbsp;&nbsp;&lt;h4&gt;Recommendation&lt;/h4&gt;<br>
+&nbsp;&nbsp;&lt;p&gt;Detailed recommendation...&lt;/p&gt;<br>
+&lt;/div&gt;
+        </div>
+
+        <h2>Resources</h2>
+        <div class="info-box">
+            <ul style="margin-left: 20px;">
+                <li><strong>Font:</strong> Google Fonts - Inter family</li>
+                <li><strong>Color contrast:</strong> WebAIM Contrast Checker</li>
+                <li><strong>Charts:</strong> Chart.js library</li>
+                <li><strong>Icons:</strong> Lucide Icons or Font Awesome</li>
+                <li><strong>Testing:</strong> Browser print preview</li>
+            </ul>
+        </div>
+
+        <h2>Contact</h2>
+        <div class="info-box">
+            <p><strong>Website:</strong> https://cyberpools.org/</p>
+            <p><strong>Tagline:</strong> "Protection for pools against today's cyber threats...and tomorrow's"</p>
+            <p style="margin-top: 15px; margin-bottom: 0;"><em>This style guide should be reviewed quarterly and updated when new report types are added.</em></p>
+        </div>
+
+        <div class="page-footer">
+            <div>Cyberpools Style Guide v1.0</div>
+            <div>October 2025</div>
+        </div>
+    </div>
+
+</body>
+</html>

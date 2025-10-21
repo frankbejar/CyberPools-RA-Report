@@ -1,0 +1,64 @@
+<div class="question-block">
+    <div class="question-core">
+        {% if question.control_description %}
+        <div class="control-description">
+            <strong>Control Standard:</strong> {{ question.control_description }}
+        </div>
+        {% endif %}
+        
+        <h3 class="question-text">
+            <span class="question-number">{{ question.number }}</span>
+            {{ question.text }}
+        </h3>
+        
+        <div class="question-status">
+            <div class="status-item">
+                <span class="status-label">Control Status:</span>
+                {% if question.control_status == 1 %}
+                    <span class="badge-success badge">{{ question.control_status_text }} ({{ question.control_status }})</span>
+                {% elif question.control_status == 3 %}
+                    <span class="badge-warning badge">{{ question.control_status_text }} ({{ question.control_status }})</span>
+                {% elif question.control_status == 5 %}
+                    <span class="badge-danger badge">{{ question.control_status_text }} ({{ question.control_status }})</span>
+                {% else %}
+                    <span class="badge-secondary badge">{{ question.control_status_text }} ({{ question.control_status }})</span>
+                {% endif %}
+            </div>
+            
+            <div class="status-item">
+                <span class="status-label">Impact:</span>
+                {% if question.impact_score == 5 %}
+                    <span class="badge-danger badge">High ({{ question.impact_score }})</span>
+                {% elif question.impact_score == 3 %}
+                    <span class="badge-warning badge">Moderate ({{ question.impact_score }})</span>
+                {% elif question.impact_score == 1 %}
+                    <span class="badge-success badge">Low ({{ question.impact_score }})</span>
+                {% else %}
+                    <span class="badge-secondary badge">N/A ({{ question.impact_score }})</span>
+                {% endif %}
+            </div>
+            
+            <div class="status-item">
+                <span class="status-label">Risk Score:</span>
+                {% if question.risk_score >= 16 %}
+                    <span class="badge-danger badge">{{ question.risk_score }} - High</span>
+                {% elif question.risk_score >= 10 %}
+                    <span class="badge-warning badge">{{ question.risk_score }} - Moderate</span>
+                {% elif question.risk_score > 0 %}
+                    <span class="badge-success badge">{{ question.risk_score }} - Low</span>
+                {% else %}
+                    <span class="badge-secondary badge">{{ question.risk_score }} - N/A</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    {% if question.comments %}
+    <div class="comments-section">
+        <span class="comments-label">Comments:</span>
+        <div class="comments-text">
+            {{ question.comments }}
+        </div>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,30 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+    
+    <div class="category-header">
+        <div>
+            <div class="category-number">{{ category.number }}</div>
+            <div class="category-name">{{ category.name }}</div>
+        </div>
+        <div class="category-score">
+            {{ category.score }}%
+        </div>
+    </div>
+    
+    <h2>Overview</h2>
+    <div class="category-overview">
+        <p>{{ category.overview }}</p>
+    </div>
+    
+    <h2>Importance</h2>
+    <p>{{ category.importance }}</p>
+    
+    <h2 class="mt-4">Controls Assessment</h2>
+    
+    {% for question in category.questions %}
+        {% include 'partials/question.html' %}
+    {% endfor %}
+    
+</div>

@@ -1,0 +1,38 @@
+{
+  "772120000": {
+    "number": "1.0",
+    "name": "Inventory and Control of Assets"
+  },
+  "772120001": {
+    "number": "2.0",
+    "name": "Account Management"
+  },
+  "772120002": {
+    "number": "3.0",
+    "name": "Data Protection"
+  },
+  "772120003": {
+    "number": "4.0",
+    "name": "Secure Configuration of Enterprise Assets"
+  },
+  "772120004": {
+    "number": "5.0",
+    "name": "Malware Defense"
+  },
+  "772120005": {
+    "number": "6.0",
+    "name": "Data Recovery"
+  },
+  "772120006": {
+    "number": "7.0",
+    "name": "Security Awareness"
+  },
+  "772120007": {
+    "number": "8.0",
+    "name": "Vendor Management"
+  },
+  "772120008": {
+    "number": "9.0",
+    "name": "Incident Response Management"
+  }
+}

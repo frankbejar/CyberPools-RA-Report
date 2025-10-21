@@ -1,0 +1,42 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+    
+    <h1>Cyber Requirements Compliance</h1>
+    
+    <p>The following table summarizes compliance with critical cybersecurity requirements identified by CyberPools. These requirements represent essential controls that significantly reduce organizational risk.</p>
+    
+    <table class="compliance-table">
+        <thead>
+            <tr>
+                <th style="width: 75%;">Requirement</th>
+                <th style="width: 25%;" class="text-center">Compliance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in cyber_requirements %}
+            <tr>
+                <td>{{ req.question }}</td>
+                <td class="text-center">
+                    {% if req.compliance %}
+                        <span class="compliance-yes">
+                            <span class="compliance-icon">✓</span> Yes
+                        </span>
+                    {% else %}
+                        <span class="compliance-no">
+                            <span class="compliance-icon">✗</span> No
+                        </span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div class="info-box mt-4">
+        <h4>Note on Compliance</h4>
+        <p>Items marked "No" represent areas where the organization has not yet fully implemented required controls. These should be prioritized in remediation planning to ensure compliance with CyberPools standards and insurance requirements.</p>
+    </div>
+    
+</div>
