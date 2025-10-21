@@ -85,6 +85,16 @@ h1, h2, h3, h4, h5, h6 {
   break-inside: avoid !important;
 }
 
+.report-overview-section,
+.finding-card {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.question-legend-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
 /* Keep category sections on same page as first question */
 .category-header {
   page-break-after: avoid !important;

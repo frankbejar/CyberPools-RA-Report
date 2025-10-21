@@ -108,7 +108,6 @@ li {
   page-break-after: always;
   display: flex;
   flex-direction: column;
-  gap: 0;
   margin: 0 auto var(--space-lg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
@@ -240,7 +239,6 @@ strong {
   padding: 12px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   min-height: 40px;
-  gap: 20px;               /* ADDED: Space between label and value */
 }
 
 .cover-metadata-item:last-child {
@@ -329,27 +327,29 @@ strong {
 /* ========================================
    DASHBOARD & VISUALIZATIONS
    ======================================== */
-/* Summary Grid - Horizontal Layout */
+/* Summary Grid - Horizontal Layout (deprecated - now using stacked layout) */
 .summary-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 15px 0;
+  align-items: stretch;
 }
 
-/* Overall Score Box - Horizontal Design */
+/* Overall Score Box - Full Width Stacked Design */
 .overall-score-box {
-  background: var(--white);
+  background: var(--gray-bg);
   border: 2px solid var(--gray-light);
   border-left: 4px solid var(--primary-teal);
   border-radius: var(--border-radius);
-  padding: 18px 15px;
+  padding: 28px 24px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 90px;
+  min-height: 120px;
+  flex: 1 1 100%;
+  margin-bottom: 24px;
 }
 
 .overall-score {
@@ -393,40 +393,45 @@ strong {
   box-shadow: inset 0 0 4px rgba(0,0,0,0.12);
 }
 
-/* Risk Distribution Grid - Legacy (kept for backward compatibility) */
+/* Risk Distribution Grid - 3 Square Boxes Below Overall Score (Using Flexbox for DocRaptor) */
 .risk-distribution-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin: 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
 .risk-box {
-  background: var(--white);
-  border: 2px solid;
+  position: relative;
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-light);
   border-radius: var(--border-radius);
-  padding: 20px 15px;
+  padding: 28px 24px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 90px;
+  min-height: 110px;
+  flex: 1 1 calc(33.333% - 12px);
+  margin-right: 12px;
+  margin-bottom: 12px;
 }
 
+.risk-box:last-child {
+  margin-right: 0;
+}
+
+/* Thin vertical accent strip on left - matches overall score card */
 .risk-box.high-risk {
-  border-color: var(--risk-high);
-  border-left-width: 4px;
+  border-left: 4px solid var(--risk-high);
 }
 
 .risk-box.moderate-risk {
-  border-color: var(--risk-moderate);
-  border-left-width: 4px;
+  border-left: 4px solid var(--risk-moderate);
 }
 
 .risk-box.low-risk {
-  border-color: var(--success);
-  border-left-width: 4px;
+  border-left: 4px solid var(--success);
 }
 
 .risk-number {
@@ -434,18 +439,7 @@ strong {
   font-weight: 700;
   line-height: 1;
   margin-bottom: 5px;
-}
-
-.risk-box.high-risk .risk-number {
-  color: var(--risk-high);
-}
-
-.risk-box.moderate-risk .risk-number {
-  color: var(--risk-moderate);
-}
-
-.risk-box.low-risk .risk-number {
-  color: var(--success);
+  color: var(--primary-navy);
 }
 
 .risk-label {
@@ -454,6 +448,337 @@ strong {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+/* Report Overview */
+.report-overview {
+  display: flex;
+  flex-direction: column;
+}
+
+.report-overview > * {
+  margin-bottom: 24px;
+}
+
+.report-overview > *:last-child {
+  margin-bottom: 0;
+}
+
+.report-overview-section {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 20px 22px;
+  box-shadow: 0 6px 24px rgba(17, 24, 39, 0.04);
+}
+
+.report-overview-section h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--primary-navy);
+}
+
+.report-overview-section p {
+  margin-bottom: 12px;
+  color: var(--gray-dark);
+}
+
+.report-overview-section ul {
+  margin: 0 0 12px 18px;
+}
+
+.question-legend-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.question-legend-card {
+  background: var(--gray-bg);
+  border-radius: var(--border-radius);
+  padding: 14px 16px;
+  border-left: 4px solid var(--primary-teal);
+  margin-right: 16px;
+  margin-bottom: 16px;
+  flex: 1 1 220px;
+}
+
+.question-legend-card {
+  background: var(--gray-bg);
+  border-radius: var(--border-radius);
+  padding: 14px 16px;
+  border-left: 4px solid var(--primary-teal);
+}
+
+.question-legend-card h3 {
+  font-size: 14px;
+  margin: 0 0 6px 0;
+  color: var(--primary-navy);
+}
+
+.question-legend-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--gray-medium);
+}
+
+/* Findings */
+.findings-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.findings-section > * {
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.findings-section > *:last-child {
+  margin-bottom: 0;
+}
+
+.findings-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.findings-header-icon {
+  margin-right: 12px;
+  font-size: 20px;
+  color: var(--risk-moderate);
+}
+
+
+
+.findings-header-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: var(--primary-navy);
+}
+
+.findings-intro {
+  color: var(--gray-medium);
+  font-size: 13px;
+  margin: 0 0 16px 0;
+}
+
+.findings-risk-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.findings-risk-heading {
+  display: flex;
+  align-items: baseline;
+  color: var(--primary-navy);
+  font-weight: 700;
+  font-size: 16px;
+  width: 100%;
+}
+
+.findings-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+
+.finding-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-light);
+  padding: 20px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 24px rgba(17, 24, 39, 0.04);
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.finding-card > * + * {
+  margin-top: 12px;
+}
+
+/* Thin vertical accent strip on left - matches overall score card and risk boxes */
+.finding-card--high {
+  border-left: 4px solid var(--risk-high);
+}
+
+.finding-card--moderate {
+  border-left: 4px solid var(--risk-moderate);
+}
+
+.finding-card--low {
+  border-left: 4px solid var(--success);
+}
+
+.finding-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.finding-card-title {
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.finding-card-meta {
+  font-size: 12px;
+  color: var(--gray-medium);
+  margin-bottom: 8px;
+}
+
+.finding-card-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 12px 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.finding-card-status .status-item {
+  margin-right: 24px;
+  margin-bottom: 8px;
+}
+
+.finding-card-notes {
+  background: var(--gray-bg);
+  border-radius: var(--border-radius);
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--gray-dark);
+  border-left: 3px solid var(--primary-teal);
+}
+
+/* How to Read This Report - Guide Styles */
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.guide-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+}
+
+.guide-number {
+  width: 36px;
+  height: 36px;
+  background: var(--primary-teal);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.guide-content h4 {
+  margin: 0 0 6px 0;
+  color: var(--primary-navy);
+  font-size: 14px;
+}
+
+.guide-content p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--gray-medium);
+}
+
+.question-guide-box {
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.question-guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.question-guide-header strong {
+  color: var(--primary-navy);
+  font-size: 14px;
+}
+
+.guide-badge {
+  background: var(--white);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--gray-dark);
+  border: 1px solid var(--gray-light);
+}
+
+.question-guide-row {
+  display: flex;
+  margin-bottom: 12px;
+  padding: 10px;
+  background: var(--white);
+  border-radius: 4px;
+}
+
+.question-guide-row:last-child {
+  margin-bottom: 0;
+}
+
+.question-guide-label {
+  font-weight: 600;
+  color: var(--primary-navy);
+  min-width: 140px;
+  font-size: 12px;
+}
+
+.question-guide-value {
+  color: var(--gray-dark);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.scoring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.scoring-box {
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.scoring-box h4 {
+  margin: 0 0 10px 0;
+  color: var(--primary-navy);
+  font-size: 14px;
 }
 
 /* Legacy Dashboard Styles - keeping for backward compatibility */
@@ -469,7 +794,7 @@ strong {
   justify-content: center;
   align-items: center;
   margin-bottom: 18px;
-  gap: 24px;
+
 }
 
 .overall-score-summary {
@@ -555,7 +880,7 @@ th {
 }
 
 td {
-  padding: 10px 12px;
+  padding: 14px 16px;  /* Increased padding for better spacing */
   border: 1px solid var(--gray-light);
 }
 
@@ -566,13 +891,14 @@ tbody tr:nth-child(even) {
 /* Score Bar in Table */
 .score-bar {
   display: flex;
+  flex-direction: row;  /* Explicit for DocRaptor */
   align-items: center;
-  gap: 8px;
+  /* Increased gap */
 }
 
 .score-bar-visual {
   flex: 1;
-  height: 18px;
+  height: 20px;  /* Slightly taller for better visibility */
   background: var(--gray-light);
   border-radius: 3px;
   overflow: hidden;
@@ -625,15 +951,15 @@ tbody tr:nth-child(even) {
   background: var(--risk-high-bg);
   border: 2px solid var(--risk-high);
   border-radius: var(--border-radius);
-  padding: 18px;
-  margin: 18px 0;
+  padding: 24px;  /* Increased padding */
+  margin: 24px 0;  /* Increased margin */
 }
 
 .high-risk-header {
   display: flex;
+  flex-direction: row;  /* Explicit for DocRaptor */
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;  /* Increased margin */
   color: var(--risk-high);
   font-size: 16pt;
   font-weight: 700;
@@ -642,8 +968,8 @@ tbody tr:nth-child(even) {
 .high-risk-item {
   background: var(--white);
   border-radius: 5px;
-  padding: 12px 15px;
-  margin-bottom: 12px;
+  padding: 16px 20px;  /* Increased padding */
+  margin-bottom: 16px;  /* Increased margin */
   border-left: 4px solid var(--risk-high);
 }
 
@@ -655,8 +981,8 @@ tbody tr:nth-child(even) {
    QUESTION COMPONENTS - OPTIMIZED SPACING
    ======================================== */
 .question-block {
-  margin-bottom: 18px;
-  padding-bottom: 18px;
+  margin-bottom: 24px;  /* Increased spacing between questions */
+  padding-bottom: 20px;  /* Increased padding */
   border-bottom: 1px solid var(--gray-light);
 }
 
@@ -695,16 +1021,20 @@ tbody tr:nth-child(even) {
 
 .question-status {
   display: flex;
+  flex-direction: row;  /* Explicit row direction for DocRaptor */
   align-items: center;
-  gap: 10px;
-  margin: 10px 0;
-  flex-wrap: wrap;
+  justify-content: flex-start;  /* Start alignment, let items space naturally */
+
+  margin: 20px 0;  /* Increased margin for more vertical space */
+  width: 100%;  /* Full width */
 }
 
 .status-item {
   display: flex;
+  flex-direction: row;  /* Explicit row direction for DocRaptor */
   align-items: center;
-  gap: 5px;
+
+  flex-shrink: 0;  /* Prevent items from shrinking */
 }
 
 .status-label {
@@ -741,10 +1071,11 @@ tbody tr:nth-child(even) {
    ======================================== */
 .category-header {
   display: flex;
+  flex-direction: row;  /* Explicit for DocRaptor */
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
-  padding: 18px;
+  margin-bottom: 24px;  /* Increased margin */
+  padding: 24px;  /* Increased padding */
   background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
   color: var(--white);
   border-radius: var(--border-radius);
@@ -771,9 +1102,9 @@ tbody tr:nth-child(even) {
 
 .category-overview {
   background: var(--gray-bg);
-  padding: 12px 15px;
+  padding: 18px 20px;  /* Increased padding */
   border-radius: 5px;
-  margin: 12px 0;
+  margin: 18px 0;  /* Increased margin */
   border-left: 4px solid var(--primary-teal);
 }
 
@@ -882,23 +1213,41 @@ tbody tr:nth-child(even) {
    GRID LAYOUTS
    ======================================== */
 .grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 12px 0;
 }
 
+.grid-2col > * {
+  flex: 1 1 calc(50% - 12px);
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.grid-2col > *:nth-child(2n) {
+  margin-right: 0;
+}
+
 .grid-3col {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
   margin: var(--space-md) 0;
+}
+
+.grid-3col > * {
+  flex: 1 1 calc(33.333% - var(--space-md));
+  margin-right: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.grid-3col > *:nth-child(3n) {
+  margin-right: 0;
 }
 
 .grid-3col > div {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+
 }
 
 .grid-3col .info-box {
@@ -990,7 +1339,6 @@ body.example-report .page {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 0;
   page-break-after: always;
 }
 
@@ -1124,13 +1472,22 @@ body.example-report li {
 }
 
 body.example-report .info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 20px 0;
   background: var(--gray-bg);
   padding: 20px;
   border-radius: var(--border-radius);
+}
+
+body.example-report .info-grid > * {
+  flex: 1 1 calc(50% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+body.example-report .info-grid > *:nth-child(2n) {
+  margin-right: 0;
 }
 
 body.example-report .info-item {
@@ -1176,10 +1533,19 @@ body.example-report .score-label {
 }
 
 body.example-report .risk-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 20px 0;
+}
+
+body.example-report .risk-grid > * {
+  flex: 1 1 calc(33.333% - 15px);
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+body.example-report .risk-grid > *:nth-child(3n) {
+  margin-right: 0;
 }
 
 body.example-report .risk-card {
@@ -1361,10 +1727,18 @@ body.example-report .card h4 {
 }
 
 body.example-report .detail-grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px 15px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 15px 0;
+}
+
+body.example-report .detail-grid > * {
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+body.example-report .detail-grid > *:nth-child(2n) {
+  margin-right: 0;
 }
 
 body.example-report .detail-label {
@@ -1388,7 +1762,7 @@ body.example-report .detail-value {
 
   body.example-report .page {
     width: 8.5in;
-    min-min-height: 11in;
+    min-height: 11in;
     margin: 0;
     box-shadow: none;
     page-break-after: always;
@@ -1440,9 +1814,10 @@ body.example-report .detail-value {
     padding: 15px;
   }
   
-  .grid-2col,
-  .grid-3col {
-    grid-template-columns: 1fr;
+  .grid-2col > *,
+  .grid-3col > * {
+    flex: 1 1 100%;
+    margin-right: 0;
   }
   
   .dashboard-header {
@@ -1457,4 +1832,58 @@ body.example-report .detail-value {
   height: auto;
   display: block;
   margin: 0 auto 30px auto;
+}
+
+.cover-metadata-label {
+  margin-right: 20px;
+}
+
+.findings-risk-heading span:first-child {
+  margin-right: 12px;
+}
+
+.score-bar > span {
+  margin-right: 12px;
+}
+
+.high-risk-header > * + * {
+  margin-left: 14px;
+}
+
+.question-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.question-status > * {
+  margin-right: 24px;
+  margin-bottom: 12px;
+}
+
+.status-item span:first-child {
+  margin-right: 16px;
+}
+
+.grid-3col > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-3col > div .info-box {
+  margin: 0;
+  flex: 1;
+}
+
+.dashboard-header > * {
+  margin-right: 24px;
+}
+
+.dashboard-header > *:last-child {
+  margin-right: 0;
+}
+
+.grid-3col > div > * + * {
+  margin-top: var(--space-md);
 }

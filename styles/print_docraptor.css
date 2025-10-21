@@ -1,0 +1,695 @@
+/* CyberPools Risk Assessment Report - DocRaptor/Prince XML Print Styles */
+/* Optimized for Prince XML engine's superior paged media support */
+
+/* ========================================
+   PDF PAGE SETUP WITH RUNNING FOOTERS
+   ======================================== */
+@page {
+  size: letter portrait;
+  margin: 0.6in 0.7in 0.9in 0.7in; /* Extra bottom margin for footer */
+
+  /* Running footer with page numbers - Prince XML feature */
+  @bottom-center {
+    content: "Page " counter(page) " of " counter(pages);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 9pt;
+    color: #6b7280;
+    padding-top: 8pt;
+  }
+
+  @bottom-left {
+    content: "Confidential - " string(member-name);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 8pt;
+    color: #9ca3af;
+    padding-top: 8pt;
+  }
+
+  @bottom-right {
+    content: string(report-date);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 8pt;
+    color: #9ca3af;
+    padding-top: 8pt;
+  }
+}
+
+/* Cover page - no footer */
+@page :first {
+  margin: 0;
+  @bottom-center { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+/* Named page for cover (alternative approach) */
+@page cover {
+  margin: 0;
+  @bottom-center { content: none; }
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+.cover-page {
+  page: cover;
+}
+
+/* ========================================
+   PRINCE-SPECIFIC FEATURES
+   ======================================== */
+
+/* Set report date and member name for footer */
+.report-metadata {
+  string-set: report-date attr(data-date), member-name attr(data-member);
+}
+
+/* Better widow/orphan control */
+p, li {
+  orphans: 3;
+  widows: 3;
+}
+
+/* ========================================
+   PDF-SPECIFIC OVERRIDES
+   ======================================== */
+body {
+  margin: 0;
+  padding: 0;
+  background: white !important;
+}
+
+/* Restore page breaks for .page divs (each major section should start on new page) */
+.page {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  page-break-before: always !important;  /* Each .page section starts on new page */
+  page-break-after: auto !important;
+  page-break-inside: auto !important;
+  break-before: page !important;
+  break-after: auto !important;
+  break-inside: auto !important;
+  box-shadow: none !important;
+  background: white;
+  display: block !important;
+  overflow: visible !important;
+}
+
+/* First page after cover should not force a break */
+.cover-page + .page {
+  page-break-before: auto;
+  break-before: auto;
+}
+
+/* ========================================
+   STRATEGIC PAGE BREAK CONTROLS
+   ======================================== */
+
+/* Don't break immediately after page header */
+.page-header + * {
+  page-break-before: avoid !important;
+  break-before: avoid !important;
+}
+
+/* Never break these elements */
+h1, h2, h3, h4, h5, h6 {
+  page-break-after: avoid !important;
+  page-break-inside: avoid !important;
+  break-after: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Keep logical units together */
+.question-block,
+.finding-card,
+.report-overview-section,
+.info-box,
+.warning-box,
+.alert-box,
+.card {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* Keep category headers with their content */
+.category-header {
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+.category-overview {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  page-break-after: avoid !important;
+  break-after: avoid !important;
+}
+
+/* Question components should stay together */
+.question-core {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+.question-text + .question-status,
+.control-description + .question-text {
+  page-break-before: avoid !important;
+  break-before: avoid !important;
+}
+
+/* Table handling */
+table {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tbody {
+  display: table-row-group;
+}
+
+tr {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* ========================================
+   COVER PAGE - PRINCE XML FIX
+   ======================================== */
+.cover-page {
+  page-break-after: always !important;
+  break-after: page !important;
+  /* Cover should fill entire page - use full page height (11in letter size) */
+  height: 11in !important; /* Full US Letter page height */
+  min-height: 11in !important;
+  padding: 60px 40px !important;
+  margin: 0 !important;
+  background: linear-gradient(135deg, #2C5F7C 0%, #4A9FB8 100%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* ========================================
+   FORCE COLOR PRINTING
+   ======================================== */
+* {
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important;
+  -prince-pdf-color-conversion: none; /* Prince-specific */
+}
+
+/* ========================================
+   BACKGROUND COLORS (Force for PDF)
+   ======================================== */
+.dashboard,
+.category-overview,
+.info-box,
+.comments-text,
+.control-description {
+  background-color: #F5F7FA !important;
+}
+
+.high-risk-section {
+  background-color: #fdeaea !important;
+}
+
+.executive-summary-placeholder {
+  background-color: #F5F7FA !important;
+}
+
+/* ========================================
+   GRADIENT BACKGROUNDS FOR PDF
+   ======================================== */
+.cover-page {
+  background: linear-gradient(135deg, #2C5F7C 0%, #4A9FB8 100%) !important;
+}
+
+.category-header {
+  background: linear-gradient(135deg, #2C5F7C 0%, #4A9FB8 100%) !important;
+}
+
+/* ========================================
+   BADGE AND SCORE BAR COLORS
+   ======================================== */
+.badge,
+.grade-badge,
+.risk-bar-visual,
+.score-bar-fill {
+  -webkit-print-color-adjust: exact !important;
+}
+
+.score-bar-fill.high,
+.risk-bar-visual.low {
+  background-color: #4CAF50 !important;
+}
+
+.score-bar-fill.medium,
+.risk-bar-visual.moderate {
+  background-color: #F39C12 !important;
+}
+
+.score-bar-fill.low,
+.risk-bar-visual.high {
+  background-color: #C10000 !important;
+}
+
+/* ========================================
+   REMOVE SCREEN-ONLY ELEMENTS
+   ======================================== */
+.screen-only,
+.print-button,
+.no-print {
+  display: none !important;
+}
+
+/* ========================================
+   LINK STYLING FOR PDF
+   ======================================== */
+a {
+  color: #2C5F7C;
+  text-decoration: none;
+}
+
+/* Don't show URLs in print */
+a[href]:after {
+  content: none !important;
+}
+
+/* ========================================
+   IMAGE OPTIMIZATION
+   ======================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  page-break-inside: avoid;
+}
+
+/* ========================================
+   SPACING OPTIMIZATIONS
+   ======================================== */
+
+/* Tighter spacing for better page utilization */
+.question-block {
+  margin-bottom: 18px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.question-block:last-child {
+  border-bottom: none;
+}
+
+.category-header {
+  margin-bottom: 18px;
+  padding: 18px;
+}
+
+.control-description {
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+.comments-section {
+  margin-top: 12px;
+}
+
+.comments-text {
+  padding: 10px 12px;
+}
+
+.question-status {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+.question-status > * {
+  margin-right: 24px;
+  margin-bottom: 12px;
+}
+
+
+.status-item {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+}
+
+.status-item span:first-child {
+  margin-right: 16px;
+}
+
+/* Overall Score Box - ensure spacing */
+.overall-score-box {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  margin-bottom: 24px;  /* Critical spacing before risk boxes */
+  min-height: 120px;
+  width: 100%;
+}
+
+/* Ensure risk distribution uses flexbox */
+.risk-distribution-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+
+.risk-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  height: 150px;
+  padding: 28px 20px;
+}
+
+/* ========================================
+   TYPOGRAPHY OPTIMIZATION
+   ======================================== */
+p {
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 20px 0 12px 0;
+}
+
+h3 {
+  margin: 15px 0 8px 0;
+}
+
+/* ========================================
+   GRID LAYOUTS - Prince handles these well
+   ======================================== */
+.question-legend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.question-legend-grid > * {
+  flex: 1 1 220px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.question-legend-grid > *:nth-child(2n) {
+  margin-right: 0;
+}
+
+.findings-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.finding-card {
+  width: 100%;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.summary-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.summary-grid > * {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.summary-grid > *:last-child {
+  margin-right: 0;
+}
+
+/* ========================================
+   PRINCE-SPECIFIC ENHANCEMENTS
+   ======================================== */
+
+/* Better hyphenation for justified text */
+p {
+  -prince-text-replace: " - " " – "; /* Replace hyphens with en-dashes */
+  hyphens: auto;
+  -prince-hyphenate-patterns: url(en.hyp);
+}
+
+/* Prevent awkward breaks */
+.badge,
+.score-indicator {
+  white-space: nowrap;
+}
+
+/* Improve rendering quality */
+body {
+  -prince-pdf-page-mode: use-outlines; /* Enable PDF bookmarks */
+  -prince-pdf-print-scaling: none;     /* Disable print scaling */
+}
+
+/* ========================================
+   TABLE OPTIMIZATION
+   ======================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 15px 0;
+}
+
+th, td {
+  padding: 10px 12px;
+}
+
+/* Keep table headers on each page */
+thead {
+  display: table-header-group;
+}
+
+/* ========================================
+   COVER METADATA SPACING FIX
+   ======================================== */
+.cover-metadata {
+  margin-top: 60px;
+}
+
+.cover-metadata-item {
+  min-height: 40px !important;
+  padding: 12px 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+/* ========================================
+   PAGE HEADER/FOOTER OVERRIDES
+   ======================================== */
+.page-header,
+.page-footer {
+  display: none !important; /* Hide template headers/footers - using @page instead */
+}
+
+/* Remove page number from templates */
+.page-number {
+  display: none !important;
+}
+
+/* ========================================
+   SECTION HEADINGS - PREVENT ORPHANS
+   ======================================== */
+h1, h2, h3 {
+  page-break-after: avoid !important;
+  break-after: avoid-page !important;
+}
+
+/* Keep heading with at least 2 lines of content */
+h1 + *, h2 + *, h3 + * {
+  page-break-before: avoid !important;
+  break-before: avoid !important;
+}
+
+/* Layout overrides for DocRaptor (Prince) */
+.summary-grid { display: flex !important; flex-wrap: wrap !important; align-items: stretch !important; }
+.summary-grid .risk-box { flex: 1 1 calc(33.333% - 12px) !important; margin-right: 12px !important; margin-bottom: 12px !important; }
+.summary-grid .risk-box:last-child { margin-right: 0 !important; }
+
+.findings-grid { display: flex !important; flex-wrap: wrap !important; width: 100% !important; }
+.finding-card { width: 100% !important; margin-bottom: 24px !important; }
+
+.question-legend-grid { display: flex !important; flex-wrap: wrap !important; }
+.question-legend-card { flex: 1 1 220px !important; margin-right: 16px !important; margin-bottom: 16px !important; }
+
+/* Key Findings Section - Allow page breaks between risk level groups but not within cards */
+.findings-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  page-break-inside: auto !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.findings-section > * {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-bottom: 22px !important;
+}
+
+.findings-section > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.findings-header {
+  width: 100% !important;
+  max-width: 100% !important;
+  page-break-after: avoid !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.findings-header-icon {
+  margin-right: 12px !important;
+}
+
+.findings-header-title {
+  width: auto !important;
+  max-width: 100% !important;
+  display: inline-block !important;
+}
+
+/* Each risk level group (High Risk, Moderate Risk, Low Risk) can span pages */
+.findings-risk-group {
+  width: 100% !important;
+  max-width: 100% !important;
+  page-break-inside: auto !important; /* Allow breaking between cards if needed */
+  margin-bottom: 20px !important;
+  display: block !important;
+}
+
+.findings-risk-heading {
+  width: 100% !important;
+  max-width: 100% !important;
+  page-break-after: avoid !important;
+  page-break-before: auto !important;
+  display: block !important;
+}
+
+.findings-intro {
+  width: 100% !important;
+  max-width: 100% !important;
+  page-break-after: avoid !important;
+  display: block !important;
+}
+
+/* Each finding card should stay together - NEVER break within a card */
+.finding-card {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* Ensure thin colored accent strips are preserved in PDF */
+.finding-card--high {
+  border-left: 4px solid var(--risk-high) !important;
+}
+
+.finding-card--moderate {
+  border-left: 4px solid var(--risk-moderate) !important;
+}
+
+.finding-card--low {
+  border-left: 4px solid var(--success) !important;
+}
+
+.finding-card-title {
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+.finding-card-meta {
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+.finding-card-status {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  margin: 12px 0 !important;
+  width: 100% !important;
+}
+
+.finding-card-status .status-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  margin-right: 24px !important;
+  margin-bottom: 8px !important;
+}
+
+.finding-card-status .status-label {
+  margin-right: 8px !important;
+}
+
+/* Grid of cards within a risk level can break between cards */
+.findings-grid {
+  page-break-inside: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.report-overview > * { page-break-inside: avoid !important; }
+
+/* How to Read This Report - Print Styles */
+.guide-grid {
+  display: block !important;
+}
+
+.guide-item {
+  page-break-inside: avoid !important;
+  display: flex !important;
+  margin-bottom: 16px !important;
+}
+
+.question-guide-box {
+  page-break-inside: avoid !important;
+  background-color: #F5F7FA !important;
+}
+
+.question-guide-row {
+  page-break-inside: avoid !important;
+  display: flex !important;
+  background-color: white !important;
+}
+
+.scoring-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+}
+
+.scoring-box {
+  page-break-inside: avoid !important;
+  flex: 1 1 calc(33.333% - 12px) !important;
+  margin-right: 12px !important;
+  background-color: #F5F7FA !important;
+}
+
+.scoring-box:last-child {
+  margin-right: 0 !important;
+}

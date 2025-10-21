@@ -32,6 +32,12 @@
   <!-- Rating Legends -->
   {% include 'partials/rating_legends.html' %}
 
+  <!-- How to Read This Report -->
+  {% include 'partials/how_to_read.html' %}
+
+  <!-- Report Overview - REMOVED per user request -->
+  {# {% include 'partials/report_overview.html' %} #}
+
   <!-- Findings Section (based on selected risk levels) -->
   {% if has_high_risk or has_moderate_risk %}
     {% include 'partials/findings.html' %}

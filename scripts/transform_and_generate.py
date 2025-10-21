@@ -58,6 +58,18 @@ except ModuleNotFoundError:
         sys.path.insert(0, str(PROJECT_ROOT))
     from scripts.generate_pdf_playwright import PlaywrightPDF  # type: ignore
 
+# DocRaptor renderer (sibling import with fallback)
+try:
+    from generate_pdf_docraptor import DocRaptorPDF
+except ModuleNotFoundError:
+    if str(PROJECT_ROOT) not in sys.path:
+        sys.path.insert(0, str(PROJECT_ROOT))
+    from scripts.generate_pdf_docraptor import DocRaptorPDF  # type: ignore
+
+# DocRaptor API key
+import os
+DOCRAPTOR_API_KEY = os.getenv('DOCRAPTOR_API_KEY', 'Uej3BuDjlcc3vx8z5lfK')
+
 
 # ---------- Pretty console colors ----------
 class Colors:
@@ -74,9 +86,9 @@ def print_header():
     print(f"{Colors.BOLD}CyberPools Risk Assessment Report Generator{Colors.END}")
     print("="*70 + "\n")
 
-def print_success(message): print(f"{Colors.GREEN}✓ {message}{Colors.END}")
-def print_error(message):   print(f"{Colors.RED}✗ {message}{Colors.END}")
-def print_info(message):    print(f"{Colors.BLUE}ℹ {message}{Colors.END}")
+def print_success(message): print(f"{Colors.GREEN}[SUCCESS] {message}{Colors.END}")
+def print_error(message):   print(f"{Colors.RED}[ERROR] {message}{Colors.END}")
+def print_info(message):    print(f"{Colors.BLUE}[INFO] {message}{Colors.END}")
 
 
 # ---------- File helpers ----------
@@ -106,7 +118,7 @@ def select_input_file():
         print_info("Please place your CRM export JSON file in the input/ folder")
         sys.exit(1)
 
-    print(f"{Colors.BOLD}📂 Available input files:{Colors.END}")
+    print(f"{Colors.BOLD}Available input files:{Colors.END}")
     for i, file in enumerate(files, 1):
         print(f"  {i}. {file.name}")
 
@@ -186,7 +198,7 @@ def get_logo_data_uri() -> str:
         return ""
 
 def get_assessment_metadata(auto_mode=False):
-    print(f"\n{Colors.BOLD}📋 Assessment Information{Colors.END}\n")
+    print(f"\n{Colors.BOLD}Assessment Information{Colors.END}\n")
     if auto_mode:
         return {
             'member_name': 'Sample Organization',
@@ -370,6 +382,34 @@ def generate_pdf_playwright(html_content: str, output_filename: Path, ci_mode: b
     )
     renderer.render_html_to_pdf(html_content, output_filename, assets_dir=PROJECT_ROOT)
 
+def inline_css_for_docraptor(html_content: str) -> str:
+    """Inline CSS files into HTML for DocRaptor."""
+    main_css = p('styles', 'main.css').read_text(encoding='utf-8')
+    print_css = p('styles', 'print_docraptor.css').read_text(encoding='utf-8')
+
+    # Combine into ONE style block - print CSS comes LAST to override
+    inline_styles = f"""<style>
+{main_css}
+
+/* ========================================
+   DOCRAPTOR PRINT OVERRIDES
+   ======================================== */
+{print_css}
+</style>"""
+
+    import re
+    html_content = re.sub(r'<link rel="stylesheet"[^>]*href="styles/main\.css"[^>]*/?>', '', html_content)
+    html_content = re.sub(r'<link rel="stylesheet"[^>]*href="styles/print\.css"[^>]*/?>', '', html_content)
+    html_content = re.sub(r'<link rel="stylesheet"[^>]*href="styles/print_docraptor\.css"[^>]*/?>', '', html_content)
+    html_content = html_content.replace('</head>', f'{inline_styles}\n</head>')
+    return html_content
+
+def generate_pdf_docraptor(html_content: str, output_filename: Path, test_mode: bool = True) -> None:
+    """Generate PDF using DocRaptor API."""
+    html_with_inline_css = inline_css_for_docraptor(html_content)
+    renderer = DocRaptorPDF(api_key=DOCRAPTOR_API_KEY)
+    renderer.render_html_to_pdf(html_with_inline_css, output_filename, test_mode=test_mode)
+
 def collect_findings_by_risk(template_data: dict) -> dict:
     """Collect all findings grouped by risk level."""
     findings = {'high': [], 'moderate': [], 'low': []}
@@ -382,7 +422,9 @@ def collect_findings_by_risk(template_data: dict) -> dict:
                 'question_text': q['text'],
                 'risk_score': q['risk_score'],
                 'risk_level': q['risk_level'],
+                'control_status': q['control_status'],
                 'control_status_text': q['control_status_text'],
+                'impact_score': q['impact_score'],
                 'comments': q['comments']
             }
             findings[q['risk_level']].append(finding)
@@ -392,7 +434,7 @@ def collect_findings_by_risk(template_data: dict) -> dict:
 def display_findings_preview(findings: dict, risk_levels: list):
     """Display findings for user review."""
     print(f"\n{Colors.BOLD}{'='*70}{Colors.END}")
-    print(f"{Colors.BOLD}📋 Findings Preview{Colors.END}")
+    print(f"{Colors.BOLD}Findings Preview{Colors.END}")
     print(f"{Colors.BOLD}{'='*70}{Colors.END}\n")
 
     for level in risk_levels:
@@ -459,7 +501,7 @@ def get_findings_display_preference(findings: dict, auto_mode: bool):
         else:
             print(f"{Colors.RED}Invalid choice. Please enter 1, 2, 3, or 4{Colors.END}")
 
-def generate_pdf_report(template_data: dict, output_filename: Path, engine: str, ci_mode: bool, auto_mode: bool, exec_use_markdown: bool) -> bool:
+def generate_pdf_report(template_data: dict, output_filename: Path, engine: str, ci_mode: bool, auto_mode: bool, exec_use_markdown: bool, docraptor_test_mode: bool = True) -> bool:
     print_info("Loading boilerplate content...")
     boilerplate = load_json_file(p('content', 'boilerplate.json'))
     if not boilerplate:
@@ -525,6 +567,10 @@ def generate_pdf_report(template_data: dict, output_filename: Path, engine: str,
     print_info(f"Converting to PDF via {engine}...")
     if engine == "weasyprint":
         generate_pdf_weasyprint(html_content, output_filename)
+    elif engine == "docraptor":
+        mode_msg = "production (no watermark)" if not docraptor_test_mode else "test (watermarked, free)"
+        print_info(f"DocRaptor mode: {mode_msg}")
+        generate_pdf_docraptor(html_content, output_filename, test_mode=docraptor_test_mode)
     else:
         generate_pdf_playwright(html_content, output_filename, ci_mode)
     return True
@@ -535,8 +581,10 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Generate Risk Assessment Reports')
     parser.add_argument('--input', help='Input JSON file path (raw CRM export)')
     parser.add_argument('--auto', action='store_true', help='Auto mode with defaults')
-    parser.add_argument('--engine', choices=['playwright', 'weasyprint'], default='playwright', help='PDF engine')
+    parser.add_argument('--engine', choices=['playwright', 'weasyprint', 'docraptor'], default='playwright', help='PDF engine')
     parser.add_argument('--ci', action='store_true', help='Chromium no-sandbox (CI/Docker)')
+    parser.add_argument('--production', action='store_true', help='DocRaptor production mode (no watermark, counts against quota)')
+    parser.add_argument('--output', help='Output PDF path (overrides default)')
     return parser.parse_args()
 
 def main():
@@ -594,11 +642,21 @@ def main():
     output_dir = p('output'); output_dir.mkdir(exist_ok=True)
     safe_name = metadata['member_name'].replace(' ', '_').replace('/', '_')
     date_str = metadata['assessment_date'].replace('/', '-')
-    output_filename = output_dir / f"{safe_name}_Risk_Assessment_{date_str}.pdf"
+
+    # Allow custom output path via --output flag
+    if args.output:
+        output_filename = Path(args.output)
+        if not output_filename.is_absolute():
+            output_filename = p(args.output)
+    else:
+        output_filename = output_dir / f"{safe_name}_Risk_Assessment_{date_str}.pdf"
+
+    # DocRaptor test mode is the inverse of production flag
+    docraptor_test_mode = not args.production
 
     print_info(f"Generating PDF: {output_filename}")
     try:
-        if generate_pdf_report(template_data, output_filename, args.engine, args.ci, args.auto, exec_use_markdown):
+        if generate_pdf_report(template_data, output_filename, args.engine, args.ci, args.auto, exec_use_markdown, docraptor_test_mode):
             print_success(f"Report saved to: {output_filename}")
             print(f"\n{Colors.BOLD}✨ Done! Open the PDF to review.{Colors.END}\n")
         else:
