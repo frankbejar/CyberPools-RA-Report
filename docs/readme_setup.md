@@ -156,6 +156,10 @@ Scripts will warn (but continue) if mappings are missing and will fall back to "
 * **Cover page branding**: Uses "CYBERPOOLS" text (56px, bold, white, 4px letter-spacing) instead of logo image
 * The default design shows a progress bar on the Summary page and omits on-page footers to reduce clutter.
 
+**Scoring & Rounding**
+
+Overall and category percentages use classic *half-up* rounding (80.5 → 81). This mirrors the CRM’s behaviour so the PDF, CRM, and account-manager exports stay in sync.
+
 To adjust layout, edit the partial and rerun the generator. No rebuild step is required.
 
 ---

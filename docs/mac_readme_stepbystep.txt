@@ -95,6 +95,8 @@ What happens:
 3. Renders the Jinja2 templates.
 4. Launches headless Chromium via Playwright and prints the HTML to `output/<Org>_Risk_Assessment_<Date>.pdf`.
 
+> **Note on rounding**: Overall and category percentages now use standard half-up rounding (e.g., 80.5 → 81) to match the CRM dashboards exactly.
+
 During the prompts you’ll be asked whether to format the executive summary with Markdown. Choose **Y** if you want bold text, lists, headings, etc.—the script will convert the Markdown to HTML automatically.
 
 **Common flags**

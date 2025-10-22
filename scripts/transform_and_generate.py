@@ -23,6 +23,7 @@ import argparse
 from pathlib import Path
 from datetime import datetime
 from html import escape
+from decimal import Decimal, ROUND_HALF_UP
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -147,12 +148,17 @@ def get_multiline_input(prompt):
             line = input("> ")
             if not line:
                 empty += 1
-                if empty >= 2 or (empty == 1 and not lines):
+                if empty >= 2:
                     break
+                if not lines:
+                    # First blank line with no content means skip
+                    break
+                # Preserve intentional blank lines between paragraphs
+                lines.append('')
             else:
                 empty = 0
                 lines.append(line)
-        return ' '.join(lines).strip()
+        return '\n'.join(lines).strip()
     except KeyboardInterrupt:
         print("\n\nCancelled by user")
         sys.exit(0)
@@ -249,7 +255,7 @@ def calculate_overall_score(questions, question_mapping):
     max_score = sum((question_mapping.get(q['qID'], {}).get('impact_score', 3) * 5) for q in applicable)
     if max_score == min_score: return 100
     final = (1 - (actual - min_score) / (max_score - min_score)) * 100
-    return round(final, 0)
+    return int(Decimal(final).quantize(Decimal('1'), rounding=ROUND_HALF_UP))
 
 def calculate_category_score(questions, question_mapping):
     applicable = [q for q in questions if q['qResponse'] != 0]
@@ -258,7 +264,8 @@ def calculate_category_score(questions, question_mapping):
     min_score = sum((question_mapping.get(q['qID'], {}).get('impact_score', 3) * 1) for q in applicable)
     max_score = sum((question_mapping.get(q['qID'], {}).get('impact_score', 3) * 5) for q in applicable)
     if max_score == min_score: return 100
-    return round((1 - (actual - min_score) / (max_score - min_score)) * 100, 0)
+    category_final = (1 - (actual - min_score) / (max_score - min_score)) * 100
+    return int(Decimal(category_final).quantize(Decimal('1'), rounding=ROUND_HALF_UP))
 
 
 # ---------- Transform (unchanged layout) ----------

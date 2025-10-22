@@ -1,0 +1,2164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPools Report POC - Paged.js vs DocRaptor</title>
+
+    <!-- External Libraries -->
+    <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+    <script src="https://docraptor.com/docraptor-1.0.0.js"></script>
+
+    <style>
+        
+/* Control Panel Styles - NOT included in PDF */
+#controls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #2C5F7C;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10000;
+}
+
+#controls h1 {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+#controls button {
+    background: #4A9FB8;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+#controls button:hover {
+    background: #6BC4D9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#controls button:disabled {
+    background: #718096;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#controls button.primary {
+    background: #4CAF50;
+    font-size: 16px;
+    padding: 14px 28px;
+}
+
+#controls button.primary:hover {
+    background: #45a049;
+}
+
+#controls button.secondary {
+    background: #F39C12;
+}
+
+#controls button.secondary:hover {
+    background: #E67E22;
+}
+
+.info-panel {
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.info-panel strong {
+    color: #6BC4D9;
+}
+
+#status {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    min-height: 20px;
+    font-size: 13px;
+}
+
+#preview {
+    margin-top: 220px;
+    padding: 20px;
+}
+
+.comparison-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #4A9FB8;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comparison-info h2 {
+    margin-top: 0;
+    color: #2C5F7C;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.comparison-table th {
+    background: #f5f7fa;
+    font-weight: 600;
+    color: #2C5F7C;
+}
+
+.comparison-table tr:hover {
+    background: #fafbfc;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge.free {
+    background: #4CAF50;
+    color: white;
+}
+
+.badge.paid {
+    background: #F39C12;
+    color: white;
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Hide controls when printing */
+@media print {
+    #controls, #preview, .comparison-info {
+        display: none !important;
+    }
+}
+
+    </style>
+
+    <style id="report-styles">
+        /* CyberPools Risk Assessment Report - Main Styles */
+/* PHASE 1: Enhanced spacing and alignment fixes */
+
+/* ========================================
+   DESIGN SYSTEM VARIABLES
+   ======================================== */
+:root {
+  /* Brand Colors - Official CyberPools Palette */
+  --primary-navy: #2C5F7C;
+  --primary-teal: #4A9FB8;
+  --accent-cyan: #6BC4D9;
+  
+  /* Risk/Severity Colors - Official */
+  --risk-critical: #7B0000;
+  --risk-high: #C10000;
+  --risk-moderate: #F39C12;
+  --risk-low: #4CAF50;
+  --risk-info: #3498DB;
+  --critical: #7B0000;
+  --high: #C10000;
+  --moderate: #F39C12;
+  --low: #4CAF50;
+  --info: #3498DB;
+  --success: #4CAF50;
+  --warning: #FF9800;
+  --danger: #F44336;
+  --neutral: #718096;
+  
+  /* Background colors for risk levels */
+  --risk-high-bg: #fdeaea;
+  --risk-moderate-bg: #fef5e7;
+  --risk-low-bg: #eafaf1;
+  --risk-na-bg: #f5f7fa;
+  
+  /* Status Colors */
+  --status-success: #4CAF50;
+  --status-warning: #FF9800;
+  --status-danger: #F44336;
+  --status-neutral: #718096;
+  
+  /* Grayscale - Official */
+  --gray-dark: #333333;
+  --gray-medium: #666666;
+  --gray-light: #CCCCCC;
+  --gray-bg: #F5F7FA;
+  --white: #FFFFFF;
+  --black: #000000;
+  
+  /* Typography - Official */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 13px;  /* Reduced from 14px for better fitting */
+  --font-size-sm: 11px;     /* Reduced from 12px */
+  --font-size-lg: 15px;     /* Reduced from 16px */
+  --line-height: 1.5;       /* Reduced from 1.6 for tighter spacing */
+  
+  /* Spacing - Optimized for PDF */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;         /* Reduced from 15px */
+  --space-lg: 18px;         /* Reduced from 20px */
+  --space-xl: 25px;         /* Reduced from 30px */
+  
+  /* Layout - Official */
+  --page-width: 8.5in;
+  --page-min-height: 11in;
+  --page-margin-vertical: 0.35in;
+  --page-margin-horizontal: 0.45in;
+  --border-radius: 6px;     /* Reduced from 8px */
+  --border-color: #CCCCCC;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--gray-dark);
+  background: var(--gray-bg);
+  padding: var(--space-xl) 0;
+}
+
+ul, ol {
+  margin: var(--space-sm) 0 var(--space-sm) 18px;
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* ========================================
+   PAGE STRUCTURE
+   ======================================== */
+.page {
+  width: var(--page-width);
+  min-height: calc(var(--page-height) - 0.5in);
+  padding: var(--page-margin-vertical) var(--page-margin-horizontal);
+  background: var(--white);
+  position: relative;
+  page-break-after: always;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto var(--space-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.page:last-child {
+  page-break-after: auto;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-teal);
+  margin-bottom: 25px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  letter-spacing: 1px;
+}
+
+.page-number {
+  font-size: 13px;
+  color: var(--gray-medium);
+  font-weight: 600;
+}
+
+/* Page Footer */
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+h1 {
+  font-size: 28px;           /* Reduced from 32px */
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 18px;
+  padding-left: 12px;
+  border-left: 5px solid var(--primary-teal);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 18px;           /* Reduced for compact layout */
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin: 15px 0 10px 0;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 16px;           /* Reduced from 18px */
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin: 15px 0 8px 0;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin: 12px 0 8px 0;
+}
+
+p {
+  margin-bottom: 10px;      /* Reduced from 12px */
+  text-align: justify;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--gray-dark);
+}
+
+/* ========================================
+   COVER PAGE - FIXED SPACING
+   ======================================== */
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+  color: var(--white);
+  padding: 60px 40px;
+}
+
+.cover-logo {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--white);
+  margin-bottom: 40px;
+}
+
+.cover-title {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.cover-subtitle {
+  font-size: 22px;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-bottom: 50px;
+}
+
+.cover-metadata {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px 25px;
+  border-radius: var(--border-radius);
+  margin-top: 40px;
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+}
+
+.cover-metadata-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 40px;
+}
+
+.cover-metadata-item:last-child {
+  border-bottom: none;
+}
+
+.cover-metadata-label {
+  font-weight: 600;
+  opacity: 0.9;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.cover-metadata-value {
+  opacity: 0.95;
+  text-align: right;
+  word-break: break-word;  /* ADDED: Prevent overflow */
+}
+
+/* ========================================
+   BADGES & STATUS INDICATORS
+   ======================================== */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;       /* Reduced from 4px 12px */
+  border-radius: 10px;
+  font-size: 10px;         /* Reduced from 11px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.badge-success {
+  background: rgba(76, 175, 80, 0.1);
+  color: var(--risk-low);
+  border: 1px solid var(--risk-low);
+}
+
+.badge-warning {
+  background: rgba(243, 156, 18, 0.1);
+  color: #c87f0a;
+  border: 1px solid var(--risk-moderate);
+}
+
+.badge-danger {
+  background: rgba(193, 0, 0, 0.1);
+  color: var(--risk-high);
+  border: 1px solid var(--risk-high);
+}
+
+.badge-secondary {
+  background: rgba(204, 204, 204, 0.2);
+  color: var(--gray-medium);
+  border: 1px solid var(--gray-light);
+}
+
+/* Grade Badge (Large) */
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  font-size: 28pt;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.grade-badge.grade-a {
+  background-color: var(--risk-low);
+}
+
+.grade-badge.grade-b {
+  background-color: var(--risk-moderate);
+}
+
+.grade-badge.grade-c,
+.grade-badge.grade-d,
+.grade-badge.grade-f {
+  background-color: var(--risk-high);
+}
+
+/* ========================================
+   DASHBOARD & VISUALIZATIONS
+   ======================================== */
+/* Summary Grid - Horizontal Layout (deprecated - now using stacked layout) */
+.summary-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0;
+  align-items: stretch;
+}
+
+/* Overall Score Box - Full Width Stacked Design */
+.overall-score-box {
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-light);
+  border-left: 4px solid var(--primary-teal);
+  border-radius: var(--border-radius);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  flex: 1 1 100%;
+  margin-bottom: 24px;
+}
+
+.overall-score {
+  font-size: 36pt;
+  font-weight: 700;
+  color: var(--primary-navy);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.score-label {
+  font-size: 9px;
+  color: var(--gray-medium);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+.overall-progress {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overall-progress-track {
+  position: relative;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--gray-bg);
+  overflow: hidden;
+  border: 1px solid var(--gray-light);
+  width: 100%;
+}
+
+.overall-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-teal), var(--primary-navy));
+  border-radius: 6px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.12);
+}
+
+/* Risk Distribution Grid - 3 Square Boxes Below Overall Score (Using Flexbox for DocRaptor) */
+.risk-distribution-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.risk-box {
+  position: relative;
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  flex: 1 1 calc(33.333% - 12px);
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.risk-box:last-child {
+  margin-right: 0;
+}
+
+/* Thin vertical accent strip on left - matches overall score card */
+.risk-box.high-risk {
+  border-left: 4px solid var(--risk-high);
+}
+
+.risk-box.moderate-risk {
+  border-left: 4px solid var(--risk-moderate);
+}
+
+.risk-box.low-risk {
+  border-left: 4px solid var(--success);
+}
+
+.risk-number {
+  font-size: 32pt;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 5px;
+  color: var(--primary-navy);
+}
+
+.risk-label {
+  font-size: 9px;
+  color: var(--gray-medium);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Report Overview */
+.report-overview {
+  display: flex;
+  flex-direction: column;
+}
+
+.report-overview > * {
+  margin-bottom: 24px;
+}
+
+.report-overview > *:last-child {
+  margin-bottom: 0;
+}
+
+.report-overview-section {
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 20px 22px;
+  box-shadow: 0 6px 24px rgba(17, 24, 39, 0.04);
+}
+
+.report-overview-section h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--primary-navy);
+}
+
+.report-overview-section p {
+  margin-bottom: 12px;
+  color: var(--gray-dark);
+}
+
+.report-overview-section ul {
+  margin: 0 0 12px 18px;
+}
+
+.question-legend-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.question-legend-card {
+  background: var(--gray-bg);
+  border-radius: var(--border-radius);
+  padding: 14px 16px;
+  border-left: 4px solid var(--primary-teal);
+  margin-right: 16px;
+  margin-bottom: 16px;
+  flex: 1 1 220px;
+}
+
+.question-legend-card {
+  background: var(--gray-bg);
+  border-radius: var(--border-radius);
+  padding: 14px 16px;
+  border-left: 4px solid var(--primary-teal);
+}
+
+.question-legend-card h3 {
+  font-size: 14px;
+  margin: 0 0 6px 0;
+  color: var(--primary-navy);
+}
+
+.question-legend-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--gray-medium);
+}
+
+/* Findings */
+.findings-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.findings-section > * {
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.findings-section > *:last-child {
+  margin-bottom: 0;
+}
+
+.findings-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.findings-header-icon {
+  margin-right: 12px;
+  font-size: 20px;
+  color: var(--risk-moderate);
+}
+
+
+
+.findings-header-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: var(--primary-navy);
+}
+
+.findings-intro {
+  color: var(--gray-medium);
+  font-size: 13px;
+  margin: 0 0 16px 0;
+}
+
+.findings-risk-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.findings-risk-heading {
+  display: flex;
+  align-items: baseline;
+  color: var(--primary-navy);
+  font-weight: 700;
+  font-size: 16px;
+  width: 100%;
+}
+
+.findings-grid {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+
+.finding-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-light);
+  padding: 20px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 24px rgba(17, 24, 39, 0.04);
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.finding-card > * + * {
+  margin-top: 12px;
+}
+
+/* Thin vertical accent strip on left - matches overall score card and risk boxes */
+.finding-card--high {
+  border-left: 4px solid var(--risk-high);
+}
+
+.finding-card--moderate {
+  border-left: 4px solid var(--risk-moderate);
+}
+
+.finding-card--low {
+  border-left: 4px solid var(--success);
+}
+
+.finding-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.finding-card-title {
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.finding-card-meta {
+  font-size: 12px;
+  color: var(--gray-medium);
+  margin-bottom: 8px;
+}
+
+.finding-card-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 12px 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.finding-card-status .status-item {
+  margin-right: 24px;
+  margin-bottom: 8px;
+}
+
+.finding-card-notes {
+  background: var(--gray-bg);
+  border-radius: var(--border-radius);
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--gray-dark);
+  border-left: 3px solid var(--primary-teal);
+}
+
+/* How to Read This Report - Guide Styles */
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.guide-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+}
+
+.guide-number {
+  width: 36px;
+  height: 36px;
+  background: var(--primary-teal);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.guide-content h4 {
+  margin: 0 0 6px 0;
+  color: var(--primary-navy);
+  font-size: 14px;
+}
+
+.guide-content p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--gray-medium);
+}
+
+.question-guide-box {
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.question-guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.question-guide-header strong {
+  color: var(--primary-navy);
+  font-size: 14px;
+}
+
+.guide-badge {
+  background: var(--white);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--gray-dark);
+  border: 1px solid var(--gray-light);
+}
+
+.question-guide-row {
+  display: flex;
+  margin-bottom: 12px;
+  padding: 10px;
+  background: var(--white);
+  border-radius: 4px;
+}
+
+.question-guide-row:last-child {
+  margin-bottom: 0;
+}
+
+.question-guide-label {
+  font-weight: 600;
+  color: var(--primary-navy);
+  min-width: 140px;
+  font-size: 12px;
+}
+
+.question-guide-value {
+  color: var(--gray-dark);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.scoring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.scoring-box {
+  background: var(--gray-bg);
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.scoring-box h4 {
+  margin: 0 0 10px 0;
+  color: var(--primary-navy);
+  font-size: 14px;
+}
+
+/* Legacy Dashboard Styles - keeping for backward compatibility */
+.dashboard {
+  background: var(--gray-bg);
+  padding: 18px;
+  border-radius: var(--border-radius);
+  margin: 18px 0;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+
+}
+
+.overall-score-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.overall-progress-caption {
+  font-size: 12px;
+  color: var(--gray-medium);
+  margin-top: 6px;
+}
+
+/* Old Risk Chart Styles - keeping for other pages */
+.risk-chart {
+  margin: 15px 0;
+}
+
+.risk-bar {
+  display: flex;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.risk-bar-label {
+  width: 95px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--gray-dark);
+}
+
+.risk-bar-visual {
+  flex: 1;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.risk-bar-visual.high {
+  background-color: var(--risk-high);
+}
+
+.risk-bar-visual.moderate {
+  background-color: var(--risk-moderate);
+  color: var(--gray-dark);
+}
+
+.risk-bar-visual.low {
+  background-color: var(--risk-low);
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 12px;
+}
+
+thead {
+  background-color: var(--primary-navy);
+  color: var(--white);
+}
+
+th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--primary-navy);
+}
+
+td {
+  padding: 14px 16px;  /* Increased padding for better spacing */
+  border: 1px solid var(--gray-light);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--gray-bg);
+}
+
+/* Score Bar in Table */
+.score-bar {
+  display: flex;
+  flex-direction: row;  /* Explicit for DocRaptor */
+  align-items: center;
+  /* Increased gap */
+}
+
+.score-bar-visual {
+  flex: 1;
+  height: 20px;  /* Slightly taller for better visibility */
+  background: var(--gray-light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.score-bar-fill.high {
+  background-color: var(--risk-low);
+}
+
+.score-bar-fill.medium {
+  background-color: var(--risk-moderate);
+}
+
+.score-bar-fill.low {
+  background-color: var(--risk-high);
+}
+
+/* ========================================
+   EXECUTIVE SUMMARY
+   ======================================== */
+.executive-summary-placeholder {
+  background: var(--gray-bg);
+  border: 2px dashed var(--gray-light);
+  border-radius: var(--border-radius);
+  padding: 18px;
+  margin: 18px 0;
+  font-style: italic;
+  color: var(--gray-medium);
+  text-align: left;
+}
+
+.executive-summary-content {
+  background: var(--white);
+  border-left: 4px solid var(--primary-teal);
+  padding: 18px;
+  margin: 18px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   HIGH RISK FINDINGS
+   ======================================== */
+.high-risk-section {
+  background: var(--risk-high-bg);
+  border: 2px solid var(--risk-high);
+  border-radius: var(--border-radius);
+  padding: 24px;  /* Increased padding */
+  margin: 24px 0;  /* Increased margin */
+}
+
+.high-risk-header {
+  display: flex;
+  flex-direction: row;  /* Explicit for DocRaptor */
+  align-items: center;
+  margin-bottom: 20px;  /* Increased margin */
+  color: var(--risk-high);
+  font-size: 16pt;
+  font-weight: 700;
+}
+
+.high-risk-item {
+  background: var(--white);
+  border-radius: 5px;
+  padding: 16px 20px;  /* Increased padding */
+  margin-bottom: 16px;  /* Increased margin */
+  border-left: 4px solid var(--risk-high);
+}
+
+.high-risk-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   QUESTION COMPONENTS - OPTIMIZED SPACING
+   ======================================== */
+.question-block {
+  margin-bottom: 24px;  /* Increased spacing between questions */
+  padding-bottom: 20px;  /* Increased padding */
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.question-core {
+  page-break-inside: avoid;
+}
+
+.question-block:last-child {
+  border-bottom: none;
+}
+
+.question-number {
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-right: 5px;
+}
+
+.question-text {
+  font-weight: 600;
+  color: var(--gray-dark);
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.control-description {
+  background: var(--gray-bg);
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  color: var(--gray-medium);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.question-status {
+  display: flex;
+  flex-direction: row;  /* Explicit row direction for DocRaptor */
+  align-items: center;
+  justify-content: flex-start;  /* Start alignment, let items space naturally */
+
+  margin: 20px 0;  /* Increased margin for more vertical space */
+  width: 100%;  /* Full width */
+}
+
+.status-item {
+  display: flex;
+  flex-direction: row;  /* Explicit row direction for DocRaptor */
+  align-items: center;
+
+  flex-shrink: 0;  /* Prevent items from shrinking */
+}
+
+.status-label {
+  font-weight: 600;
+  color: var(--gray-medium);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.comments-section {
+  margin-top: 12px;
+}
+
+.comments-label {
+  font-weight: 600;
+  color: var(--gray-dark);
+  margin-bottom: 6px;
+  display: block;
+  font-size: 12px;
+}
+
+.comments-text {
+  background: var(--gray-bg);
+  padding: 10px 12px;
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-teal);
+  color: var(--gray-dark);
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+/* ========================================
+   CATEGORY SECTIONS
+   ======================================== */
+.category-header {
+  display: flex;
+  flex-direction: row;  /* Explicit for DocRaptor */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;  /* Increased margin */
+  padding: 24px;  /* Increased padding */
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+  color: var(--white);
+  border-radius: var(--border-radius);
+}
+
+.category-number {
+  font-size: 13pt;
+  font-weight: 700;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.category-name {
+  font-size: 18pt;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.category-score {
+  font-size: 32pt;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.category-overview {
+  background: var(--gray-bg);
+  padding: 18px 20px;  /* Increased padding */
+  border-radius: 5px;
+  margin: 18px 0;  /* Increased margin */
+  border-left: 4px solid var(--primary-teal);
+}
+
+/* ========================================
+   COMPLIANCE TABLE
+   ======================================== */
+.compliance-table td {
+  vertical-align: middle;
+}
+
+.compliance-yes {
+  color: var(--risk-low);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.compliance-no {
+  color: var(--risk-high);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.compliance-icon {
+  margin-right: 5px;
+}
+
+/* ========================================
+   CARDS
+   ======================================== */
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--primary-navy);
+  margin-bottom: 12px;
+}
+
+.card.critical { border-left-color: var(--risk-critical); }
+.card.high { border-left-color: var(--risk-high); }
+.card.medium { border-left-color: var(--risk-moderate); }
+.card.low { border-left-color: var(--risk-low); }
+.card.info { border-left-color: var(--risk-info); }
+
+.card h4 {
+  margin-top: 0;
+}
+
+/* ========================================
+   INFO BOXES
+   ======================================== */
+.info-box {
+  background: var(--gray-bg);
+  border-left: 4px solid var(--primary-teal);
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.info-box h4 {
+  color: var(--primary-teal);
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.warning-box {
+  background: var(--risk-moderate-bg);
+  border-left: 4px solid var(--risk-moderate);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.alert-box {
+  background: var(--risk-high-bg);
+  border-left: 4px solid var(--risk-high);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-muted { color: var(--gray-medium); }
+.text-primary { color: var(--primary-navy); }
+.text-success { color: var(--risk-low); }
+.text-warning { color: var(--risk-moderate); }
+.text-danger { color: var(--risk-high); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--space-xs); }
+.mb-2 { margin-bottom: var(--space-sm); }
+.mb-3 { margin-bottom: var(--space-md); }
+.mb-4 { margin-bottom: var(--space-lg); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--space-xs); }
+.mt-2 { margin-top: var(--space-sm); }
+.mt-3 { margin-top: var(--space-md); }
+.mt-4 { margin-top: var(--space-lg); }
+
+/* ========================================
+   GRID LAYOUTS
+   ======================================== */
+.grid-2col {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.grid-2col > * {
+  flex: 1 1 calc(50% - 12px);
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.grid-2col > *:nth-child(2n) {
+  margin-right: 0;
+}
+
+.grid-3col {
+  display: flex;
+  flex-wrap: wrap;
+  margin: var(--space-md) 0;
+}
+
+.grid-3col > * {
+  flex: 1 1 calc(33.333% - var(--space-md));
+  margin-right: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.grid-3col > *:nth-child(3n) {
+  margin-right: 0;
+}
+
+.grid-3col > div {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.grid-3col .info-box {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.table-wrapper {
+  margin: var(--space-md) 0;
+  background: var(--white);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.table-wrapper table {
+  margin: 0;
+}
+
+.legend-table td {
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.legend-table strong {
+  color: var(--primary-navy);
+}
+
+.legend-info {
+  border-left: 4px solid var(--primary-teal);
+  background: var(--gray-bg);
+}
+
+.legend-info ul {
+  margin: 8px 0 0 18px;
+  padding-left: 0;
+}
+
+.legend-info li {
+  margin-bottom: 6px;
+}
+
+/* ========================================
+   EXAMPLE STATIC REPORT (Example/CBS-RA-V1)
+   ======================================== */
+body.example-report {
+  background: var(--gray-bg);
+  padding: 20px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body.example-report .print-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+body.example-report .btn-print {
+  background: var(--primary-navy);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(44, 95, 124, 0.3);
+  transition: all 0.3s ease;
+}
+
+body.example-report .btn-print:hover {
+  background: var(--primary-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(44, 95, 124, 0.4);
+}
+
+body.example-report .page {
+  width: 8.5in;
+  min-height: calc(11in - 0.5in);
+  padding: 0.6in 0.7in;
+  margin: 0 auto 20px;
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+}
+
+body.example-report .cover-page {
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+body.example-report .cover-logo {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+body.example-report .cover-title {
+  font-size: 56px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+body.example-report .cover-subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-bottom: 60px;
+}
+
+body.example-report .cover-version {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+body.example-report .logo-wrap {
+  display: flex;
+  align-items: center;
+}
+
+body.example-report .logo-img {
+  height: 32px;
+  width: auto;
+}
+
+body.example-report .logo-img {
+  height: 32px;
+  width: auto;
+}
+
+body.example-report .page-header {
+  padding-left: var(--page-margin-horizontal);
+  padding-right: var(--page-margin-horizontal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--primary-teal);
+  margin-bottom: 30px;
+}
+
+body.example-report .logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  letter-spacing: 1px;
+}
+
+body.example-report .page-number {
+  font-size: 14px;
+  color: var(--gray-medium);
+}
+
+body.example-report .page-footer {
+  margin-top: auto;
+  padding: 15px var(--page-margin-horizontal) 0 var(--page-margin-horizontal);
+  border-top: 1px solid var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 12px;
+  color: var(--gray-medium);
+}
+
+
+body.example-report h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 5px solid var(--primary-teal);
+}
+
+body.example-report h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin: 25px 0 15px 0;
+}
+
+body.example-report h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin: 20px 0 10px 0;
+}
+
+body.example-report h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin: 15px 0 8px 0;
+}
+
+body.example-report p {
+  margin-bottom: 12px;
+}
+
+body.example-report ul {
+  margin: 0 0 12px 20px;
+}
+
+body.example-report li {
+  margin-bottom: 6px;
+}
+
+body.example-report .info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  background: var(--gray-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+body.example-report .info-grid > * {
+  flex: 1 1 calc(50% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+body.example-report .info-grid > *:nth-child(2n) {
+  margin-right: 0;
+}
+
+body.example-report .info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+body.example-report .info-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+body.example-report .info-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-navy);
+}
+
+body.example-report .score-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--success);
+  margin: 20px 0;
+}
+
+body.example-report .score-number {
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 10px;
+}
+
+body.example-report .score-label {
+  font-size: 18px;
+  color: var(--gray-medium);
+}
+
+body.example-report .risk-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+body.example-report .risk-grid > * {
+  flex: 1 1 calc(33.333% - 15px);
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+body.example-report .risk-grid > *:nth-child(3n) {
+  margin-right: 0;
+}
+
+body.example-report .risk-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.example-report .risk-card.high {
+  border-left: 4px solid var(--high);
+}
+
+body.example-report .risk-card.moderate {
+  border-left: 4px solid var(--moderate);
+}
+
+body.example-report .risk-card.low {
+  border-left: 4px solid var(--low);
+}
+
+body.example-report .risk-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 5px;
+}
+
+body.example-report .risk-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body.example-report .risk-card.high .risk-label {
+  color: var(--high);
+}
+
+body.example-report .risk-card.moderate .risk-label {
+  color: var(--moderate);
+}
+
+body.example-report .risk-card.low .risk-label {
+  color: var(--low);
+}
+
+body.example-report .category-list {
+  margin: 20px 0;
+}
+
+body.example-report .category-item {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--primary-teal);
+}
+
+body.example-report .category-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gray-dark);
+}
+
+body.example-report .category-score {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--success);
+}
+
+body.example-report .info-box {
+  background: var(--gray-bg);
+  border-left: 4px solid var(--primary-teal);
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  page-break-inside: avoid;
+}
+
+body.example-report .info-box h4 {
+  margin-top: 0;
+}
+
+body.example-report .table-wrapper {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-light);
+  margin: 20px 0;
+  page-break-inside: avoid;
+}
+
+body.example-report table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body.example-report thead {
+  background: var(--primary-navy);
+  color: var(--white);
+}
+
+body.example-report th {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body.example-report tbody tr {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+body.example-report tbody tr:nth-child(even) {
+  background: var(--gray-bg);
+}
+
+body.example-report td {
+  padding: 12px 15px;
+  font-size: 13px;
+}
+
+body.example-report .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body.example-report .badge.high {
+  background: var(--high);
+  color: var(--white);
+}
+
+body.example-report .badge.moderate {
+  background: var(--moderate);
+  color: var(--white);
+}
+
+body.example-report .badge.low {
+  background: var(--low);
+  color: var(--white);
+}
+
+body.example-report .badge.success {
+  background: rgba(76, 175, 80, 0.1);
+  color: var(--success);
+}
+
+body.example-report .card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--primary-teal);
+  margin-bottom: 15px;
+}
+
+body.example-report .card.high {
+  border-left-color: var(--high);
+}
+
+body.example-report .card.moderate {
+  border-left-color: var(--moderate);
+}
+
+body.example-report .card h4 {
+  margin-top: 0;
+}
+
+body.example-report .detail-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+body.example-report .detail-grid > * {
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+body.example-report .detail-grid > *:nth-child(2n) {
+  margin-right: 0;
+}
+
+body.example-report .detail-label {
+  font-weight: 600;
+  color: var(--gray-medium);
+}
+
+body.example-report .detail-value {
+  color: var(--gray-dark);
+}
+
+@media print {
+  body.example-report {
+    background: var(--white);
+    padding: 0;
+  }
+
+  body.example-report .print-button {
+    display: none;
+  }
+
+  body.example-report .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+  }
+
+  body.example-report .page:last-child {
+    page-break-after: auto;
+  }
+}
+
+/* ========================================
+   SCORE INDICATORS
+   ======================================== */
+.score-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 55px;
+  padding: 4px 10px;
+  border-radius: 18px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.score-indicator.high {
+  background-color: var(--risk-low-bg);
+  color: var(--risk-low);
+  border: 2px solid var(--risk-low);
+}
+
+.score-indicator.medium {
+  background-color: var(--risk-moderate-bg);
+  color: #c87f0a;
+  border: 2px solid var(--risk-moderate);
+}
+
+.score-indicator.low {
+  background-color: var(--risk-high-bg);
+  color: var(--risk-high);
+  border: 2px solid var(--risk-high);
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+@media screen and (max-width: 768px) {
+  .page {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .grid-2col > *,
+  .grid-3col > * {
+    flex: 1 1 100%;
+    margin-right: 0;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.cover-logo-img {
+  max-width: 360px;
+  width: 75%;
+  height: auto;
+  display: block;
+  margin: 0 auto 30px auto;
+}
+
+.cover-metadata-label {
+  margin-right: 20px;
+}
+
+.findings-risk-heading span:first-child {
+  margin-right: 12px;
+}
+
+.score-bar > span {
+  margin-right: 12px;
+}
+
+.high-risk-header > * + * {
+  margin-left: 14px;
+}
+
+.question-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.question-status > * {
+  margin-right: 24px;
+  margin-bottom: 12px;
+}
+
+.status-item span:first-child {
+  margin-right: 16px;
+}
+
+.grid-3col > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-3col > div .info-box {
+  margin: 0;
+  flex: 1;
+}
+
+.dashboard-header > * {
+  margin-right: 24px;
+}
+
+.dashboard-header > *:last-child {
+  margin-right: 0;
+}
+
+.grid-3col > div > * + * {
+  margin-top: var(--space-md);
+}
+
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <h1>🚀 CyberPools PDF Generator POC - Paged.js vs DocRaptor</h1>
+
+        <div class="button-group">
+            <button class="primary" onclick="generateWithPagedJS()">
+                📄 Generate with Paged.js (FREE)
+            </button>
+            <button class="secondary" onclick="generateWithDocRaptor()">
+                📄 Generate with DocRaptor
+            </button>
+            <button onclick="loadTestData()">
+                🔄 Reload Test Data
+            </button>
+            <button onclick="showComparison()">
+                ℹ️ Compare Engines
+            </button>
+        </div>
+
+        <div class="info-panel">
+            <strong>Data Source:</strong> input/cb-ra.json (Christian Brothers Services - 49 questions, Score: 96, Grade: A)<br>
+            <strong>Paged.js:</strong> Free, browser-based, no API key required<br>
+            <strong>DocRaptor:</strong> Cloud-based, requires API key (test mode: watermarked PDFs)
+        </div>
+
+        <div id="status">Ready to generate PDF...</div>
+    </div>
+
+    <div id="preview">
+        <div class="comparison-info" id="comparison" style="display:none;">
+            <h2>📊 Rendering Engine Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Paged.js <span class="badge free">FREE</span></th>
+                        <th>DocRaptor <span class="badge paid">PAID</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cost</strong></td>
+                        <td>$0 - Completely free</td>
+                        <td>$15/month for 125 PDFs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Where it runs</strong></td>
+                        <td>Client-side in browser</td>
+                        <td>Cloud API service</td>
+                    </tr>
+                    <tr>
+                        <td><strong>API Key Required</strong></td>
+                        <td>❌ No</td>
+                        <td>✅ Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security</strong></td>
+                        <td>All data stays local</td>
+                        <td>Data sent to DocRaptor servers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PDF Quality</strong></td>
+                        <td>Excellent (browser print engine)</td>
+                        <td>Excellent (Prince XML)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>Unlimited PDFs, privacy-sensitive</td>
+                        <td>Enterprise with budget</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 15px; color: #666;">
+                <strong>Recommendation:</strong> For your use case, Paged.js is ideal - it's free, secure (data never leaves browser),
+                and produces professional PDFs identical to DocRaptor.
+            </p>
+        </div>
+    </div>
+
+    <script src="report-generator.js"></script>
+</body>
+</html>
