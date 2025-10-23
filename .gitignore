@@ -1,0 +1,14 @@
+
+# macOS system files
+.DS_Store
+*/.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Test/sample outputs
+output/Sample_*.pdf
