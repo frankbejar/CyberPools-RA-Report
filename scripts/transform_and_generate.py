@@ -34,6 +34,22 @@ except ModuleNotFoundError:
     markdown = None
     MARKDOWN_AVAILABLE = False
 
+
+COMPLIANCE_QUESTION_NUMBERS = {
+    "1.4",
+    "2.3",
+    "2.4",
+    "2.5",
+    "2.6",
+    "4.3",
+    "4.7",
+    "5.4",
+    "6.3",
+    "6.4",
+    "7.2",
+    "7.3",
+}
+
 # ---------- Robust path setup (root-insensitive) ----------
 THIS_FILE = Path(__file__).resolve()
 SCRIPTS_DIR = THIS_FILE.parent
@@ -272,7 +288,7 @@ def calculate_category_score(questions, question_mapping):
 EXCLUDED_CYBER_REQUIREMENTS = {
     "b032c58a-fc8f-f011-b4cb-0022480aaebb",  # Cyber insurance participation (informational only)
 }
-def transform_crm_data(crm_questions, metadata_input, executive_summary, question_mapping, category_mapping):
+def transform_crm_data(crm_questions, metadata_input, executive_summary, question_mapping, category_mapping, include_compliance=True):
     print_info("Transforming CRM data to template format...")
 
     risk_dist = {'high': 0, 'moderate': 0, 'low': 0}
@@ -343,10 +359,23 @@ def transform_crm_data(crm_questions, metadata_input, executive_summary, questio
         section_scores[cat_info['number']] = {'name': cat_info['name'], 'score': cat_score}
 
     cyber_requirements = []
-    for q in crm_questions:
-        if q.get('qReq', False) and q['qID'] not in EXCLUDED_CYBER_REQUIREMENTS:
-            q_info = question_mapping.get(q['qID'], {'text': 'Unknown Requirement'})
-            cyber_requirements.append({'question': q_info['text'], 'compliance': q['qResponse'] == 1})
+    if include_compliance:
+        for q in crm_questions:
+            if q['qID'] in EXCLUDED_CYBER_REQUIREMENTS:
+                continue
+            q_info = question_mapping.get(q['qID'], {'text': 'Unknown Requirement', 'number': '0.0'})
+            q_number = q_info.get('number', '0.0')
+            include_requirement = q.get('qReq', False) or q_number in COMPLIANCE_QUESTION_NUMBERS
+            if include_requirement:
+                cyber_requirements.append({
+                    'question': q_info.get('text', 'Unknown Requirement'),
+                    'number': q_number,
+                    'compliance': q['qResponse'] == 1
+                })
+
+        cyber_requirements.sort(
+            key=lambda x: float(x['number']) if x['number'] and x['number'] != '0.0' else 999
+        )
 
     return {
         'metadata': metadata,
@@ -591,6 +620,7 @@ def parse_args():
     parser.add_argument('--engine', choices=['playwright', 'weasyprint', 'docraptor'], default='playwright', help='PDF engine')
     parser.add_argument('--ci', action='store_true', help='Chromium no-sandbox (CI/Docker)')
     parser.add_argument('--production', action='store_true', help='DocRaptor production mode (no watermark, counts against quota)')
+    parser.add_argument('--no-compliance', action='store_true', help='Skip Cyber Requirements compliance table')
     parser.add_argument('--output', help='Output PDF path (overrides default)')
     return parser.parse_args()
 
@@ -638,7 +668,15 @@ def main():
         print_success(f"Executive summary: {len(executive_summary_raw)} characters")
 
     try:
-        template_data = transform_crm_data(crm_data, metadata, executive_summary_raw, question_mapping, category_mapping)
+        include_compliance = not args.no_compliance
+        template_data = transform_crm_data(
+            crm_data,
+            metadata,
+            executive_summary_raw,
+            question_mapping,
+            category_mapping,
+            include_compliance=include_compliance,
+        )
         print_success("Data transformation complete")
         print_info(f"Overall Score: {template_data['scoring']['overall_score']}% (Grade: {template_data['scoring']['overall_grade']})")
     except Exception as e:

@@ -105,7 +105,9 @@ This only has to be done once per machine/user.
    ```
    * `--auto` populates metadata placeholders with defaults and skips all interactive prompts
    * Defaults: High + Moderate risk findings included in report
+   * The Cyber Requirements compliance table is included automatically. Use `--no-compliance` if you need to suppress it for a specific run.
    * Use `--engine weasyprint` to switch to the WeasyPrint backend (Playwright is default)
+   * Use `--engine docraptor` to send the HTML to DocRaptor (see DocRaptor notes below)
    * When prompted for the executive summary you can enter Markdown (bold, lists, headings); the CLI converts it to HTML in the PDF.
 4. **Find the PDF** in `output/`. File name pattern:
    `Sample_Organization_Risk_Assessment_10-20-2025.pdf`

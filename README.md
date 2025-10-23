@@ -65,12 +65,26 @@ python3 scripts/transform_and_generate.py \
   --auto \
   --engine docraptor \
   --output output/report.pdf
+
+> **Compliance table:** the Cyber Requirements section is included automatically. Add `--no-compliance` if a pool opts out for a particular run.
+
+> **Rounding:** overall and category percentages use standard half-up rounding (e.g., 80.5 → 81) to mirror the CRM dashboards exactly.
 ```
 
 **Batch Generate All CBS Reports:**
 ```bash
 ./scripts/generate_all_cbs_reports.sh
 ```
+
+### AI-Powered Executive Summaries
+
+Generate risk-focused executive summaries using GPT-3.5 Turbo. Copy `.env.example` to `.env`, set `OPENAI_API_KEY`, then run:
+
+```bash
+python3 scripts/suggest_summary.py --input input/CBS-CBS.json --tone professional
+```
+
+The tool analyzes the assessment, produces markdown prose plus bullet-point takeaways, and lets you regenerate, change tone, edit, or copy to the clipboard. See [docs/AI_SUMMARY_GUIDE.md](docs/AI_SUMMARY_GUIDE.md) for details.
 
 ---
 
@@ -206,6 +220,7 @@ cyberpools-RA-Report-1/
 - Edit templates in `templates/partials/`
 - Update boilerplate text in `content/boilerplate.json`
 - Adjust mappings in `mappings/` directory
+- Run `scripts/update_cyber_requirements.py` whenever the “core” Cyber Requirements list changes. This keeps the `qReq` flags in every `CBS-*.json` consistent with the compliance table.
 
 ---
 
