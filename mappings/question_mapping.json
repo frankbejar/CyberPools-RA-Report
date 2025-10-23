@@ -199,7 +199,7 @@
     "number": "4.13",
     "text": "Does the organization change any wireless PSKs annually?",
     "control_description": "PSK should only be used for guest wireless access. PSK should be changed annually to prevent any unwanted or unauthorized access from intruders.",
-    "impact_score": 0,
+    "impact_score": 3,
     "category": "772120003"
   },
   "25dbe311-9478-f011-b4cb-0022480aaebb": {
@@ -353,7 +353,7 @@
     "number": "9.6",
     "text": "Outside of the CBS Pool, does the organization purchase cyber insurance?",
     "control_description": "Consider purchasing cyber insurance to provide financial protection and support in the event of a cybersecurity incident.",
-    "impact_score": 0,
+    "impact_score": 1,
     "category": "772120008"
   }
 }
