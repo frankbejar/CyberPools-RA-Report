@@ -11,14 +11,21 @@
             --primary-navy: #2C5F7C;
             --primary-teal: #4A9FB8;
             --accent-cyan: #6BC4D9;
-            
+
             /* Severity Colors */
             --critical: #7B0000;
             --high: #C10000;
             --moderate: #F39C12;
             --low: #4CAF50;
             --info: #3498DB;
-            
+
+            /* Grade Colors - Official CRM Standard (5-Level System) */
+            --grade-a: #0ABE57;        /* A (90-100%): Dark Green - RGB(10, 190, 87) */
+            --grade-b: #75C525;        /* B (80-89%): Light Green/Yellow-Green - RGB(117, 197, 37) */
+            --grade-c: #E8AB25;        /* C (70-79%): Orange - RGB(232, 171, 37) */
+            --grade-d: #FA783A;        /* D (60-69%): Dark Orange/Red-Orange - RGB(250, 120, 58) */
+            --grade-f: #EF3A3F;        /* F (0-59%): Red - RGB(239, 58, 63) */
+
             /* Status Colors */
             --success: #4CAF50;
             --warning: #FF9800;
@@ -740,6 +747,55 @@
             </div>
         </div>
 
+        <h2>Grade Colors (Official CRM Standard)</h2>
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="color-block" style="background: #0ABE57;">Grade A</div>
+                <div class="color-info">
+                    <div class="color-name">Grade A (90-100%)</div>
+                    <div class="color-value">#0ABE57</div>
+                    <div class="color-value">RGB(10, 190, 87)</div>
+                    <div class="color-value">--grade-a</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #75C525;">Grade B</div>
+                <div class="color-info">
+                    <div class="color-name">Grade B (80-89%)</div>
+                    <div class="color-value">#75C525</div>
+                    <div class="color-value">RGB(117, 197, 37)</div>
+                    <div class="color-value">--grade-b</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #E8AB25;">Grade C</div>
+                <div class="color-info">
+                    <div class="color-name">Grade C (70-79%)</div>
+                    <div class="color-value">#E8AB25</div>
+                    <div class="color-value">RGB(232, 171, 37)</div>
+                    <div class="color-value">--grade-c</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #FA783A;">Grade D</div>
+                <div class="color-info">
+                    <div class="color-name">Grade D (60-69%)</div>
+                    <div class="color-value">#FA783A</div>
+                    <div class="color-value">RGB(250, 120, 58)</div>
+                    <div class="color-value">--grade-d</div>
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-block" style="background: #EF3A3F;">Grade F</div>
+                <div class="color-info">
+                    <div class="color-name">Grade F (0-59%)</div>
+                    <div class="color-value">#EF3A3F</div>
+                    <div class="color-value">RGB(239, 58, 63)</div>
+                    <div class="color-value">--grade-f</div>
+                </div>
+            </div>
+        </div>
+
         <h2>Neutral Colors</h2>
         <div class="color-grid">
             <div class="color-swatch">
@@ -1288,6 +1344,13 @@
 &nbsp;&nbsp;--moderate: #F39C12;<br>
 &nbsp;&nbsp;--low: #4CAF50;<br>
 &nbsp;&nbsp;--info: #3498DB;<br>
+<br>
+&nbsp;&nbsp;/* Grade Colors (CRM Standard) */<br>
+&nbsp;&nbsp;--grade-a: #0ABE57; /* A: 90-100% */<br>
+&nbsp;&nbsp;--grade-b: #75C525; /* B: 80-89% */<br>
+&nbsp;&nbsp;--grade-c: #E8AB25; /* C: 70-79% */<br>
+&nbsp;&nbsp;--grade-d: #FA783A; /* D: 60-69% */<br>
+&nbsp;&nbsp;--grade-f: #EF3A3F; /* F: 0-59% */<br>
 <br>
 &nbsp;&nbsp;/* Grayscale */<br>
 &nbsp;&nbsp;--gray-dark: #333333;<br>

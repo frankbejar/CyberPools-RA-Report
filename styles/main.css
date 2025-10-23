@@ -25,6 +25,13 @@
   --warning: #FF9800;
   --danger: #F44336;
   --neutral: #718096;
+
+  /* Grade Colors - Official CRM Standard (5-Level System) */
+  --grade-a: #0ABE57;        /* A (90-100%): Dark Green - RGB(10, 190, 87) */
+  --grade-b: #75C525;        /* B (80-89%): Light Green/Yellow-Green - RGB(117, 197, 37) */
+  --grade-c: #E8AB25;        /* C (70-79%): Orange - RGB(232, 171, 37) */
+  --grade-d: #FA783A;        /* D (60-69%): Dark Orange/Red-Orange - RGB(250, 120, 58) */
+  --grade-f: #EF3A3F;        /* F (0-59%): Red - RGB(239, 58, 63) */
   
   /* Background colors for risk levels */
   --risk-high-bg: #fdeaea;
@@ -311,17 +318,23 @@ strong {
 }
 
 .grade-badge.grade-a {
-  background-color: var(--risk-low);
+  background-color: var(--grade-a);
 }
 
 .grade-badge.grade-b {
-  background-color: var(--risk-moderate);
+  background-color: var(--grade-b);
 }
 
-.grade-badge.grade-c,
-.grade-badge.grade-d,
+.grade-badge.grade-c {
+  background-color: var(--grade-c);
+}
+
+.grade-badge.grade-d {
+  background-color: var(--grade-d);
+}
+
 .grade-badge.grade-f {
-  background-color: var(--risk-high);
+  background-color: var(--grade-f);
 }
 
 /* ========================================
@@ -909,16 +922,38 @@ tbody tr:nth-child(even) {
   transition: width 0.3s ease;
 }
 
+/* Score bar colors based on performance level */
 .score-bar-fill.high {
-  background-color: var(--risk-low);
+  background-color: var(--grade-a);
 }
 
 .score-bar-fill.medium {
-  background-color: var(--risk-moderate);
+  background-color: var(--grade-c);
 }
 
 .score-bar-fill.low {
-  background-color: var(--risk-high);
+  background-color: var(--grade-f);
+}
+
+/* Additional score bar grade classes for more granular control */
+.score-bar-fill.grade-a {
+  background-color: var(--grade-a);
+}
+
+.score-bar-fill.grade-b {
+  background-color: var(--grade-b);
+}
+
+.score-bar-fill.grade-c {
+  background-color: var(--grade-c);
+}
+
+.score-bar-fill.grade-d {
+  background-color: var(--grade-d);
+}
+
+.score-bar-fill.grade-f {
+  background-color: var(--grade-f);
 }
 
 /* ========================================
@@ -1787,22 +1822,54 @@ body.example-report .detail-value {
   font-size: 14px;
 }
 
+/* Legacy score indicator classes */
 .score-indicator.high {
-  background-color: var(--risk-low-bg);
-  color: var(--risk-low);
-  border: 2px solid var(--risk-low);
+  background-color: rgba(10, 190, 87, 0.1);
+  color: var(--grade-a);
+  border: 2px solid var(--grade-a);
 }
 
 .score-indicator.medium {
-  background-color: var(--risk-moderate-bg);
-  color: #c87f0a;
-  border: 2px solid var(--risk-moderate);
+  background-color: rgba(232, 171, 37, 0.1);
+  color: var(--grade-c);
+  border: 2px solid var(--grade-c);
 }
 
 .score-indicator.low {
-  background-color: var(--risk-high-bg);
-  color: var(--risk-high);
-  border: 2px solid var(--risk-high);
+  background-color: rgba(239, 58, 63, 0.1);
+  color: var(--grade-f);
+  border: 2px solid var(--grade-f);
+}
+
+/* Grade-specific score indicators */
+.score-indicator.grade-a {
+  background-color: rgba(10, 190, 87, 0.1);
+  color: var(--grade-a);
+  border: 2px solid var(--grade-a);
+}
+
+.score-indicator.grade-b {
+  background-color: rgba(117, 197, 37, 0.1);
+  color: var(--grade-b);
+  border: 2px solid var(--grade-b);
+}
+
+.score-indicator.grade-c {
+  background-color: rgba(232, 171, 37, 0.1);
+  color: var(--grade-c);
+  border: 2px solid var(--grade-c);
+}
+
+.score-indicator.grade-d {
+  background-color: rgba(250, 120, 58, 0.1);
+  color: var(--grade-d);
+  border: 2px solid var(--grade-d);
+}
+
+.score-indicator.grade-f {
+  background-color: rgba(239, 58, 63, 0.1);
+  color: var(--grade-f);
+  border: 2px solid var(--grade-f);
 }
 
 /* ========================================

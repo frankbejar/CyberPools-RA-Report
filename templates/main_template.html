@@ -52,5 +52,10 @@
     {% include 'partials/category.html' %}
   {% endfor %}
 
+  <!-- Outro page (optional) -->
+  {% if include_outro %}
+    {% include 'partials/outro.html' %}
+  {% endif %}
+
 </body>
 </html>

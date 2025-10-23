@@ -45,7 +45,20 @@ export DOCRAPTOR_API_KEY="your_api_key_here"
 
 ### Generate a Report
 
-**Using DocRaptor (Recommended):**
+**Using the New Metadata Script (Recommended):**
+```bash
+python3 scripts/generate_report_with_metadata.py \
+  --input "input/CBS-School.json" \
+  --member-name "School Name" \
+  --assessment-date "10/15/2025" \
+  --conducted-by "Assessor Name" \
+  --member-contact "Contact Name" \
+  --executive-summary "Summary with **markdown** support..." \
+  --outro-page \
+  --production
+```
+
+**Using Original Script:**
 ```bash
 python3 scripts/transform_and_generate.py \
   --input input/cb-ra.json \
@@ -54,12 +67,9 @@ python3 scripts/transform_and_generate.py \
   --output output/report.pdf
 ```
 
-**Using Playwright:**
+**Batch Generate All CBS Reports:**
 ```bash
-python3 scripts/transform_and_generate.py \
-  --input input/cb-ra.json \
-  --auto \
-  --engine playwright
+./scripts/generate_all_cbs_reports.sh
 ```
 
 ---
@@ -150,15 +160,23 @@ cyberpools-RA-Report-1/
 
 ### Professional Styling
 - CyberPools brand colors and typography
+- **5-level grade color system** (A/B/C/D/F) matching CRM standards
 - Color-coded risk levels (High/Moderate/Low)
 - Visual grade badges and progress bars
 - Consistent spacing and alignment
 
 ### Flexible Output
-- Executive summary (optional, supports Markdown)
+- Executive summary (optional, **supports Markdown** with `**bold**` syntax)
+- **Optional outro page** with services table and contact info
 - Key findings section (auto-generated based on risk scores)
 - Full control assessment with all questions
 - Cyber requirements reference table
+
+### New Features (October 2025)
+- **Grade Color Standards**: Consistent 5-level color grading (A=Dark Green, B=Light Green, C=Orange, D=Dark Orange, F=Red)
+- **Markdown Support**: Bold text in executive summaries using `**text**` syntax
+- **Outro Page**: Optional closing page with all CyberPools services and contact information
+- **Metadata Script**: New `generate_report_with_metadata.py` for easier custom report generation
 
 ---
 
@@ -193,7 +211,39 @@ cyberpools-RA-Report-1/
 
 ## CLI Reference
 
-### Main Script: `transform_and_generate.py`
+### New Metadata Script: `generate_report_with_metadata.py` (Recommended)
+
+```bash
+python3 scripts/generate_report_with_metadata.py [OPTIONS]
+
+Required Options:
+  --input PATH                Input JSON file path
+  --member-name TEXT          Member/School name
+  --assessment-date DATE      Assessment date (MM/DD/YYYY)
+  --conducted-by TEXT         Name of person who conducted assessment
+  --member-contact TEXT       Member contact name
+
+Optional:
+  --executive-summary TEXT    Executive summary (supports **markdown**)
+  --outro-page               Include outro page with services and contact
+  --production               Generate production PDF (no watermark)
+  --output PATH              Custom output filename
+```
+
+**Example:**
+```bash
+python3 scripts/generate_report_with_metadata.py \
+  --input "input/CBS-School.json" \
+  --member-name "School Name" \
+  --assessment-date "10/15/2025" \
+  --conducted-by "John Doe" \
+  --member-contact "Jane Smith" \
+  --executive-summary "School achieved **82% score**..." \
+  --outro-page \
+  --production
+```
+
+### Original Script: `transform_and_generate.py`
 
 ```bash
 python3 scripts/transform_and_generate.py [OPTIONS]
@@ -205,8 +255,6 @@ Options:
   --output PATH         Output PDF path
   --ci                  CI mode (adds Chromium flags for containers)
 ```
-
-### Examples
 
 **Interactive mode:**
 ```bash

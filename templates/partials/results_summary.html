@@ -58,7 +58,7 @@
                     <div class="score-bar">
                         <span style="min-width: 50px; font-weight: 700;">{{ section.score }}%</span>
                         <div class="score-bar-visual">
-                            <div class="score-bar-fill {% if section.score >= 90 %}high{% elif section.score >= 75 %}medium{% else %}low{% endif %}" 
+                            <div class="score-bar-fill {% if section.score >= 90 %}grade-a{% elif section.score >= 80 %}grade-b{% elif section.score >= 70 %}grade-c{% elif section.score >= 60 %}grade-d{% else %}grade-f{% endif %}"
                                  style="width: {{ section.score }}%;"></div>
                         </div>
                     </div>
