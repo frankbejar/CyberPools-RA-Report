@@ -96,6 +96,21 @@ body {
   background: white;
   display: block !important;
   overflow: visible !important;
+  position: relative !important;
+}
+
+/* Introduction page - pin disclaimer to bottom */
+.intro-page {
+  min-height: 9.2in !important;
+  position: relative !important;
+}
+
+.intro-disclaimer {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
 }
 
 /* First page after cover should not force a break */
