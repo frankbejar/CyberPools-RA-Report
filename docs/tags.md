@@ -9,7 +9,7 @@ Use tags to filter questions across categories:
 ## Question Types
 
 - [Foundational](filtered/foundational.md) - 17 insurance-critical controls
-- [New](filtered/new-questions.md) - 13 questions added for 2026
+- [New](filtered/new-questions.md) - 12 questions added for 2026
 - [High Impact](filtered/high-impact.md) - Critical security controls (impact rating 5)
 
 ## Categories

@@ -1,9 +1,9 @@
-# CyberPools Comprehensive Cybersecurity Risk Assessment Questionnaire
+# CyberPools Cyber Risk Assessment Questionnaire
 ## Sector-Neutral Framework - Version 2.0 (2026)
 
 **Document Version:** 2.0
 **Effective Date:** January 2026 (Proposed)
-**Total Questions:** 65 (52 existing + 13 new)
+**Total Questions:** 65 (53 existing + 12 new)
 **Foundational Questions:** 17 (12 existing + 5 new)
 **Assessment Categories:** 9
 

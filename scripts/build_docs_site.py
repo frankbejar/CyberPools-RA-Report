@@ -39,7 +39,7 @@ def create_overview_pages(content):
     # Introduction
     intro = extract_section(
         content,
-        r"^# CyberPools Comprehensive Cybersecurity Risk Assessment Questionnaire",
+        r"^# CyberPools Cyber Risk Assessment Questionnaire",
         r"^## Cyber Essential Controls"
     )
     if intro:
@@ -116,9 +116,9 @@ def create_category_pages(content):
 def create_filtered_pages(content):
     """Create filtered view pages."""
 
-    # Foundational questions
+    # Foundational questions - only match questions with 🔑 FOUNDATIONAL in the header
     foundational_questions = []
-    for match in re.finditer(r"(###\s+Question\s+[\d.]+:.*?🔑 FOUNDATIONAL.*?)(?=###\s+Question|\Z)", content, re.DOTALL):
+    for match in re.finditer(r"(###\s+Question\s+[\d.]+:[^\n]*🔑 FOUNDATIONAL[^\n]*\n.*?)(?=###\s+Question|\Z)", content, re.DOTALL):
         foundational_questions.append(match.group(1))
 
     if foundational_questions:
@@ -157,14 +157,14 @@ These 17 questions are **insurance-critical** controls required by most cyber in
         foundational_file.write_text(foundational_content)
         print(f"✓ Created {foundational_file} ({len(foundational_questions)} questions)")
 
-    # New questions
+    # New questions - only match questions with 🆕 in the header
     new_questions = []
-    for match in re.finditer(r"(###\s+Question\s+[\d.]+:.*?🆕.*?)(?=###\s+Question|\Z)", content, re.DOTALL):
+    for match in re.finditer(r"(###\s+Question\s+[\d.]+:[^\n]*🆕[^\n]*\n.*?)(?=###\s+Question|\Z)", content, re.DOTALL):
         new_questions.append(match.group(1))
 
     if new_questions:
         new_content = f"""---
-title: New Questions (13)
+title: New Questions (12)
 tags:
   - New
   - 2026 Expansion
@@ -172,7 +172,7 @@ tags:
 
 # 🆕 New Questions for 2026
 
-These 13 questions have been added based on 2024-2025 threat landscape analysis and insurance market requirements.
+These 12 questions have been added based on 2024-2025 threat landscape analysis and insurance market requirements.
 
 **5 New Foundational:**
 - 3.5: PAM Platform
@@ -181,7 +181,7 @@ These 13 questions have been added based on 2024-2025 threat landscape analysis 
 - 7.4: AI AUP
 - 8.8: AI Vetting
 
-**8 New Supporting:**
+**7 New Supporting:**
 - 3.6: Data Classification
 - 4.15: Cloud Security
 - 4.16: Secure Remote Access
@@ -372,7 +372,7 @@ Use tags to filter questions across categories:
 ## Question Types
 
 - [Foundational](../filtered/foundational.md) - 17 insurance-critical controls
-- [New](../filtered/new-questions.md) - 13 questions added for 2026
+- [New](../filtered/new-questions.md) - 12 questions added for 2026
 - [High Impact](../filtered/high-impact.md) - Critical security controls (impact rating 5)
 
 ## Categories
