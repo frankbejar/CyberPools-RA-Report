@@ -10,6 +10,7 @@ tags:
 These 17 questions are **insurance-critical** controls required by most cyber insurance carriers.
 
 **12 Existing Foundational** (Trust Requirements for Education):
+
 - 1.4: End-of-Life Software Management
 - 2.3-2.6: Multi-Factor Authentication (4 questions)
 - 4.3: Patch Management
@@ -19,6 +20,7 @@ These 17 questions are **insurance-critical** controls required by most cyber in
 - 7.2-7.3: Phishing Simulation + Training
 
 **5 NEW Foundational** (2026 Additions):
+
 - 3.5: Privileged Access Management (PAM)
 - 4.14: Centralized Logging and SIEM
 - 5.5: Email Authentication (DMARC/SPF/DKIM)
