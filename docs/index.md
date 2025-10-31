@@ -210,10 +210,9 @@ This assessment aligns with industry-leading cybersecurity frameworks:
 
 ## 🚀 Getting Started
 
-1. **[Read the Introduction](overview/introduction.md)** - Understand the assessment structure
-2. **[Review Methodology](overview/methodology.md)** - Learn about the dual-score model
-3. **[Explore Cyber Essential Controls](overview/essential-controls.md)** - 17 foundational questions
-4. **[Browse by Category](categories/category-1.md)** - Deep dive into each security category
+1. **[Read the Introduction](overview/introduction.md)** - Understand the assessment structure and methodology
+2. **[Explore Cyber Essential Controls](overview/essential-controls.md)** - 17 foundational questions
+3. **[Browse by Category](categories/category-1.md)** - Deep dive into each security category
 
 ---
 

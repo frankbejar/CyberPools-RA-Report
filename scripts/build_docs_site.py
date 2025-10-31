@@ -58,13 +58,7 @@ def create_overview_pages(content):
         essential_file.write_text(f"---\ntitle: Cyber Essential Controls\ntags:\n  - Overview\n  - Foundational\n---\n\n{essential}")
         print(f"✓ Created {essential_file}")
 
-    # Methodology (extract from introduction section)
-    method_match = re.search(r"### Assessment Methodology.*?(?=###|\Z)", content, re.DOTALL)
-    if method_match:
-        methodology = f"---\ntitle: Methodology\ntags:\n  - Overview\n---\n\n# Assessment Methodology\n\n{method_match.group(0)}"
-        method_file = DOCS_DIR / "overview" / "methodology.md"
-        method_file.write_text(methodology)
-        print(f"✓ Created {method_file}")
+    # Methodology is included in introduction page, no separate page needed
 
 def create_category_pages(content):
     """Create individual category pages."""

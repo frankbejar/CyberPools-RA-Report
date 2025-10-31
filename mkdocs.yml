@@ -126,7 +126,6 @@ nav:
   - Home: index.md
   - Overview:
     - Introduction: overview/introduction.md
-    - Methodology: overview/methodology.md
     - Cyber Essential Controls: overview/essential-controls.md
   - Categories:
     - Category 1 - Asset Inventory: categories/category-1.md
