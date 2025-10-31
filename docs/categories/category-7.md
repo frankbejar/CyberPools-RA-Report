@@ -408,17 +408,20 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved AI Tools:** List of vetted AI tools authorized for organizational use (Microsoft Copilot, Google Gemini Workspace, domain-specific AI tools)
 - **Prohibited Uses:** Define unacceptable AI usage:
+
   - **Data Privacy:** Prohibit entering sensitive/confidential data into public AI tools (ChatGPT free tier, Claude web interface)
   - **Decision-Making:** Prohibit using AI for high-stakes decisions without human review (hiring, patient diagnosis, financial decisions)
   - **Academic/Professional Integrity:** Define plagiarism/citation requirements for AI-generated content
   - **Compliance:** Prohibit AI uses that violate regulations (FERPA, HIPAA, GDPR, copyright law)
 
 - **Data Classification Integration:** Link AI policy to data classification (Question 3.6):
+
   - **Public Data:** May be used with any AI tool
   - **Internal Data:** Only use with enterprise AI tools (Microsoft 365 Copilot with data residency)
   - **Confidential/Regulated Data:** Prohibited from AI tools unless specifically approved (zero-retention AI services)
 
 - **Responsible AI Principles:**
+
   - **Transparency:** Disclose when AI is used to generate content/decisions
   - **Accuracy Verification:** Require human review of AI outputs (AI hallucinations common)
   - **Bias Mitigation:** Awareness of AI bias in hiring, customer service, content generation
@@ -479,11 +482,13 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** Microsoft Copilot (M365 Education), Google Gemini (Workspace Education), approved educational AI platforms (Khan Academy Khanmigo)
 - **Prohibited Uses:**
+
   - Entering student names, IDs, grades, IEPs, disciplinary records into public AI tools (FERPA violation)
   - Using AI to generate entire lesson plans without review (quality/accuracy concerns)
   - Students using AI for assignments without disclosure (academic integrity)
 
 - **Practical Implementation:**
+
   - **Teacher Guidance:** "Use AI for brainstorming lesson ideas, but don't enter student-specific information"
   - **Student Policy:** Define AI citation requirements, prohibited uses for assignments
   - **Enterprise AI Adoption:** Microsoft Copilot for Education provides FERPA-compliant AI assistance
@@ -494,11 +499,13 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** HIPAA-compliant AI tools with BAAs (Business Associate Agreements), enterprise AI platforms
 - **Prohibited Uses:**
+
   - Entering PHI (patient names, diagnoses, medical record numbers) into public AI tools (HIPAA breach)
   - Using AI for clinical decision-making without physician oversight (FDA, standard of care concerns)
   - AI-generated clinical documentation without physician review
 
 - **Practical Implementation:**
+
   - **Clinical Staff Training:** "Never enter patient-identifiable information into ChatGPT or public AI tools"
   - **AI Medical Devices:** Vet AI-enabled medical devices via vendor risk management (Question 8.8)
   - **Enterprise AI:** Microsoft Azure Health Bot, Google Cloud Healthcare AI (HIPAA-compliant options)
@@ -509,11 +516,13 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** Enterprise AI tools (Microsoft 365 Copilot), free tools for non-sensitive data
 - **Prohibited Uses:**
+
   - Entering donor names, donation amounts, addresses into public AI tools (privacy, donor confidence)
   - Using AI to generate fundraising appeals without review (accuracy, brand voice)
   - AI-generated content without attribution (ethical concerns)
 
 - **Practical Implementation:**
+
   - **Staff Guidance:** "Use AI for drafting communications, but don't include donor data"
   - **Budget-Conscious:** Define when free AI tools acceptable (public content generation) vs. when enterprise tools required (donor data analysis)
   - **Donor Trust:** AI policy demonstrates responsible stewardship of donor information
@@ -522,6 +531,7 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** Enterprise AI platforms (Microsoft Copilot, Google Gemini, AWS Bedrock), industry-specific AI tools
 - **Prohibited Uses:**
+
   - Entering trade secrets, proprietary code, customer PII into public AI tools
   - Using AI for high-stakes decisions (hiring, credit decisions, legal analysis) without human review
   - AI-generated content that may infringe copyright

@@ -13,6 +13,7 @@ tags:
 ### Overview
 
 Secure configuration and vulnerability management ensures that systems are hardened against attack and that known vulnerabilities are identified and remediated in a timely manner. This category addresses:
+
 - Network security architecture (firewalls, segmentation, DMZ)
 - System hardening and secure baselines
 - Patch management processes
@@ -97,6 +98,7 @@ Firewall deployment includes:
 **Insurance Rationale (Universal):**
 
 Firewalls are baseline security expectation:
+
 - Cyber insurance applications ask: "Do you have firewalls protecting your network?"
 - Absence of firewalls may result in coverage denial
 - Proper firewall configuration demonstrates due diligence
@@ -171,6 +173,7 @@ Network segmentation divides network into isolated zones:
 **Insurance Rationale (Universal):**
 
 Network segmentation is defense-in-depth strategy:
+
 - **Ransomware Containment:** Prevents lateral spread across entire network
 - **Breach Impact Reduction:** Attackers contained to compromised segment
 - **Compliance:** HIPAA, PCI DSS require network segmentation
@@ -237,6 +240,7 @@ Patch management process includes:
 - **Non-Security Patches:** Deploy on quarterly schedule or as needed
 
 **Patch Process:**
+
 1. **Identification:** Monitor vendor security advisories (Microsoft, Apple, Adobe, etc.)
 2. **Testing:** Test patches in development/test environment before production deployment
 3. **Deployment:** Automated patch deployment tools (WSUS, SCCM, Intune, Jamf, third-party RMM)
@@ -259,6 +263,7 @@ Patch management process includes:
 **Insurance Rationale (Universal):**
 
 Patch management is **critical insurance requirement:**
+
 - **50% of perimeter vulnerabilities remain unpatched** (Verizon DBIR 2024)
 - Unpatched systems are #1 exploited vulnerability
 - Coalition, Chubb, Corvus assess patch management maturity during underwriting
@@ -350,6 +355,7 @@ System hardening reduces attack surface by:
 **Insurance Rationale (Universal):**
 
 System hardening is defense-in-depth best practice:
+
 - Reduces exploitable vulnerabilities beyond just patching
 - Demonstrates security maturity to insurers
 - Addresses insider threats (disabled unnecessary services limit abuse)
@@ -432,6 +438,7 @@ Wireless security includes:
 **Insurance Rationale (Universal):**
 
 Insecure wireless networks create attack vector:
+
 - **WEP/WPA Cracking:** Attackers within range can crack encryption in minutes
 - **Guest Network Isolation:** Prevents visitor malware from accessing internal systems
 - **Compliance:** PCI DSS requires wireless encryption if handling payment card data
@@ -511,6 +518,7 @@ Network monitoring includes:
 **Insurance Rationale (Universal):**
 
 Network monitoring enables early threat detection:
+
 - Detects reconnaissance/scanning before full-scale attack
 - Identifies lateral movement after initial compromise
 - Supports incident investigation (what systems did attacker access?)
@@ -582,6 +590,7 @@ External vulnerability scanning identifies internet-facing vulnerabilities:
 - **Managed Services:** Outsourced scanning from MSPs, CyberPools vulnerability scanning service
 
 **Scan Process:**
+
 1. **Discovery:** Identify all internet-facing IP addresses and domains
 2. **Scanning:** Automated scan checks for known vulnerabilities (CVEs)
 3. **Reporting:** Generate vulnerability report with severity ratings (Critical/High/Medium/Low)
@@ -600,6 +609,7 @@ External vulnerability scanning identifies internet-facing vulnerabilities:
 **Insurance Rationale (Universal):**
 
 External vulnerability scanning is **mandatory insurance requirement:**
+
 - **PCI DSS:** Quarterly external scans required for payment card processing (Requirement 11.3)
 - **Coalition, Chubb, Corvus:** All require quarterly external vulnerability scanning
 - **Scan Reports:** Provide to insurer as evidence of vulnerability management
@@ -650,6 +660,7 @@ External vulnerability scanning is **mandatory insurance requirement:**
 ### Question 4.8-4.13: Additional Configuration Questions
 
 **Note:** Questions 4.8-4.13 cover additional secure configuration topics including:
+
 - 4.8: Remote Desktop Protocol (RDP) Security
 - 4.9: Internal Network Segmentation  
 - 4.10: VLAN Configuration
@@ -802,6 +813,7 @@ Cloud Security Posture Management (CSPM) involves continuous assessment of cloud
 **CSPM Tools:**
 
 - **Native Cloud Tools:**
+
   - AWS Security Hub (aggregates findings from AWS Config, GuardDuty, Inspector)
   - Azure Security Center / Microsoft Defender for Cloud
   - Google Security Command Center
@@ -937,6 +949,7 @@ Enhanced remote access security goes beyond VPN+MFA to include:
 **Insurance Rationale (Universal):**
 
 Remote work expanded attack surface post-COVID:
+
 - **Coalition:** 82% of cyber insurance claims involved organizations lacking MFA
 - **MFA Alone Insufficient:** Conditional access adds device compliance, location verification
 - **BYOD Security:** Bring-Your-Own-Device policies require device compliance checks

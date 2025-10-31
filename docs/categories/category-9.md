@@ -77,6 +77,7 @@ An Incident Response Plan (IRP) provides structured procedures for responding to
 - **Recovery Procedures:** System restoration, business continuity integration (Question 6.5-6.6)
 
 **NIST Incident Response Lifecycle:**
+
 1. **Preparation:** Tools, training, IR plan maintenance
 2. **Detection and Analysis:** Identify and analyze incidents
 3. **Containment, Eradication, and Recovery:** Stop incident, remove threat, restore operations
@@ -99,6 +100,7 @@ An Incident Response Plan (IRP) provides structured procedures for responding to
 **Breach Notification Compliance:**
 
 - IR plans ensure compliance with breach notification deadlines:
+
   - **HIPAA:** 60 days for breach notification
   - **State Laws:** 30-90 days (varies by state)
   - **GDPR:** 72 hours for breach notification
@@ -591,6 +593,7 @@ Breach notification procedures ensure the organization complies with legal requi
 
 - **Affected Individuals:** Notify individuals whose personal data was compromised
 - **Regulators:**
+
   - **HIPAA:** HHS Office for Civil Rights (60 days for breaches affecting 500+ individuals)
   - **State Privacy Laws:** State attorneys general (timelines vary: 30-90 days)
   - **FERPA:** Department of Education (for student data breaches)
@@ -630,6 +633,7 @@ Breach notification procedures ensure the organization complies with legal requi
 **Cyber Insurance Breach Response:**
 
 - Cyber insurance policies cover breach notification costs:
+
   - **Legal counsel:** Review notification requirements, draft notifications
   - **Notification services:** Vendors that mail breach notifications, set up call centers
   - **Credit monitoring:** 1-2 years credit monitoring for affected individuals
@@ -660,12 +664,14 @@ Breach notification procedures ensure the organization complies with legal requi
 **Education (K-12/Higher Ed):**
 
 - **Notification Requirements:**
+
   - **FERPA:** Notify Department of Education of student data breaches
   - **State Privacy Laws:** Notify state attorney general (varies by state)
   - **Affected Families:** Notify families of students whose data was compromised
   - **COPPA (K-12):** Additional notification requirements for children under 13
 
 - **Practical Implementation:**
+
   - Breach notification procedure in IR plan (Question 9.1)
   - Notification templates reviewed by legal counsel
   - Engage cyber insurer for breach notification services
@@ -675,17 +681,20 @@ Breach notification procedures ensure the organization complies with legal requi
 **Healthcare:**
 
 - **Notification Requirements:**
+
   - **HIPAA Breach Notification Rule:** 60 days to notify HHS for breaches affecting 500+ individuals
   - **State Privacy Laws:** Notify state AG
   - **Affected Patients:** Notify patients whose PHI was compromised
   - **Media Notice:** Required for breaches affecting 500+ individuals
 
 - **HIPAA Deadlines:**
+
   - **500+ Individuals:** Notify HHS, media within 60 days
   - **<500 Individuals:** Notify HHS annually
   - **Patients:** Notify without unreasonable delay (60 days)
 
 - **Practical Implementation:**
+
   - HIPAA breach notification templates
   - HHS breach notification portal access
   - Vendor notification (if Business Associate causes breach)
@@ -693,11 +702,13 @@ Breach notification procedures ensure the organization complies with legal requi
 **Religious/Nonprofit:**
 
 - **Notification Requirements:**
+
   - **State Privacy Laws:** Notify state AG, affected individuals (30-90 day timelines)
   - **Donor Notification:** Notify donors whose data was compromised
   - **No Federal Religious Data Privacy Law:** State laws apply
 
 - **Practical Implementation:**
+
   - State-by-state breach notification law review (legal counsel)
   - Donor notification templates emphasizing transparency, stewardship
   - Cyber insurance breach notification services
@@ -705,6 +716,7 @@ Breach notification procedures ensure the organization complies with legal requi
 **General Organizations:**
 
 - **Notification Requirements:**
+
   - **State Privacy Laws:** All 50 states (varying timelines)
   - **GDPR:** 72 hours to EU DPAs for EU data breaches
   - **CCPA (California):** California Attorney General notification

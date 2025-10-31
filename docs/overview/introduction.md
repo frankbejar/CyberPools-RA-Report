@@ -44,6 +44,7 @@ The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool 
 - Maps directly to cyber insurance application requirements from major carriers
     - Coalition, Chubb, Corvus
 - Identifies gaps that could impact:
+
     - Insurance eligibility
     - Coverage limits
     - Premium rates
@@ -54,9 +55,11 @@ The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool 
 
 - **65 security controls** across **9 categories** covering the complete cybersecurity lifecycle
 - Risk scores based on:
+
     - **Control Rating**: Fully / Partially / Not Implemented
     - **Impact Rating**: Low / Moderate / High
 - **Dual scores** provided:
+
     - **Foundation Score** - insurance-critical controls
     - **Comprehensive Score** - full security maturity
 - Enables tracking of risk reduction over time through annual assessments
@@ -77,14 +80,17 @@ The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool 
 
 - Identifies high-risk gaps requiring immediate attention
 - Provides prioritized recommendations based on:
+
     - Insurance requirements
     - Current threat landscape
 - Delivers sector-specific guidance:
+
     - Education (K-12/Higher Ed)
     - Healthcare
     - Religious/Nonprofit
     - General organizations
 - Supports integration with **CyberPools Cyber Toolkit** services:
+
     - Vulnerability scanning
     - Phishing simulations
     - vCISO
@@ -96,6 +102,7 @@ The CyberPools Risk Assessment employs a **dual-score model** to differentiate b
 #### Foundation Score (Insurance-Critical Controls)
 
 **Purpose:** Measures implementation of **17 foundational questions** that are:
+
 - Required or strongly preferred by cyber insurance carriers
 - Address the most common and costly attack vectors (credential abuse, ransomware, phishing)
 - Represent baseline security hygiene expected of all organizations
@@ -115,6 +122,7 @@ The CyberPools Risk Assessment employs a **dual-score model** to differentiate b
 #### Comprehensive Score (Full Security Maturity)
 
 **Purpose:** Measures implementation of **all 65 questions** across the cybersecurity lifecycle:
+
 - Includes foundational controls (17 questions)
 - Plus comprehensive maturity indicators (48 questions)
 - Demonstrates advanced security operations and defense-in-depth
@@ -195,6 +203,7 @@ The CyberPools assessment is **sector-agnostic** by design, serving organization
 **Universal Security Principles:**
 
 Regardless of sector, all organizations must protect the **CIA triad**:
+
 - **Confidentiality:** Prevent unauthorized access to sensitive data (PII, PHI, education records, financial data)
 - **Integrity:** Ensure data accuracy and prevent unauthorized modification
 - **Availability:** Maintain access to systems and data when needed (resilience against ransomware, DDoS)
@@ -226,6 +235,7 @@ The assessment questions use sector-neutral language, with sector-specific conte
 4. **Report Delivery (Organization):**
 
     - Receive comprehensive PDF report including:
+
         - Executive summary with Foundation and Comprehensive scores
         - Category-by-category analysis
         - High-risk findings requiring immediate attention

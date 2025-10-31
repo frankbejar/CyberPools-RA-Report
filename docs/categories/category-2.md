@@ -12,6 +12,7 @@ tags:
 ### Overview
 
 Account management and access control ensures that only authorized individuals can access organizational systems and data, with permissions appropriate to their role. This category addresses:
+
 - User account lifecycle (creation, modification, deactivation)
 - Multi-factor authentication (MFA) across all access points
 - Privileged access management (PAM) for administrator accounts
@@ -96,11 +97,13 @@ User account lifecycle management includes:
 **Insurance Rationale (Universal):**
 
 Orphaned accounts (former employees) are prime targets for attackers:
+
 - No monitoring (former employee won't report suspicious activity)
 - Often retain elevated permissions from last role
 - Credential reuse (employee may use same password elsewhere that gets breached)
 
 Cyber insurance claims frequently involve:
+
 - Terminated employee accessing systems post-termination (data theft, sabotage)
 - Contractor accounts persisting beyond project completion
 - Shared accounts preventing accountability during incidents
@@ -184,6 +187,7 @@ Modern password policies align with NIST SP 800-63B guidance:
 While password policies alone are insufficient protection, they remain baseline security hygiene. Weak passwords combined with lack of MFA create critical vulnerability.
 
 Insurers assess:
+
 - Minimum password length requirements (8+ characters minimum, 12+ preferred)
 - MFA implementation (far more critical than password policy)
 - Password manager deployment for IT/admin staff
@@ -234,6 +238,7 @@ Does the organization require multi-factor authentication (MFA) for all remote a
 **Control Description:**
 
 Multi-factor authentication (MFA) requires two or more verification factors:
+
 - **Something you know:** Password, PIN
 - **Something you have:** Smartphone app (authenticator), hardware token, SMS code
 - **Something you are:** Biometric (fingerprint, facial recognition)
@@ -246,6 +251,7 @@ Multi-factor authentication (MFA) requires two or more verification factors:
 - **Cloud VPN:** Azure VPN Gateway, AWS Client VPN with MFA integration
 
 **MFA Methods (Ranked by Security):**
+
 1. **FIDO2/WebAuthn Hardware Keys** (Yubikey, Titan) - Phishing-resistant
 2. **Authenticator Apps** (Microsoft Authenticator, Google Authenticator, Duo Push) - Time-based codes or push notifications
 3. **SMS Codes** (Least secure but better than no MFA) - Vulnerable to SIM swapping
@@ -314,6 +320,7 @@ Does the organization require multi-factor authentication (MFA) for all cloud se
 **Control Description:**
 
 Cloud services MFA covers:
+
 - **Microsoft 365:** Azure AD MFA for all users (email, Teams, SharePoint, OneDrive)
 - **Google Workspace:** 2-Step Verification for all users (Gmail, Drive, Calendar, Classroom)
 - **AWS/Azure/GCP:** MFA for console access and privileged operations
@@ -335,6 +342,7 @@ Cloud services MFA covers:
 **Insurance Rationale (Universal):**
 
 Cloud services store critical organizational data:
+
 - **Education:** Student education records in Google Classroom, Microsoft Teams
 - **Healthcare:** Patient health information in cloud EHR, telehealth platforms
 - **Religious/Nonprofit:** Donor financial data in cloud accounting, donor management
@@ -393,6 +401,7 @@ Does the organization require multi-factor authentication (MFA) for all administ
 **Control Description:**
 
 Administrative accounts require MFA:
+
 - **Domain Administrators:** Active Directory, Azure AD Global Administrators
 - **Local Administrators:** Workstation/server local admin accounts
 - **Application Administrators:** Database admins, application admins, security tool admins
@@ -420,6 +429,7 @@ Administrative accounts require MFA:
 **Insurance Rationale (Universal):**
 
 Privileged accounts are **prime targets** for attackers:
+
 - Enable lateral movement across entire organization
 - Can disable security tools (EDR, SIEM, backup systems)
 - Deploy ransomware across all systems simultaneously
@@ -474,6 +484,7 @@ Does the organization require multi-factor authentication (MFA) for all users (n
 **Control Description:**
 
 Universal MFA deployment covers:
+
 - **All Employees:** Full-time, part-time, contractors, temporary staff
 - **All Access Methods:** VPN, cloud services, email, sensitive applications
 - **All Devices:** Workstations, laptops, mobile devices, tablets
@@ -507,6 +518,7 @@ Universal MFA deployment covers:
 - **82% of cyber insurance claims** involved organizations lacking MFA (Coalition 2024)
 - Coalition, Chubb, Corvus **require MFA attestation** for policy issuance
 - Organizations without universal MFA face:
+
   - Coverage denial or policy cancellation
   - Significantly higher premiums (20-30% increase)
   - Exclusions for claims involving compromised user accounts
@@ -564,7 +576,9 @@ Are privileged administrative functions performed using dedicated administrative
 **Control Description:**
 
 Privileged account separation means:
+
 - **Separate Accounts:** Administrators have TWO accounts:
+
   - **Regular User Account:** For email, web browsing, daily work (john.smith@org.edu)
   - **Admin Account:** For administrative tasks only (john.smith-admin@org.edu or admin-jsmith)
 - **No Dual-Use Accounts:** Never use admin account for email, web browsing, or daily tasks
@@ -585,6 +599,7 @@ Privileged account separation means:
 **Insurance Rationale (Universal):**
 
 Privileged account separation is core component of **Privileged Access Management (PAM)**:
+
 - BeyondTrust: "Removing admin rights from workstations" is basic requirement of cyber insurers
 - Prevents **privilege escalation** attacks where malware on user workstation compromises admin credentials
 
@@ -631,6 +646,7 @@ Does the organization conduct periodic reviews (at least annually) of user acces
 **Control Description:**
 
 Access review process includes:
+
 - **Quarterly or Annual Reviews:** Manager attestation that team members have appropriate access
 - **Role Change Reviews:** Immediate review when employee changes roles, promoted, or transfers departments
 - **Privileged Access Reviews:** Quarterly review of all administrative accounts
@@ -638,6 +654,7 @@ Access review process includes:
 - **Dormant Account Removal:** Disable accounts inactive >90 days
 
 **Review Process:**
+
 1. Generate access reports from systems (Active Directory, cloud services, applications)
 2. Distribute to department managers for review
 3. Managers certify access is appropriate or request changes
@@ -653,6 +670,7 @@ Access review process includes:
 **Insurance Rationale (Universal):**
 
 Access creep (accumulation of permissions over time) creates risk:
+
 - Employees retain permissions from previous roles
 - Excessive permissions enable insider threats or account compromise
 - Demonstrates governance maturity to insurers
@@ -734,6 +752,7 @@ Account off-boarding includes:
 **Insurance Rationale (Universal):**
 
 Terminated employee accounts are **high-risk:**
+
 - Disgruntled former employees may sabotage systems, steal data, or leak confidential information
 - Attackers may compromise terminated employee accounts (no monitoring, credentials in breaches)
 - Cyber insurance claims frequently involve former employee access

@@ -181,6 +181,7 @@ Vendor security assessments evaluate third-party security posture before establi
 - **Data Handling:** Where is data stored? Who has access? Data residency requirements met?
 
 **Assessment Workflow:**
+
 1. **Pre-Contracting:** Assess vendor before signing contract
 2. **Risk Rating:** Assign high/medium/low risk rating
 3. **Approval:** Vendor approved, conditionally approved (with remediation), or rejected
@@ -599,6 +600,7 @@ Third-party security certifications provide independent validation of vendor sec
 **Education (K-12/Higher Ed):**
 
 - **High-Risk Vendors Requiring SOC 2:**
+
   - Student Information Systems (PowerSchool, Infinite Campus)
   - Learning Management Systems (Canvas, Schoology)
   - Cloud providers (Google Workspace, Microsoft 365 - both have SOC 2)
@@ -611,6 +613,7 @@ Third-party security certifications provide independent validation of vendor sec
 **Healthcare:**
 
 - **High-Risk Vendors Requiring HITRUST or SOC 2:**
+
   - EHR vendors (Epic, Cerner)
   - Medical device vendors with connectivity
   - Cloud providers, billing services
@@ -623,6 +626,7 @@ Third-party security certifications provide independent validation of vendor sec
 **Religious/Nonprofit:**
 
 - **High-Risk Vendors Requiring SOC 2:**
+
   - Donor management systems (Salesforce Nonprofit Cloud, Blackbaud - both have SOC 2)
   - Cloud accounting platforms (QuickBooks Online, NetSuite)
   - Email/productivity suites (Google Workspace, Microsoft 365)
@@ -680,6 +684,7 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 
 - **Breach Notification:** Vendors must notify organization within 24-72 hours of data breaches
 - **Security Changes:** Vendors must notify organization of:
+
   - Subprocessor changes (new third parties with data access)
   - Data location changes (data moved to new region/country)
   - Control changes (security controls discontinued, weakened)
@@ -731,10 +736,12 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 **Education (K-12/Higher Ed):**
 
 - **Critical Vendors Requiring Monitoring:**
+
   - Student Information Systems, learning platforms, cloud providers
   - Incident notification within 24 hours for student data breaches (FERPA notification timelines)
 
 - **Practical Implementation:**
+
   - Request updated SOC 2 reports annually from SIS, LMS vendors
   - Subscribe to EdTech security mailing lists (CoSN, Cybersecurity & Infrastructure Security Agency)
   - FERPA DPAs include incident notification clauses
@@ -744,10 +751,12 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 **Healthcare:**
 
 - **Critical Vendors Requiring Monitoring:**
+
   - EHR vendors, medical device vendors, billing services
   - Incident notification within 24 hours (HIPAA breach notification requirements)
 
 - **Practical Implementation:**
+
   - Annual HITRUST or SOC 2 review for EHR, billing vendors
   - Healthcare security alerts (HHS HCCIC, FBI Healthcare Cyber Threat Briefs)
   - Business Associate Agreements include breach notification clauses (HIPAA requirement)
@@ -757,10 +766,12 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 **Religious/Nonprofit:**
 
 - **Critical Vendors Requiring Monitoring:**
+
   - Donor management systems, accounting platforms, cloud providers
   - Incident notification within 48 hours for donor data breaches
 
 - **Practical Implementation:**
+
   - Annual SOC 2 review for donor management vendors (Salesforce, Blackbaud)
   - Subscribe to vendor security bulletins
   - Contracts include incident notification for donor data
@@ -807,12 +818,14 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 **AI Vetting Criteria:**
 
 - **Data Privacy:**
+
   - Does AI vendor retain user inputs for model training? (Disqualifying for sensitive data)
   - Where is data stored? (Data residency requirements - EU, US, on-premise)
   - Can data be deleted upon request? (GDPR right to erasure)
   - Does vendor offer zero-retention options for enterprise customers?
 
 - **Security Controls:**
+
   - Encryption (at rest, in transit)?
   - MFA supported for user accounts?
   - SOC 2 Type II certification?
@@ -820,12 +833,14 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
   - Incident response process?
 
 - **Compliance:**
+
   - **HIPAA:** Does vendor sign Business Associate Agreement (BAA)?
   - **FERPA:** Does vendor meet student data privacy requirements?
   - **GDPR:** Is vendor GDPR-compliant? (Data Processing Agreement available?)
   - **AI-Specific:** Does vendor comply with EU AI Act (if applicable)?
 
 - **AI-Specific Risks:**
+
   - **Model Transparency:** Does vendor disclose training data sources?
   - **Bias Mitigation:** Does vendor test for algorithmic bias?
   - **Hallucinations:** Does vendor acknowledge AI output may be inaccurate?
@@ -840,6 +855,7 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 
 - Maintain list of vetted, approved AI tools (links to Question 7.4 AI AUP)
 - **Example Enterprise Approvals:**
+
   - Microsoft 365 Copilot (FERPA, HIPAA, SOC 2, data residency)
   - Google Gemini for Workspace (FERPA, HIPAA, SOC 2, data residency)
   - AWS Bedrock (HIPAA-eligible, SOC 2, customer-controlled data)
@@ -899,14 +915,17 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** FERPA compliance, COPPA (K-12), student data privacy, AI model training data retention
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft 365 Copilot for Education:** FERPA-compliant, no student data used for training, data residency in US
   - **Google Gemini for Workspace Education:** FERPA-compliant, Student Data Privacy Agreement, no training on student data
   - **Khan Academy Khanmigo:** Education-specific AI, FERPA-compliant, SOC 2 certified
 
 - **Prohibited Public AI Tools (for student data):**
+
   - ChatGPT (free tier), Claude (web), Gemini (free) - retain inputs for training, not FERPA-compliant
 
 - **Practical Implementation:**
+
   - IT approves AI tools before purchase; maintains approved AI tools list
   - Review vendor FERPA Data Privacy Agreements, Student Data Privacy Pledges (studentprivacypledge.org)
   - Training: "Use approved AI tools (Copilot, Gemini Workspace) for lesson planning; don't enter student names, grades, IEPs into ChatGPT"
@@ -918,14 +937,17 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** HIPAA compliance, Business Associate Agreements, PHI handling, FDA AI medical device guidance
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft Azure Health Bot:** HIPAA-compliant, BAA available, designed for healthcare
   - **Google Cloud Healthcare AI:** HIPAA-compliant, BAA available, PHI processing controls
   - **Nuance DAX (Dragon Ambient eXperience):** Clinical documentation AI, HIPAA-compliant, SOC 2
 
 - **Prohibited Public AI Tools (for PHI):**
+
   - ChatGPT (free tier), Claude (web), Gemini (free) - not HIPAA-compliant, no BAA, retain inputs
 
 - **Practical Implementation:**
+
   - IT/Compliance vets AI tools; requires BAA before approval
   - Clinical staff training: "Never enter patient names, diagnoses, MRNs into public AI tools; use approved tools (Azure Health Bot) with BAA"
   - AI Medical Devices: FDA-cleared AI tools vetted separately (radiology AI, diagnostic AI)
@@ -937,13 +959,16 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** Donor data privacy, financial data protection, AI model training data retention
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft 365 Copilot:** Business-tier, no training on organizational data, SOC 2 certified
   - **Salesforce Einstein (with Nonprofit Cloud):** Donor data AI, SOC 2 certified, no training on customer data
 
 - **Prohibited Public AI Tools (for donor data):**
+
   - ChatGPT (free tier), Claude (web), Gemini (free) - retain inputs, not suitable for donor PII
 
 - **Practical Implementation:**
+
   - Budget-conscious nonprofits prioritize free tools for public content, enterprise tools for donor data
   - Staff training: "Use free AI tools (ChatGPT) for drafting public newsletters; use Salesforce Einstein for donor data analysis"
   - Donor Trust: AI vetting demonstrates responsible stewardship of donor information
@@ -953,14 +978,17 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** Trade secrets, proprietary data, customer PII, industry-specific compliance (GDPR, CCPA, PCI DSS)
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft 365 Copilot:** Enterprise-tier, Commercial Data Protection, SOC 2, EU Data Boundary
   - **Google Gemini Enterprise:** Data residency, no training on customer data, SOC 2
   - **AWS Bedrock:** Customer-controlled AI models, data not used for training, HIPAA-eligible
 
 - **Prohibited Public AI Tools (for sensitive data):**
+
   - Public AI tools not suitable for trade secrets, customer PII, proprietary code
 
 - **Compliance:**
+
   - **GDPR:** AI processing personal data requires Data Processing Agreements, data residency controls (EU)
   - **CCPA:** California consumer data privacy requirements apply to AI tools
   - **Industry-Specific:** Financial services (NYDFS), healthcare (HIPAA), government (FedRAMP) have specific AI requirements

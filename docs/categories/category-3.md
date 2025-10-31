@@ -13,6 +13,7 @@ tags:
 ### Overview
 
 Data protection and privacy controls safeguard sensitive information from unauthorized access, disclosure, modification, or destruction. This category addresses:
+
 - Data inventory and classification
 - Encryption (at rest and in transit)
 - Data retention and secure deletion
@@ -98,11 +99,13 @@ Data inventory includes:
 **Insurance Rationale (Universal):**
 
 Data inventory is foundational for:
+
 - **Breach Response:** Knowing what data was exposed enables proper notification scope
 - **Coverage Limits:** Insurance coverage based on records at risk (cost per record for notification)
 - **Privacy Law Compliance:** GDPR, CCPA, state privacy laws require data inventories
 
 Organizations without data inventory cannot:
+
 - Accurately assess breach impact
 - Comply with privacy law requirements ("right to access" requests)
 - Implement proportionate security controls
@@ -155,6 +158,7 @@ Does the organization encrypt sensitive data at rest (stored data on servers, wo
 **Control Description:**
 
 Encryption at rest protects:
+
 - **Workstations/Laptops:** Full-disk encryption (BitLocker for Windows, FileVault for macOS)
 - **Mobile Devices:** Device encryption (iOS/Android built-in encryption)
 - **Servers:** Encrypted file systems, database transparent data encryption (TDE)
@@ -178,6 +182,7 @@ Encryption at rest protects:
 **Insurance Rationale (Universal):**
 
 **Safe Harbor** from breach notification laws:
+
 - Many state laws exempt encrypted data from breach notification requirements
 - **Reduces breach costs:** If laptop stolen with encrypted data, no notification required
 - **Reduces liability:** Demonstrates reasonable security measures
@@ -231,6 +236,7 @@ Does the organization encrypt sensitive data in transit (data transmitted over n
 **Control Description:**
 
 Encryption in transit protects:
+
 - **Websites:** HTTPS with TLS 1.2+ certificates (not HTTP)
 - **Email:** TLS encryption for email transmission (STARTTLS)
 - **VPN:** Encrypted VPN tunnels for remote access

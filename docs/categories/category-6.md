@@ -12,6 +12,7 @@ tags:
 ### Overview
 
 Data recovery and business continuity ensures organizational resilience against ransomware, disasters, and system failures. This category addresses:
+
 - Backup processes and technologies
 - Air-gapped and offline backups
 - Backup testing and restoration procedures
@@ -94,6 +95,7 @@ Backup process includes:
 **Insurance Rationale (Universal):**
 
 Backups are essential but **air-gapped backups are the critical insurance requirement** (see 6.3):
+
 - Regular backups enable recovery from hardware failures, human error
 - But ransomware targets backups; air-gapped backups are insurance focus
 
@@ -142,6 +144,7 @@ Are backups encrypted to protect data confidentiality in the event of backup med
 **Control Description:**
 
 Backup encryption protects:
+
 - **Backup Data:** Encrypted at rest on backup media (tapes, disks, cloud storage)
 - **Transmission:** Encrypted in transit to cloud backup services (TLS)
 - **Encryption Keys:** Securely stored separate from backups (escrow for disaster recovery)
@@ -155,6 +158,7 @@ Backup encryption protects:
 **Insurance Rationale (Universal):**
 
 Backup encryption mitigates:
+
 - **Tape/Disk Theft:** Physical theft of backup media
 - **Cloud Breach:** Unauthorized access to cloud backup storage
 - **Insider Threats:** IT staff cannot read encrypted backups without keys
@@ -543,6 +547,7 @@ An IT Disaster Recovery Plan (DRP) provides step-by-step procedures for restorin
 - **System Inventory:** List of all critical IT systems, applications, dependencies
 - **Recovery Priorities:** Define restoration order based on business criticality
 - **Recovery Objectives:**
+
   - **RTO (Recovery Time Objective):** Maximum acceptable downtime for each system
   - **RPO (Recovery Point Objective):** Maximum acceptable data loss for each system
 - **Recovery Procedures:** Detailed technical steps for restoring each system

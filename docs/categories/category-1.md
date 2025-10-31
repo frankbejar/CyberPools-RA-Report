@@ -12,6 +12,7 @@ tags:
 ### Overview
 
 Asset inventory and management forms the foundation of effective cybersecurity. Organizations cannot protect what they don't know exists. This category addresses:
+
 - Hardware asset inventory (servers, workstations, mobile devices, network equipment)
 - Software asset inventory (operating systems, applications, licenses)
 - Cloud service inventory (SaaS platforms, IaaS/PaaS usage)
@@ -61,6 +62,7 @@ Does the organization maintain an accurate, up-to-date inventory of all hardware
 **Control Description:**
 
 A comprehensive hardware asset inventory includes:
+
 - **Servers:** Physical and virtual servers, including cloud instances (EC2, Azure VMs)
 - **Workstations:** Desktop computers, laptops (organization-owned and BYOD if managed)
 - **Mobile Devices:** Smartphones, tablets (organization-owned and BYOD if managed via MDM)
@@ -88,11 +90,13 @@ A comprehensive hardware asset inventory includes:
 **Insurance Rationale (Universal):**
 
 Cyber insurance applications require organizations to report:
+
 - Total number of servers (including cloud instances)
 - Total number of workstations/endpoints
 - Critical system counts (financial systems, HR systems, customer databases)
 
 Accurate asset inventory enables:
+
 - Proper insurance coverage limits (first-party costs, business interruption)
 - Accurate premium calculation based on organization size and complexity
 - Rapid incident impact assessment during claims
@@ -145,6 +149,7 @@ Does the organization maintain an accurate inventory of all software application
 **Control Description:**
 
 A comprehensive software asset inventory includes:
+
 - **Operating Systems:** Windows, macOS, Linux versions across all endpoints and servers
 - **Productivity Applications:** Microsoft Office, Google Workspace, Adobe Creative Cloud
 - **Line-of-Business Applications:** Student information systems, EHR systems, donor management, accounting software
@@ -171,6 +176,7 @@ A comprehensive software asset inventory includes:
 **Insurance Rationale (Universal):**
 
 Software inventory enables:
+
 - Identification of end-of-life software requiring replacement (insurance concern - see Question 1.4)
 - License compliance (reduces legal/financial risk)
 - Vendor risk management (tracking third-party software with access to organizational data)
@@ -217,9 +223,11 @@ Does the organization maintain an inventory of all cloud services and SaaS appli
 **Control Description:**
 
 Cloud service inventory captures:
+
 - **Approved Cloud Services:** Organization-vetted and contracted cloud platforms
   - Microsoft 365, Google Workspace, AWS, Azure, Salesforce, etc.
 - **Shadow IT:** Unapproved cloud services discovered via:
+
   - Cloud Access Security Broker (CASB) monitoring
   - DNS/web proxy logs analysis
   - Firewall logs showing cloud service connections
@@ -244,11 +252,13 @@ Cloud service inventory captures:
 **Insurance Rationale (Universal):**
 
 Cloud services create:
+
 - **Data breach exposure:** Misconfigured cloud storage (S3 buckets, Azure blobs) with public access
 - **Third-party risk:** Cloud vendors can be breached, exposing customer data (see Question 8.6-8.8)
 - **Compliance violations:** Unapproved cloud services may not meet HIPAA, FERPA, or state privacy law requirements
 
 Insurers assess:
+
 - Cloud security posture (see Question 4.15)
 - Vendor risk management for cloud services
 - Data governance (what data is in what clouds?)
@@ -298,12 +308,14 @@ Has the organization identified and removed or isolated all software and operati
 **Control Description:**
 
 End-of-life (EOL) software is software that the vendor no longer supports with security patches or updates. Common examples:
+
 - **Operating Systems:** Windows Server 2008/2012, Windows 7/8, macOS versions older than 3 years, Ubuntu LTS past support date
 - **Applications:** Adobe Flash, Internet Explorer, older versions of Java, Microsoft Office 2010/2013
 - **Databases:** SQL Server 2008, Oracle 11g, MySQL 5.5
 - **Web Servers:** Apache 2.2, IIS 6.0
 
 **EOL Software Management Process:**
+
 1. **Discovery:** Identify all EOL software via software inventory (see Question 1.2)
 2. **Risk Assessment:** Evaluate business criticality and exposure (internet-facing vs. internal)
 3. **Mitigation Options:**
@@ -324,6 +336,7 @@ End-of-life (EOL) software is software that the vendor no longer supports with s
 - **NotPetya (2017):** Similar exploitation of unsupported systems
 
 Cyber insurance carriers:
+
 - May **deny coverage** for breaches originating from EOL software (negligence)
 - Require attestation that EOL software has been removed or isolated
 - Some carriers offer reduced premiums for organizations with no EOL software

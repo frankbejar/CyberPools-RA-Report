@@ -38,6 +38,7 @@ The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool 
 - Maps directly to cyber insurance application requirements from major carriers
     - Coalition, Chubb, Corvus
 - Identifies gaps that could impact:
+
     - Insurance eligibility
     - Coverage limits
     - Premium rates
@@ -48,9 +49,11 @@ The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool 
 
 - **65 security controls** across **9 categories** covering the complete cybersecurity lifecycle
 - Risk scores based on:
+
     - **Control Rating**: Fully / Partially / Not Implemented
     - **Impact Rating**: Low / Moderate / High
 - **Dual scores** provided:
+
     - **Foundation Score** - insurance-critical controls
     - **Comprehensive Score** - full security maturity
 - Enables tracking of risk reduction over time through annual assessments
@@ -71,14 +74,17 @@ The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool 
 
 - Identifies high-risk gaps requiring immediate attention
 - Provides prioritized recommendations based on:
+
     - Insurance requirements
     - Current threat landscape
 - Delivers sector-specific guidance:
+
     - Education (K-12/Higher Ed)
     - Healthcare
     - Religious/Nonprofit
     - General organizations
 - Supports integration with **CyberPools Cyber Toolkit** services:
+
     - Vulnerability scanning
     - Phishing simulations
     - vCISO
@@ -90,6 +96,7 @@ The CyberPools Risk Assessment employs a **dual-score model** to differentiate b
 #### Foundation Score (Insurance-Critical Controls)
 
 **Purpose:** Measures implementation of **17 foundational questions** that are:
+
 - Required or strongly preferred by cyber insurance carriers
 - Address the most common and costly attack vectors (credential abuse, ransomware, phishing)
 - Represent baseline security hygiene expected of all organizations
@@ -109,6 +116,7 @@ The CyberPools Risk Assessment employs a **dual-score model** to differentiate b
 #### Comprehensive Score (Full Security Maturity)
 
 **Purpose:** Measures implementation of **all 65 questions** across the cybersecurity lifecycle:
+
 - Includes foundational controls (17 questions)
 - Plus comprehensive maturity indicators (48 questions)
 - Demonstrates advanced security operations and defense-in-depth
@@ -189,6 +197,7 @@ The CyberPools assessment is **sector-agnostic** by design, serving organization
 **Universal Security Principles:**
 
 Regardless of sector, all organizations must protect the **CIA triad**:
+
 - **Confidentiality:** Prevent unauthorized access to sensitive data (PII, PHI, education records, financial data)
 - **Integrity:** Ensure data accuracy and prevent unauthorized modification
 - **Availability:** Maintain access to systems and data when needed (resilience against ransomware, DDoS)
@@ -220,6 +229,7 @@ The assessment questions use sector-neutral language, with sector-specific conte
 4. **Report Delivery (Organization):**
 
     - Receive comprehensive PDF report including:
+
         - Executive summary with Foundation and Comprehensive scores
         - Category-by-category analysis
         - High-risk findings requiring immediate attention
@@ -273,6 +283,7 @@ The assessment questions use sector-neutral language, with sector-specific conte
 4. Cost-effective, high-impact security measures suitable for organizations of all sizes
 
 Organizations must prioritize implementation of these foundational controls to:
+
 - Qualify for cyber insurance coverage or avoid exclusions/sub-limits
 - Reduce risk of the most common and costly breaches
 - Demonstrate baseline security due diligence to stakeholders, regulators, and insurers
@@ -363,6 +374,7 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 ### Insurance Impact of Foundational Controls
 
 **High Insurance Pressure (Mandatory or Near-Mandatory):**
+
 1. Multi-Factor Authentication (Questions 2.3-2.6) - **82% of cyber insurance claims involved orgs lacking MFA**
 2. Endpoint Detection and Response (Question 5.4) - **Universal requirement from all carriers**
 3. Air-gapped Backups (Question 6.3) - **Required by Coalition, Corvus, Chubb**
@@ -370,6 +382,7 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 5. Email Authentication (Question 5.5) - **Coalition explicitly lists DMARC/SPF/DKIM on checklist**
 
 **Moderate-High Insurance Pressure (Strongly Preferred):**
+
 6. Patch Management (Question 4.3) - **50% of perimeter vulnerabilities remain unpatched (Verizon DBIR)**
 7. External Vulnerability Scanning (Question 4.7) - **Required quarterly by most carriers**
 8. Security Awareness Training (Question 7.3) - **Human error involved in 74% of breaches**
@@ -377,10 +390,12 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 10. Centralized Logging/SIEM (Question 4.14) - **Required for larger organizations (>500 users)**
 
 **Moderate Insurance Pressure (Expected for Coverage):**
+
 11. End-of-life Software (Question 1.4) - **Unpatched legacy systems create known vulnerabilities**
 12. Backup Testing (Question 6.4) - **Untested backups fail 25% of the time during ransomware recovery**
 
 **Emerging Insurance Pressure (Forward-Looking):**
+
 13. AI Acceptable Use Policy (Question 7.4) - **80% have AI initiatives; 43% lack policies; compliance gaps**
 14. AI Tool Privacy Vetting (Question 8.8) - **Vendor AI tools create data breach exposure**
 
@@ -430,12 +445,14 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 Organizations should implement foundational controls in the following priority order:
 
 **Phase 1 (Immediate - 0-6 months):**
+
 1. Multi-Factor Authentication for all users (2.3-2.6)
 2. Endpoint Detection and Response deployment (5.4)
 3. Air-gapped backup implementation (6.3)
 4. Email authentication (SPF/DKIM/DMARC) (5.5)
 
 **Phase 2 (High Priority - 6-12 months):**
+
 5. Patch management process formalization (4.3)
 6. External vulnerability scanning (quarterly) (4.7)
 7. Security awareness training program (7.3)
@@ -443,6 +460,7 @@ Organizations should implement foundational controls in the following priority o
 9. Privileged Access Management (PAM) platform (3.5)
 
 **Phase 3 (Comprehensive - 12-18 months):**
+
 10. End-of-life software inventory and replacement (1.4)
 11. Backup testing procedures (6.4)
 12. Centralized logging/SIEM (for organizations >500 users) (4.14)
@@ -457,6 +475,7 @@ Organizations should implement foundational controls in the following priority o
 ### Overview
 
 Asset inventory and management forms the foundation of effective cybersecurity. Organizations cannot protect what they don't know exists. This category addresses:
+
 - Hardware asset inventory (servers, workstations, mobile devices, network equipment)
 - Software asset inventory (operating systems, applications, licenses)
 - Cloud service inventory (SaaS platforms, IaaS/PaaS usage)
@@ -506,6 +525,7 @@ Does the organization maintain an accurate, up-to-date inventory of all hardware
 **Control Description:**
 
 A comprehensive hardware asset inventory includes:
+
 - **Servers:** Physical and virtual servers, including cloud instances (EC2, Azure VMs)
 - **Workstations:** Desktop computers, laptops (organization-owned and BYOD if managed)
 - **Mobile Devices:** Smartphones, tablets (organization-owned and BYOD if managed via MDM)
@@ -533,11 +553,13 @@ A comprehensive hardware asset inventory includes:
 **Insurance Rationale (Universal):**
 
 Cyber insurance applications require organizations to report:
+
 - Total number of servers (including cloud instances)
 - Total number of workstations/endpoints
 - Critical system counts (financial systems, HR systems, customer databases)
 
 Accurate asset inventory enables:
+
 - Proper insurance coverage limits (first-party costs, business interruption)
 - Accurate premium calculation based on organization size and complexity
 - Rapid incident impact assessment during claims
@@ -590,6 +612,7 @@ Does the organization maintain an accurate inventory of all software application
 **Control Description:**
 
 A comprehensive software asset inventory includes:
+
 - **Operating Systems:** Windows, macOS, Linux versions across all endpoints and servers
 - **Productivity Applications:** Microsoft Office, Google Workspace, Adobe Creative Cloud
 - **Line-of-Business Applications:** Student information systems, EHR systems, donor management, accounting software
@@ -616,6 +639,7 @@ A comprehensive software asset inventory includes:
 **Insurance Rationale (Universal):**
 
 Software inventory enables:
+
 - Identification of end-of-life software requiring replacement (insurance concern - see Question 1.4)
 - License compliance (reduces legal/financial risk)
 - Vendor risk management (tracking third-party software with access to organizational data)
@@ -662,9 +686,11 @@ Does the organization maintain an inventory of all cloud services and SaaS appli
 **Control Description:**
 
 Cloud service inventory captures:
+
 - **Approved Cloud Services:** Organization-vetted and contracted cloud platforms
   - Microsoft 365, Google Workspace, AWS, Azure, Salesforce, etc.
 - **Shadow IT:** Unapproved cloud services discovered via:
+
   - Cloud Access Security Broker (CASB) monitoring
   - DNS/web proxy logs analysis
   - Firewall logs showing cloud service connections
@@ -689,11 +715,13 @@ Cloud service inventory captures:
 **Insurance Rationale (Universal):**
 
 Cloud services create:
+
 - **Data breach exposure:** Misconfigured cloud storage (S3 buckets, Azure blobs) with public access
 - **Third-party risk:** Cloud vendors can be breached, exposing customer data (see Question 8.6-8.8)
 - **Compliance violations:** Unapproved cloud services may not meet HIPAA, FERPA, or state privacy law requirements
 
 Insurers assess:
+
 - Cloud security posture (see Question 4.15)
 - Vendor risk management for cloud services
 - Data governance (what data is in what clouds?)
@@ -743,12 +771,14 @@ Has the organization identified and removed or isolated all software and operati
 **Control Description:**
 
 End-of-life (EOL) software is software that the vendor no longer supports with security patches or updates. Common examples:
+
 - **Operating Systems:** Windows Server 2008/2012, Windows 7/8, macOS versions older than 3 years, Ubuntu LTS past support date
 - **Applications:** Adobe Flash, Internet Explorer, older versions of Java, Microsoft Office 2010/2013
 - **Databases:** SQL Server 2008, Oracle 11g, MySQL 5.5
 - **Web Servers:** Apache 2.2, IIS 6.0
 
 **EOL Software Management Process:**
+
 1. **Discovery:** Identify all EOL software via software inventory (see Question 1.2)
 2. **Risk Assessment:** Evaluate business criticality and exposure (internet-facing vs. internal)
 3. **Mitigation Options:**
@@ -769,6 +799,7 @@ End-of-life (EOL) software is software that the vendor no longer supports with s
 - **NotPetya (2017):** Similar exploitation of unsupported systems
 
 Cyber insurance carriers:
+
 - May **deny coverage** for breaches originating from EOL software (negligence)
 - Require attestation that EOL software has been removed or isolated
 - Some carriers offer reduced premiums for organizations with no EOL software
@@ -824,6 +855,7 @@ Cyber insurance carriers:
 ### Overview
 
 Account management and access control ensures that only authorized individuals can access organizational systems and data, with permissions appropriate to their role. This category addresses:
+
 - User account lifecycle (creation, modification, deactivation)
 - Multi-factor authentication (MFA) across all access points
 - Privileged access management (PAM) for administrator accounts
@@ -908,11 +940,13 @@ User account lifecycle management includes:
 **Insurance Rationale (Universal):**
 
 Orphaned accounts (former employees) are prime targets for attackers:
+
 - No monitoring (former employee won't report suspicious activity)
 - Often retain elevated permissions from last role
 - Credential reuse (employee may use same password elsewhere that gets breached)
 
 Cyber insurance claims frequently involve:
+
 - Terminated employee accessing systems post-termination (data theft, sabotage)
 - Contractor accounts persisting beyond project completion
 - Shared accounts preventing accountability during incidents
@@ -996,6 +1030,7 @@ Modern password policies align with NIST SP 800-63B guidance:
 While password policies alone are insufficient protection, they remain baseline security hygiene. Weak passwords combined with lack of MFA create critical vulnerability.
 
 Insurers assess:
+
 - Minimum password length requirements (8+ characters minimum, 12+ preferred)
 - MFA implementation (far more critical than password policy)
 - Password manager deployment for IT/admin staff
@@ -1046,6 +1081,7 @@ Does the organization require multi-factor authentication (MFA) for all remote a
 **Control Description:**
 
 Multi-factor authentication (MFA) requires two or more verification factors:
+
 - **Something you know:** Password, PIN
 - **Something you have:** Smartphone app (authenticator), hardware token, SMS code
 - **Something you are:** Biometric (fingerprint, facial recognition)
@@ -1058,6 +1094,7 @@ Multi-factor authentication (MFA) requires two or more verification factors:
 - **Cloud VPN:** Azure VPN Gateway, AWS Client VPN with MFA integration
 
 **MFA Methods (Ranked by Security):**
+
 1. **FIDO2/WebAuthn Hardware Keys** (Yubikey, Titan) - Phishing-resistant
 2. **Authenticator Apps** (Microsoft Authenticator, Google Authenticator, Duo Push) - Time-based codes or push notifications
 3. **SMS Codes** (Least secure but better than no MFA) - Vulnerable to SIM swapping
@@ -1126,6 +1163,7 @@ Does the organization require multi-factor authentication (MFA) for all cloud se
 **Control Description:**
 
 Cloud services MFA covers:
+
 - **Microsoft 365:** Azure AD MFA for all users (email, Teams, SharePoint, OneDrive)
 - **Google Workspace:** 2-Step Verification for all users (Gmail, Drive, Calendar, Classroom)
 - **AWS/Azure/GCP:** MFA for console access and privileged operations
@@ -1147,6 +1185,7 @@ Cloud services MFA covers:
 **Insurance Rationale (Universal):**
 
 Cloud services store critical organizational data:
+
 - **Education:** Student education records in Google Classroom, Microsoft Teams
 - **Healthcare:** Patient health information in cloud EHR, telehealth platforms
 - **Religious/Nonprofit:** Donor financial data in cloud accounting, donor management
@@ -1205,6 +1244,7 @@ Does the organization require multi-factor authentication (MFA) for all administ
 **Control Description:**
 
 Administrative accounts require MFA:
+
 - **Domain Administrators:** Active Directory, Azure AD Global Administrators
 - **Local Administrators:** Workstation/server local admin accounts
 - **Application Administrators:** Database admins, application admins, security tool admins
@@ -1232,6 +1272,7 @@ Administrative accounts require MFA:
 **Insurance Rationale (Universal):**
 
 Privileged accounts are **prime targets** for attackers:
+
 - Enable lateral movement across entire organization
 - Can disable security tools (EDR, SIEM, backup systems)
 - Deploy ransomware across all systems simultaneously
@@ -1286,6 +1327,7 @@ Does the organization require multi-factor authentication (MFA) for all users (n
 **Control Description:**
 
 Universal MFA deployment covers:
+
 - **All Employees:** Full-time, part-time, contractors, temporary staff
 - **All Access Methods:** VPN, cloud services, email, sensitive applications
 - **All Devices:** Workstations, laptops, mobile devices, tablets
@@ -1319,6 +1361,7 @@ Universal MFA deployment covers:
 - **82% of cyber insurance claims** involved organizations lacking MFA (Coalition 2024)
 - Coalition, Chubb, Corvus **require MFA attestation** for policy issuance
 - Organizations without universal MFA face:
+
   - Coverage denial or policy cancellation
   - Significantly higher premiums (20-30% increase)
   - Exclusions for claims involving compromised user accounts
@@ -1376,7 +1419,9 @@ Are privileged administrative functions performed using dedicated administrative
 **Control Description:**
 
 Privileged account separation means:
+
 - **Separate Accounts:** Administrators have TWO accounts:
+
   - **Regular User Account:** For email, web browsing, daily work (john.smith@org.edu)
   - **Admin Account:** For administrative tasks only (john.smith-admin@org.edu or admin-jsmith)
 - **No Dual-Use Accounts:** Never use admin account for email, web browsing, or daily tasks
@@ -1397,6 +1442,7 @@ Privileged account separation means:
 **Insurance Rationale (Universal):**
 
 Privileged account separation is core component of **Privileged Access Management (PAM)**:
+
 - BeyondTrust: "Removing admin rights from workstations" is basic requirement of cyber insurers
 - Prevents **privilege escalation** attacks where malware on user workstation compromises admin credentials
 
@@ -1443,6 +1489,7 @@ Does the organization conduct periodic reviews (at least annually) of user acces
 **Control Description:**
 
 Access review process includes:
+
 - **Quarterly or Annual Reviews:** Manager attestation that team members have appropriate access
 - **Role Change Reviews:** Immediate review when employee changes roles, promoted, or transfers departments
 - **Privileged Access Reviews:** Quarterly review of all administrative accounts
@@ -1450,6 +1497,7 @@ Access review process includes:
 - **Dormant Account Removal:** Disable accounts inactive >90 days
 
 **Review Process:**
+
 1. Generate access reports from systems (Active Directory, cloud services, applications)
 2. Distribute to department managers for review
 3. Managers certify access is appropriate or request changes
@@ -1465,6 +1513,7 @@ Access review process includes:
 **Insurance Rationale (Universal):**
 
 Access creep (accumulation of permissions over time) creates risk:
+
 - Employees retain permissions from previous roles
 - Excessive permissions enable insider threats or account compromise
 - Demonstrates governance maturity to insurers
@@ -1546,6 +1595,7 @@ Account off-boarding includes:
 **Insurance Rationale (Universal):**
 
 Terminated employee accounts are **high-risk:**
+
 - Disgruntled former employees may sabotage systems, steal data, or leak confidential information
 - Attackers may compromise terminated employee accounts (no monitoring, credentials in breaches)
 - Cyber insurance claims frequently involve former employee access
@@ -1588,6 +1638,7 @@ Terminated employee accounts are **high-risk:**
 ### Overview
 
 Data protection and privacy controls safeguard sensitive information from unauthorized access, disclosure, modification, or destruction. This category addresses:
+
 - Data inventory and classification
 - Encryption (at rest and in transit)
 - Data retention and secure deletion
@@ -1673,11 +1724,13 @@ Data inventory includes:
 **Insurance Rationale (Universal):**
 
 Data inventory is foundational for:
+
 - **Breach Response:** Knowing what data was exposed enables proper notification scope
 - **Coverage Limits:** Insurance coverage based on records at risk (cost per record for notification)
 - **Privacy Law Compliance:** GDPR, CCPA, state privacy laws require data inventories
 
 Organizations without data inventory cannot:
+
 - Accurately assess breach impact
 - Comply with privacy law requirements ("right to access" requests)
 - Implement proportionate security controls
@@ -1730,6 +1783,7 @@ Does the organization encrypt sensitive data at rest (stored data on servers, wo
 **Control Description:**
 
 Encryption at rest protects:
+
 - **Workstations/Laptops:** Full-disk encryption (BitLocker for Windows, FileVault for macOS)
 - **Mobile Devices:** Device encryption (iOS/Android built-in encryption)
 - **Servers:** Encrypted file systems, database transparent data encryption (TDE)
@@ -1753,6 +1807,7 @@ Encryption at rest protects:
 **Insurance Rationale (Universal):**
 
 **Safe Harbor** from breach notification laws:
+
 - Many state laws exempt encrypted data from breach notification requirements
 - **Reduces breach costs:** If laptop stolen with encrypted data, no notification required
 - **Reduces liability:** Demonstrates reasonable security measures
@@ -1806,6 +1861,7 @@ Does the organization encrypt sensitive data in transit (data transmitted over n
 **Control Description:**
 
 Encryption in transit protects:
+
 - **Websites:** HTTPS with TLS 1.2+ certificates (not HTTP)
 - **Email:** TLS encryption for email transmission (STARTTLS)
 - **VPN:** Encrypted VPN tunnels for remote access
@@ -2254,6 +2310,7 @@ Data classification enables **targeted protection** and reduces breach impact:
 ### Overview
 
 Secure configuration and vulnerability management ensures that systems are hardened against attack and that known vulnerabilities are identified and remediated in a timely manner. This category addresses:
+
 - Network security architecture (firewalls, segmentation, DMZ)
 - System hardening and secure baselines
 - Patch management processes
@@ -2338,6 +2395,7 @@ Firewall deployment includes:
 **Insurance Rationale (Universal):**
 
 Firewalls are baseline security expectation:
+
 - Cyber insurance applications ask: "Do you have firewalls protecting your network?"
 - Absence of firewalls may result in coverage denial
 - Proper firewall configuration demonstrates due diligence
@@ -2412,6 +2470,7 @@ Network segmentation divides network into isolated zones:
 **Insurance Rationale (Universal):**
 
 Network segmentation is defense-in-depth strategy:
+
 - **Ransomware Containment:** Prevents lateral spread across entire network
 - **Breach Impact Reduction:** Attackers contained to compromised segment
 - **Compliance:** HIPAA, PCI DSS require network segmentation
@@ -2478,6 +2537,7 @@ Patch management process includes:
 - **Non-Security Patches:** Deploy on quarterly schedule or as needed
 
 **Patch Process:**
+
 1. **Identification:** Monitor vendor security advisories (Microsoft, Apple, Adobe, etc.)
 2. **Testing:** Test patches in development/test environment before production deployment
 3. **Deployment:** Automated patch deployment tools (WSUS, SCCM, Intune, Jamf, third-party RMM)
@@ -2500,6 +2560,7 @@ Patch management process includes:
 **Insurance Rationale (Universal):**
 
 Patch management is **critical insurance requirement:**
+
 - **50% of perimeter vulnerabilities remain unpatched** (Verizon DBIR 2024)
 - Unpatched systems are #1 exploited vulnerability
 - Coalition, Chubb, Corvus assess patch management maturity during underwriting
@@ -2591,6 +2652,7 @@ System hardening reduces attack surface by:
 **Insurance Rationale (Universal):**
 
 System hardening is defense-in-depth best practice:
+
 - Reduces exploitable vulnerabilities beyond just patching
 - Demonstrates security maturity to insurers
 - Addresses insider threats (disabled unnecessary services limit abuse)
@@ -2673,6 +2735,7 @@ Wireless security includes:
 **Insurance Rationale (Universal):**
 
 Insecure wireless networks create attack vector:
+
 - **WEP/WPA Cracking:** Attackers within range can crack encryption in minutes
 - **Guest Network Isolation:** Prevents visitor malware from accessing internal systems
 - **Compliance:** PCI DSS requires wireless encryption if handling payment card data
@@ -2752,6 +2815,7 @@ Network monitoring includes:
 **Insurance Rationale (Universal):**
 
 Network monitoring enables early threat detection:
+
 - Detects reconnaissance/scanning before full-scale attack
 - Identifies lateral movement after initial compromise
 - Supports incident investigation (what systems did attacker access?)
@@ -2823,6 +2887,7 @@ External vulnerability scanning identifies internet-facing vulnerabilities:
 - **Managed Services:** Outsourced scanning from MSPs, CyberPools vulnerability scanning service
 
 **Scan Process:**
+
 1. **Discovery:** Identify all internet-facing IP addresses and domains
 2. **Scanning:** Automated scan checks for known vulnerabilities (CVEs)
 3. **Reporting:** Generate vulnerability report with severity ratings (Critical/High/Medium/Low)
@@ -2841,6 +2906,7 @@ External vulnerability scanning identifies internet-facing vulnerabilities:
 **Insurance Rationale (Universal):**
 
 External vulnerability scanning is **mandatory insurance requirement:**
+
 - **PCI DSS:** Quarterly external scans required for payment card processing (Requirement 11.3)
 - **Coalition, Chubb, Corvus:** All require quarterly external vulnerability scanning
 - **Scan Reports:** Provide to insurer as evidence of vulnerability management
@@ -2891,6 +2957,7 @@ External vulnerability scanning is **mandatory insurance requirement:**
 ### Question 4.8-4.13: Additional Configuration Questions
 
 **Note:** Questions 4.8-4.13 cover additional secure configuration topics including:
+
 - 4.8: Remote Desktop Protocol (RDP) Security
 - 4.9: Internal Network Segmentation  
 - 4.10: VLAN Configuration
@@ -3043,6 +3110,7 @@ Cloud Security Posture Management (CSPM) involves continuous assessment of cloud
 **CSPM Tools:**
 
 - **Native Cloud Tools:**
+
   - AWS Security Hub (aggregates findings from AWS Config, GuardDuty, Inspector)
   - Azure Security Center / Microsoft Defender for Cloud
   - Google Security Command Center
@@ -3178,6 +3246,7 @@ Enhanced remote access security goes beyond VPN+MFA to include:
 **Insurance Rationale (Universal):**
 
 Remote work expanded attack surface post-COVID:
+
 - **Coalition:** 82% of cyber insurance claims involved organizations lacking MFA
 - **MFA Alone Insufficient:** Conditional access adds device compliance, location verification
 - **BYOD Security:** Bring-Your-Own-Device policies require device compliance checks
@@ -3259,6 +3328,7 @@ Remote work expanded attack surface post-COVID:
 ### Overview
 
 Malware defense and endpoint security protects workstations, laptops, mobile devices, and servers from malicious software including viruses, ransomware, spyware, and advanced persistent threats (APTs). This category addresses:
+
 - Antivirus and anti-malware deployment
 - Endpoint Detection and Response (EDR)
 - Email security controls (filtering, authentication)
@@ -3341,6 +3411,7 @@ Antivirus/anti-malware deployment includes:
 **Insurance Rationale (Universal):**
 
 Antivirus is baseline expectation, but **EDR has replaced antivirus as primary insurance requirement** (see Question 5.4). However, antivirus still provides value:
+
 - Blocks known malware variants
 - Lightweight, minimal performance impact
 - Often built-in (Windows Defender is highly rated)
@@ -3382,6 +3453,7 @@ Antivirus is baseline expectation, but **EDR has replaced antivirus as primary i
 ### Question 5.2-5.3: Additional Malware Defense Questions
 
 **Note:** Questions 5.2-5.3 cover:
+
 - 5.2: Email Security Gateway / Filtering
 - 5.3: Web Filtering and Safe Browsing
 
@@ -3519,12 +3591,14 @@ Email authentication protocols work together to prevent domain spoofing and veri
 
 - **Purpose:** Provides policy for handling emails failing SPF/DKIM checks + generates reports
 - **Policies:**
+
   - **p=none:** Monitor mode (collect reports, no enforcement)
   - **p=quarantine:** Failed emails go to spam folder
   - **p=reject:** Failed emails rejected entirely (strongest protection)
 - **Reports:** Daily XML reports showing email authentication results, spoofing attempts
 
 **Full Implementation:**
+
 1. **Publish SPF record** in DNS listing authorized mail servers
 2. **Enable DKIM signing** on outbound email (Google Workspace, Microsoft 365 admin consoles)
 3. **Implement DMARC policy** starting with p=none for monitoring
@@ -3655,6 +3729,7 @@ API security controls protect application programming interfaces from abuse and 
 **Insurance Rationale (Universal):**
 
 APIs represent emerging attack surface:
+
 - **78% of security professionals** experienced API security breach in 2023
 - **API vulnerabilities cost $2.5 billion** in 2024 (remediation, fines, lost revenue)
 
@@ -3718,6 +3793,7 @@ While not yet universal insurance requirement, insurers are beginning to assess 
 ### Overview
 
 Data recovery and business continuity ensures organizational resilience against ransomware, disasters, and system failures. This category addresses:
+
 - Backup processes and technologies
 - Air-gapped and offline backups
 - Backup testing and restoration procedures
@@ -3800,6 +3876,7 @@ Backup process includes:
 **Insurance Rationale (Universal):**
 
 Backups are essential but **air-gapped backups are the critical insurance requirement** (see 6.3):
+
 - Regular backups enable recovery from hardware failures, human error
 - But ransomware targets backups; air-gapped backups are insurance focus
 
@@ -3848,6 +3925,7 @@ Are backups encrypted to protect data confidentiality in the event of backup med
 **Control Description:**
 
 Backup encryption protects:
+
 - **Backup Data:** Encrypted at rest on backup media (tapes, disks, cloud storage)
 - **Transmission:** Encrypted in transit to cloud backup services (TLS)
 - **Encryption Keys:** Securely stored separate from backups (escrow for disaster recovery)
@@ -3861,6 +3939,7 @@ Backup encryption protects:
 **Insurance Rationale (Universal):**
 
 Backup encryption mitigates:
+
 - **Tape/Disk Theft:** Physical theft of backup media
 - **Cloud Breach:** Unauthorized access to cloud backup storage
 - **Insider Threats:** IT staff cannot read encrypted backups without keys
@@ -4249,6 +4328,7 @@ An IT Disaster Recovery Plan (DRP) provides step-by-step procedures for restorin
 - **System Inventory:** List of all critical IT systems, applications, dependencies
 - **Recovery Priorities:** Define restoration order based on business criticality
 - **Recovery Objectives:**
+
   - **RTO (Recovery Time Objective):** Maximum acceptable downtime for each system
   - **RPO (Recovery Point Objective):** Maximum acceptable data loss for each system
 - **Recovery Procedures:** Detailed technical steps for restoring each system
@@ -4745,17 +4825,20 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved AI Tools:** List of vetted AI tools authorized for organizational use (Microsoft Copilot, Google Gemini Workspace, domain-specific AI tools)
 - **Prohibited Uses:** Define unacceptable AI usage:
+
   - **Data Privacy:** Prohibit entering sensitive/confidential data into public AI tools (ChatGPT free tier, Claude web interface)
   - **Decision-Making:** Prohibit using AI for high-stakes decisions without human review (hiring, patient diagnosis, financial decisions)
   - **Academic/Professional Integrity:** Define plagiarism/citation requirements for AI-generated content
   - **Compliance:** Prohibit AI uses that violate regulations (FERPA, HIPAA, GDPR, copyright law)
 
 - **Data Classification Integration:** Link AI policy to data classification (Question 3.6):
+
   - **Public Data:** May be used with any AI tool
   - **Internal Data:** Only use with enterprise AI tools (Microsoft 365 Copilot with data residency)
   - **Confidential/Regulated Data:** Prohibited from AI tools unless specifically approved (zero-retention AI services)
 
 - **Responsible AI Principles:**
+
   - **Transparency:** Disclose when AI is used to generate content/decisions
   - **Accuracy Verification:** Require human review of AI outputs (AI hallucinations common)
   - **Bias Mitigation:** Awareness of AI bias in hiring, customer service, content generation
@@ -4816,11 +4899,13 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** Microsoft Copilot (M365 Education), Google Gemini (Workspace Education), approved educational AI platforms (Khan Academy Khanmigo)
 - **Prohibited Uses:**
+
   - Entering student names, IDs, grades, IEPs, disciplinary records into public AI tools (FERPA violation)
   - Using AI to generate entire lesson plans without review (quality/accuracy concerns)
   - Students using AI for assignments without disclosure (academic integrity)
 
 - **Practical Implementation:**
+
   - **Teacher Guidance:** "Use AI for brainstorming lesson ideas, but don't enter student-specific information"
   - **Student Policy:** Define AI citation requirements, prohibited uses for assignments
   - **Enterprise AI Adoption:** Microsoft Copilot for Education provides FERPA-compliant AI assistance
@@ -4831,11 +4916,13 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** HIPAA-compliant AI tools with BAAs (Business Associate Agreements), enterprise AI platforms
 - **Prohibited Uses:**
+
   - Entering PHI (patient names, diagnoses, medical record numbers) into public AI tools (HIPAA breach)
   - Using AI for clinical decision-making without physician oversight (FDA, standard of care concerns)
   - AI-generated clinical documentation without physician review
 
 - **Practical Implementation:**
+
   - **Clinical Staff Training:** "Never enter patient-identifiable information into ChatGPT or public AI tools"
   - **AI Medical Devices:** Vet AI-enabled medical devices via vendor risk management (Question 8.8)
   - **Enterprise AI:** Microsoft Azure Health Bot, Google Cloud Healthcare AI (HIPAA-compliant options)
@@ -4846,11 +4933,13 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** Enterprise AI tools (Microsoft 365 Copilot), free tools for non-sensitive data
 - **Prohibited Uses:**
+
   - Entering donor names, donation amounts, addresses into public AI tools (privacy, donor confidence)
   - Using AI to generate fundraising appeals without review (accuracy, brand voice)
   - AI-generated content without attribution (ethical concerns)
 
 - **Practical Implementation:**
+
   - **Staff Guidance:** "Use AI for drafting communications, but don't include donor data"
   - **Budget-Conscious:** Define when free AI tools acceptable (public content generation) vs. when enterprise tools required (donor data analysis)
   - **Donor Trust:** AI policy demonstrates responsible stewardship of donor information
@@ -4859,6 +4948,7 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 - **Approved Tools:** Enterprise AI platforms (Microsoft Copilot, Google Gemini, AWS Bedrock), industry-specific AI tools
 - **Prohibited Uses:**
+
   - Entering trade secrets, proprietary code, customer PII into public AI tools
   - Using AI for high-stakes decisions (hiring, credit decisions, legal analysis) without human review
   - AI-generated content that may infringe copyright
@@ -5053,6 +5143,7 @@ Vendor security assessments evaluate third-party security posture before establi
 - **Data Handling:** Where is data stored? Who has access? Data residency requirements met?
 
 **Assessment Workflow:**
+
 1. **Pre-Contracting:** Assess vendor before signing contract
 2. **Risk Rating:** Assign high/medium/low risk rating
 3. **Approval:** Vendor approved, conditionally approved (with remediation), or rejected
@@ -5471,6 +5562,7 @@ Third-party security certifications provide independent validation of vendor sec
 **Education (K-12/Higher Ed):**
 
 - **High-Risk Vendors Requiring SOC 2:**
+
   - Student Information Systems (PowerSchool, Infinite Campus)
   - Learning Management Systems (Canvas, Schoology)
   - Cloud providers (Google Workspace, Microsoft 365 - both have SOC 2)
@@ -5483,6 +5575,7 @@ Third-party security certifications provide independent validation of vendor sec
 **Healthcare:**
 
 - **High-Risk Vendors Requiring HITRUST or SOC 2:**
+
   - EHR vendors (Epic, Cerner)
   - Medical device vendors with connectivity
   - Cloud providers, billing services
@@ -5495,6 +5588,7 @@ Third-party security certifications provide independent validation of vendor sec
 **Religious/Nonprofit:**
 
 - **High-Risk Vendors Requiring SOC 2:**
+
   - Donor management systems (Salesforce Nonprofit Cloud, Blackbaud - both have SOC 2)
   - Cloud accounting platforms (QuickBooks Online, NetSuite)
   - Email/productivity suites (Google Workspace, Microsoft 365)
@@ -5552,6 +5646,7 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 
 - **Breach Notification:** Vendors must notify organization within 24-72 hours of data breaches
 - **Security Changes:** Vendors must notify organization of:
+
   - Subprocessor changes (new third parties with data access)
   - Data location changes (data moved to new region/country)
   - Control changes (security controls discontinued, weakened)
@@ -5603,10 +5698,12 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 **Education (K-12/Higher Ed):**
 
 - **Critical Vendors Requiring Monitoring:**
+
   - Student Information Systems, learning platforms, cloud providers
   - Incident notification within 24 hours for student data breaches (FERPA notification timelines)
 
 - **Practical Implementation:**
+
   - Request updated SOC 2 reports annually from SIS, LMS vendors
   - Subscribe to EdTech security mailing lists (CoSN, Cybersecurity & Infrastructure Security Agency)
   - FERPA DPAs include incident notification clauses
@@ -5616,10 +5713,12 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 **Healthcare:**
 
 - **Critical Vendors Requiring Monitoring:**
+
   - EHR vendors, medical device vendors, billing services
   - Incident notification within 24 hours (HIPAA breach notification requirements)
 
 - **Practical Implementation:**
+
   - Annual HITRUST or SOC 2 review for EHR, billing vendors
   - Healthcare security alerts (HHS HCCIC, FBI Healthcare Cyber Threat Briefs)
   - Business Associate Agreements include breach notification clauses (HIPAA requirement)
@@ -5629,10 +5728,12 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 **Religious/Nonprofit:**
 
 - **Critical Vendors Requiring Monitoring:**
+
   - Donor management systems, accounting platforms, cloud providers
   - Incident notification within 48 hours for donor data breaches
 
 - **Practical Implementation:**
+
   - Annual SOC 2 review for donor management vendors (Salesforce, Blackbaud)
   - Subscribe to vendor security bulletins
   - Contracts include incident notification for donor data
@@ -5679,12 +5780,14 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 **AI Vetting Criteria:**
 
 - **Data Privacy:**
+
   - Does AI vendor retain user inputs for model training? (Disqualifying for sensitive data)
   - Where is data stored? (Data residency requirements - EU, US, on-premise)
   - Can data be deleted upon request? (GDPR right to erasure)
   - Does vendor offer zero-retention options for enterprise customers?
 
 - **Security Controls:**
+
   - Encryption (at rest, in transit)?
   - MFA supported for user accounts?
   - SOC 2 Type II certification?
@@ -5692,12 +5795,14 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
   - Incident response process?
 
 - **Compliance:**
+
   - **HIPAA:** Does vendor sign Business Associate Agreement (BAA)?
   - **FERPA:** Does vendor meet student data privacy requirements?
   - **GDPR:** Is vendor GDPR-compliant? (Data Processing Agreement available?)
   - **AI-Specific:** Does vendor comply with EU AI Act (if applicable)?
 
 - **AI-Specific Risks:**
+
   - **Model Transparency:** Does vendor disclose training data sources?
   - **Bias Mitigation:** Does vendor test for algorithmic bias?
   - **Hallucinations:** Does vendor acknowledge AI output may be inaccurate?
@@ -5712,6 +5817,7 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 
 - Maintain list of vetted, approved AI tools (links to Question 7.4 AI AUP)
 - **Example Enterprise Approvals:**
+
   - Microsoft 365 Copilot (FERPA, HIPAA, SOC 2, data residency)
   - Google Gemini for Workspace (FERPA, HIPAA, SOC 2, data residency)
   - AWS Bedrock (HIPAA-eligible, SOC 2, customer-controlled data)
@@ -5771,14 +5877,17 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** FERPA compliance, COPPA (K-12), student data privacy, AI model training data retention
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft 365 Copilot for Education:** FERPA-compliant, no student data used for training, data residency in US
   - **Google Gemini for Workspace Education:** FERPA-compliant, Student Data Privacy Agreement, no training on student data
   - **Khan Academy Khanmigo:** Education-specific AI, FERPA-compliant, SOC 2 certified
 
 - **Prohibited Public AI Tools (for student data):**
+
   - ChatGPT (free tier), Claude (web), Gemini (free) - retain inputs for training, not FERPA-compliant
 
 - **Practical Implementation:**
+
   - IT approves AI tools before purchase; maintains approved AI tools list
   - Review vendor FERPA Data Privacy Agreements, Student Data Privacy Pledges (studentprivacypledge.org)
   - Training: "Use approved AI tools (Copilot, Gemini Workspace) for lesson planning; don't enter student names, grades, IEPs into ChatGPT"
@@ -5790,14 +5899,17 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** HIPAA compliance, Business Associate Agreements, PHI handling, FDA AI medical device guidance
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft Azure Health Bot:** HIPAA-compliant, BAA available, designed for healthcare
   - **Google Cloud Healthcare AI:** HIPAA-compliant, BAA available, PHI processing controls
   - **Nuance DAX (Dragon Ambient eXperience):** Clinical documentation AI, HIPAA-compliant, SOC 2
 
 - **Prohibited Public AI Tools (for PHI):**
+
   - ChatGPT (free tier), Claude (web), Gemini (free) - not HIPAA-compliant, no BAA, retain inputs
 
 - **Practical Implementation:**
+
   - IT/Compliance vets AI tools; requires BAA before approval
   - Clinical staff training: "Never enter patient names, diagnoses, MRNs into public AI tools; use approved tools (Azure Health Bot) with BAA"
   - AI Medical Devices: FDA-cleared AI tools vetted separately (radiology AI, diagnostic AI)
@@ -5809,13 +5921,16 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** Donor data privacy, financial data protection, AI model training data retention
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft 365 Copilot:** Business-tier, no training on organizational data, SOC 2 certified
   - **Salesforce Einstein (with Nonprofit Cloud):** Donor data AI, SOC 2 certified, no training on customer data
 
 - **Prohibited Public AI Tools (for donor data):**
+
   - ChatGPT (free tier), Claude (web), Gemini (free) - retain inputs, not suitable for donor PII
 
 - **Practical Implementation:**
+
   - Budget-conscious nonprofits prioritize free tools for public content, enterprise tools for donor data
   - Staff training: "Use free AI tools (ChatGPT) for drafting public newsletters; use Salesforce Einstein for donor data analysis"
   - Donor Trust: AI vetting demonstrates responsible stewardship of donor information
@@ -5825,14 +5940,17 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **Vetting Focus:** Trade secrets, proprietary data, customer PII, industry-specific compliance (GDPR, CCPA, PCI DSS)
 
 - **Approved Enterprise AI Tools:**
+
   - **Microsoft 365 Copilot:** Enterprise-tier, Commercial Data Protection, SOC 2, EU Data Boundary
   - **Google Gemini Enterprise:** Data residency, no training on customer data, SOC 2
   - **AWS Bedrock:** Customer-controlled AI models, data not used for training, HIPAA-eligible
 
 - **Prohibited Public AI Tools (for sensitive data):**
+
   - Public AI tools not suitable for trade secrets, customer PII, proprietary code
 
 - **Compliance:**
+
   - **GDPR:** AI processing personal data requires Data Processing Agreements, data residency controls (EU)
   - **CCPA:** California consumer data privacy requirements apply to AI tools
   - **Industry-Specific:** Financial services (NYDFS), healthcare (HIPAA), government (FedRAMP) have specific AI requirements
@@ -5925,6 +6043,7 @@ An Incident Response Plan (IRP) provides structured procedures for responding to
 - **Recovery Procedures:** System restoration, business continuity integration (Question 6.5-6.6)
 
 **NIST Incident Response Lifecycle:**
+
 1. **Preparation:** Tools, training, IR plan maintenance
 2. **Detection and Analysis:** Identify and analyze incidents
 3. **Containment, Eradication, and Recovery:** Stop incident, remove threat, restore operations
@@ -5947,6 +6066,7 @@ An Incident Response Plan (IRP) provides structured procedures for responding to
 **Breach Notification Compliance:**
 
 - IR plans ensure compliance with breach notification deadlines:
+
   - **HIPAA:** 60 days for breach notification
   - **State Laws:** 30-90 days (varies by state)
   - **GDPR:** 72 hours for breach notification
@@ -6439,6 +6559,7 @@ Breach notification procedures ensure the organization complies with legal requi
 
 - **Affected Individuals:** Notify individuals whose personal data was compromised
 - **Regulators:**
+
   - **HIPAA:** HHS Office for Civil Rights (60 days for breaches affecting 500+ individuals)
   - **State Privacy Laws:** State attorneys general (timelines vary: 30-90 days)
   - **FERPA:** Department of Education (for student data breaches)
@@ -6478,6 +6599,7 @@ Breach notification procedures ensure the organization complies with legal requi
 **Cyber Insurance Breach Response:**
 
 - Cyber insurance policies cover breach notification costs:
+
   - **Legal counsel:** Review notification requirements, draft notifications
   - **Notification services:** Vendors that mail breach notifications, set up call centers
   - **Credit monitoring:** 1-2 years credit monitoring for affected individuals
@@ -6508,12 +6630,14 @@ Breach notification procedures ensure the organization complies with legal requi
 **Education (K-12/Higher Ed):**
 
 - **Notification Requirements:**
+
   - **FERPA:** Notify Department of Education of student data breaches
   - **State Privacy Laws:** Notify state attorney general (varies by state)
   - **Affected Families:** Notify families of students whose data was compromised
   - **COPPA (K-12):** Additional notification requirements for children under 13
 
 - **Practical Implementation:**
+
   - Breach notification procedure in IR plan (Question 9.1)
   - Notification templates reviewed by legal counsel
   - Engage cyber insurer for breach notification services
@@ -6523,17 +6647,20 @@ Breach notification procedures ensure the organization complies with legal requi
 **Healthcare:**
 
 - **Notification Requirements:**
+
   - **HIPAA Breach Notification Rule:** 60 days to notify HHS for breaches affecting 500+ individuals
   - **State Privacy Laws:** Notify state AG
   - **Affected Patients:** Notify patients whose PHI was compromised
   - **Media Notice:** Required for breaches affecting 500+ individuals
 
 - **HIPAA Deadlines:**
+
   - **500+ Individuals:** Notify HHS, media within 60 days
   - **<500 Individuals:** Notify HHS annually
   - **Patients:** Notify without unreasonable delay (60 days)
 
 - **Practical Implementation:**
+
   - HIPAA breach notification templates
   - HHS breach notification portal access
   - Vendor notification (if Business Associate causes breach)
@@ -6541,11 +6668,13 @@ Breach notification procedures ensure the organization complies with legal requi
 **Religious/Nonprofit:**
 
 - **Notification Requirements:**
+
   - **State Privacy Laws:** Notify state AG, affected individuals (30-90 day timelines)
   - **Donor Notification:** Notify donors whose data was compromised
   - **No Federal Religious Data Privacy Law:** State laws apply
 
 - **Practical Implementation:**
+
   - State-by-state breach notification law review (legal counsel)
   - Donor notification templates emphasizing transparency, stewardship
   - Cyber insurance breach notification services
@@ -6553,6 +6682,7 @@ Breach notification procedures ensure the organization complies with legal requi
 **General Organizations:**
 
 - **Notification Requirements:**
+
   - **State Privacy Laws:** All 50 states (varying timelines)
   - **GDPR:** 72 hours to EU DPAs for EU data breaches
   - **CCPA (California):** California Attorney General notification
@@ -6762,6 +6892,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - Verizon Business
 - Annual analysis of global data breaches
 - Key Findings:
+
   - 68% of breaches involve human element
   - 36% of breaches involved phishing
   - 75% of breaches include ransomware
@@ -6775,6 +6906,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - IBM Security and Ponemon Institute
 - Annual study of data breach costs
 - Key Findings:
+
   - Average breach cost: $4.45M globally, $9.48M in healthcare
   - Average detection time: 212 days
   - Breaches detected in <200 days cost $1M less
@@ -6791,6 +6923,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - Veeam Software
 - Annual ransomware study
 - Key Findings:
+
   - Average ransomware recovery: 21 days without plan, 5-7 days with tested plan
 - Usage: Backup testing, disaster recovery, incident response
 
@@ -6799,6 +6932,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - Sophos
 - Annual ransomware survey
 - Key Findings:
+
   - Average ransom payment: $1.54M
   - Average ransomware recovery cost: $2.73M (including downtime)
 - Usage: Ransomware financial impact
@@ -6808,6 +6942,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - Ponemon Institute
 - Annual third-party risk research
 - Key Findings:
+
   - 54% of organizations experienced third-party data breach in past year
   - Organizations with vendor assessment processes experience 40% fewer third-party incidents
 - Usage: Vendor risk management (Category 8)
@@ -6817,6 +6952,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - KnowBe4
 - Annual phishing simulation benchmarking
 - Key Findings:
+
   - Organizations with training experience 70% fewer successful phishing attacks
   - Organizations conducting monthly simulations reduce click rates from 30%+ to <5% within 12 months
 - Usage: Security awareness training (Category 7)
@@ -6830,6 +6966,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - Coalition, Inc.
 - Major cyber insurance carrier
 - Key Offerings:
+
   - "Affirmative AI Insurance" product (2024 launch)
   - Recommends AI acceptable use policies, AI tool vetting
   - Requires: Weekly offline backups, MFA, EDR, annual training, phishing simulation
@@ -6856,6 +6993,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - U.S. Department of Health and Human Services (HHS)
 - Healthcare privacy and security regulations
 - Key Requirements:
+
   - 45 CFR § 164.308(a)(5) - Annual security awareness training required
   - 45 CFR § 164.308(a)(6) - Security incident procedures required
   - 45 CFR § 164.308(a)(7) - Contingency plan (backup, disaster recovery, emergency mode operations)
@@ -6869,6 +7007,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - U.S. Department of Education
 - Student data privacy law
 - Requirements:
+
   - Prohibits disclosure of student education records
   - Applies to AI tools processing student data
   - Vendors must sign FERPA Data Privacy Agreements
@@ -6880,6 +7019,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - European Union
 - EU data protection regulation
 - Key Requirements:
+
   - Article 28 - Data Processing Agreements required for vendors
   - Article 33 - 72-hour breach notification to Data Protection Authorities
   - Right to erasure (applies to AI tool data retention)
@@ -6898,6 +7038,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - PCI Security Standards Council
 - Security standard for payment card processing
 - Key Requirements:
+
   - Requirement 8.2.2 - MFA for vendor access
   - Requirement 12.6 - Annual security awareness training required
   - Requirement 12.8 - Manage service providers (vendor risk management)
@@ -6969,6 +7110,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 
 - U.S. Department of Homeland Security
 - Free resources:
+
   - Tabletop exercise packages for various sectors
   - Security awareness training modules
   - Cyber hygiene services
@@ -6980,6 +7122,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 
 - Federal Bureau of Investigation
 - Resources:
+
   - FBI Healthcare Cyber Threat Briefs
   - Cyber incident reporting (IC3.gov)
 - Usage: Law enforcement engagement, incident response
@@ -7003,6 +7146,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 
 - K-12 education technology association
 - Resources:
+
   - Education vendor assessment tools
   - Model FERPA Data Privacy Agreements
   - EdTech security mailing lists
@@ -7140,6 +7284,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 
 - Cybersecurity training and certification
 - Resources:
+
   - Incident Response Plan templates
   - Security Awareness training (free resources)
   - Incident Response Metrics best practices
@@ -7197,6 +7342,7 @@ This appendix provides a centralized list of all sources cited throughout the Co
 - 7 simplified cyber requirements for K-12 education insurance
 - Maps to 12 foundational questions in this assessment
 - Requirements:
+
   1. End-of-life software management (Q1.4)
   2. Multi-factor authentication (Q2.3-2.6)
   3. Patch management (Q4.3)

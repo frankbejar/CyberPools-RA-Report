@@ -13,6 +13,7 @@ tags:
 ### Overview
 
 Malware defense and endpoint security protects workstations, laptops, mobile devices, and servers from malicious software including viruses, ransomware, spyware, and advanced persistent threats (APTs). This category addresses:
+
 - Antivirus and anti-malware deployment
 - Endpoint Detection and Response (EDR)
 - Email security controls (filtering, authentication)
@@ -95,6 +96,7 @@ Antivirus/anti-malware deployment includes:
 **Insurance Rationale (Universal):**
 
 Antivirus is baseline expectation, but **EDR has replaced antivirus as primary insurance requirement** (see Question 5.4). However, antivirus still provides value:
+
 - Blocks known malware variants
 - Lightweight, minimal performance impact
 - Often built-in (Windows Defender is highly rated)
@@ -136,6 +138,7 @@ Antivirus is baseline expectation, but **EDR has replaced antivirus as primary i
 ### Question 5.2-5.3: Additional Malware Defense Questions
 
 **Note:** Questions 5.2-5.3 cover:
+
 - 5.2: Email Security Gateway / Filtering
 - 5.3: Web Filtering and Safe Browsing
 
@@ -273,12 +276,14 @@ Email authentication protocols work together to prevent domain spoofing and veri
 
 - **Purpose:** Provides policy for handling emails failing SPF/DKIM checks + generates reports
 - **Policies:**
+
   - **p=none:** Monitor mode (collect reports, no enforcement)
   - **p=quarantine:** Failed emails go to spam folder
   - **p=reject:** Failed emails rejected entirely (strongest protection)
 - **Reports:** Daily XML reports showing email authentication results, spoofing attempts
 
 **Full Implementation:**
+
 1. **Publish SPF record** in DNS listing authorized mail servers
 2. **Enable DKIM signing** on outbound email (Google Workspace, Microsoft 365 admin consoles)
 3. **Implement DMARC policy** starting with p=none for monitoring
@@ -409,6 +414,7 @@ API security controls protect application programming interfaces from abuse and 
 **Insurance Rationale (Universal):**
 
 APIs represent emerging attack surface:
+
 - **78% of security professionals** experienced API security breach in 2023
 - **API vulnerabilities cost $2.5 billion** in 2024 (remediation, fines, lost revenue)
 
