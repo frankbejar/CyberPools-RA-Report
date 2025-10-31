@@ -192,36 +192,41 @@ The assessment questions use sector-neutral language, with sector-specific conte
 ### Assessment Process
 
 1. **Preparation (Organization):**
-   - Review assessment questionnaire and gather documentation (policies, vendor contracts, system inventories)
-   - Identify stakeholders: IT leadership, security team, compliance officer, executive sponsor
-   - Schedule assessment interview (typically 2-4 hours depending on organization size)
+
+    - Review assessment questionnaire and gather documentation (policies, vendor contracts, system inventories)
+    - Identify stakeholders: IT leadership, security team, compliance officer, executive sponsor
+    - Schedule assessment interview (typically 2-4 hours depending on organization size)
 
 2. **Assessment Interview (CyberPools Assessor):**
-   - Trained assessor conducts structured interview with organization's stakeholders
-   - Reviews evidence and documentation for each control
-   - Assigns control ratings (Fully/Partially/Not Implemented) based on evidence
-   - Documents notes, gaps, and observations
+
+    - Trained assessor conducts structured interview with organization's stakeholders
+    - Reviews evidence and documentation for each control
+    - Assigns control ratings (Fully/Partially/Not Implemented) based on evidence
+    - Documents notes, gaps, and observations
 
 3. **Scoring and Analysis (CyberPools):**
-   - Calculate Foundation Score and Comprehensive Score
-   - Identify high-risk gaps (risk score ≥16)
-   - Compare to insurance requirements and peer benchmarks
-   - Generate prioritized recommendations
+
+    - Calculate Foundation Score and Comprehensive Score
+    - Identify high-risk gaps (risk score ≥16)
+    - Compare to insurance requirements and peer benchmarks
+    - Generate prioritized recommendations
 
 4. **Report Delivery (Organization):**
-   - Receive comprehensive PDF report including:
-       - Executive summary with Foundation and Comprehensive scores
-       - Category-by-category analysis
-       - High-risk findings requiring immediate attention
-       - Insurance compliance table (mapping to carrier requirements)
-       - Remediation roadmap with prioritized recommendations
-       - Sector-specific implementation guidance
+
+    - Receive comprehensive PDF report including:
+        - Executive summary with Foundation and Comprehensive scores
+        - Category-by-category analysis
+        - High-risk findings requiring immediate attention
+        - Insurance compliance table (mapping to carrier requirements)
+        - Remediation roadmap with prioritized recommendations
+        - Sector-specific implementation guidance
 
 5. **Continuous Improvement:**
-   - Address high-risk findings (typically 6-12 month remediation cycle)
-   - Implement recommended controls and policies
-   - Leverage CyberPools Cyber Toolkit services (vulnerability scanning, phishing simulations, vCISO consulting)
-   - Annual re-assessment to measure improvement and maintain insurance compliance
+
+    - Address high-risk findings (typically 6-12 month remediation cycle)
+    - Implement recommended controls and policies
+    - Leverage CyberPools Cyber Toolkit services (vulnerability scanning, phishing simulations, vCISO consulting)
+    - Annual re-assessment to measure improvement and maintain insurance compliance
 
 ### Alignment with Industry Frameworks
 
