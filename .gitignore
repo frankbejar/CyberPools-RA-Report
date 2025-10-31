@@ -22,3 +22,7 @@ output/Sample_*.pdf
 # AI-generated summaries (optional - remove if you want to track them)
 summaries/*.md
 !summaries/.gitkeep
+
+# MkDocs
+site/
+node_modules/

@@ -1,0 +1,157 @@
+site_name: CyberPools Comprehensive Risk Assessment
+site_description: 2026 Proposed Expansion - 65 Questions Across 9 Categories
+site_author: CyberPools
+site_url: https://frankbejar.github.io/CyberPools-RA-Report/
+
+# Repository
+repo_name: CyberPools-RA-Report
+repo_url: https://github.com/frankbejar/CyberPools-RA-Report
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2025 CyberPools
+
+# Theme Configuration
+theme:
+  name: material
+  palette:
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  features:
+    - navigation.instant        # Instant loading
+    - navigation.tracking       # URL tracking
+    - navigation.tabs           # Top-level tabs
+    - navigation.tabs.sticky    # Sticky tabs
+    - navigation.sections       # Navigation sections
+    - navigation.expand         # Expand navigation by default
+    - navigation.indexes        # Section index pages
+    - navigation.top            # Back to top button
+    - search.suggest            # Search suggestions
+    - search.highlight          # Highlight search terms
+    - search.share              # Share search results
+    - toc.follow                # TOC follows scroll
+    - content.code.copy         # Copy code button
+    - content.tabs.link         # Link content tabs
+
+  icon:
+    repo: fontawesome/brands/github
+    tag:
+      foundational: material/shield-check
+      new: material/new-box
+      high: material/alert
+      moderate: material/alert-circle
+      low: material/information
+
+# Extensions
+markdown_extensions:
+  - admonition              # Callout boxes
+  - pymdownx.details        # Collapsible admonitions
+  - pymdownx.superfences    # Code blocks, diagrams
+  - pymdownx.tabbed:        # Content tabs
+      alternate_style: true
+  - pymdownx.emoji:         # Emoji support
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:     # Code highlighting
+      anchor_linenums: true
+  - pymdownx.inlinehilite   # Inline code highlighting
+  - pymdownx.snippets       # Include snippets
+  - pymdownx.critic         # Track changes
+  - pymdownx.mark           # Highlighting
+  - pymdownx.keys           # Keyboard keys
+  - attr_list               # Add attributes to elements
+  - def_list                # Definition lists
+  - footnotes               # Footnotes
+  - meta                    # Meta tags
+  - md_in_html              # Markdown in HTML
+  - tables                  # Tables
+  - toc:                    # Table of contents
+      permalink: true
+      toc_depth: 3
+  - pymdownx.tasklist:      # Task lists
+      custom_checkbox: true
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - tags:
+      tags_file: tags.md
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/frankbejar/CyberPools-RA-Report
+  tags:
+    Foundational: foundational
+    New: new
+    High Impact: high
+    Moderate Impact: moderate
+    Low Impact: low
+    Category 1: category-1
+    Category 2: category-2
+    Category 3: category-3
+    Category 4: category-4
+    Category 5: category-5
+    Category 6: category-6
+    Category 7: category-7
+    Category 8: category-8
+    Category 9: category-9
+    Education: education
+    Healthcare: healthcare
+    Religious/Nonprofit: nonprofit
+    General: general
+
+# Navigation Structure
+nav:
+  - Home: index.md
+  - Overview:
+    - Introduction: overview/introduction.md
+    - Methodology: overview/methodology.md
+    - Cyber Essential Controls: overview/essential-controls.md
+  - Categories:
+    - Category 1 - Asset Inventory: categories/category-1.md
+    - Category 2 - Account Management: categories/category-2.md
+    - Category 3 - Data Protection: categories/category-3.md
+    - Category 4 - Secure Configuration: categories/category-4.md
+    - Category 5 - Malware Defense: categories/category-5.md
+    - Category 6 - Data Recovery: categories/category-6.md
+    - Category 7 - Security Awareness: categories/category-7.md
+    - Category 8 - Vendor Risk Management: categories/category-8.md
+    - Category 9 - Incident Response: categories/category-9.md
+  - Filtered Views:
+    - Foundational Questions: filtered/foundational.md
+    - New Questions (2026): filtered/new-questions.md
+    - High Impact Questions: filtered/high-impact.md
+    - By Sector:
+      - Education (K-12/Higher Ed): sectors/education.md
+      - Healthcare: sectors/healthcare.md
+      - Religious/Nonprofit: sectors/nonprofit.md
+      - General Organizations: sectors/general.md
+  - Reference:
+    - Citations: reference/citations.md
+    - Framework Mapping: reference/frameworks.md
+    - Tags: tags.md
+
+# Custom CSS
+extra_css:
+  - stylesheets/extra.css

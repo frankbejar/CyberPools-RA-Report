@@ -1,0 +1,20 @@
+{
+  "name": "cyberpools-poc-research",
+  "version": "1.0.0",
+  "description": "CyberPools POC Research Scripts",
+  "main": "index.js",
+  "scripts": {
+    "generate-ceo-report": "node scripts/generate_ceo_report.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "risk-assessment",
+    "cyberpools"
+  ],
+  "author": "CyberPools",
+  "license": "ISC",
+  "dependencies": {
+    "docx": "^8.5.0",
+    "marked": "^11.1.1"
+  }
+}

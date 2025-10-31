@@ -1,0 +1,67 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+    
+    <div class="high-risk-section">
+        <div class="high-risk-header">
+            <span style="font-size: 32pt;">⚠</span>
+            <span>HIGH RISK FINDINGS</span>
+        </div>
+        
+        <p style="color: #721c24; font-weight: 600; margin-bottom: 20px;">
+            The following items have been identified as high risk (Risk Score 16-25) and require immediate attention and remediation planning.
+        </p>
+        
+        {% for category in categories %}
+            {% for question in category.questions %}
+                {% if question.risk_score >= 16 %}
+                <div class="high-risk-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                        <div style="flex: 1;">
+                            <h3 style="margin: 0; color: #dc3545;">
+                                <span class="question-number">{{ question.number }}</span>
+                                {{ question.text }}
+                            </h3>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="badge-danger badge" style="font-size: 11pt; padding: 6px 14px;">
+                                Risk Score: {{ question.risk_score }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-status" style="margin: 12px 0;">
+                        <div class="status-item">
+                            <span class="status-label">Control Status:</span>
+                            <span class="badge-danger badge">{{ question.control_status_text }} ({{ question.control_status }})</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Impact:</span>
+                            {% if question.impact_score == 5 %}
+                                <span class="badge-danger badge">High ({{ question.impact_score }})</span>
+                            {% elif question.impact_score == 3 %}
+                                <span class="badge-warning badge">Moderate ({{ question.impact_score }})</span>
+                            {% elif question.impact_score == 1 %}
+                                <span class="badge-success badge">Low ({{ question.impact_score }})</span>
+                            {% else %}
+                                <span class="badge-secondary badge">N/A ({{ question.impact_score }})</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    {% if question.comments %}
+                    <div class="comments-section">
+                        <span class="comments-label">Assessment Notes:</span>
+                        <div class="comments-text" style="border-left-color: #dc3545;">
+                            {{ question.comments }}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+    
+</div>

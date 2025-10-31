@@ -1,0 +1,36 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <h1 style="color: var(--primary-teal); margin-bottom: 12px;">Tier I - Cyber Compliance</h1>
+
+    <p style="margin-bottom: 20px; font-size: 13px; line-height: 1.5;">The following table summarizes compliance with critical cybersecurity requirements identified by CyberPools. These requirements represent essential controls that significantly reduce organizational risk.</p>
+
+    <!-- Simple 3-column Compliance Table -->
+    <table class="compliance-table" style="font-size: 12px; margin-bottom: 20px;">
+        <thead>
+            <tr>
+                <th style="width: 8%; padding: 10px 12px;">NO.</th>
+                <th style="width: 74%; padding: 10px 12px;">REQUIREMENT</th>
+                <th style="width: 18%; padding: 10px 12px; text-align: center;">COMPLIANCE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in foundation_questions %}
+            <tr>
+                <td style="padding: 10px 12px;"><strong>{{ question.number }}</strong></td>
+                <td style="padding: 10px 12px;">{{ question.text }}</td>
+                <td style="text-align: center; padding: 10px 12px;">
+                    {% if question.control_status == 1 %}
+                        <span style="color: var(--grade-a); font-weight: 600;">✓ Yes</span>
+                    {% else %}
+                        <span style="color: var(--grade-f); font-weight: 600;">✗ No</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

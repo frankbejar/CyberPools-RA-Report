@@ -1,0 +1,100 @@
+{% set risk_meta = {
+    'high': {
+        'title': 'High Risk Findings',
+        'range': 'Risk Score 16-25 – requires immediate attention.',
+        'card_class': 'finding-card finding-card--high'
+    },
+    'moderate': {
+        'title': 'Moderate Risk Findings',
+        'range': 'Risk Score 11-15 – schedule remediation activities.',
+        'card_class': 'finding-card finding-card--moderate'
+    },
+    'low': {
+        'title': 'Low Risk Findings',
+        'range': 'Risk Score 1-10 – monitor as part of normal operations.',
+        'card_class': 'finding-card finding-card--low'
+    }
+} %}
+
+{% set risk_labels = {
+    'high': 'High Risk',
+    'moderate': 'Moderate Risk',
+    'low': 'Low Risk'
+} %}
+
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <div class="findings-section">
+        <div class="findings-header">
+            <div class="findings-header-icon">⚠</div>
+            <div class="findings-header-title">Key Findings</div>
+        </div>
+        <p class="findings-intro">The following controls were highlighted based on their risk scores and should be reviewed with the stakeholder team.</p>
+
+        {% for level in selected_risk_levels %}
+            {% set items = findings[level] %}
+            {% if items and items|length > 0 %}
+            <div class="findings-risk-group">
+                <div class="findings-risk-heading">
+                    <span>{{ risk_meta[level].title }} ({{ items|length }})</span>
+                </div>
+                <p class="findings-intro">{{ risk_meta[level].range }}</p>
+                <div class="findings-grid">
+                    {% for finding in items %}
+                    <div class="{{ risk_meta[level].card_class }}">
+                        <div class="finding-card-title">{{ finding.question_number }} {{ finding.question_text }}</div>
+                        <div class="finding-card-meta">Category: {{ finding.category }}</div>
+                        <div class="finding-card-status">
+                            <div class="status-item">
+                                <span class="status-label">Control Status:</span>
+                                {% if finding.control_status == 1 %}
+                                    <span class="badge badge-success">{{ finding.control_status_text }} ({{ finding.control_status }})</span>
+                                {% elif finding.control_status == 3 %}
+                                    <span class="badge badge-warning">{{ finding.control_status_text }} ({{ finding.control_status }})</span>
+                                {% elif finding.control_status == 5 %}
+                                    <span class="badge badge-danger">{{ finding.control_status_text }} ({{ finding.control_status }})</span>
+                                {% else %}
+                                    <span class="badge badge-secondary">{{ finding.control_status_text }} ({{ finding.control_status }})</span>
+                                {% endif %}
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Impact:</span>
+                                {% if finding.impact_score == 5 %}
+                                    <span class="badge badge-danger">HIGH ({{ finding.impact_score }})</span>
+                                {% elif finding.impact_score == 3 %}
+                                    <span class="badge badge-warning">MODERATE ({{ finding.impact_score }})</span>
+                                {% elif finding.impact_score == 1 %}
+                                    <span class="badge badge-success">LOW ({{ finding.impact_score }})</span>
+                                {% else %}
+                                    <span class="badge badge-secondary">N/A ({{ finding.impact_score }})</span>
+                                {% endif %}
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Risk Score:</span>
+                                {% if finding.risk_score >= 16 %}
+                                    <span class="badge badge-danger">{{ finding.risk_score }} - HIGH</span>
+                                {% elif finding.risk_score >= 10 %}
+                                    <span class="badge badge-warning">{{ finding.risk_score }} - MODERATE</span>
+                                {% elif finding.risk_score > 0 %}
+                                    <span class="badge badge-success">{{ finding.risk_score }} - LOW</span>
+                                {% else %}
+                                    <span class="badge badge-secondary">{{ finding.risk_score }} - N/A</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if finding.comments %}
+                        <div class="finding-card-notes">
+                            {{ finding.comments }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

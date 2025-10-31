@@ -1,0 +1,71 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <h1>Summary of Results</h1>
+
+    <!-- Overall Score Box - Full Width -->
+    <div class="overall-score-box">
+        <div class="overall-score">{{ scoring.overall_score }}%</div>
+        <div class="score-label">Overall Risk Score</div>
+        {% set progress_width = scoring.overall_score - 5 %}
+        {% if progress_width < 0 %}{% set progress_width = 0 %}{% endif %}
+        {% if progress_width > 95 %}{% set progress_width = 95 %}{% endif %}
+        <div class="overall-progress">
+            <div class="overall-progress-track">
+                <div class="overall-progress-fill" style="width: {{ progress_width }}%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk Distribution Grid - 3 columns below -->
+    <div class="risk-distribution-grid">
+        <!-- High Risk -->
+        <div class="risk-box high-risk">
+            <div class="risk-number">{{ scoring.risk_distribution.high }}</div>
+            <div class="risk-label">High Risk</div>
+        </div>
+
+        <!-- Moderate Risk -->
+        <div class="risk-box moderate-risk">
+            <div class="risk-number">{{ scoring.risk_distribution.moderate }}</div>
+            <div class="risk-label">Moderate Risk</div>
+        </div>
+
+        <!-- Low Risk -->
+        <div class="risk-box low-risk">
+            <div class="risk-number">{{ scoring.risk_distribution.low }}</div>
+            <div class="risk-label">Low Risk</div>
+        </div>
+    </div>
+    
+    <h2 class="mt-4">Section Scores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 10%;">No.</th>
+                <th style="width: 60%;">Section</th>
+                <th style="width: 30%;">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, section in scoring.section_scores.items() %}
+            <tr>
+                <td><strong>{{ key }}</strong></td>
+                <td>{{ section.name }}</td>
+                <td>
+                    <div class="score-bar">
+                        <span style="min-width: 50px; font-weight: 700;">{{ section.score }}%</span>
+                        <div class="score-bar-visual">
+                            <div class="score-bar-fill {% if section.score >= 90 %}grade-a{% elif section.score >= 80 %}grade-b{% elif section.score >= 70 %}grade-c{% elif section.score >= 60 %}grade-d{% else %}grade-f{% endif %}"
+                                 style="width: {{ section.score }}%;"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>

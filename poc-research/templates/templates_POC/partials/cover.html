@@ -1,0 +1,32 @@
+<div class="page cover-page">
+    <div class="cover-logo">
+        {% if cover_logo_data_uri %}
+        <img src="{{ cover_logo_data_uri }}" alt="CyberPools" class="cover-logo-img" />
+        {% else %}
+        <span class="cover-logo-text">CYBERPOOLS</span>
+        {% endif %}
+    </div>
+
+    <div class="cover-title">Cybersecurity Risk Assessment</div>
+    
+    <div class="cover-subtitle">{{ metadata.member_name }}</div>
+    
+    <div class="cover-metadata">
+        <div class="cover-metadata-item">
+            <span class="cover-metadata-label">Assessment Date:</span>
+            <span class="cover-metadata-value">{{ metadata.assessment_date }}</span>
+        </div>
+        <div class="cover-metadata-item">
+            <span class="cover-metadata-label">Report Date:</span>
+            <span class="cover-metadata-value">{{ report_date }}</span>
+        </div>
+        <div class="cover-metadata-item">
+            <span class="cover-metadata-label">Conducted By:</span>
+            <span class="cover-metadata-value">{{ metadata.conducted_by }}</span>
+        </div>
+        <div class="cover-metadata-item">
+            <span class="cover-metadata-label">Member Contact:</span>
+            <span class="cover-metadata-value">{{ metadata.member_contact }}</span>
+        </div>
+    </div>
+</div>

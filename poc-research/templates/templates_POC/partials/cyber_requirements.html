@@ -1,0 +1,43 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <h1 style="margin-bottom: 12px;">Cyber Requirements Compliance</h1>
+
+    <p style="margin-bottom: 15px; font-size: 12px;">The following table summarizes compliance with critical cybersecurity requirements identified by CyberPools. These requirements represent essential controls that significantly reduce organizational risk.</p>
+
+    <table class="compliance-table" style="font-size: 12px; margin-bottom: 15px;">
+        <thead>
+            <tr>
+                <th style="width: 8%; padding: 8px 10px;">No.</th>
+                <th style="width: 74%; padding: 8px 10px;">Requirement</th>
+                <th style="width: 18%; padding: 8px 10px;" class="text-center">Compliance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for req in cyber_requirements %}
+            <tr>
+                <td style="padding: 8px 10px;"><strong>{{ req.number }}</strong></td>
+                <td style="padding: 8px 10px;">{{ req.question }}</td>
+                <td class="text-center" style="padding: 8px 10px;">
+                    {% if req.compliance %}
+                        <span class="compliance-yes">
+                            <span class="compliance-icon">✓</span> Yes
+                        </span>
+                    {% else %}
+                        <span class="compliance-no">
+                            <span class="compliance-icon">✗</span> No
+                        </span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="info-box" style="padding: 12px 16px; margin-top: 0;">
+        <p style="margin: 0; font-size: 11px; line-height: 1.5;"><strong>Note:</strong> Items marked "No" represent areas requiring immediate remediation to ensure compliance with cybersecurity best practices and insurance requirements.</p>
+    </div>
+
+</div>

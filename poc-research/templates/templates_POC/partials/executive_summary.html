@@ -1,0 +1,124 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <h1>Executive Summary & Assessment Results</h1>
+
+    {% if executive_summary %}
+    <h2>Executive Summary</h2>
+    <div class="executive-summary-content" style="margin-bottom: 30px;">
+        {{ executive_summary|safe }}
+    </div>
+    {% endif %}
+
+    <h2>Assessment Results</h2>
+
+    <!-- Dual Score Grid - Tier I and Tier II -->
+    <div class="dual-score-grid">
+        <!-- Tier I Score Box -->
+        <div class="dual-score-box foundation-box">
+            <div class="dual-score-label">Tier I Score</div>
+            <div class="dual-score-number">{{ scoring.foundation_score }}%</div>
+            <div class="dual-score-progress">
+                <div class="dual-score-progress-track">
+                    <div class="dual-score-progress-fill foundation" style="width: {{ scoring.foundation_score }}%;"></div>
+                </div>
+            </div>
+            <div class="dual-score-description">
+                Foundation compliance based on 12 core cyber insurance requirements
+            </div>
+            <div class="dual-score-meta">
+                12 Risk Assessment Questions (7 Insurance Requirements)
+            </div>
+        </div>
+
+        <!-- Tier II Score Box -->
+        <div class="dual-score-box maturity-box">
+            <div class="dual-score-label">Tier II Score</div>
+            <div class="dual-score-number">{{ scoring.maturity_score }}%</div>
+            <div class="dual-score-progress">
+                <div class="dual-score-progress-track">
+                    <div class="dual-score-progress-fill foundation" style="width: {{ scoring.maturity_score }}%;"></div>
+                </div>
+            </div>
+            <div class="dual-score-description">
+                Comprehensive security maturity (80% Tier I + 20% All Controls)
+            </div>
+            <div class="dual-score-meta">
+                {{ categories|length }} Control Categories • 51 Security Questions
+            </div>
+        </div>
+    </div>
+
+    <!-- Explanation Box - Matches info-box pattern -->
+    <div class="dual-score-explanation">
+        <h3>Understanding Your Tier I and Tier II Scores</h3>
+        <p>This assessment provides two complementary scores that measure different aspects of your cybersecurity posture:</p>
+        <ul>
+            <li><strong>Tier I Score</strong> measures foundation compliance using 12 detailed risk assessment questions that map to the 7 core requirements from most cyber insurance providers. This ensures your organization meets minimum baseline security requirements for cyber insurance eligibility.</li>
+            <li><strong>Tier II Score</strong> evaluates your comprehensive security maturity across all {{ categories|length }} control categories. This score is calculated as 80% Tier I + 20% comprehensive controls, heavily emphasizing foundation compliance while considering your overall security posture.</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Continue on same page or new page -->
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <h1>Detailed Score Breakdown</h1>
+
+    <!-- Risk Distribution Grid - 3 columns -->
+    <h2>Risk Distribution</h2>
+    <div class="risk-distribution-grid">
+        <!-- High Risk -->
+        <div class="risk-box high-risk">
+            <div class="risk-number">{{ scoring.risk_distribution.high }}</div>
+            <div class="risk-label">High Risk</div>
+        </div>
+
+        <!-- Moderate Risk -->
+        <div class="risk-box moderate-risk">
+            <div class="risk-number">{{ scoring.risk_distribution.moderate }}</div>
+            <div class="risk-label">Moderate Risk</div>
+        </div>
+
+        <!-- Low Risk -->
+        <div class="risk-box low-risk">
+            <div class="risk-number">{{ scoring.risk_distribution.low }}</div>
+            <div class="risk-label">Low Risk</div>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Section Scores</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 10%;">No.</th>
+                <th style="width: 60%;">Section</th>
+                <th style="width: 30%;">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, section in scoring.section_scores.items() %}
+            <tr>
+                <td><strong>{{ key }}</strong></td>
+                <td>{{ section.name }}</td>
+                <td>
+                    <div class="score-bar">
+                        <span style="min-width: 50px; font-weight: 700;">{{ section.score }}%</span>
+                        <div class="score-bar-visual">
+                            <div class="score-bar-fill {% if section.score >= 90 %}grade-a{% elif section.score >= 80 %}grade-b{% elif section.score >= 70 %}grade-c{% elif section.score >= 60 %}grade-d{% else %}grade-f{% endif %}"
+                                 style="width: {{ section.score }}%;"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

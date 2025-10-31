@@ -1,0 +1,135 @@
+<div class="page">
+    <div class="page-header">
+        <div class="logo-text">CYBERPOOLS</div>
+    </div>
+
+    <h1>Assessment Methodology</h1>
+
+    <h2>Rating Legend</h2>
+    <div class="table-wrapper">
+        <table class="legend-table">
+            <thead>
+                <tr>
+                    <th>Control Rating</th>
+                    <th>Impact Rating</th>
+                    <th>Risk Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.fully_implemented.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.fully_implemented.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.low.label }} ({{ boilerplate.rating_legends.impact_ratings.low.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.low.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.low.label }} ({{ boilerplate.rating_legends.risk_ratings.low.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.low.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.partially_implemented.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.partially_implemented.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.moderate.label }} ({{ boilerplate.rating_legends.impact_ratings.moderate.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.moderate.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.moderate.label }} ({{ boilerplate.rating_legends.risk_ratings.moderate.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.moderate.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.not_implemented.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.not_implemented.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.high.label }} ({{ boilerplate.rating_legends.impact_ratings.high.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.high.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.high.label }} ({{ boilerplate.rating_legends.risk_ratings.high.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.high.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.control_ratings.not_applicable.label }}</strong><br>
+                        {{ boilerplate.rating_legends.control_ratings.not_applicable.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.impact_ratings.not_applicable.label }} ({{ boilerplate.rating_legends.impact_ratings.not_applicable.value }})</strong><br>
+                        {{ boilerplate.rating_legends.impact_ratings.not_applicable.description }}
+                    </td>
+                    <td>
+                        <strong>{{ boilerplate.rating_legends.risk_ratings.not_applicable.label }} ({{ boilerplate.rating_legends.risk_ratings.not_applicable.range }})</strong><br>
+                        {{ boilerplate.rating_legends.risk_ratings.not_applicable.description }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Scoring Methodology</h2>
+
+    <h3>Raw Score Calculation</h3>
+    <p>Each control is evaluated using a two-factor calculation that multiplies the implementation status by the potential impact to the organization.</p>
+    <div class="info-box legend-info">
+        <h4>Formula: Control Rating × Impact Rating</h4>
+        <p><strong>Control Rating:</strong> Indicates control implementation status.</p>
+        <ul>
+            <li>1 = Fully Implemented</li>
+            <li>3 = Partially Implemented</li>
+            <li>5 = Not Implemented</li>
+        </ul>
+        <p><strong>Impact Rating:</strong> Reflects the level of organizational disruption if the control fails.</p>
+        <ul>
+            <li>1 = Low impact (minimal disruption, no data compromise)</li>
+            <li>3 = Moderate impact (operational disruption, no sensitive data compromise)</li>
+            <li>5 = High impact (significant disruption and/or data compromise)</li>
+        </ul>
+    </div>
+
+    <h3>Score Normalization</h3>
+    <p>Raw scores are normalized to a 0–100 scale to produce comparable category and overall scores across assessments.</p>
+    <ul>
+        <li>Ensures organizations can be measured consistently year over year.</li>
+        <li>Maintains alignment with industry benchmarks and CyberPools grading standards.</li>
+        <li>Keeps the model sensitive to partially implemented controls versus complete gaps.</li>
+    </ul>
+
+    <h3>Two-Tier Assessment Model (80/20 Weighting)</h3>
+    <p>This assessment provides two complementary scores that measure different aspects of your cybersecurity posture:</p>
+    <div class="info-box legend-info">
+        <h4>Tier I Score (Foundation Compliance)</h4>
+        <p>Based on 12 risk assessment questions that map to the 7 core cyber insurance requirements. These controls represent the non-negotiable baseline for cyber insurance eligibility and protection against the most common threats.</p>
+
+        <h4>Tier II Score (Comprehensive Security Maturity)</h4>
+        <p><strong>Formula:</strong> Tier II = (80% × Tier I Score) + (20% × Comprehensive Score)</p>
+        <p>The Tier II score heavily weights your foundation compliance while also considering your performance across all 51 assessment questions and 9 control categories.</p>
+
+        <p><strong>Why 80/20 weighting?</strong> This aggressive weighting ensures that foundation controls—which are critical for cyber insurance compliance—have substantial influence on your comprehensive security maturity assessment. Missing even one foundation control will have significant impact on your Tier II score. Organizations with foundation gaps will see their Tier II score appropriately reflect this critical deficiency, regardless of strengths in other areas.</p>
+    </div>
+    <p><strong>Score Interpretation:</strong></p>
+    <ul>
+        <li><strong>85%+ (Tier I or II):</strong> Strong compliance/maturity</li>
+        <li><strong>70-84%:</strong> Adequate with room for improvement</li>
+        <li><strong>Below 70%:</strong> Critical gaps requiring immediate attention</li>
+    </ul>
+
+    <h2>Risk Calculation Example</h2>
+    <div class="info-box legend-info">
+        <p><strong>Control:</strong> {{ boilerplate.rating_legends.example.control }}</p>
+        <p><strong>Control Rating:</strong> {{ boilerplate.rating_legends.example.control_rating }}</p>
+        <p><strong>Impact Rating:</strong> {{ boilerplate.rating_legends.example.impact_rating }}</p>
+        <p><strong>Raw Risk Score:</strong> {{ boilerplate.rating_legends.example.calculation }}</p>
+        <p><strong>Result:</strong> {{ boilerplate.rating_legends.example.result }}</p>
+    </div>
+
+    <!-- Page continues with "How to Read This Report" section (included via how_to_read.html) -->

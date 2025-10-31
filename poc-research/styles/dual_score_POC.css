@@ -1,0 +1,458 @@
+/* ====================================================
+   POC: DUAL SCORE MODEL - ALIGNED WITH CYBERPOOLS STYLE GUIDE
+   Uses existing CyberPools design patterns and variables
+   ==================================================== */
+
+/* Dual Score Grid - 2 column layout */
+.dual-score-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/* Individual Score Box - Matches overall-score-box style */
+.dual-score-box {
+    flex: 1;
+    min-width: 280px;
+    background: var(--gray-bg);
+    border: 2px solid var(--gray-light);
+    border-left: 4px solid var(--primary-teal);
+    border-radius: var(--border-radius);
+    padding: 24px 20px;
+    text-align: center;
+    page-break-inside: avoid;
+    margin-right: 15px;
+}
+
+.dual-score-box:last-child {
+    margin-right: 0;
+}
+
+/* Foundation Box Accent */
+.dual-score-box.foundation-box {
+    border-left-color: var(--grade-a);
+}
+
+/* Maturity Box Accent by Grade */
+.dual-score-box.maturity-box.grade-a { border-left-color: var(--grade-a); }
+.dual-score-box.maturity-box.grade-b { border-left-color: var(--grade-b); }
+.dual-score-box.maturity-box.grade-c { border-left-color: var(--grade-c); }
+.dual-score-box.maturity-box.grade-d { border-left-color: var(--grade-d); }
+.dual-score-box.maturity-box.grade-f { border-left-color: var(--grade-f); }
+
+/* Score Label */
+.dual-score-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+/* Score Number - Matches overall-score style */
+.dual-score-number {
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+/* Status Badge - Using existing badge pattern */
+.dual-score-status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+/* Foundation Status Colors */
+.dual-score-status.certified {
+    background: rgba(10, 190, 87, 0.1);
+    color: var(--grade-a);
+    border: 1px solid var(--grade-a);
+}
+
+.dual-score-status.meets {
+    background: rgba(243, 156, 18, 0.1);
+    color: var(--risk-moderate);
+    border: 1px solid var(--risk-moderate);
+}
+
+.dual-score-status.below {
+    background: rgba(239, 58, 63, 0.1);
+    color: var(--grade-f);
+    border: 1px solid var(--grade-f);
+}
+
+/* Maturity Grade Colors */
+.dual-score-status.grade-a {
+    background: rgba(10, 190, 87, 0.1);
+    color: var(--grade-a);
+    border: 1px solid var(--grade-a);
+}
+
+.dual-score-status.grade-b {
+    background: rgba(117, 197, 37, 0.1);
+    color: var(--grade-b);
+    border: 1px solid var(--grade-b);
+}
+
+.dual-score-status.grade-c {
+    background: rgba(232, 171, 37, 0.1);
+    color: var(--grade-c);
+    border: 1px solid var(--grade-c);
+}
+
+.dual-score-status.grade-d {
+    background: rgba(250, 120, 58, 0.1);
+    color: var(--grade-d);
+    border: 1px solid var(--grade-d);
+}
+
+.dual-score-status.grade-f {
+    background: rgba(239, 58, 63, 0.1);
+    color: var(--grade-f);
+    border: 1px solid var(--grade-f);
+}
+
+/* Progress Bar - Matches overall-progress pattern */
+.dual-score-progress {
+    margin: 15px 0 10px 0;
+}
+
+.dual-score-progress-track {
+    width: 100%;
+    height: 10px;
+    background: #DDDDDD;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.dual-score-progress-fill {
+    height: 100%;
+    border-radius: 6px;
+}
+
+/* Foundation progress fill */
+.dual-score-progress-fill.foundation {
+    background: linear-gradient(90deg, var(--primary-teal), var(--grade-a));
+}
+
+/* Maturity progress fill colors */
+.dual-score-progress-fill.grade-a {
+    background: linear-gradient(90deg, var(--primary-teal), var(--grade-a));
+}
+
+.dual-score-progress-fill.grade-b {
+    background: linear-gradient(90deg, var(--primary-teal), var(--grade-b));
+}
+
+.dual-score-progress-fill.grade-c {
+    background: linear-gradient(90deg, var(--primary-teal), var(--grade-c));
+}
+
+.dual-score-progress-fill.grade-d {
+    background: linear-gradient(90deg, var(--primary-teal), var(--grade-d));
+}
+
+.dual-score-progress-fill.grade-f {
+    background: linear-gradient(90deg, var(--primary-teal), var(--grade-f));
+}
+
+/* Score Description */
+.dual-score-description {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--gray-medium);
+    margin-top: 12px;
+}
+
+/* Score Meta Info */
+.dual-score-meta {
+    font-size: 11px;
+    color: var(--gray-medium);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Explanation Box - Matches info-box pattern */
+.dual-score-explanation {
+    background: var(--gray-bg);
+    border-left: 4px solid var(--primary-teal);
+    padding: 18px 20px;
+    margin: 20px 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    page-break-inside: avoid;
+}
+
+.dual-score-explanation h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.dual-score-explanation p {
+    margin-bottom: 8px;
+}
+
+.dual-score-explanation ul {
+    margin: 10px 0 10px 20px;
+}
+
+.dual-score-explanation li {
+    margin-bottom: 6px;
+}
+
+/* ====================================================
+   FOUNDATION BREAKDOWN - MATCHES EXISTING TABLE STYLE
+   ==================================================== */
+
+/* Foundation Intro Box - Matches info-box */
+.foundation-intro-box {
+    background: var(--gray-bg);
+    border-left: 4px solid var(--grade-a);
+    padding: 18px 20px;
+    margin: 20px 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    page-break-inside: avoid;
+}
+
+.foundation-intro-box p {
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.foundation-intro-box ul {
+    margin: 10px 0 10px 20px;
+}
+
+.foundation-intro-box strong {
+    color: var(--primary-navy);
+}
+
+/* Foundation Table - Matches standard table styling */
+.foundation-table-wrapper {
+    margin: 20px 0;
+    page-break-inside: auto;
+}
+
+.foundation-table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.foundation-table-wrapper thead {
+    background: var(--primary-navy);
+    color: white;
+}
+
+.foundation-table-wrapper thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.foundation-table-wrapper tbody tr {
+    border-bottom: 1px solid var(--gray-light);
+    page-break-inside: avoid;
+}
+
+.foundation-table-wrapper tbody tr:nth-child(even) {
+    background: var(--gray-bg);
+}
+
+.foundation-table-wrapper tbody td {
+    padding: 12px 15px;
+    font-size: 13px;
+    vertical-align: top;
+}
+
+/* Foundation Row Accents - Subtle left border */
+.foundation-table-wrapper tbody tr.implemented {
+    border-left: 3px solid var(--grade-a);
+}
+
+.foundation-table-wrapper tbody tr.partial {
+    border-left: 3px solid var(--risk-moderate);
+}
+
+.foundation-table-wrapper tbody tr.not-implemented {
+    border-left: 3px solid var(--grade-f);
+}
+
+/* Question Number - Monospace */
+.foundation-question-number {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--primary-navy);
+    font-size: 13px;
+}
+
+/* Question Text */
+.foundation-question-text strong {
+    display: block;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+/* Question Comments */
+.foundation-question-comment {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--gray-medium);
+    font-style: italic;
+    padding: 8px 10px;
+    background: rgba(0,0,0,0.02);
+    border-radius: 4px;
+}
+
+/* Status Badge in Table - Using existing badge pattern */
+.foundation-status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.foundation-status-badge.status-1 {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--risk-low);
+    border: 1px solid var(--risk-low);
+}
+
+.foundation-status-badge.status-3 {
+    background: rgba(243, 156, 18, 0.1);
+    color: var(--risk-moderate);
+    border: 1px solid var(--risk-moderate);
+}
+
+.foundation-status-badge.status-5 {
+    background: rgba(193, 0, 0, 0.1);
+    color: var(--risk-high);
+    border: 1px solid var(--risk-high);
+}
+
+.foundation-status-badge.status-0 {
+    background: rgba(113, 128, 150, 0.1);
+    color: var(--neutral);
+    border: 1px solid var(--neutral);
+}
+
+/* Impact & Risk Badges */
+.foundation-impact-badge,
+.foundation-risk-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.foundation-impact-badge.critical {
+    background: rgba(193, 0, 0, 0.1);
+    color: var(--risk-high);
+    border: 1px solid var(--risk-high);
+}
+
+.foundation-impact-badge.moderate {
+    background: rgba(243, 156, 18, 0.1);
+    color: var(--risk-moderate);
+    border: 1px solid var(--risk-moderate);
+}
+
+.foundation-impact-badge.low {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--risk-low);
+    border: 1px solid var(--risk-low);
+}
+
+.foundation-risk-badge {
+    font-weight: 700;
+}
+
+.foundation-risk-badge.high {
+    background: rgba(193, 0, 0, 0.1);
+    color: var(--risk-high);
+    border: 1px solid var(--risk-high);
+}
+
+.foundation-risk-badge.moderate {
+    background: rgba(243, 156, 18, 0.1);
+    color: var(--risk-moderate);
+    border: 1px solid var(--risk-moderate);
+}
+
+.foundation-risk-badge.low {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--risk-low);
+    border: 1px solid var(--risk-low);
+}
+
+/* Foundation Summary Stats - Matches risk-distribution-grid */
+.foundation-stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    gap: 15px;
+}
+
+.foundation-stat-box {
+    flex: 1;
+    min-width: 140px;
+    background: var(--gray-bg);
+    border: 2px solid var(--gray-light);
+    border-radius: var(--border-radius);
+    padding: 20px 15px;
+    text-align: center;
+    page-break-inside: avoid;
+}
+
+.foundation-stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.foundation-stat-label {
+    font-size: 11px;
+    color: var(--gray-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* Print-specific adjustments */
+@media print {
+    .dual-score-grid,
+    .dual-score-box,
+    .dual-score-explanation,
+    .foundation-intro-box,
+    .foundation-stat-box {
+        page-break-inside: avoid;
+    }
+
+    .foundation-table-wrapper tbody tr {
+        page-break-inside: avoid;
+    }
+}
