@@ -348,6 +348,52 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 - Check build warnings: `mkdocs build` shows broken links
 - Test navigation after changes
 
+**Markdown formatting requirements:**
+
+MkDocs Material requires specific formatting for proper list rendering:
+
+**Nested lists under numbered items:**
+- Use **4 spaces** (not 3) for indentation
+- Add a **blank line** after the numbered header
+
+✅ Correct:
+```markdown
+1. **Header:**
+
+    - Bullet item (4 spaces)
+    - Bullet item (4 spaces)
+```
+
+❌ Incorrect (will render bullets as separate numbered items):
+```markdown
+1. **Header:**
+   - Bullet item (3 spaces)
+```
+
+**Bold headers with bullets:**
+- Add a **blank line** after bold headers before bullets
+
+✅ Correct:
+```markdown
+**Header:**
+
+- Bullet item
+- Bullet item
+```
+
+❌ Incorrect (will render as plain text):
+```markdown
+**Header:**
+- Bullet item
+```
+
+**Fixing formatting issues:**
+1. Check indentation: `od -c filename.md` shows exact spacing
+2. Replace 3-space bullets with 4-space: `sed -i '' 's/^   -/    -/g' file.md`
+3. Add blank lines after headers using Python script or manual editing
+4. Rebuild: `python3 scripts/build_docs_site.py`
+5. Preview: `mkdocs serve` before committing
+
 ### MkDocs Site: Modifying Layout/Navigation
 
 1. Edit `mkdocs.yml` to change navigation structure

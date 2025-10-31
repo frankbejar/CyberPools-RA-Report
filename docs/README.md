@@ -101,6 +101,56 @@ To update question content:
 3. Commit and push changes
 4. GitHub Actions will auto-deploy
 
+### Markdown Formatting Requirements
+
+**MkDocs Material has specific formatting requirements for proper list rendering:**
+
+#### Nested Lists Under Numbered Items
+
+For numbered lists with sub-bullets, use **4 spaces** (not 3) for indentation and add a **blank line** after the header:
+
+✅ **Correct:**
+```markdown
+1. **Header:**
+
+    - Bullet item (4 spaces)
+    - Bullet item (4 spaces)
+```
+
+❌ **Incorrect:**
+```markdown
+1. **Header:**
+   - Bullet item (3 spaces - will render as separate numbered items)
+```
+
+#### Bold Headers with Bullets
+
+Add a **blank line** after bold headers before bullet lists:
+
+✅ **Correct:**
+```markdown
+**Header:**
+
+- Bullet item
+- Bullet item
+```
+
+❌ **Incorrect:**
+```markdown
+**Header:**
+- Bullet item (will render as plain text)
+```
+
+#### Fixing Formatting Issues
+
+If lists aren't rendering properly:
+
+1. Check indentation with `od -c filename.md` to verify exact spacing
+2. Ensure 4 spaces for nested bullets under numbered lists
+3. Add blank lines after headers before bullets
+4. Run `python3 scripts/build_docs_site.py` to rebuild
+5. Preview with `mkdocs serve` before committing
+
 ### Custom Styling
 
 Edit `docs/stylesheets/extra.css` for custom CSS.
