@@ -39,131 +39,115 @@ tags:
 
 The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool designed to measure an organization's cybersecurity posture against industry-leading frameworks and cyber insurance requirements.
 
-### Key Benefits
+**1. Insurance Alignment:**
 
-!!! note "1. Insurance Alignment"
-    - Maps directly to cyber insurance application requirements from major carriers
-        - Coalition, Chubb, Corvus
-    - Identifies gaps that could impact:
-        - Insurance eligibility
-        - Coverage limits
-        - Premium rates
-    - Provides insurance-ready documentation of security controls
-    - Demonstrates due diligence and risk management maturity to underwriters
+- Maps directly to cyber insurance application requirements from major carriers
+    - Coalition, Chubb, Corvus
+- Identifies gaps that could impact:
+    - Insurance eligibility
+    - Coverage limits
+    - Premium rates
+- Provides insurance-ready documentation of security controls
+- Demonstrates due diligence and risk management maturity to underwriters
 
-!!! note "2. Risk Quantification"
-    - **65 security controls** across **9 categories** covering the complete cybersecurity lifecycle
-    - Risk scores based on:
-        - **Control Rating**: Fully / Partially / Not Implemented
-        - **Impact Rating**: Low / Moderate / High
-    - **Dual scores** provided:
-        - **Foundation Score** - insurance-critical controls
-        - **Comprehensive Score** - full security maturity
-    - Enables tracking of risk reduction over time through annual assessments
+**2. Risk Quantification:**
 
-!!! note "3. Framework Compliance"
-    - **NIST Cybersecurity Framework (CSF) 2.0**
-        - Sector-agnostic standard
-        - Functions: Govern, Identify, Protect, Detect, Respond, Recover
-    - **CIS Controls v8**
-        - Prioritized security controls for all organization sizes
-    - **NIST AI Risk Management Framework**
-        - Voluntary guidance for AI governance
-    - **Sector-specific regulations**
-        - FERPA, HIPAA, state privacy laws
+- **65 security controls** across **9 categories** covering the complete cybersecurity lifecycle
+- Risk scores based on:
+    - **Control Rating**: Fully / Partially / Not Implemented
+    - **Impact Rating**: Low / Moderate / High
+- **Dual scores** provided:
+    - **Foundation Score** - insurance-critical controls
+    - **Comprehensive Score** - full security maturity
+- Enables tracking of risk reduction over time through annual assessments
 
-!!! note "4. Actionable Remediation"
-    - Identifies high-risk gaps requiring immediate attention
-    - Provides prioritized recommendations based on:
-        - Insurance requirements
-        - Current threat landscape
-    - Delivers sector-specific guidance:
-        - Education (K-12/Higher Ed)
-        - Healthcare
-        - Religious/Nonprofit
-        - General organizations
-    - Supports integration with **CyberPools Cyber Toolkit** services:
-        - Vulnerability scanning
-        - Phishing simulations
-        - vCISO
+**3. Framework Compliance:**
+
+- **NIST Cybersecurity Framework (CSF) 2.0**
+    - Sector-agnostic standard
+    - Functions: Govern, Identify, Protect, Detect, Respond, Recover
+- **CIS Controls v8**
+    - Prioritized security controls for all organization sizes
+- **NIST AI Risk Management Framework**
+    - Voluntary guidance for AI governance
+- **Sector-specific regulations**
+    - FERPA, HIPAA, state privacy laws
+
+**4. Actionable Remediation:**
+
+- Identifies high-risk gaps requiring immediate attention
+- Provides prioritized recommendations based on:
+    - Insurance requirements
+    - Current threat landscape
+- Delivers sector-specific guidance:
+    - Education (K-12/Higher Ed)
+    - Healthcare
+    - Religious/Nonprofit
+    - General organizations
+- Supports integration with **CyberPools Cyber Toolkit** services:
+    - Vulnerability scanning
+    - Phishing simulations
+    - vCISO
 
 ### Assessment Methodology
 
-The CyberPools Risk Assessment employs a **dual-score model** to differentiate between insurance-critical baseline controls and comprehensive security maturity.
+The CyberPools Risk Assessment employs a **dual-score model** to differentiate between insurance-critical baseline controls and comprehensive security maturity:
 
-!!! success "Foundation Score (Insurance-Critical Controls)"
-    **Purpose:** Measures implementation of **17 foundational questions**
+#### Foundation Score (Insurance-Critical Controls)
 
-    - Required or strongly preferred by cyber insurance carriers
-    - Address the most common and costly attack vectors:
-        - Credential abuse
-        - Ransomware
-        - Phishing
-    - Represent baseline security hygiene expected of all organizations
+**Purpose:** Measures implementation of **17 foundational questions** that are:
+- Required or strongly preferred by cyber insurance carriers
+- Address the most common and costly attack vectors (credential abuse, ransomware, phishing)
+- Represent baseline security hygiene expected of all organizations
 
-    **Scoring:**
+**Scoring:**
+- Foundation Score = (Points Earned / Total Possible Points) × 100%
+- Each foundational question scored: Control Rating (1/3/5) × Impact Rating (1/3/5)
+- Minimum acceptable Foundation Score varies by insurance pool requirements
 
-    - `Foundation Score = (Points Earned / Total Possible Points) × 100%`
-    - Each foundational question scored: `Control Rating (1/3/5) × Impact Rating (1/3/5)`
-    - Minimum acceptable score varies by insurance pool requirements
+**Insurance Impact:**
+- Foundation Score directly influences insurance eligibility and premium rates
+- Gaps in foundational controls may result in coverage exclusions or sub-limits
+- Annual improvement in Foundation Score demonstrates risk reduction to insurers
 
-    **Insurance Impact:**
+#### Comprehensive Score (Full Security Maturity)
 
-    - Directly influences insurance eligibility and premium rates
-    - Gaps may result in coverage exclusions or sub-limits
-    - Annual improvement demonstrates risk reduction to insurers
+**Purpose:** Measures implementation of **all 65 questions** across the cybersecurity lifecycle:
+- Includes foundational controls (17 questions)
+- Plus comprehensive maturity indicators (48 questions)
+- Demonstrates advanced security operations and defense-in-depth
 
-!!! info "Comprehensive Score (Full Security Maturity)"
-    **Purpose:** Measures implementation of **all 65 questions** across the cybersecurity lifecycle
+**Scoring:**
+- Comprehensive Score = (Points Earned / Total Possible Points) × 100%
+- Same formula: Control Rating (1/3/5) × Impact Rating (1/3/5)
+- Reflects organization's overall cybersecurity maturity
 
-    - **17** foundational controls (insurance-critical)
-    - **48** comprehensive maturity indicators
-    - Demonstrates advanced security operations and defense-in-depth
-
-    **Scoring:**
-
-    - `Comprehensive Score = (Points Earned / Total Possible Points) × 100%`
-    - Same formula: `Control Rating (1/3/5) × Impact Rating (1/3/5)`
-    - Reflects organization's overall cybersecurity maturity
-
-    **Value:**
-
-    - Identifies opportunities for continuous improvement beyond insurance minimums
-    - Benchmarks against peer organizations in similar sectors
-    - Guides multi-year security roadmap and budget planning
+**Value:**
+- Identifies opportunities for continuous improvement beyond insurance minimums
+- Benchmarks against peer organizations in similar sectors
+- Guides multi-year security roadmap and budget planning
 
 #### Risk Rating Calculation
 
-!!! tip "How Risk Scores Work"
-    Each question receives a risk score based on two factors:
+**Control Rating (Implementation Level):**
+- **1 (Fully Implemented):** Control is comprehensively deployed, documented, and tested
+- **3 (Partially Implemented):** Control exists but has gaps in coverage, documentation, or testing
+- **5 (Not Implemented):** Control is absent or planning stage only
 
-    **Control Rating (Implementation Level):**
+**Impact Rating (Assigned per Question):**
+- **1 (Low Impact):** Limited consequence if control fails; affects single system or small user group
+- **3 (Moderate Impact):** Significant consequence if control fails; affects multiple systems or broader operations
+- **5 (High Impact):** Severe consequence if control fails; affects entire organization, critical systems, or sensitive data
 
-    - **1 - Fully Implemented**: Control is comprehensively deployed, documented, and tested
-    - **3 - Partially Implemented**: Control exists but has gaps in coverage, documentation, or testing
-    - **5 - Not Implemented**: Control is absent or planning stage only
+**Risk Score per Question:**
+```
+Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
+```
 
-    **Impact Rating (Assigned per Question):**
-
-    - **1 - Low Impact**: Limited consequence if control fails
-        - Affects single system or small user group
-    - **3 - Moderate Impact**: Significant consequence if control fails
-        - Affects multiple systems or broader operations
-    - **5 - High Impact**: Severe consequence if control fails
-        - Affects entire organization, critical systems, or sensitive data
-
-    **Formula:**
-    ```
-    Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
-    ```
-
-    **Risk Level Interpretation:**
-
-    | Score | Level | Meaning |
-    |-------|-------|---------|
-    | 0-5 | 🟢 Low Risk | Control well-implemented for impact level |
-    | 6-15 | 🟡 Moderate Risk | Control partially implemented; improvement needed |
-    | 16-25 | 🔴 High Risk | Critical gap requiring immediate attention |
+**Risk Level Interpretation:**
+- **0-5:** Low Risk (green) - Control well-implemented for impact level
+- **6-15:** Moderate Risk (yellow) - Control partially implemented; improvement needed
+- **16-25:** High Risk (red) - Critical gap requiring immediate attention
 
 **Example:**
 - Question: "Has the organization implemented MFA for all users?"

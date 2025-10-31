@@ -31,31 +31,57 @@
 
 ### What is the CyberPools Cyber Risk Assessment?
 
-The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool designed to measure an organization's cybersecurity posture against industry-leading frameworks and cyber insurance requirements. This assessment serves multiple critical purposes:
+The CyberPools Cybersecurity Risk Assessment is a comprehensive evaluation tool designed to measure an organization's cybersecurity posture against industry-leading frameworks and cyber insurance requirements.
 
 **1. Insurance Alignment:**
-- Maps directly to cyber insurance application requirements from major carriers (Coalition, Chubb, Corvus)
-- Identifies gaps that could impact insurance eligibility, coverage limits, or premium rates
+
+- Maps directly to cyber insurance application requirements from major carriers
+    - Coalition, Chubb, Corvus
+- Identifies gaps that could impact:
+    - Insurance eligibility
+    - Coverage limits
+    - Premium rates
 - Provides insurance-ready documentation of security controls
 - Demonstrates due diligence and risk management maturity to underwriters
 
 **2. Risk Quantification:**
-- Evaluates 65 security controls across 9 categories covering the complete cybersecurity lifecycle
-- Assigns risk scores based on control implementation (Fully/Partially/Not Implemented) and impact rating (Low/Moderate/High)
-- Produces dual scores: **Foundation Score** (insurance-critical controls) and **Comprehensive Score** (full security maturity)
+
+- **65 security controls** across **9 categories** covering the complete cybersecurity lifecycle
+- Risk scores based on:
+    - **Control Rating**: Fully / Partially / Not Implemented
+    - **Impact Rating**: Low / Moderate / High
+- **Dual scores** provided:
+    - **Foundation Score** - insurance-critical controls
+    - **Comprehensive Score** - full security maturity
 - Enables tracking of risk reduction over time through annual assessments
 
 **3. Framework Compliance:**
-- Aligns with **NIST Cybersecurity Framework (CSF) 2.0** - sector-agnostic standard covering Govern, Identify, Protect, Detect, Respond, Recover
-- Maps to **CIS Controls v8** - prioritized security controls for all organization sizes
-- Incorporates **NIST AI Risk Management Framework** - voluntary guidance for AI governance
-- Supports compliance with sector-specific regulations (FERPA, HIPAA, state privacy laws)
+
+- **NIST Cybersecurity Framework (CSF) 2.0**
+    - Sector-agnostic standard
+    - Functions: Govern, Identify, Protect, Detect, Respond, Recover
+- **CIS Controls v8**
+    - Prioritized security controls for all organization sizes
+- **NIST AI Risk Management Framework**
+    - Voluntary guidance for AI governance
+- **Sector-specific regulations**
+    - FERPA, HIPAA, state privacy laws
 
 **4. Actionable Remediation:**
+
 - Identifies high-risk gaps requiring immediate attention
-- Provides prioritized recommendations based on insurance requirements and threat landscape
-- Delivers sector-specific guidance for implementation (education, healthcare, religious, general)
-- Supports integration with CyberPools Cyber Toolkit services (vulnerability scanning, phishing simulations, vCISO)
+- Provides prioritized recommendations based on:
+    - Insurance requirements
+    - Current threat landscape
+- Delivers sector-specific guidance:
+    - Education (K-12/Higher Ed)
+    - Healthcare
+    - Religious/Nonprofit
+    - General organizations
+- Supports integration with **CyberPools Cyber Toolkit** services:
+    - Vulnerability scanning
+    - Phishing simulations
+    - vCISO
 
 ### Assessment Methodology
 
