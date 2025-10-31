@@ -118,50 +118,6 @@ Cyber insurance carriers:
 
 
 <a name="category-2"></a>
-## Category 2: Account Management and Access Control
-
-### Overview
-
-Account management and access control ensures that only authorized individuals can access organizational systems and data, with permissions appropriate to their role. This category addresses:
-
-- User account lifecycle (creation, modification, deactivation)
-- Multi-factor authentication (MFA) across all access points
-- Privileged access management (PAM) for administrator accounts
-- Password policies and credential management
-- Access review and recertification processes
-
-**Framework Alignment:**
-
-- **NIST CSF 2.0:** PR.AC (Identity Management, Authentication and Access Control) - "Access to physical and logical assets is limited to authorized users"
-- **CIS Controls v8:** Control 5 (Account Management), Control 6 (Access Control Management)
-
-### Importance
-
-**Why Account Management Matters:**
-
-1. **#1 Attack Vector:** Credential abuse is the most common initial access method (30% of incidents - IBM X-Force 2025)
-2. **88% of Breaches:** Involve stolen or compromised credentials (Verizon DBIR 2024)
-3. **Insurance Requirement:** 82% of cyber insurance claims involved organizations lacking MFA (Coalition 2024)
-4. **Privilege Escalation:** Attackers target privileged accounts for maximum impact (lateral movement, data exfiltration, ransomware deployment)
-5. **Insider Threats:** Former employees with active accounts, excessive permissions, or shared credentials create risk
-
-**Universal Threats:**
-
-- **Credential Stuffing:** Attackers use breached credentials from other sites to access organizational systems
-- **Phishing:** Social engineering to trick users into revealing passwords or MFA codes
-- **Brute Force:** Automated password guessing against accounts without MFA
-- **Privilege Abuse:** Compromised privileged accounts enable ransomware deployment and data theft
-- **Orphaned Accounts:** Former employee accounts remaining active after termination
-
-**Sector-Specific Risks:**
-
-- **Education:** Shared teacher accounts, student accounts not deactivated after graduation, summer staff turnover
-- **Healthcare:** Shared clinical staff accounts, vendor/contractor accounts with excessive permissions, physicians using personal devices
-- **Religious/Nonprofit:** Volunteer accounts with undefined lifecycle, shared passwords for ministry tools
-- **General:** Contractor/vendor accounts, service accounts with static passwords, excessive administrative permissions
-
----
-
 ### Question 2.3: MFA for Remote Access/VPN 🔑 FOUNDATIONAL
 
 **Question Text:**
@@ -1771,45 +1727,6 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 
 ---
 
-## Category 8: Third-Party and Vendor Risk Management
-
-**Overview:**
-
-Third-party and vendor risk management addresses cybersecurity risks introduced through external organizations that access organizational systems, data, or provide critical services. Supply chain attacks and third-party breaches have doubled in recent years, making vendor risk management a critical security control.
-
-**Importance:**
-
-**Third-Party Breach Epidemic:**
-
-- **Third-party breaches doubled from 2022 to 2024** (Verizon DBIR 2024)
-- **54% of organizations experienced third-party data breach** in past year (Ponemon 2024)
-- High-profile incidents: SolarWinds, Kaseya, MOVEit, demonstrate systemic third-party risk
-
-**Insurance Requirements:**
-
-- Cyber insurers increasingly require **vendor risk management programs**
-- **Vendor security certifications** (SOC 2, ISO 27001) may be required for critical vendors
-- **Vendor breach notification clauses** in contracts required by insurers
-
-**Sector-Agnostic Relevance:**
-
-- **All sectors** rely on third-party vendors (IT services, cloud providers, SaaS applications, MSPs)
-- Vendor risk applies universally across Education, Healthcare, Religious/Nonprofit, General organizations
-- **AI vendors** introduce new risks requiring specialized vetting (Question 8.8)
-
-**Category 8 includes 8 questions:**
-
-- Question 8.1: Third-Party Vendor Inventory
-- Question 8.2: Vendor Security Assessment Process
-- Question 8.3: Vendor Contract Security Requirements
-- Question 8.4: Vendor Access Management
-- Question 8.5: Vendor Off-boarding Process
-- Question 8.6: Third-Party Security Certifications and Assessments 🆕
-- Question 8.7: Vendor Continuous Monitoring and Incident Notification 🆕
-- Question 8.8: AI Tool Privacy and Security Vetting 🔑 FOUNDATIONAL 🆕
-
----
-
 ### Question 8.8: AI Tool Privacy and Security Vetting 🔑 FOUNDATIONAL 🆕
 
 **Question Text:**
@@ -2022,46 +1939,6 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **GDPR:** Article 28 - Data Processing Agreements required for AI vendors processing personal data
 - CIS Controls v8: Control 15.1 (Establish and Maintain an Inventory of Service Providers) - AI vendors are service providers
 - NIST CSF 2.0: ID.SC-2 (Suppliers and third-party partners are identified, prioritized, and assessed)
-
----
-
-## Category 9: Incident Response and Recovery
-
-**Overview:**
-
-Incident response and recovery capabilities enable organizations to detect, respond to, and recover from cybersecurity incidents effectively. Despite best preventive efforts, security incidents will occur - mature incident response processes minimize damage, reduce recovery time, and ensure compliance with breach notification requirements.
-
-**Importance:**
-
-**Inevitable Security Incidents:**
-
-- **68% of organizations experience material cybersecurity incidents** annually (Verizon DBIR 2024)
-- **Average breach detection time: 212 days** (IBM Cost of Data Breach 2024)
-- **Average recovery time: 21 days** for ransomware without tested IR plan (Veeam 2024)
-- Organizations with IR plans recover 3-5x faster than those without
-
-**Insurance Requirements:**
-
-- Cyber insurers **require documented incident response plans** for coverage
-- **Incident response testing** (tabletop exercises) increasingly required
-- **Cyber insurance coverage** itself is becoming a recommended control
-- Breach notification deadlines (HIPAA 60 days, state laws 30-90 days) require rapid IR
-
-**Sector-Agnostic Relevance:**
-
-- **All sectors** experience cybersecurity incidents (phishing, ransomware, data breaches)
-- IR applies universally across Education, Healthcare, Religious/Nonprofit, General organizations
-- **Regulatory compliance** (HIPAA, state privacy laws, FERPA) requires breach response capabilities
-
-**Category 9 includes 7 questions:**
-
-- Question 9.1: Incident Response Plan
-- Question 9.2: Incident Response Team
-- Question 9.3: Incident Response Testing
-- Question 9.4: Tabletop Exercises
-- Question 9.5: Cyber Insurance Coverage
-- Question 9.6: Breach Notification Procedures
-- Question 9.7: Incident Detection and Response Capabilities (MTTD/MTTR) 🆕
 
 ---
 

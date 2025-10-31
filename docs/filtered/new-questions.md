@@ -309,53 +309,6 @@ Data classification enables **targeted protection** and reduces breach impact:
 
 
 <a name="category-4"></a>
-## Category 4: Secure Configuration and Vulnerability Management
-
-### Overview
-
-Secure configuration and vulnerability management ensures that systems are hardened against attack and that known vulnerabilities are identified and remediated in a timely manner. This category addresses:
-
-- Network security architecture (firewalls, segmentation, DMZ)
-- System hardening and secure baselines
-- Patch management processes
-- Vulnerability scanning and assessment
-- Wireless network security
-- Centralized logging and security monitoring (SIEM)
-- Cloud security posture management
-- Remote access security controls
-
-**Framework Alignment:**
-
-- **NIST CSF 2.0:** PR.IP (Protective Technology) - "Security configurations are managed and maintained"
-- **CIS Controls v8:** Control 4 (Secure Configuration), Control 7 (Continuous Vulnerability Management)
-
-### Importance
-
-**Why Secure Configuration and Vulnerability Management Matters:**
-
-1. **50% of Vulnerabilities Remain Unpatched:** Organizations struggle to patch known vulnerabilities (Verizon DBIR 2024)
-2. **Attackers Exploit Known CVEs:** Vulnerabilities exploited within days of disclosure (zero-day race)
-3. **Default Configurations Are Insecure:** Out-of-box systems have unnecessary services, weak passwords, excessive permissions
-4. **Cloud Misconfigurations:** 95% of cloud breaches stem from misconfigurations (industry research 2024-2025)
-5. **Detection Gap:** Average 212 days to detect breach without centralized logging (IBM X-Force 2025)
-
-**Universal Threats:**
-
-- **Unpatched Systems:** Attackers scan internet for vulnerable systems (EternalBlue, Log4Shell, etc.)
-- **Default Credentials:** Routers, firewalls, IoT devices with default admin/admin passwords
-- **Unnecessary Services:** Attack surface expanded by unused services (FTP, Telnet, SMBv1)
-- **Firewall Misconfigurations:** Overly permissive rules allowing unauthorized access
-- **Cloud Storage Exposure:** Publicly accessible S3 buckets, Azure blobs with sensitive data
-
-**Sector-Specific Risks:**
-
-- **Education:** Forgotten web servers, unpatched student information systems, open wireless networks
-- **Healthcare:** Medical devices with unpatched firmware, legacy radiology systems, HL7 interface vulnerabilities
-- **Religious/Nonprofit:** Donated equipment with unknown security status, volunteer-managed networks
-- **General:** Operational technology (OT/ICS) with long patch cycles, legacy business-critical systems
-
----
-
 ### Question 4.14: Centralized Logging and SIEM 🔑 FOUNDATIONAL 🆕
 
 **Question Text:**
@@ -710,51 +663,6 @@ Remote work expanded attack surface post-COVID:
 
 
 <a name="category-5"></a>
-## Category 5: Malware Defense and Endpoint Security
-
-### Overview
-
-Malware defense and endpoint security protects workstations, laptops, mobile devices, and servers from malicious software including viruses, ransomware, spyware, and advanced persistent threats (APTs). This category addresses:
-
-- Antivirus and anti-malware deployment
-- Endpoint Detection and Response (EDR)
-- Email security controls (filtering, authentication)
-- Web filtering and browser security
-- Application whitelisting
-- Mobile device management (MDM)
-
-**Framework Alignment:**
-
-- **NIST CSF 2.0:** PR.PT (Protective Technology) - "Technical security solutions are managed to ensure the security and resilience of systems"
-- **CIS Controls v8:** Control 10 (Malware Defenses)
-
-### Importance
-
-**Why Malware Defense Matters:**
-
-1. **Ransomware is #1 Threat:** 75% of breaches included ransomware (Verizon DBIR 2024)
-2. **Email is #1 Attack Vector:** 84% increase in phishing emails delivering infostealers (IBM X-Force 2025)
-3. **EDR is Universal Insurance Requirement:** All carriers require endpoint protection
-4. **Business Disruption:** Ransomware can shut down entire organization for weeks
-5. **Data Theft:** Modern ransomware exfiltrates data before encryption (double extortion)
-
-**Universal Threats:**
-
-- **Ransomware:** Encrypts files, demands payment for decryption key
-- **Phishing:** Social engineering emails trick users into clicking malicious links, downloading malware
-- **Infostealers:** Malware steals credentials, browser cookies, cryptocurrency wallets
-- **Business Email Compromise (BEC):** Attackers impersonate executives for wire fraud
-- **Drive-By Downloads:** Malicious websites automatically download malware to visitor browsers
-
-**Sector-Specific Risks:**
-
-- **Education:** Phishing targeting teachers/administrators, ransomware encrypting student records
-- **Healthcare:** Ransomware disrupting patient care, medical device malware
-- **Religious/Nonprofit:** BEC attacks targeting donor funds, ransomware encrypting donor databases
-- **General:** Ransomware, data theft, industrial espionage
-
----
-
 ### Question 5.5: Email Authentication Protocols (DMARC, SPF, DKIM) 🔑 FOUNDATIONAL 🆕
 
 **Question Text:**
@@ -981,51 +889,6 @@ While not yet universal insurance requirement, insurers are beginning to assess 
 
 
 <a name="category-6"></a>
-## Category 6: Data Recovery and Business Continuity
-
-### Overview
-
-Data recovery and business continuity ensures organizational resilience against ransomware, disasters, and system failures. This category addresses:
-
-- Backup processes and technologies
-- Air-gapped and offline backups
-- Backup testing and restoration procedures
-- Business continuity planning
-- Disaster recovery planning
-- Recovery time and recovery point objectives
-
-**Framework Alignment:**
-
-- **NIST CSF 2.0:** RC (Recover) - "Recovery planning and improvements are managed"
-- **CIS Controls v8:** Control 11 (Data Recovery)
-
-### Importance
-
-**Why Data Recovery Matters:**
-
-1. **Ransomware is Inevitable:** 75% of breaches include ransomware (Verizon DBIR 2024)
-2. **Backups are Last Line of Defense:** Air-gapped backups enable recovery without paying ransom
-3. **Business Continuity:** Downtime costs $5,600/minute for small businesses, $9,000/minute for enterprises
-4. **Regulatory Requirements:** HIPAA, FERPA require business continuity/disaster recovery plans
-5. **Untested Backups Fail 25% of Time:** Backup testing is critical
-
-**Universal Threats:**
-
-- **Ransomware:** Encrypts files, demands payment; backups enable free recovery
-- **Hardware Failure:** Server crashes, hard drive failures
-- **Natural Disasters:** Floods, fires, hurricanes destroy physical infrastructure
-- **Human Error:** Accidental file deletion, data corruption
-- **Cyberattacks:** Data destruction, sabotage by insiders or attackers
-
-**Sector-Specific Risks:**
-
-- **Education:** Ransomware encrypting student records, disaster destroying on-premises servers
-- **Healthcare:** Ransomware halting patient care, hurricane destroying hospital
-- **Religious/Nonprofit:** Ransomware encrypting donor databases, fire destroying office
-- **General:** Any organization faces ransomware and disaster risks
-
----
-
 ### Question 7.4: AI Acceptable Use Policy and Governance 🔑 FOUNDATIONAL 🆕
 
 **Question Text:**
@@ -1191,45 +1054,6 @@ An AI Acceptable Use Policy (AUP) provides governance for organizational use of 
 - **HIPAA:** PHI entered into non-compliant AI tools constitutes breach
 - **NIST CSF 2.0:** GV.RR-3 (Organizational leadership is responsible for managing technology risk)
 - CIS Controls v8: Control 1.1 (Establish and Maintain Detailed Enterprise Asset Inventory) - adapted for AI tool inventory
-
----
-
-## Category 8: Third-Party and Vendor Risk Management
-
-**Overview:**
-
-Third-party and vendor risk management addresses cybersecurity risks introduced through external organizations that access organizational systems, data, or provide critical services. Supply chain attacks and third-party breaches have doubled in recent years, making vendor risk management a critical security control.
-
-**Importance:**
-
-**Third-Party Breach Epidemic:**
-
-- **Third-party breaches doubled from 2022 to 2024** (Verizon DBIR 2024)
-- **54% of organizations experienced third-party data breach** in past year (Ponemon 2024)
-- High-profile incidents: SolarWinds, Kaseya, MOVEit, demonstrate systemic third-party risk
-
-**Insurance Requirements:**
-
-- Cyber insurers increasingly require **vendor risk management programs**
-- **Vendor security certifications** (SOC 2, ISO 27001) may be required for critical vendors
-- **Vendor breach notification clauses** in contracts required by insurers
-
-**Sector-Agnostic Relevance:**
-
-- **All sectors** rely on third-party vendors (IT services, cloud providers, SaaS applications, MSPs)
-- Vendor risk applies universally across Education, Healthcare, Religious/Nonprofit, General organizations
-- **AI vendors** introduce new risks requiring specialized vetting (Question 8.8)
-
-**Category 8 includes 8 questions:**
-
-- Question 8.1: Third-Party Vendor Inventory
-- Question 8.2: Vendor Security Assessment Process
-- Question 8.3: Vendor Contract Security Requirements
-- Question 8.4: Vendor Access Management
-- Question 8.5: Vendor Off-boarding Process
-- Question 8.6: Third-Party Security Certifications and Assessments 🆕
-- Question 8.7: Vendor Continuous Monitoring and Incident Notification 🆕
-- Question 8.8: AI Tool Privacy and Security Vetting 🔑 FOUNDATIONAL 🆕
 
 ---
 
@@ -1715,46 +1539,6 @@ AI tool vetting ensures AI platforms meet organizational data privacy, security,
 - **GDPR:** Article 28 - Data Processing Agreements required for AI vendors processing personal data
 - CIS Controls v8: Control 15.1 (Establish and Maintain an Inventory of Service Providers) - AI vendors are service providers
 - NIST CSF 2.0: ID.SC-2 (Suppliers and third-party partners are identified, prioritized, and assessed)
-
----
-
-## Category 9: Incident Response and Recovery
-
-**Overview:**
-
-Incident response and recovery capabilities enable organizations to detect, respond to, and recover from cybersecurity incidents effectively. Despite best preventive efforts, security incidents will occur - mature incident response processes minimize damage, reduce recovery time, and ensure compliance with breach notification requirements.
-
-**Importance:**
-
-**Inevitable Security Incidents:**
-
-- **68% of organizations experience material cybersecurity incidents** annually (Verizon DBIR 2024)
-- **Average breach detection time: 212 days** (IBM Cost of Data Breach 2024)
-- **Average recovery time: 21 days** for ransomware without tested IR plan (Veeam 2024)
-- Organizations with IR plans recover 3-5x faster than those without
-
-**Insurance Requirements:**
-
-- Cyber insurers **require documented incident response plans** for coverage
-- **Incident response testing** (tabletop exercises) increasingly required
-- **Cyber insurance coverage** itself is becoming a recommended control
-- Breach notification deadlines (HIPAA 60 days, state laws 30-90 days) require rapid IR
-
-**Sector-Agnostic Relevance:**
-
-- **All sectors** experience cybersecurity incidents (phishing, ransomware, data breaches)
-- IR applies universally across Education, Healthcare, Religious/Nonprofit, General organizations
-- **Regulatory compliance** (HIPAA, state privacy laws, FERPA) requires breach response capabilities
-
-**Category 9 includes 7 questions:**
-
-- Question 9.1: Incident Response Plan
-- Question 9.2: Incident Response Team
-- Question 9.3: Incident Response Testing
-- Question 9.4: Tabletop Exercises
-- Question 9.5: Cyber Insurance Coverage
-- Question 9.6: Breach Notification Procedures
-- Question 9.7: Incident Detection and Response Capabilities (MTTD/MTTR) 🆕
 
 ---
 

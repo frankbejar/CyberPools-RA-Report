@@ -117,8 +117,9 @@ def create_filtered_pages(content):
     """Create filtered view pages."""
 
     # Foundational questions - only match questions with 🔑 FOUNDATIONAL in the header
+    # Stop at next question, category header, or end of file to avoid capturing category overviews
     foundational_questions = []
-    for match in re.finditer(r"(###\s+Question\s+[\d.]+:[^\n]*🔑 FOUNDATIONAL[^\n]*\n.*?)(?=###\s+Question|\Z)", content, re.DOTALL):
+    for match in re.finditer(r"(###\s+Question\s+[\d.]+:[^\n]*🔑 FOUNDATIONAL[^\n]*\n.*?)(?=###\s+Question|##\s+Category|\Z)", content, re.DOTALL):
         foundational_questions.append(match.group(1))
 
     if foundational_questions:
@@ -158,8 +159,9 @@ These 17 questions are **insurance-critical** controls required by most cyber in
         print(f"✓ Created {foundational_file} ({len(foundational_questions)} questions)")
 
     # New questions - only match questions with 🆕 in the header
+    # Stop at next question, category header, or end of file to avoid capturing category overviews
     new_questions = []
-    for match in re.finditer(r"(###\s+Question\s+[\d.]+:[^\n]*🆕[^\n]*\n.*?)(?=###\s+Question|\Z)", content, re.DOTALL):
+    for match in re.finditer(r"(###\s+Question\s+[\d.]+:[^\n]*🆕[^\n]*\n.*?)(?=###\s+Question|##\s+Category|\Z)", content, re.DOTALL):
         new_questions.append(match.group(1))
 
     if new_questions:
