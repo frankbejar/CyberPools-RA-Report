@@ -19,6 +19,7 @@ Account management and access control ensures that only authorized individuals c
 - Access review and recertification processes
 
 **Framework Alignment:**
+
 - **NIST CSF 2.0:** PR.AC (Identity Management, Authentication and Access Control) - "Access to physical and logical assets is limited to authorized users"
 - **CIS Controls v8:** Control 5 (Account Management), Control 6 (Access Control Management)
 
@@ -33,6 +34,7 @@ Account management and access control ensures that only authorized individuals c
 5. **Insider Threats:** Former employees with active accounts, excessive permissions, or shared credentials create risk
 
 **Universal Threats:**
+
 - **Credential Stuffing:** Attackers use breached credentials from other sites to access organizational systems
 - **Phishing:** Social engineering to trick users into revealing passwords or MFA codes
 - **Brute Force:** Automated password guessing against accounts without MFA
@@ -40,6 +42,7 @@ Account management and access control ensures that only authorized individuals c
 - **Orphaned Accounts:** Former employee accounts remaining active after termination
 
 **Sector-Specific Risks:**
+
 - **Education:** Shared teacher accounts, student accounts not deactivated after graduation, summer staff turnover
 - **Healthcare:** Shared clinical staff accounts, vendor/contractor accounts with excessive permissions, physicians using personal devices
 - **Religious/Nonprofit:** Volunteer accounts with undefined lifecycle, shared passwords for ministry tools
@@ -61,6 +64,7 @@ Does the organization have a formal process for user account creation, modificat
 User account lifecycle management includes:
 
 **Account Creation:**
+
 - Formal request and approval process (manager authorization)
 - Role-based access provisioning (access based on job function)
 - Integration with HR onboarding process
@@ -68,12 +72,14 @@ User account lifecycle management includes:
 - New user security training completion before account activation
 
 **Account Modification:**
+
 - Role change process (promotion, department transfer, contractor conversion)
 - Access recertification when responsibilities change
 - Temporary access elevation for projects (time-limited)
 - Integration with HR change management
 
 **Account Deactivation:**
+
 - Termination procedures (disable account immediately upon notification)
 - Resignation procedures (disable account on last day)
 - Leave of absence procedures (temporary disable)
@@ -81,6 +87,7 @@ User account lifecycle management includes:
 - Account deletion after retention period (30-90 days post-termination)
 
 **Access Reviews:**
+
 - Quarterly or annual review of active accounts
 - Manager attestation of team member access appropriateness
 - Removal of unused accounts (dormant >90 days)
@@ -107,21 +114,25 @@ Cyber insurance claims frequently involve:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **High Turnover:** Teachers, substitutes, student teachers, summer staff create frequent account changes
 - **Student Accounts:** Graduating seniors, transferring students require systematic deactivation
 - **Challenge:** Summer transitions (June-August) create account management backlog
 
 **Healthcare:**
+
 - **Clinical Staff Mobility:** Nurses, physicians rotating through departments require role-based access changes
 - **Vendor/Contractor Access:** Medical device technicians, consultants need time-limited access
 - **HIPAA:** Access controls and workforce clearinghouse procedures required (§164.308(a)(3))
 
 **Religious/Nonprofit:**
+
 - **Volunteer Turnover:** High volunteer churn requires systematic account deactivation
 - **Seasonal Staff:** Summer camps, holiday programs create temporary account needs
 - **Challenge:** Limited HR infrastructure; manual account management
 
 **Citations:**
+
 - CIS Controls v8: Control 5.1 (Establish and Maintain an Inventory of Accounts)
 - CIS Controls v8: Control 5.2 (Use Unique Passwords)
 - NIST CSF 2.0: PR.AC-1 (Identities and credentials are issued, managed, verified, revoked)
@@ -143,23 +154,27 @@ Does the organization enforce a password policy requiring minimum length, comple
 Modern password policies align with NIST SP 800-63B guidance:
 
 **Minimum Requirements:**
+
 - **Length:** Minimum 12-15 characters (passphrases preferred over complexity rules)
 - **Complexity:** No strict complexity requirements if length ≥15 characters; otherwise require uppercase, lowercase, number, special character
 - **Password Managers:** Encourage or require password manager usage for generating/storing unique passwords
 - **Passphrases:** Allow spaces and long phrases (e.g., "coffee-morning-sunshine-24")
 
 **What NOT to Require (Outdated Practices):**
+
 - **NO forced periodic password changes** (causes users to make predictable changes: Password1 → Password2)
 - **NO password hints** (often reveal answers)
 - **NO security questions** (easily guessable or publicly available answers)
 
 **Best Practices:**
+
 - **Breach Detection:** Check passwords against known breach databases (Have I Been Pwned API)
 - **No Password Reuse:** Prevent users from reusing previous passwords
 - **Account Lockout:** Temporary lockout after failed login attempts (5-10 attempts)
 - **MFA Requirement:** Reduce password reliance through multi-factor authentication (see Questions 2.3-2.6)
 
 **Technical Enforcement:**
+
 - Active Directory Group Policy or Azure AD Password Protection
 - Password filters or validators
 - Self-service password reset with identity verification
@@ -182,20 +197,24 @@ Insurers assess:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Challenge:** Students/teachers resist complex passwords; password manager training needed
 - **Student Accounts:** Age-appropriate password policies (elementary vs. high school)
 - **FERPA:** Passwords protect access to student education records
 
 **Healthcare:**
+
 - **Challenge:** Clinical staff need rapid access during patient care; complex passwords slow workflow
 - **HIPAA 2025 Security Rule:** Enhanced password requirements expected in final rule
 - **Solution:** Biometric authentication or badge readers combined with PIN
 
 **Religious/Nonprofit:**
+
 - **Challenge:** Older volunteers/congregation members unfamiliar with password managers
 - **Solution:** Passphrase approach (memorable but long)
 
 **Citations:**
+
 - **NIST SP 800-63B:** Digital Identity Guidelines (modern password guidance)
 - CIS Controls v8: Control 5.2 (Use Unique Passwords)
 - NIST CSF 2.0: PR.AC-1 (Credentials are managed)
@@ -220,6 +239,7 @@ Multi-factor authentication (MFA) requires two or more verification factors:
 - **Something you are:** Biometric (fingerprint, facial recognition)
 
 **Remote Access MFA Implementation:**
+
 - **VPN:** MFA required before VPN connection established (Cisco AnyConnect, Palo Alto GlobalProtect with Duo/Okta/Azure MFA)
 - **Remote Desktop (RDP):** MFA via gateway or conditional access policies
 - **SSH:** Public key authentication with MFA for privileged access
@@ -231,12 +251,14 @@ Multi-factor authentication (MFA) requires two or more verification factors:
 3. **SMS Codes** (Least secure but better than no MFA) - Vulnerable to SIM swapping
 
 **Exceptions and Conditional Access:**
+
 - Trusted devices/locations may reduce MFA prompts (remember device for 30 days)
 - Service accounts require alternative MFA methods (certificate-based authentication)
 
 **Insurance Rationale (Universal):**
 
 **CRITICAL Insurance Requirement:**
+
 - **82% of cyber insurance claims** involved organizations lacking MFA (Coalition 2024)
 - **Most ransomware attacks** start with compromised VPN credentials (Coalition 2025 Threat Index)
 - Cyber insurance carriers **require MFA attestation** in applications; many deny coverage without MFA
@@ -252,20 +274,24 @@ Coalition, Chubb, Corvus all list VPN/remote access MFA as **mandatory** control
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Remote Access Needs:** IT staff, administrators, teachers accessing systems from home
 - **Summer/Weekend Access:** Custodians, maintenance staff working outside business hours
 - **Challenge:** Training non-technical staff on MFA usage; smartphone app deployment
 
 **Healthcare:**
+
 - **Clinical Remote Access:** Physicians on-call, telehealth providers, remote nurses
 - **HIPAA:** Remote access to PHI requires strong authentication
 - **Challenge:** 24/7 access needs; MFA fatigue for frequently logging in staff
 
 **Religious/Nonprofit:**
+
 - **Remote Staff:** Ministry staff, accountants, volunteer coordinators working remotely
 - **Challenge:** Limited IT budget for MFA solutions; smartphone ownership among older volunteers
 
 **Citations:**
+
 - **The Trust (Education Insurance):** Requirement #2 - Multi-Factor Authentication
 - **Coalition:** "82% of cyber insurance claims involved orgs lacking MFA"
 - **IBM X-Force 2025:** "Most ransomware attacks start with compromised VPNs"
@@ -294,12 +320,14 @@ Cloud services MFA covers:
 - **SaaS Applications:** Single Sign-On (SSO) with MFA for all business applications (Salesforce, Workday, etc.)
 
 **Implementation Methods:**
+
 - **Microsoft 365:** Azure AD Conditional Access policies enforcing MFA
 - **Google Workspace:** 2-Step Verification enforcement via Admin console
 - **SSO Platforms:** Okta, Azure AD, Google Identity with MFA enforcement
 - **Per-Application MFA:** Individual apps with built-in MFA if SSO not available
 
 **Conditional Access Policies:**
+
 - Require MFA for all users, all apps
 - Exception: Trusted locations (on-premises network) may reduce MFA frequency
 - Risk-based MFA: Higher risk sign-ins trigger MFA even from trusted locations
@@ -325,21 +353,25 @@ Coalition, Chubb, Corvus **require MFA for cloud email** specifically as mandato
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Microsoft 365 Education / Google Workspace for Education:** Primary platforms for student/staff collaboration
 - **Student Data Access:** Teachers access student records via cloud SIS (Infinite Campus, PowerSchool cloud)
 - **FERPA:** Cloud services with education records require strong authentication
 
 **Healthcare:**
+
 - **Cloud EHR:** Epic MyChart, Cerner cloud, athenahealth
 - **Telemedicine:** Zoom Healthcare, Doxy.me, Microsoft Teams for Healthcare
 - **HIPAA:** Business Associate Agreements require MFA for cloud services with PHI
 
 **Religious/Nonprofit:**
+
 - **Cloud Accounting:** QuickBooks Online, Xero with financial data
 - **Donor Management:** Blackbaud, Planning Center Online with donor PII
 - **Microsoft 365/Google Workspace:** Ministry communications, donor emails
 
 **Citations:**
+
 - **The Trust (Education Insurance):** Requirement #2 - MFA for cloud services
 - **Coalition:** MFA for cloud email specifically required
 - CIS Controls v8: Control 6.3 (Require MFA for Externally-Exposed Applications)
@@ -368,17 +400,20 @@ Administrative accounts require MFA:
 - **Network Administrators:** Firewall, switch, router administrative access
 
 **Privileged Account MFA Methods:**
+
 - **Hardware Tokens:** FIDO2 keys (Yubikey) for phishing-resistant MFA
 - **Authenticator Apps:** Time-based codes or push notifications
 - **Certificate-Based Authentication:** Smart cards for Windows admin access
 - **Biometric + PIN:** Windows Hello for Business
 
 **Break-Glass Accounts:**
+
 - Emergency admin accounts with MFA bypass (for MFA system outages)
 - Stored in physical safe with audit logging
 - Tested quarterly to verify functionality
 
 **Service Account MFA:**
+
 - Managed service accounts with certificate-based authentication
 - No interactive logon for service accounts (reduce MFA challenges)
 
@@ -401,19 +436,23 @@ Privileged accounts are **prime targets** for attackers:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **IT Admin Accounts:** Access to student information systems, Active Directory, Google Workspace admin console
 - **Small IT Teams:** Often 1-3 IT staff with shared admin knowledge; MFA reduces insider threat risk
 
 **Healthcare:**
+
 - **EHR Admin Accounts:** Epic, Cerner, athenahealth administrators with access to all patient records
 - **HIPAA:** Administrative access to PHI requires strong authentication and audit logging
 - **Medical Device Management:** Admin access to medical device management consoles
 
 **Religious/Nonprofit:**
+
 - **Finance Admin Accounts:** Access to accounting software, bank accounts, payroll
 - **Donor Database Admins:** Access to all donor financial information, credit cards
 
 **Citations:**
+
 - **The Trust (Education Insurance):** Requirement #2 - MFA for administrative accounts
 - **Securden (2024):** "42% of organizations required to have PAM for cyber insurance"
 - CIS Controls v8: Control 5.4 (Restrict Administrator Privileges to Dedicated Accounts)
@@ -441,6 +480,7 @@ Universal MFA deployment covers:
 - **All Locations:** Office, remote work, public Wi-Fi
 
 **Sensitive Systems Requiring MFA:**
+
 - Systems with PII, PHI, financial data, student education records
 - Email (primary target for BEC attacks)
 - Cloud productivity suites (Microsoft 365, Google Workspace)
@@ -448,12 +488,14 @@ Universal MFA deployment covers:
 - File shares with confidential data
 
 **MFA Enrollment Process:**
+
 - New user onboarding includes MFA setup
 - Self-service MFA enrollment portals
 - Help desk support for MFA issues
 - Backup MFA methods (multiple devices, backup codes)
 
 **User Training:**
+
 - MFA usage training during onboarding
 - Phishing awareness (don't approve unexpected MFA prompts)
 - MFA fatigue mitigation (conditional access reduces prompts)
@@ -461,6 +503,7 @@ Universal MFA deployment covers:
 **Insurance Rationale (Universal):**
 
 **Universal MFA is the #1 insurance requirement across all carriers:**
+
 - **82% of cyber insurance claims** involved organizations lacking MFA (Coalition 2024)
 - Coalition, Chubb, Corvus **require MFA attestation** for policy issuance
 - Organizations without universal MFA face:
@@ -477,23 +520,28 @@ Universal MFA deployment covers:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **All Staff:** Teachers, administrators, custodians, bus drivers accessing any school system
 - **Students:** Secondary students accessing sensitive systems (some districts MFA for students 13+)
 - **Challenge:** Training non-technical staff; smartphone ownership for low-wage employees
 
 **Healthcare:**
+
 - **Clinical Staff:** Nurses, physicians, therapists accessing EHR systems
 - **Administrative Staff:** Billing, scheduling, HR staff accessing patient data
 - **HIPAA:** All workforce members accessing PHI require strong authentication
 
 **Religious/Nonprofit:**
+
 - **All Staff and Key Volunteers:** Anyone accessing donor data, financial systems
 - **Challenge:** Older volunteers without smartphones; use hardware tokens or landline phone codes
 
 **General:**
+
 - **All Employees:** Universal MFA is baseline expectation in 2025-2026
 
 **Citations:**
+
 - **The Trust (Education Insurance):** Requirement #2 - MFA for all users
 - **Coalition (2024):** "82% of claims involved orgs lacking MFA"
 - **Microsoft Research:** "MFA blocks 99.9% of automated attacks"
@@ -523,11 +571,13 @@ Privileged account separation means:
 - **Elevated Access Only When Needed:** Admin account used only for administrative tasks, then logged out
 
 **Implementation:**
+
 - Active Directory: Separate OU for admin accounts with restrictive GPOs
 - Azure AD: Separate admin accounts or Privileged Identity Management (PIM) for just-in-time admin access
 - Workstation Restriction: Admin accounts cannot log into regular workstations (only jump servers/admin workstations)
 
 **Rationale:**
+
 - **Phishing Protection:** Admin account not used for email, so cannot be phished
 - **Malware Protection:** Admin account not used for web browsing, so malware cannot compromise admin credentials
 - **Audit Trail:** Clear separation of administrative actions vs. regular user activity
@@ -547,17 +597,21 @@ Privileged account separation is core component of **Privileged Access Managemen
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Small IT Teams:** 1-3 IT staff often use personal email accounts as admin accounts
 - **Best Practice:** Separate admin account even for small teams
 
 **Healthcare:**
+
 - **EHR Administrators:** Separate account for EHR admin tasks vs. clinical documentation
 - **HIPAA:** Administrative access should be separate from clinical access for audit purposes
 
 **Religious/Nonprofit:**
+
 - **Volunteer IT:** Separate admin account from personal volunteer account
 
 **Citations:**
+
 - **BeyondTrust:** "Removing admin rights and enforcing PoLP" basic insurance requirement
 - CIS Controls v8: Control 5.4 (Restrict Administrator Privileges to Dedicated Accounts)
 - NIST CSF 2.0: PR.AC-4 (Access permissions are managed)
@@ -591,6 +645,7 @@ Access review process includes:
 5. Document reviews for compliance audit trail
 
 **Automated Tools:**
+
 - **Identity Governance:** Tools like SailPoint, Okta Identity Governance automate access reviews
 - **Azure AD Access Reviews:** Built-in access review workflows for Microsoft 365
 - **Manual Reviews:** Excel spreadsheets for smaller organizations
@@ -611,18 +666,22 @@ Access creep (accumulation of permissions over time) creates risk:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Teacher Role Changes:** Teacher moves from elementary to high school, access should change
 - **Student Graduation:** Annual review identifies graduated students with active accounts
 
 **Healthcare:**
+
 - **HIPAA:** Access reviews required under Security Rule (§164.308(a)(3)(ii)(C))
 - **Clinical Staff Rotation:** Nurses, physicians rotating through departments need access adjustments
 
 **Religious/Nonprofit:**
+
 - **Volunteer Turnover:** High volunteer churn requires frequent access reviews
 - **Seasonal Staff:** Review after seasonal programs end (summer camp, holiday events)
 
 **Citations:**
+
 - CIS Controls v8: Control 5.3 (Disable Dormant Accounts)
 - CIS Controls v8: Control 6.1 (Establish an Access Granting Process)
 - NIST CSF 2.0: PR.AC-4 (Access permissions are managed)
@@ -645,6 +704,7 @@ Does the organization have a process to immediately disable accounts and revoke 
 Account off-boarding includes:
 
 **Immediate Actions (Termination Day):**
+
 - **Disable AD/Azure AD Account:** Prevents authentication to any system
 - **Disable Cloud Services:** Microsoft 365, Google Workspace, SaaS applications
 - **Revoke VPN Access:** Disable VPN certificates/profiles
@@ -653,17 +713,20 @@ Account off-boarding includes:
 - **Collect Equipment:** Laptop, badge, keys, company credit cards
 
 **Follow-Up Actions (7-30 Days):**
+
 - **Email Forwarding:** Redirect email to manager for business continuity
 - **Data Transfer:** Transfer files from personal drives to shared locations
 - **Application-Specific Access:** Remove from line-of-business applications (EHR, SIS, accounting)
 - **Remove from Distribution Lists/Groups:** Teams, Slack, email groups
 
 **Final Actions (30-90 Days):**
+
 - **Account Deletion:** Delete account after retention period
 - **License Reclamation:** Recover software licenses for reassignment
 - **Audit Trail:** Document all off-boarding actions
 
 **Integration with HR:**
+
 - HR system triggers IT off-boarding workflow
 - Automated account disable on termination date in HR system
 - Resignation off-boarding checklist
@@ -684,17 +747,21 @@ Terminated employee accounts are **high-risk:**
 **Sector-Specific Context:**
 
 **Education:**
+
 - **End of School Year:** Mass terminations (retiring teachers, graduating student workers) require systematic off-boarding
 - **Challenge:** Teachers terminated in May may have active accounts through August
 
 **Healthcare:**
+
 - **Clinical Staff Departures:** Physicians, nurses leaving must lose PHI access immediately
 - **HIPAA:** Terminated workforce members must have access revoked immediately
 
 **Religious/Nonprofit:**
+
 - **Staff/Volunteer Departures:** Clear off-boarding for paid staff and key volunteers with system access
 
 **Citations:**
+
 - CIS Controls v8: Control 5.3 (Disable Dormant Accounts)
 - NIST CSF 2.0: PR.AC-1 (Identities and credentials are revoked)
 - HIPAA Security Rule: §164.308(a)(3)(ii)(C) - Termination procedures

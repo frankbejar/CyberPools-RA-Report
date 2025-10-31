@@ -101,11 +101,13 @@ The CyberPools Risk Assessment employs a **dual-score model** to differentiate b
 - Represent baseline security hygiene expected of all organizations
 
 **Scoring:**
+
 - Foundation Score = (Points Earned / Total Possible Points) × 100%
 - Each foundational question scored: Control Rating (1/3/5) × Impact Rating (1/3/5)
 - Minimum acceptable Foundation Score varies by insurance pool requirements
 
 **Insurance Impact:**
+
 - Foundation Score directly influences insurance eligibility and premium rates
 - Gaps in foundational controls may result in coverage exclusions or sub-limits
 - Annual improvement in Foundation Score demonstrates risk reduction to insurers
@@ -118,11 +120,13 @@ The CyberPools Risk Assessment employs a **dual-score model** to differentiate b
 - Demonstrates advanced security operations and defense-in-depth
 
 **Scoring:**
+
 - Comprehensive Score = (Points Earned / Total Possible Points) × 100%
 - Same formula: Control Rating (1/3/5) × Impact Rating (1/3/5)
 - Reflects organization's overall cybersecurity maturity
 
 **Value:**
+
 - Identifies opportunities for continuous improvement beyond insurance minimums
 - Benchmarks against peer organizations in similar sectors
 - Guides multi-year security roadmap and budget planning
@@ -130,11 +134,13 @@ The CyberPools Risk Assessment employs a **dual-score model** to differentiate b
 #### Risk Rating Calculation
 
 **Control Rating (Implementation Level):**
+
 - **1 (Fully Implemented):** Control is comprehensively deployed, documented, and tested
 - **3 (Partially Implemented):** Control exists but has gaps in coverage, documentation, or testing
 - **5 (Not Implemented):** Control is absent or planning stage only
 
 **Impact Rating (Assigned per Question):**
+
 - **1 (Low Impact):** Limited consequence if control fails; affects single system or small user group
 - **3 (Moderate Impact):** Significant consequence if control fails; affects multiple systems or broader operations
 - **5 (High Impact):** Severe consequence if control fails; affects entire organization, critical systems, or sensitive data
@@ -145,11 +151,13 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 ```
 
 **Risk Level Interpretation:**
+
 - **0-5:** Low Risk (green) - Control well-implemented for impact level
 - **6-15:** Moderate Risk (yellow) - Control partially implemented; improvement needed
 - **16-25:** High Risk (red) - Critical gap requiring immediate attention
 
 **Example:**
+
 - Question: "Has the organization implemented MFA for all users?"
 - Impact Rating: **5 (High)** - credential abuse is #1 attack vector
 - Organization Answer: **3 (Partially Implemented)** - MFA on VPN only, not email/cloud
@@ -161,21 +169,25 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 The CyberPools assessment is **sector-agnostic** by design, serving organizations across:
 
 **Education Sector:**
+
 - K-12 school districts, colleges, universities
 - Compliance emphasis: FERPA (student privacy), COPPA (under-13 online privacy)
 - Common technology: Google Workspace for Education, Microsoft 365 Education, student information systems (SIS), learning management systems (LMS)
 
 **Healthcare Sector:**
+
 - Hospitals, clinics, blood banks, medical practices
 - Compliance emphasis: HIPAA Security Rule (2025 updates), HITECH Act
 - Common technology: Electronic health records (EHR), medical devices, lab systems, PACS imaging
 
 **Religious/Nonprofit Sector:**
+
 - Churches, dioceses, ministries, faith-based organizations, charitable nonprofits
 - Compliance emphasis: State privacy laws, PCI DSS (payment processing), donor trust
 - Common technology: Donor management systems, accounting software, Microsoft 365/Google Workspace
 
 **General Organizations:**
+
 - Municipalities, government agencies, critical infrastructure, businesses
 - Compliance emphasis: SOX (if applicable), GDPR, CCPA, state data breach laws, industry-specific regulations
 - Common technology: Cloud infrastructure (AWS/Azure/GCP), financial systems, operational technology (OT)

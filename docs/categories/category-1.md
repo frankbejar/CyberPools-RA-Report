@@ -19,6 +19,7 @@ Asset inventory and management forms the foundation of effective cybersecurity. 
 - Asset ownership and lifecycle management
 
 **Framework Alignment:**
+
 - **NIST CSF 2.0:** ID.AM (Asset Management) - "Assets are identified and managed consistent with their relative importance"
 - **CIS Controls v8:** Control 1 (Inventory and Control of Enterprise Assets), Control 2 (Inventory and Control of Software Assets)
 
@@ -33,12 +34,14 @@ Asset inventory and management forms the foundation of effective cybersecurity. 
 5. **Insurance Requirements:** Cyber insurance applications ask for counts of servers, workstations, and critical systems
 
 **Universal Threats:**
+
 - **Unmanaged Devices:** Personal laptops, smartphones connecting to corporate networks without security controls
 - **Shadow IT:** Unapproved cloud services (file sharing, collaboration tools) storing organizational data
 - **Forgotten Assets:** Legacy servers still accessible from internet but no longer maintained
 - **End-of-Life Software:** Systems running Windows Server 2008, Adobe Flash, or other unsupported software with known vulnerabilities
 
 **Sector-Specific Risks:**
+
 - **Education:** Student/teacher personal devices (BYOD), forgotten web servers hosting student data, end-of-life student information systems
 - **Healthcare:** Medical devices running embedded Windows XP, radiology workstations, forgotten PACS servers
 - **Religious/Nonprofit:** Volunteer-owned devices, donated equipment of unknown age/security status
@@ -66,6 +69,7 @@ A comprehensive hardware asset inventory includes:
 - **Peripheral Equipment:** External storage, USB devices (if managed)
 
 **Inventory Attributes:**
+
 - Asset tag or serial number
 - Make, model, operating system version
 - Physical location or network location
@@ -75,6 +79,7 @@ A comprehensive hardware asset inventory includes:
 - Status (active, retired, storage)
 
 **Inventory Maintenance:**
+
 - Automated discovery tools (network scanners, endpoint agents)
 - Quarterly manual verification
 - Integration with procurement/IT ticketing systems
@@ -101,22 +106,27 @@ Accurate asset inventory enables:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Challenge:** High device turnover (student laptops, Chromebooks), multiple campus locations, summer equipment moves
 - **Technology:** Student information systems (SIS), learning management systems (LMS), Chromebooks, iPads, interactive whiteboards
 
 **Healthcare:**
+
 - **Challenge:** Medical devices (infusion pumps, monitors, X-ray machines) often unmanaged, vendor-controlled firmware
 - **HIPAA:** Asset inventory required for risk analysis (§164.308(a)(1)(ii)(A))
 - **Technology:** EHR servers, PACS imaging workstations, medical devices, patient monitoring systems
 
 **Religious/Nonprofit:**
+
 - **Challenge:** Limited IT staff, volunteer-owned devices, donated equipment of unknown provenance
 - **Technology:** Donor management systems, accounting software, presentation/livestream equipment
 
 **General:**
+
 - **Technology:** Operational technology (OT/ICS), manufacturing equipment, building automation systems
 
 **Citations:**
+
 - CIS Controls v8: Control 1.1 (Establish and Maintain Detailed Enterprise Asset Inventory)
 - NIST CSF 2.0: ID.AM-1 (Inventories of hardware managed by the organization are maintained)
 - Verizon DBIR 2024: Unknown assets create security blind spots
@@ -143,6 +153,7 @@ A comprehensive software asset inventory includes:
 - **Security Tools:** Antivirus, EDR, firewalls, VPN clients
 
 **Inventory Attributes:**
+
 - Software name, vendor, version number
 - License type (perpetual, subscription, open-source)
 - Installation count vs. license count
@@ -151,6 +162,7 @@ A comprehensive software asset inventory includes:
 - Data classification of data processed by software
 
 **Inventory Maintenance:**
+
 - Automated software discovery (endpoint agents, network scanners)
 - Cloud service discovery (CASB, SaaS management platforms)
 - Quarterly license reconciliation
@@ -172,18 +184,22 @@ Software inventory enables:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Challenge:** Hundreds of EdTech applications (learning apps, assessment platforms, communication tools) with student data access
 - **FERPA:** Schools must track all software with access to education records to ensure vendor agreements in place
 
 **Healthcare:**
+
 - **Challenge:** Specialized medical software (lab systems, billing, pharmacy), often vendor-managed
 - **HIPAA:** Software inventory required for risk analysis; Business Associate Agreements needed for software processing PHI
 
 **Religious/Nonprofit:**
+
 - **Challenge:** Donor management software, accounting software, volunteer management tools
 - **PCI DSS:** Payment processing software must be tracked for compliance
 
 **Citations:**
+
 - CIS Controls v8: Control 2.1 (Establish and Maintain a Software Inventory)
 - NIST CSF 2.0: ID.AM-2 (Inventories of software, services, and systems managed by the organization are maintained)
 
@@ -210,6 +226,7 @@ Cloud service inventory captures:
   - Expense report review (personal credit card cloud subscriptions)
 
 **Inventory Attributes:**
+
 - Service name, vendor, category (productivity, file sharing, collaboration, etc.)
 - Data classification of data stored in service (PII, PHI, financial, public)
 - Approval status (approved, under review, prohibited)
@@ -218,6 +235,7 @@ Cloud service inventory captures:
 - Integration points with other systems (APIs, SSO)
 
 **Shadow IT Discovery Methods:**
+
 - CASB platforms (Microsoft Defender for Cloud Apps, Netskope, Zscaler)
 - Network traffic analysis (identify cloud service API calls)
 - User surveys (what cloud tools do you use for work?)
@@ -244,20 +262,24 @@ Insurers assess:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Approved:** Google Workspace for Education, Microsoft 365 Education, Canvas/Schoology LMS
 - **Shadow IT:** Teachers using personal Google Drive, students using unapproved file sharing for group projects
 - **FERPA:** All cloud services with student data require written agreements
 
 **Healthcare:**
+
 - **Approved:** EHR cloud hosting, cloud PACS, telemedicine platforms
 - **Shadow IT:** Physicians using personal file sharing, patient communication via personal WhatsApp/texting
 - **HIPAA:** Business Associate Agreements (BAA) required for all cloud services processing PHI
 
 **Religious/Nonprofit:**
+
 - **Approved:** Donor management SaaS (Blackbaud, Planning Center), Microsoft 365/Google Workspace
 - **Shadow IT:** Staff using personal file sharing, free website builders without security controls
 
 **Citations:**
+
 - CIS Controls v8: Control 2.2 (Ensure Authorized Software is Currently Supported)
 - NIST CSF 2.0: ID.AM-2 (Software, services, and systems inventory)
 - Cloud Security Alliance: Cloud Controls Matrix
@@ -285,16 +307,18 @@ End-of-life (EOL) software is software that the vendor no longer supports with s
 1. **Discovery:** Identify all EOL software via software inventory (see Question 1.2)
 2. **Risk Assessment:** Evaluate business criticality and exposure (internet-facing vs. internal)
 3. **Mitigation Options:**
-   - **Upgrade:** Migrate to supported version (preferred)
-   - **Replace:** Migrate to alternative supported software
-   - **Isolate:** Network segmentation if immediate replacement impossible (temporary)
-   - **Decommission:** Turn off if no longer needed
+
+    - **Upgrade:** Migrate to supported version (preferred)
+    - **Replace:** Migrate to alternative supported software
+    - **Isolate:** Network segmentation if immediate replacement impossible (temporary)
+    - **Decommission:** Turn off if no longer needed
 4. **Timeline:** Establish upgrade/replacement timeline (typically 6-12 months)
 5. **Exceptions:** Document exceptions with compensating controls (air-gapped systems, vendor-managed medical devices)
 
 **Insurance Rationale (Universal):**
 
 **Critical Insurance Concern:**
+
 - EOL software has **known, unpatched vulnerabilities** that attackers actively exploit
 - **WannaCry ransomware (2017):** Exploited Windows XP/Server 2003 systems (EOL at time)
 - **NotPetya (2017):** Similar exploitation of unsupported systems
@@ -314,25 +338,30 @@ Cyber insurance carriers:
 **Sector-Specific Context:**
 
 **Education:**
+
 - **Common EOL Software:** Windows Server 2008/2012 running student information systems, older macOS on teacher laptops, Adobe Flash for legacy learning content
 - **Challenge:** Budget constraints delay upgrades; testing compatibility with educational software
 - **FERPA:** EOL systems with student data create data breach risk
 
 **Healthcare:**
+
 - **Common EOL Software:** Windows XP/7 embedded in medical devices (infusion pumps, imaging equipment), older EHR systems
 - **Challenge:** Medical devices have long lifecycles (10-15 years); vendor controls firmware updates
 - **HIPAA 2025 Security Rule:** Enhanced security requirements may mandate medical device upgrades
 - **Compensating Controls:** Network segmentation isolates medical devices from general network
 
 **Religious/Nonprofit:**
+
 - **Common EOL Software:** Windows Server 2008 for file sharing, Office 2010, outdated accounting software
 - **Challenge:** Limited IT budgets, reliance on donated equipment, lack of IT expertise
 
 **General:**
+
 - **Common EOL Software:** Legacy industrial control systems (OT/ICS), mainframes, specialized business applications
 - **Challenge:** Custom applications built for EOL platforms, high migration costs
 
 **Citations:**
+
 - **The Trust (Education Insurance):** Requirement #1 - End-of-life software management
 - **Coalition:** Cyber insurance applications ask: "Are any systems running unsupported operating systems?"
 - CIS Controls v8: Control 2.2 (Ensure Authorized Software is Currently Supported)

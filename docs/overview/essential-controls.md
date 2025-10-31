@@ -43,52 +43,63 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 #### Existing Foundational Questions (12)
 
 **Category 1: Asset Inventory and Management**
+
 - **1.4:** End-of-life software management (Trust Req #1)
 
 **Category 2: Account Management and Access Control**
+
 - **2.3:** MFA for remote access/VPN (Trust Req #2)
 - **2.4:** MFA for cloud services (Microsoft 365, Google Workspace) (Trust Req #2)
 - **2.5:** MFA for administrative accounts (Trust Req #2)
 - **2.6:** MFA for all users accessing sensitive systems (Trust Req #2)
 
 **Category 4: Secure Configuration and Vulnerability Management**
+
 - **4.3:** Patch management process (Trust Req #3)
 - **4.7:** External vulnerability scanning (Trust Req #4)
 
 **Category 5: Malware Defense and Endpoint Security**
+
 - **5.4:** EDR/antivirus deployment (Trust Req #5)
 
 **Category 6: Data Recovery and Business Continuity**
+
 - **6.3:** Air-gapped or offline backups (Trust Req #6)
 - **6.4:** Backup testing frequency (Trust Req #6)
 
 **Category 7: Security Awareness Training**
+
 - **7.2:** Phishing simulation testing (Trust Req #7)
 - **7.3:** Security awareness training (Trust Req #7)
 
 #### New Foundational Questions (5)
 
 **Category 3: Data Protection and Privacy**
+
 - **3.5:** Privileged Access Management (PAM) Platform 🆕
   - **Insurance Pressure:** HIGH - 42% of organizations now required to have PAM for coverage
   - **Threat Justification:** 88% of breaches involve stolen credentials; privileged accounts are prime targets
 
 **Category 4: Secure Configuration and Vulnerability Management**
+
 - **4.14:** Centralized Logging and SIEM 🆕 *(Tiered: Foundational for organizations >500 users)*
   - **Insurance Pressure:** HIGH - Required for larger organizations and regulated industries
   - **Threat Justification:** Average 212 days to detect breaches; centralized logging essential for investigation
 
 **Category 5: Malware Defense and Endpoint Security**
+
 - **5.5:** Email Authentication Protocols (DMARC, SPF, DKIM) 🆕
   - **Insurance Pressure:** MODERATE-HIGH - Coalition lists email authentication on insurance checklist
   - **Threat Justification:** 84% increase in phishing emails; email remains #1 attack vector
 
 **Category 7: Security Awareness Training**
+
 - **7.4:** AI Acceptable Use Policy and Governance 🆕 *(Forward-looking)*
   - **Insurance Pressure:** EMERGING - Coalition offers "Affirmative AI Insurance" for AI-related events
   - **Threat Justification:** 67.4% of phishing attacks use AI; only 24% of AI projects properly secured
 
 **Category 8: Vendor Risk Management**
+
 - **8.8:** AI Tool Privacy and Security Vetting 🆕 *(Forward-looking)*
   - **Insurance Pressure:** EMERGING - Extends vendor risk management to AI-specific risks
   - **Threat Justification:** Vendor AI tools process sensitive data; compliance violations create breach liability
@@ -122,35 +133,41 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 **Universal Threats Across All Sectors (IBM X-Force 2025, Verizon DBIR 2024):**
 
 1. **Credential Abuse (#1 Attack Vector):**
-   - 30% of incidents involve account abuse
-   - 88% of breaches involve stolen credentials
-   - **Foundational Controls:** MFA (2.3-2.6), PAM (3.5)
+
+    - 30% of incidents involve account abuse
+    - 88% of breaches involve stolen credentials
+    - **Foundational Controls:** MFA (2.3-2.6), PAM (3.5)
 
 2. **Ransomware (75% of Breaches):**
-   - Significant increase from prior year
-   - Average ransom demand: $1.5M; recovery costs: $4.5M
-   - **Foundational Controls:** EDR (5.4), Air-gapped Backups (6.3), Backup Testing (6.4)
+
+    - Significant increase from prior year
+    - Average ransom demand: $1.5M; recovery costs: $4.5M
+    - **Foundational Controls:** EDR (5.4), Air-gapped Backups (6.3), Backup Testing (6.4)
 
 3. **Phishing and Social Engineering (84% Increase):**
-   - 67.4% of phishing attacks now use AI
-   - Email remains #1 initial access method
-   - **Foundational Controls:** Email Authentication (5.5), Phishing Testing (7.2), Training (7.3), AI AUP (7.4)
+
+    - 67.4% of phishing attacks now use AI
+    - Email remains #1 initial access method
+    - **Foundational Controls:** Email Authentication (5.5), Phishing Testing (7.2), Training (7.3), AI AUP (7.4)
 
 4. **Unpatched Vulnerabilities (50% Remain Unpatched):**
-   - Attackers exploit known CVEs within days of disclosure
-   - End-of-life software cannot be patched (permanent vulnerability)
-   - **Foundational Controls:** Patch Management (4.3), Vulnerability Scanning (4.7), EOL Software (1.4)
+
+    - Attackers exploit known CVEs within days of disclosure
+    - End-of-life software cannot be patched (permanent vulnerability)
+    - **Foundational Controls:** Patch Management (4.3), Vulnerability Scanning (4.7), EOL Software (1.4)
 
 5. **Late Detection (212-Day Average):**
-   - Organizations lack visibility into attacker lateral movement
-   - Without centralized logging, incidents discovered via external notification
-   - **Foundational Controls:** SIEM/Centralized Logging (4.14)
+
+    - Organizations lack visibility into attacker lateral movement
+    - Without centralized logging, incidents discovered via external notification
+    - **Foundational Controls:** SIEM/Centralized Logging (4.14)
 
 6. **AI-Enabled Attacks (442% Increase in Vishing):**
-   - AI-generated phishing achieves 54% click-through rate vs. 12% for non-AI
-   - Deepfake voice and video used for executive impersonation
-   - Only 24% of generative AI projects properly secured
-   - **Foundational Controls:** AI AUP (7.4), AI Tool Vetting (8.8)
+
+    - AI-generated phishing achieves 54% click-through rate vs. 12% for non-AI
+    - Deepfake voice and video used for executive impersonation
+    - Only 24% of generative AI projects properly secured
+    - **Foundational Controls:** AI AUP (7.4), AI Tool Vetting (8.8)
 
 ### Implementation Priority
 
