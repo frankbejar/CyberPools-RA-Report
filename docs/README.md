@@ -81,7 +81,7 @@ The site automatically deploys to GitHub Pages when:
 - Files in `docs/`, `mkdocs.yml`, or source questionnaire are modified
 - GitHub Actions workflow completes successfully
 
-View deployed site at: `https://[YOUR-USERNAME].github.io/cyberpools-RA-Report/`
+View deployed site at: `https://frankbejar.github.io/CyberPools-RA-Report/`
 
 ## 🛠️ Customization
 
