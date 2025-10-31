@@ -185,41 +185,42 @@ The assessment questions use sector-neutral language, with sector-specific conte
 
 ### Assessment Process
 
-**1. Preparation (Organization):**
-- Review assessment questionnaire and gather documentation (policies, vendor contracts, system inventories)
-- Identify stakeholders: IT leadership, security team, compliance officer, executive sponsor
-- Schedule assessment interview (typically 2-4 hours depending on organization size)
+1. **Preparation (Organization):**
+   - Review assessment questionnaire and gather documentation (policies, vendor contracts, system inventories)
+   - Identify stakeholders: IT leadership, security team, compliance officer, executive sponsor
+   - Schedule assessment interview (typically 2-4 hours depending on organization size)
 
-**2. Assessment Interview (CyberPools Assessor):**
-- Trained assessor conducts structured interview with organization's stakeholders
-- Reviews evidence and documentation for each control
-- Assigns control ratings (Fully/Partially/Not Implemented) based on evidence
-- Documents notes, gaps, and observations
+2. **Assessment Interview (CyberPools Assessor):**
+   - Trained assessor conducts structured interview with organization's stakeholders
+   - Reviews evidence and documentation for each control
+   - Assigns control ratings (Fully/Partially/Not Implemented) based on evidence
+   - Documents notes, gaps, and observations
 
-**3. Scoring and Analysis (CyberPools):**
-- Calculate Foundation Score and Comprehensive Score
-- Identify high-risk gaps (risk score ≥16)
-- Compare to insurance requirements and peer benchmarks
-- Generate prioritized recommendations
+3. **Scoring and Analysis (CyberPools):**
+   - Calculate Foundation Score and Comprehensive Score
+   - Identify high-risk gaps (risk score ≥16)
+   - Compare to insurance requirements and peer benchmarks
+   - Generate prioritized recommendations
 
-**4. Report Delivery (Organization):**
-- Receive comprehensive PDF report including:
-  - Executive summary with Foundation and Comprehensive scores
-  - Category-by-category analysis
-  - High-risk findings requiring immediate attention
-  - Insurance compliance table (mapping to carrier requirements)
-  - Remediation roadmap with prioritized recommendations
-  - Sector-specific implementation guidance
+4. **Report Delivery (Organization):**
+   - Receive comprehensive PDF report including:
+       - Executive summary with Foundation and Comprehensive scores
+       - Category-by-category analysis
+       - High-risk findings requiring immediate attention
+       - Insurance compliance table (mapping to carrier requirements)
+       - Remediation roadmap with prioritized recommendations
+       - Sector-specific implementation guidance
 
-**5. Continuous Improvement:**
-- Address high-risk findings (typically 6-12 month remediation cycle)
-- Implement recommended controls and policies
-- Leverage CyberPools Cyber Toolkit services (vulnerability scanning, phishing simulations, vCISO consulting)
-- Annual re-assessment to measure improvement and maintain insurance compliance
+5. **Continuous Improvement:**
+   - Address high-risk findings (typically 6-12 month remediation cycle)
+   - Implement recommended controls and policies
+   - Leverage CyberPools Cyber Toolkit services (vulnerability scanning, phishing simulations, vCISO consulting)
+   - Annual re-assessment to measure improvement and maintain insurance compliance
 
 ### Alignment with Industry Frameworks
 
 **NIST Cybersecurity Framework (CSF) 2.0:**
+
 - **Govern (GV):** Category 1 (Asset Management), Category 8 (Vendor Risk), AI governance questions
 - **Identify (ID):** Category 1 (Asset Inventory), Category 3 (Data Protection), Category 4 (Vulnerability Management)
 - **Protect (PR):** Category 2 (Access Control), Category 3 (Data Protection), Category 5 (Endpoint Security), Category 7 (Training)
@@ -228,11 +229,13 @@ The assessment questions use sector-neutral language, with sector-specific conte
 - **Recover (RC):** Category 6 (Data Recovery, Business Continuity)
 
 **CIS Controls v8:**
+
 - **IG1 (Basic Cyber Hygiene):** Foundational questions cover essential controls for all organizations
 - **IG2 (Intermediate Security):** Comprehensive questions address controls for organizations with more resources
 - **IG3 (Advanced Security):** Advanced maturity questions (SIEM, PAM, incident detection metrics)
 
 **NIST AI Risk Management Framework:**
+
 - **Govern:** AI acceptable use policy (Question 7.4)
 - **Map:** AI tool risk assessment (Question 8.8)
 - **Measure:** Ongoing vendor monitoring for AI tools
