@@ -2,7 +2,7 @@
 title: Home
 ---
 
-# CyberPools Comprehensive Risk Assessment
+# CyberPools Cyber Risk Assessment
 
 ## 2026 Proposed Expansion - Sector-Neutral Framework
 
@@ -27,7 +27,7 @@ title: Home
 
     Insurance-critical controls (12 existing + 5 new)
 
--   :material-new-box:{ .lg .middle } **13 New Questions**
+-   :material-new-box:{ .lg .middle } **12 New Questions**
 
     ---
 
@@ -61,7 +61,7 @@ title: Home
 
     ---
 
-    13 questions added based on emerging threats and insurance requirements
+    12 questions added based on emerging threats and insurance requirements
 
     [:octicons-arrow-right-24: View new questions](filtered/new-questions.md)
 
