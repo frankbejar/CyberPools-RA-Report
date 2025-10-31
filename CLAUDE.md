@@ -2,6 +2,17 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Repository Overview
+
+This repository contains **TWO major systems**:
+
+1. **PDF Report Generator** - Production system that generates branded PDF reports from CRM assessment data
+2. **MkDocs Documentation Site** - Public-facing documentation site for the 65-question comprehensive risk assessment questionnaire
+
+Both systems share the same assessment content but serve different purposes and audiences.
+
+---
+
 ## ⚠️ CRITICAL: Production vs. POC Separation Policy
 
 **ALWAYS maintain strict separation between production and proof-of-concept work:**
@@ -47,6 +58,35 @@ CyberPools Risk Assessment Report Generator - A professional PDF report generati
 - Microsoft Dynamics 365 CRM data integration
 
 ## Common Commands
+
+### MkDocs Documentation Site
+
+**Preview site locally:**
+```bash
+pip install -r requirements-docs.txt
+mkdocs serve  # Opens at http://127.0.0.1:8000
+```
+
+**Build static site:**
+```bash
+mkdocs build  # Output in site/ directory
+```
+
+**Rebuild from source questionnaire:**
+```bash
+# After updating poc-research/docs/COMPREHENSIVE_RISK_ASSESSMENT_QUESTIONNAIRE.md
+python3 scripts/build_docs_site.py
+git add docs/
+git commit -m "Update questionnaire content"
+git push  # Auto-deploys to GitHub Pages
+```
+
+**Deploy to GitHub Pages:**
+```bash
+mkdocs gh-deploy  # Manual deployment (usually automatic via GitHub Actions)
+```
+
+**Live site:** https://frankbejar.github.io/CyberPools-RA-Report/
 
 ### Generate Production Reports
 
@@ -97,6 +137,42 @@ python3 scripts/update_cyber_requirements.py
 ```
 
 ## Architecture Overview
+
+### System 1: MkDocs Documentation Site
+
+**Purpose:** Public-facing, searchable documentation for the 65-question comprehensive risk assessment questionnaire.
+
+**Architecture:**
+1. **Source of Truth:** `poc-research/docs/COMPREHENSIVE_RISK_ASSESSMENT_QUESTIONNAIRE.md` (6,450 lines, 65 questions)
+2. **Build Script:** `scripts/build_docs_site.py` parses source and generates organized pages
+3. **Generated Pages:** Split into `docs/` directory structure:
+   - 9 category pages (`docs/categories/category-*.md`)
+   - 3 filtered views (`docs/filtered/foundational.md`, `new-questions.md`, `high-impact.md`)
+   - 4 sector pages (`docs/sectors/education.md`, etc.)
+   - Reference materials (`docs/reference/`)
+4. **Configuration:** `mkdocs.yml` defines site structure, theme, navigation
+5. **Deployment:** GitHub Actions (`.github/workflows/docs.yml`) auto-deploys to GitHub Pages on push
+
+**Key Features:**
+- Full-text search across all questions
+- Tag-based filtering (category, impact, foundational, new, sector)
+- Mobile-responsive Material Design theme
+- Dark/light mode toggle
+- Automatic deployment on content changes
+
+**Update Workflow:**
+```
+Edit COMPREHENSIVE_RISK_ASSESSMENT_QUESTIONNAIRE.md
+  → Run build_docs_site.py
+  → Commit changes
+  → GitHub Actions deploys to https://frankbejar.github.io/CyberPools-RA-Report/
+```
+
+---
+
+### System 2: PDF Report Generator
+
+**Purpose:** Generate branded PDF reports for individual member assessments from CRM data.
 
 ### Data Flow Pipeline
 
@@ -253,7 +329,35 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 
 ## Key Workflows
 
-### Adding a New Question
+### MkDocs Site: Updating Documentation Content
+
+**When to rebuild docs:**
+- Added/modified questions in comprehensive questionnaire
+- Changed question metadata (foundational status, impact ratings, sector guidance)
+- Updated framework mappings or citations
+
+**Process:**
+1. Edit `poc-research/docs/COMPREHENSIVE_RISK_ASSESSMENT_QUESTIONNAIRE.md`
+2. Run `python3 scripts/build_docs_site.py` to regenerate all pages
+3. Review changes: `mkdocs serve` to preview locally
+4. Commit: `git add docs/ && git commit -m "Update questionnaire"`
+5. Push: `git push` → GitHub Actions auto-deploys in ~30 seconds
+
+**Common link issues:**
+- Use relative links without `../` prefix in MkDocs (e.g., `filtered/foundational.md` not `../filtered/foundational.md`)
+- Check build warnings: `mkdocs build` shows broken links
+- Test navigation after changes
+
+### MkDocs Site: Modifying Layout/Navigation
+
+1. Edit `mkdocs.yml` to change navigation structure
+2. Edit `docs/stylesheets/extra.css` for custom styling
+3. Edit `scripts/build_docs_site.py` if changing page generation logic
+4. Test build: `mkdocs build` (check for warnings)
+5. Preview: `mkdocs serve`
+6. Commit and push for auto-deployment
+
+### PDF Reports: Adding a New Question
 
 1. Add question to CRM (Dynamics 365)
 2. Update `mappings/question_mapping.json` with new question GUID and metadata
@@ -262,7 +366,7 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 5. Run `scripts/update_cyber_requirements.py` to update all input JSON files
 6. Update `content/boilerplate.json` if new category added
 
-### Modifying Report Layout
+### PDF Reports: Modifying Report Layout
 
 1. Edit templates in `templates/partials/` for content structure
 2. Edit `styles/main.css` for base styling
@@ -361,14 +465,53 @@ export OPENAI_API_KEY="your_openai_key"
 
 ## Dependencies
 
-**Core:**
+**PDF Report Generator:**
 - jinja2 - Template rendering
 - docraptor - DocRaptor API client
-
-**Optional:**
-- playwright - Chromium PDF renderer
-- weasyprint - Alternative PDF renderer (deprecated)
-- markdown - Markdown to HTML conversion
-- openai - AI summary generation
+- playwright (optional) - Chromium PDF renderer
+- markdown (optional) - Markdown to HTML conversion for summaries
+- openai (optional) - AI summary generation
 
 Install: `pip install -r docs/requirements.txt`
+
+**MkDocs Documentation Site:**
+- mkdocs >= 1.5.0
+- mkdocs-material >= 9.5.0
+- pymdown-extensions >= 10.0
+
+Install: `pip install -r requirements-docs.txt`
+
+## Repository File Structure
+
+```
+cyberpools-RA-Report/
+├── .github/workflows/docs.yml    # GitHub Actions for auto-deployment
+├── mkdocs.yml                     # MkDocs site configuration
+├── requirements-docs.txt          # MkDocs dependencies
+│
+├── docs/                          # MkDocs site (generated, committed to git)
+│   ├── index.md                   # Home page
+│   ├── categories/                # 9 category pages
+│   ├── filtered/                  # Filtered views (foundational, new, high-impact)
+│   ├── sectors/                   # 4 sector-specific pages
+│   ├── reference/                 # Citations, framework mapping
+│   ├── stylesheets/extra.css      # Custom CSS
+│   └── README.md                  # Docs build instructions
+│
+├── poc-research/                  # POC/Research (non-production)
+│   └── docs/
+│       └── COMPREHENSIVE_RISK_ASSESSMENT_QUESTIONNAIRE.md  # SOURCE OF TRUTH
+│
+├── scripts/
+│   ├── build_docs_site.py         # Generates MkDocs pages from source
+│   ├── transform_and_generate.py  # Main PDF report CLI
+│   ├── generate_report_with_metadata.py  # Metadata-based PDF CLI
+│   └── suggest_summary.py         # AI summary generator
+│
+├── templates/                     # Jinja2 templates for PDF reports
+├── styles/                        # CSS for PDF reports
+├── content/boilerplate.json       # Production boilerplate text
+├── mappings/                      # Question/category mappings for CRM
+├── input/                         # CRM assessment data (JSON)
+└── output/                        # Generated PDF reports
+```
