@@ -421,9 +421,12 @@ Does the organization have a documented Business Continuity Plan (BCP) that defi
 - Partially implemented - documented plan exists, limited testing
 - Not implemented - no formal business continuity plan
 
-**Impact Rating:** Moderate (3)
+**Impact Rating:** High (5)
 
 **Foundational:** No (but strongly recommended for organizations >100 users or with critical operations)
+
+**Why High Impact:**
+Business interruption represents 45% of cyber insurance claim costs (Coalition 2024), with average claims reaching $1.5M for ransomware incidents. A tested business continuity plan reduces recovery time from 10+ days to 2-3 days, directly impacting the entire organization's ability to maintain critical operations. Carriers increasingly require documented BCPs in applications. This affects all departments and stakeholders simultaneously during cyber incidents.
 
 **Control Description:**
 

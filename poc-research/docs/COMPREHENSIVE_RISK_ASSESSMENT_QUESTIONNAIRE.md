@@ -2794,9 +2794,12 @@ Insecure wireless networks create attack vector:
 **Question Text:**
 Does the organization monitor network traffic for anomalous behavior, unauthorized devices, or suspicious activity?
 
-**Impact Rating:** Moderate (3)
+**Impact Rating:** High (5)
 
 **Foundational:** NO (Comprehensive maturity indicator)
+
+**Why High Impact:**
+Organizations without network monitoring experience 30% higher claim severity due to late detection (Coalition 2024). Average breach detection time is 212 days without monitoring versus 30 days with monitoring (IBM). Network monitoring detects lateral movement, command-and-control traffic, and data exfiltration across the entire organization. This is an organization-wide detection capability, not limited to a single system.
 
 **Control Description:**
 
@@ -4216,9 +4219,12 @@ Does the organization have a documented Business Continuity Plan (BCP) that defi
 - Partially implemented - documented plan exists, limited testing
 - Not implemented - no formal business continuity plan
 
-**Impact Rating:** Moderate (3)
+**Impact Rating:** High (5)
 
 **Foundational:** No (but strongly recommended for organizations >100 users or with critical operations)
+
+**Why High Impact:**
+Business interruption represents 45% of cyber insurance claim costs (Coalition 2024), with average claims reaching $1.5M for ransomware incidents. A tested business continuity plan reduces recovery time from 10+ days to 2-3 days, directly impacting the entire organization's ability to maintain critical operations. Carriers increasingly require documented BCPs in applications. This affects all departments and stakeholders simultaneously during cyber incidents.
 
 **Control Description:**
 

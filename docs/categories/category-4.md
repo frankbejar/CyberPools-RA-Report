@@ -483,9 +483,12 @@ Insecure wireless networks create attack vector:
 **Question Text:**
 Does the organization monitor network traffic for anomalous behavior, unauthorized devices, or suspicious activity?
 
-**Impact Rating:** Moderate (3)
+**Impact Rating:** High (5)
 
 **Foundational:** NO (Comprehensive maturity indicator)
+
+**Why High Impact:**
+Organizations without network monitoring experience 30% higher claim severity due to late detection (Coalition 2024). Average breach detection time is 212 days without monitoring versus 30 days with monitoring (IBM). Network monitoring detects lateral movement, command-and-control traffic, and data exfiltration across the entire organization. This is an organization-wide detection capability, not limited to a single system.
 
 **Control Description:**
 
