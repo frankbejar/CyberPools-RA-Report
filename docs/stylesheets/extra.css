@@ -1,10 +1,34 @@
 /* Custom styles for CyberPools Risk Assessment site */
 
-/* Highlight foundational questions */
+/* CyberPools Brand Colors */
 :root {
+  /* Primary brand colors from style guide */
+  --cp-primary-navy: #2C5F7C;
+  --cp-primary-teal: #4A9FB8;
+  --cp-accent-cyan: #6BC4D9;
+
+  /* Badge colors */
   --foundational-color: #2e7d32;
   --new-color: #1976d2;
   --high-impact-color: #d32f2f;
+}
+
+/* Material Design custom color scheme - Light mode */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--cp-primary-navy);
+  --md-primary-fg-color--light: var(--cp-primary-teal);
+  --md-primary-fg-color--dark: #234a5f;
+  --md-accent-fg-color: var(--cp-primary-teal);
+  --md-accent-fg-color--transparent: rgba(74, 159, 184, 0.1);
+}
+
+/* Material Design custom color scheme - Dark mode */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--cp-primary-teal);
+  --md-primary-fg-color--light: var(--cp-accent-cyan);
+  --md-primary-fg-color--dark: var(--cp-primary-navy);
+  --md-accent-fg-color: var(--cp-accent-cyan);
+  --md-accent-fg-color--transparent: rgba(107, 196, 217, 0.1);
 }
 
 /* Foundational badge */
