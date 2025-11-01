@@ -1,0 +1,66 @@
+/* Custom styles for CyberPools Risk Assessment site */
+
+/* Highlight foundational questions */
+:root {
+  --foundational-color: #2e7d32;
+  --new-color: #1976d2;
+  --high-impact-color: #d32f2f;
+}
+
+/* Foundational badge */
+span:has-text("🔑 FOUNDATIONAL") {
+  background-color: var(--foundational-color);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* New badge */
+span:has-text("🆕") {
+  background-color: var(--new-color);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* High impact highlight */
+strong:has-text("High (5)") {
+  color: var(--high-impact-color);
+  font-weight: 700;
+}
+
+/* Question headers */
+h3[id^="question-"] {
+  border-left: 4px solid var(--md-primary-fg-color);
+  padding-left: 1rem;
+  margin-left: -1rem;
+}
+
+/* Grid cards enhancement */
+.grid.cards {
+  margin-top: 1rem;
+}
+
+/* Sector icons */
+.sector-icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+/* Impact rating badges */
+.impact-high {
+  color: #d32f2f;
+  font-weight: 700;
+}
+
+.impact-moderate {
+  color: #f57c00;
+  font-weight: 600;
+}
+
+.impact-low {
+  color: #388e3c;
+  font-weight: 500;
+}
