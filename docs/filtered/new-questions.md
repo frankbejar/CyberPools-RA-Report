@@ -38,7 +38,7 @@ Does your organization implement controls to manage and monitor privileged/admin
 
 **Control Description:**
 
-Privileged Access Management (PAM) is the practice of managing and monitoring privileged/administrative accounts that have elevated permissions to access critical systems and data. **This is fundamentally a process and policy discipline, not a product requirement.** Organizations do NOT need expensive PAM software to meet this foundational control.
+Privileged Access Management (PAM) is the practice of managing and monitoring privileged/administrative accounts that have elevated permissions to access critical systems and data. **This is fundamentally a process and policy discipline, not a product requirement.** Organizations can meet this foundational control through documented processes and procedures.
 
 **Why PAM is Foundational:**
 
@@ -57,20 +57,20 @@ Organizations must demonstrate active management of privileged accounts through 
 
 **PAM Implementation Approaches (Tiered):**
 
-**TIER 1: Process-Based PAM (Zero Additional Cost - Acceptable for Foundational Requirement)**
+**TIER 1: Process-Based PAM**
 
-**This approach satisfies the foundational requirement without purchasing software:**
+**This approach satisfies the foundational requirement using documented processes:**
 
 - Manual tracking of privileged accounts via spreadsheet or documentation system
 - Scheduled calendar reminders for quarterly privileged access reviews
 - Written procedures for requesting, approving, and revoking admin access
 - Regular audits using native Active Directory/Azure AD tools
 - Separation of privileged and standard accounts (separate admin accounts for IT staff)
-- **Best for:** Small to medium organizations, limited IT staff, budget constraints
+- **Best for:** Small to medium organizations, limited IT staff
 - **Time investment:** 2-4 hours per quarter
 - **Technology required:** Existing Active Directory/Azure AD admin tools
 
-**TIER 2: Tool-Assisted PAM (Low Cost: $500-$2,000/year)**
+**TIER 2: Tool-Assisted PAM**
 
 **Basic tools to enhance process-based PAM:**
 
@@ -81,7 +81,7 @@ Organizations must demonstrate active management of privileged accounts through 
 - **Best for:** Medium organizations (5,000-20,000 users/students)
 - **Examples:** BitWarden Teams, JumpCloud, Active Directory Premium, Keeper Business
 
-**TIER 3: Enterprise PAM Platform (Higher Investment: $5,000-$50,000/year)**
+**TIER 3: Enterprise PAM Platform**
 
 **Dedicated PAM solutions with advanced capabilities:**
 
