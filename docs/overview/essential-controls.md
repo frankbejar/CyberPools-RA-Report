@@ -9,7 +9,7 @@ tags:
 
 ### Overview
 
-**Cyber Essential Controls** represent the **17 foundational questions** that are critical for cyber insurance eligibility and defense against the most prevalent threats. These controls address:
+**Cyber Essential Controls** represent the **14 foundational questions** that are critical for cyber insurance eligibility and defense against the most prevalent threats. These controls address:
 
 1. The most common attack vectors (credential abuse, phishing, ransomware)
 2. Cyber insurance application requirements from major carriers
@@ -39,7 +39,7 @@ For education insurance pools, the **7 Trust Requirements** map to **12 foundati
 
 ### Expanded Foundational Questions (2026)
 
-With the addition of 5 new foundational questions, the **Cyber Essential Controls** now include **17 total questions**:
+With the addition of 2 new foundational questions, the **Cyber Essential Controls** now include **14 total questions**:
 
 #### Existing Foundational Questions (12)
 
@@ -73,37 +73,20 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 - **7.2:** Phishing simulation testing (Trust Req #7)
 - **7.3:** Security awareness training (Trust Req #7)
 
-#### New Foundational Questions (5)
+#### New Foundational Questions (2)
 
 **Category 3: Data Protection and Privacy**
 
-- **3.5:** Privileged Access Management (PAM) Platform 🆕
+- **3.5:** Privileged Access Management (PAM) 🆕
   - **Insurance Pressure:** HIGH - 42% of organizations now required to have PAM for coverage
   - **Threat Justification:** 88% of breaches involve stolen credentials; privileged accounts are prime targets
-
-**Category 4: Secure Configuration and Vulnerability Management**
-
-- **4.14:** Centralized Logging and SIEM 🆕 *(Tiered: Foundational for organizations >500 users)*
-  - **Insurance Pressure:** HIGH - Required for larger organizations and regulated industries
-  - **Threat Justification:** Average 212 days to detect breaches; centralized logging essential for investigation
+  - **Implementation:** Process-based approaches acceptable; expensive PAM software NOT required
 
 **Category 5: Malware Defense and Endpoint Security**
 
 - **5.5:** Email Authentication Protocols (DMARC, SPF, DKIM) 🆕
   - **Insurance Pressure:** MODERATE-HIGH - Coalition lists email authentication on insurance checklist
   - **Threat Justification:** 84% increase in phishing emails; email remains #1 attack vector
-
-**Category 7: Security Awareness Training**
-
-- **7.4:** AI Acceptable Use Policy and Governance 🆕 *(Forward-looking)*
-  - **Insurance Pressure:** EMERGING - Coalition offers "Affirmative AI Insurance" for AI-related events
-  - **Threat Justification:** 67.4% of phishing attacks use AI; only 24% of AI projects properly secured
-
-**Category 8: Vendor Risk Management**
-
-- **8.8:** AI Tool Privacy and Security Vetting 🆕 *(Forward-looking)*
-  - **Insurance Pressure:** EMERGING - Extends vendor risk management to AI-specific risks
-  - **Threat Justification:** Vendor AI tools process sensitive data; compliance violations create breach liability
 
 ### Insurance Impact of Foundational Controls
 

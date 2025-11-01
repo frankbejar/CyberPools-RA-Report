@@ -39,7 +39,7 @@ Security awareness training educates staff and stakeholders about cybersecurity 
 - Question 7.1: Security Awareness Program
 - Question 7.2: Phishing Simulation Testing 🔑 FOUNDATIONAL
 - Question 7.3: Security Awareness Training Frequency 🔑 FOUNDATIONAL
-- Question 7.4: AI Acceptable Use Policy and Governance 🔑 FOUNDATIONAL 🆕
+- Question 7.4: AI Acceptable Use Policy and Governance 🆕
 
 ---
 
@@ -385,7 +385,7 @@ Regular security awareness training ensures all users receive ongoing education 
 
 ---
 
-### Question 7.4: AI Acceptable Use Policy and Governance 🔑 FOUNDATIONAL 🆕
+### Question 7.4: AI Acceptable Use Policy and Governance 🆕
 
 **Question Text:**
 Has the organization established an Artificial Intelligence (AI) Acceptable Use Policy that defines approved AI tools, prohibited uses, data privacy requirements, and staff/stakeholder responsibilities when using AI technologies (ChatGPT, Google Gemini, Microsoft Copilot, AI-enabled platforms)?
@@ -398,7 +398,7 @@ Has the organization established an Artificial Intelligence (AI) Acceptable Use 
 
 **Impact Rating:** High (5)
 
-**Foundational:** 🔑 YES - Insurance Critical (NEW 2026 - Forward-Looking Control)
+**Foundational:** NO - Emerging risk control (NEW 2026)
 
 **Control Description:**
 

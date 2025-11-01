@@ -124,7 +124,7 @@ def create_filtered_pages(content):
 
     if foundational_questions:
         foundational_content = f"""---
-title: Foundational Questions (17)
+title: Foundational Questions (14)
 tags:
   - Foundational
   - Insurance Critical
@@ -132,7 +132,7 @@ tags:
 
 # 🔑 Foundational Questions
 
-These 17 questions are **insurance-critical** controls required by most cyber insurance carriers.
+These 14 questions are **insurance-critical** controls required by most cyber insurance carriers.
 
 ## 12 Existing Foundational
 
@@ -146,15 +146,12 @@ Trust Requirements for Education:
 - 6.3-6.4: Air-gapped Backups + Testing
 - 7.2-7.3: Phishing Simulation + Training
 
-## 5 NEW Foundational
+## 2 NEW Foundational
 
 2026 Additions:
 
-- 3.5: Privileged Access Management (PAM)
-- 4.14: Centralized Logging and SIEM
+- 3.5: Privileged Access Management (PAM) - Process-based approaches acceptable
 - 5.5: Email Authentication (DMARC/SPF/DKIM)
-- 7.4: AI Acceptable Use Policy
-- 8.8: AI Tool Privacy and Security Vetting
 
 ---
 

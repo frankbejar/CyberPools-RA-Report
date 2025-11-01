@@ -10,7 +10,7 @@ tags:
 **Document Version:** 2.0
 **Effective Date:** January 2026 (Proposed)
 **Total Questions:** 65 (53 existing + 12 new)
-**Foundational Questions:** 17 (12 existing + 5 new)
+**Foundational Questions:** 14 (12 existing + 2 new)
 **Assessment Categories:** 9
 
 ---

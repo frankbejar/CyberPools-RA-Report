@@ -4,7 +4,7 @@
 **Document Version:** 2.0
 **Effective Date:** January 2026 (Proposed)
 **Total Questions:** 65 (53 existing + 12 new)
-**Foundational Questions:** 17 (12 existing + 5 new)
+**Foundational Questions:** 14 (12 existing + 2 new)
 **Assessment Categories:** 9
 
 ---
@@ -275,7 +275,7 @@ The assessment questions use sector-neutral language, with sector-specific conte
 
 ### Overview
 
-**Cyber Essential Controls** represent the **17 foundational questions** that are critical for cyber insurance eligibility and defense against the most prevalent threats. These controls address:
+**Cyber Essential Controls** represent the **14 foundational questions** that are critical for cyber insurance eligibility and defense against the most prevalent threats. These controls address:
 
 1. The most common attack vectors (credential abuse, phishing, ransomware)
 2. Cyber insurance application requirements from major carriers
@@ -305,7 +305,7 @@ For education insurance pools, the **7 Trust Requirements** map to **12 foundati
 
 ### Expanded Foundational Questions (2026)
 
-With the addition of 5 new foundational questions, the **Cyber Essential Controls** now include **17 total questions**:
+With the addition of 2 new foundational questions, the **Cyber Essential Controls** now include **14 total questions**:
 
 #### Existing Foundational Questions (12)
 
@@ -339,37 +339,20 @@ With the addition of 5 new foundational questions, the **Cyber Essential Control
 - **7.2:** Phishing simulation testing (Trust Req #7)
 - **7.3:** Security awareness training (Trust Req #7)
 
-#### New Foundational Questions (5)
+#### New Foundational Questions (2)
 
 **Category 3: Data Protection and Privacy**
 
-- **3.5:** Privileged Access Management (PAM) Platform 🆕
+- **3.5:** Privileged Access Management (PAM) 🆕
   - **Insurance Pressure:** HIGH - 42% of organizations now required to have PAM for coverage
   - **Threat Justification:** 88% of breaches involve stolen credentials; privileged accounts are prime targets
-
-**Category 4: Secure Configuration and Vulnerability Management**
-
-- **4.14:** Centralized Logging and SIEM 🆕 *(Tiered: Foundational for organizations >500 users)*
-  - **Insurance Pressure:** HIGH - Required for larger organizations and regulated industries
-  - **Threat Justification:** Average 212 days to detect breaches; centralized logging essential for investigation
+  - **Implementation:** Process-based approaches acceptable; expensive PAM software NOT required
 
 **Category 5: Malware Defense and Endpoint Security**
 
 - **5.5:** Email Authentication Protocols (DMARC, SPF, DKIM) 🆕
   - **Insurance Pressure:** MODERATE-HIGH - Coalition lists email authentication on insurance checklist
   - **Threat Justification:** 84% increase in phishing emails; email remains #1 attack vector
-
-**Category 7: Security Awareness Training**
-
-- **7.4:** AI Acceptable Use Policy and Governance 🆕 *(Forward-looking)*
-  - **Insurance Pressure:** EMERGING - Coalition offers "Affirmative AI Insurance" for AI-related events
-  - **Threat Justification:** 67.4% of phishing attacks use AI; only 24% of AI projects properly secured
-
-**Category 8: Vendor Risk Management**
-
-- **8.8:** AI Tool Privacy and Security Vetting 🆕 *(Forward-looking)*
-  - **Insurance Pressure:** EMERGING - Extends vendor risk management to AI-specific risks
-  - **Threat Justification:** Vendor AI tools process sensitive data; compliance violations create breach liability
 
 ### Insurance Impact of Foundational Controls
 
@@ -2023,10 +2006,10 @@ Data retention policies specify:
 ---
 
 
-### Question 3.5: Privileged Access Management (PAM) Platform 🔑 FOUNDATIONAL 🆕
+### Question 3.5: Privileged Access Management (PAM) 🔑 FOUNDATIONAL 🆕
 
 **Question Text:**
-Has the organization implemented a Privileged Access Management (PAM) solution to control, monitor, and audit access to privileged accounts (administrators, service accounts, shared credentials)?
+Does your organization implement controls to manage and monitor privileged/administrative accounts?
 
 **Impact Rating:** High (5)
 
@@ -2034,29 +2017,60 @@ Has the organization implemented a Privileged Access Management (PAM) solution t
 
 **Control Description:**
 
-Privileged Access Management (PAM) provides centralized control over privileged accounts through:
+Privileged Access Management (PAM) is the practice of managing and monitoring privileged/administrative accounts that have elevated permissions to access critical systems and data. **This is fundamentally a process and policy discipline, not a product requirement.** Organizations do NOT need expensive PAM software to meet this foundational control.
 
-**Core PAM Capabilities:**
+**Why PAM is Foundational:**
 
-- **Credential Vaulting:** Secure storage of privileged passwords, SSH keys, certificates
-- **Session Monitoring/Recording:** Screen recording, keystroke logging of privileged sessions
-- **Just-In-Time Access:** Time-limited elevation of privileges (request → approve → access for 4 hours → automatic revoke)
-- **Automated Password Rotation:** Regular password changes for service accounts, local admin accounts
-- **Privilege Elevation and Delegation:** Temporary admin rights without knowing password
+Privileged accounts (domain administrators, SIS administrators, network administrators) are the #1 target in ransomware attacks. Unmanaged privileged access is a leading cause of insurance claim denials and coverage limitations.
 
-**PAM Components:**
+**Minimum Foundational Requirements:**
 
-- **Password Vault:** Centralized credential repository (LastPass Enterprise, CyberArk, Thycotic Secret Server)
-- **Privileged Session Manager:** Recording and monitoring of admin activities
-- **Privileged Account Analytics:** Behavioral analytics to detect anomalous privileged account usage
-- **Secrets Management:** API keys, database passwords, service account credentials
+Organizations must demonstrate active management of privileged accounts through documented processes and controls:
 
-**PAM Implementation Approaches:**
+- **Inventory of Privileged Accounts:** Maintain list of all accounts with administrative privileges (domain admins, SIS admins, network admins, service accounts)
+- **Separate Privileged Accounts:** IT staff use separate accounts for privileged activities (admin accounts not used for email/web browsing)
+- **Regular Reviews:** Conduct reviews of who has privileged access (at least quarterly)
+- **No Shared Credentials:** Eliminate shared/generic administrator credentials
+- **Approval Process:** Document process for requesting and approving elevated privileges
+- **Activity Logging:** Log and review privileged account activity
 
-- **Enterprise PAM Platforms:** CyberArk, BeyondTrust, Delinea (formerly Thycotic), Centrify
-- **Cloud-Native PAM:** Azure Privileged Identity Management (PIM), AWS Secrets Manager, Google Secret Manager
-- **SMB PAM:** ManageEngine PAM360 Cloud, Keeper Secrets Manager
-- **Open Source:** Vault by HashiCorp (requires expertise)
+**PAM Implementation Approaches (Tiered):**
+
+**TIER 1: Process-Based PAM (Zero Additional Cost - Acceptable for Foundational Requirement)**
+
+**This approach satisfies the foundational requirement without purchasing software:**
+
+- Manual tracking of privileged accounts via spreadsheet or documentation system
+- Scheduled calendar reminders for quarterly privileged access reviews
+- Written procedures for requesting, approving, and revoking admin access
+- Regular audits using native Active Directory/Azure AD tools
+- Separation of privileged and standard accounts (separate admin accounts for IT staff)
+- **Best for:** Small to medium organizations, limited IT staff, budget constraints
+- **Time investment:** 2-4 hours per quarter
+- **Technology required:** Existing Active Directory/Azure AD admin tools
+
+**TIER 2: Tool-Assisted PAM (Low Cost: $500-$2,000/year)**
+
+**Basic tools to enhance process-based PAM:**
+
+- **Password Vault:** Store shared service account credentials securely (KeePass, BitWarden, 1Password)
+- **Privileged Access Logging:** Centralized logging and monitoring of admin activities
+- **Automated Alerts:** Notifications for privileged account changes or suspicious activity
+- **Account Discovery:** Automated tools to find privileged accounts across environment
+- **Best for:** Medium organizations (5,000-20,000 users/students)
+- **Examples:** BitWarden Teams, JumpCloud, Active Directory Premium, Keeper Business
+
+**TIER 3: Enterprise PAM Platform (Higher Investment: $5,000-$50,000/year)**
+
+**Dedicated PAM solutions with advanced capabilities:**
+
+- **Credential Vaulting:** Centralized repository for all privileged credentials
+- **Session Recording:** Video recording and keystroke logging of privileged sessions
+- **Just-In-Time Access:** Time-limited privilege elevation with automatic revocation
+- **Automated Password Rotation:** Regular automated credential changes for service accounts
+- **Privilege Analytics:** Behavioral analytics to detect anomalous privileged account usage
+- **Best for:** Large organizations (>20,000 users/students), high-security requirements
+- **Examples:** CyberArk, BeyondTrust, Delinea, Microsoft Entra ID Governance, AWS Secrets Manager
 
 **Insurance Rationale (Universal):**
 
@@ -2969,14 +2983,14 @@ External vulnerability scanning is **mandatory insurance requirement:**
 
 ---
 
-### Question 4.14: Centralized Logging and SIEM 🔑 FOUNDATIONAL 🆕
+### Question 4.14: Centralized Logging and SIEM 🆕
 
 **Question Text:**
 Does the organization implement centralized logging with a Security Information and Event Management (SIEM) or log management solution to collect, correlate, and analyze security events from across networks, servers, endpoints, and security devices?
 
 **Impact Rating:** High (5)
 
-**Foundational:** 🔑 YES (for larger organizations >500 users) / NO (for smaller organizations) - Tiered requirement (NEW 2026)
+**Foundational:** NO - Advanced security control (NEW 2026)
 
 **Control Description:**
 
@@ -4456,7 +4470,7 @@ Security awareness training educates staff and stakeholders about cybersecurity 
 - Question 7.1: Security Awareness Program
 - Question 7.2: Phishing Simulation Testing 🔑 FOUNDATIONAL
 - Question 7.3: Security Awareness Training Frequency 🔑 FOUNDATIONAL
-- Question 7.4: AI Acceptable Use Policy and Governance 🔑 FOUNDATIONAL 🆕
+- Question 7.4: AI Acceptable Use Policy and Governance 🆕
 
 ---
 
@@ -4802,7 +4816,7 @@ Regular security awareness training ensures all users receive ongoing education 
 
 ---
 
-### Question 7.4: AI Acceptable Use Policy and Governance 🔑 FOUNDATIONAL 🆕
+### Question 7.4: AI Acceptable Use Policy and Governance 🆕
 
 **Question Text:**
 Has the organization established an Artificial Intelligence (AI) Acceptable Use Policy that defines approved AI tools, prohibited uses, data privacy requirements, and staff/stakeholder responsibilities when using AI technologies (ChatGPT, Google Gemini, Microsoft Copilot, AI-enabled platforms)?
@@ -4815,7 +4829,7 @@ Has the organization established an Artificial Intelligence (AI) Acceptable Use 
 
 **Impact Rating:** High (5)
 
-**Foundational:** 🔑 YES - Insurance Critical (NEW 2026 - Forward-Looking Control)
+**Foundational:** NO - Emerging risk control (NEW 2026)
 
 **Control Description:**
 
@@ -5005,7 +5019,7 @@ Third-party and vendor risk management addresses cybersecurity risks introduced 
 - Question 8.5: Vendor Off-boarding Process
 - Question 8.6: Third-Party Security Certifications and Assessments 🆕
 - Question 8.7: Vendor Continuous Monitoring and Incident Notification 🆕
-- Question 8.8: AI Tool Privacy and Security Vetting 🔑 FOUNDATIONAL 🆕
+- Question 8.8: AI Tool Privacy and Security Vetting 🆕
 
 ---
 
@@ -5758,7 +5772,7 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 
 ---
 
-### Question 8.8: AI Tool Privacy and Security Vetting 🔑 FOUNDATIONAL 🆕
+### Question 8.8: AI Tool Privacy and Security Vetting 🆕
 
 **Question Text:**
 Does the organization vet artificial intelligence (AI) tools and platforms for data privacy, security controls, and compliance before approving for organizational use?
@@ -5771,7 +5785,7 @@ Does the organization vet artificial intelligence (AI) tools and platforms for d
 
 **Impact Rating:** High (5)
 
-**Foundational:** 🔑 YES - Insurance Critical (NEW 2026 - Forward-Looking Control)
+**Foundational:** NO - Emerging risk control (NEW 2026)
 
 **Control Description:**
 

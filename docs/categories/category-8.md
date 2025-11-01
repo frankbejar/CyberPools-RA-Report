@@ -2,7 +2,6 @@
 title: Category 8 - Third-Party and Vendor Risk Management
 tags:
   - Category 8
-  - Foundational
   - New
   - High Impact
   - Moderate Impact
@@ -43,7 +42,7 @@ Third-party and vendor risk management addresses cybersecurity risks introduced 
 - Question 8.5: Vendor Off-boarding Process
 - Question 8.6: Third-Party Security Certifications and Assessments 🆕
 - Question 8.7: Vendor Continuous Monitoring and Incident Notification 🆕
-- Question 8.8: AI Tool Privacy and Security Vetting 🔑 FOUNDATIONAL 🆕
+- Question 8.8: AI Tool Privacy and Security Vetting 🆕
 
 ---
 
@@ -796,7 +795,7 @@ Vendor continuous monitoring ensures vendor security posture remains acceptable 
 
 ---
 
-### Question 8.8: AI Tool Privacy and Security Vetting 🔑 FOUNDATIONAL 🆕
+### Question 8.8: AI Tool Privacy and Security Vetting 🆕
 
 **Question Text:**
 Does the organization vet artificial intelligence (AI) tools and platforms for data privacy, security controls, and compliance before approving for organizational use?
@@ -809,7 +808,7 @@ Does the organization vet artificial intelligence (AI) tools and platforms for d
 
 **Impact Rating:** High (5)
 
-**Foundational:** 🔑 YES - Insurance Critical (NEW 2026 - Forward-Looking Control)
+**Foundational:** NO - Emerging risk control (NEW 2026)
 
 **Control Description:**
 

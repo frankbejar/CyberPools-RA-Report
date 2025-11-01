@@ -672,14 +672,14 @@ External vulnerability scanning is **mandatory insurance requirement:**
 
 ---
 
-### Question 4.14: Centralized Logging and SIEM 🔑 FOUNDATIONAL 🆕
+### Question 4.14: Centralized Logging and SIEM 🆕
 
 **Question Text:**
 Does the organization implement centralized logging with a Security Information and Event Management (SIEM) or log management solution to collect, correlate, and analyze security events from across networks, servers, endpoints, and security devices?
 
 **Impact Rating:** High (5)
 
-**Foundational:** 🔑 YES (for larger organizations >500 users) / NO (for smaller organizations) - Tiered requirement (NEW 2026)
+**Foundational:** NO - Advanced security control (NEW 2026)
 
 **Control Description:**
 
