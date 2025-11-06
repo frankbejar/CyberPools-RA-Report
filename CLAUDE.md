@@ -327,6 +327,104 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 
 **🚨 REMINDER: When Claude generates research, ideas, or strategic analysis, it must be saved to `poc-research/docs/`, NOT the main directory.**
 
+---
+
+## Documentation Standards for Executive Summaries & Analysis
+
+### Core Principle: Information & Analysis Only
+
+When creating executive summaries, research documents, or strategic recommendations, focus EXCLUSIVELY on information and analysis. **Do NOT include project management details.**
+
+**❌ NEVER Include:**
+
+**Timeframes:**
+- "9-month timeline"
+- "Month 1-2:", "Month 3:", "Week 1:"
+- Specific date commitments
+- Duration estimates ("2 months", "1.5 months")
+- Phase tables with durations
+
+**Budgets & Resources:**
+- Dollar amounts ("$60,000-80,000")
+- Hour estimates ("250 hours", "44 hours per assessor")
+- Resource requirements ("5 developers needed")
+- ROI calculations ("Value exceeds cost")
+- Cost-benefit analysis
+
+**Project Management:**
+- "Decision Required" sections with approval checklists
+- "Authorize budget?" questions
+- "Next Steps" with calendar-based tasks
+- Implementation phase tables with durations
+- "Upon Approval" action items with dates
+
+**Rationale:** Frank and the business will determine budget, timeline, and resources based on their own constraints. Including these details wastes time - they'll be removed anyway. Focus on the information needed to make informed decisions.
+
+**✅ ALWAYS Include:**
+
+**Problem Statement:**
+- What problem are we solving?
+- Real examples showing impact
+- Why current approach fails
+
+**Options Evaluated:**
+- How each option works
+- Pros and cons (with evidence)
+- Comparison data
+- Verdict for each option
+
+**Analysis & Evidence:**
+- Research findings (carrier requirements, denial rates, etc.)
+- Statistical validation (correlation coefficients, significance)
+- Real organization examples
+- Expert assessments
+
+**Recommendation:**
+- Which option to choose
+- Why it's the best (criteria-based)
+- What problem it solves
+- Supporting evidence
+
+**Talking Points:**
+- Key messages for different audiences
+- How to explain the decision
+- What stakeholders need to know
+
+**Citations:**
+- Sources for all claims
+- Research references
+- Industry data
+
+---
+
+### Example: Executive Summary Format
+
+**See your revised `GRADING_METHODOLOGY_COMPARISON_EXECUTIVE_SUMMARY.md` as the gold standard:**
+
+**Structure:**
+1. The Problem (with real example)
+2. Four Methodologies Evaluated (how each works, verdict)
+3. Side-by-Side Comparison (table)
+4. Real Organization Examples
+5. Insurance Market Alignment (research findings)
+6. TIER 1A vs TIER 1B explanation
+7. Risk Assessment (comparison matrix)
+8. Final Recommendation (why this option?)
+9. Key Talking Points for Leadership
+10. Citations
+
+**What's MISSING (deliberately):**
+- ❌ Timeline section
+- ❌ Resource requirements
+- ❌ Budget estimates
+- ❌ ROI calculations
+- ❌ Decision approval checklist
+- ❌ Next steps with dates
+
+**Result:** Pure information and analysis. Stakeholders get what they need to make informed decisions without being boxed into arbitrary timelines or budgets.
+
+---
+
 ## Key Workflows
 
 ### MkDocs Site: Updating Documentation Content
