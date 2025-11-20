@@ -86,32 +86,6 @@
 
 ---
 
-## Archive Structure
-
-### archive/change-history/
-Version control and change documentation:
-- `2026_RA_v5_to_v6_CHANGES_SUMMARY.md` - v5.0 → v6.0 changes
-- `2026_RA_v6.0_to_v6.1_CHANGE_SUMMARY.md` - v6.0 → v6.1 changes (includes audit corrections)
-- `2026_RA_QUESTION_SET_v6.0_UPDATED.md` - v6.0 reference copy
-
-### archive/audit-nov-2025/
-Completed audit documentation:
-- `AUDIT_ISSUES_TRACKER.md` - Consolidated issue tracker (8 critical issues resolved)
-- `CITATION_AUDIT_FINDINGS.md` - cyber-research-analyst report
-- `INSURANCE_CLAIMS_VERIFICATION_AUDIT.md` - cyber-insurance-analyst report
-
-### archive/research/
-Research and analysis documents:
-- `2026_RA_FOUNDATIONAL_FRAMEWORK_GAP_ANALYSIS.md` - CIS IG1 coverage analysis
-- `2026_RA_QUESTION_REFINEMENT_REVIEW.md` - Question refinement process
-
-### archive/
-Other archived materials:
-- `2026_RA_ASSESSMENT_GUIDANCE_v6.1.md` - Assessor guidance (12 clarifications)
-- Previous cleanup archives (2024-11-11, 2024-11-12)
-
----
-
 ## Document Lineage
 
 **v5.0** (October 2024)

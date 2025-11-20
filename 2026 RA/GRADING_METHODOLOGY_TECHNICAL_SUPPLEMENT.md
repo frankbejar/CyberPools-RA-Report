@@ -895,7 +895,7 @@ TIER 1A controls are classified based on three converging data sources:
 
 1. **Insurance carrier requirements:** Near-universal presence in cyber insurance applications (90-100% carrier prevalence)
 2. **Breach causation statistics:** Direct correlation with common attack vectors (credential compromise: 38%, vulnerability exploitation: 20%, ransomware: 96% backup targeting)
-3. **Financial impact data:** Material cost differences between organizations with vs. without controls ($4.88M global average breach cost, $4.81M for credential-based breaches, $6.6M K-12 median ransom, 16% recovery rate paying ransoms)
+3. **Financial impact data:** Material cost differences between organizations with vs. without controls ($4.88M global average breach cost, $4.81M for credential-based breaches, $6.6M median ransom payment, 16% recovery rate paying ransoms)
 
 This convergence validates that TIER 1A controls represent genuine insurance-critical and breach-critical security gaps, not arbitrary selections. Grade Ceiling methodology ensures these statistically validated gaps are visible in assessment grades.
 

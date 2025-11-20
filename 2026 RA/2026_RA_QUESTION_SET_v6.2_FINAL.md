@@ -62,7 +62,7 @@ Critical defense layers that are emerging insurance requirements. Used for rate 
 | 6.3 | Backup testing frequency x2 per year | 5 | 11.1 | PR.IP, RC.RP |
 
 **TIER 1A Rationale:**
-These 9 control questions represent near-universal carrier requirements with explicit coverage implications. Missing any single control question creates material insurance risk, as evidenced by Hamilton City's $5M claim denial for incomplete MFA [35] and industry-wide carrier application requirements [1][27][30][32][34].
+These 10 control questions represent near-universal carrier requirements with explicit coverage implications. Missing any single control question creates material insurance risk, as evidenced by Hamilton City's $5M claim denial for incomplete MFA [35] and industry-wide carrier application requirements [1][27][30][32][34].
 
 ---
 
@@ -79,7 +79,7 @@ These 9 control questions represent near-universal carrier requirements with exp
 | 9.1 | Documented cyber incident response plan (reviewed/revised annually) | 5 | 17.1, 17.2, 17.3 | RS.MA, RS.RP |
 
 **TIER 1B Rationale:**
-These 7 control questions represent foundational defense-in-depth practices that are emerging cyber carier requirements. Used by carriers for rate optimization (premium discounts 10-15%) rather than coverage eligibility [9]. Strong threat validation but not yet coverage-blocking. Expected to migrate toward TIER 1A prevalence over next 2-3 years.
+These 7 control questions represent foundational defense-in-depth practices that are emerging cyber carrier requirements. Used by carriers for rate optimization (premium discounts 10-15%) rather than coverage eligibility [9]. Strong threat validation but not yet coverage-blocking. Expected to migrate toward TIER 1A prevalence over next 2-3 years.
 
 ---
 
@@ -314,9 +314,9 @@ These 7 control questions represent foundational defense-in-depth practices that
 - Category 10: 5 questions
 
 **TIER Distribution:**
-- TIER 1A: 9 questions (16%)
+- TIER 1A: 10 questions (18%)
 - TIER 1B: 7 questions (12%)
-- Comprehensive: 41 questions (72%)
+- Comprehensive: 40 questions (70%)
 
 **Framework Coverage:**
 - CIS Controls v8.1 IG1: 86% (48 of 56 safeguards)
