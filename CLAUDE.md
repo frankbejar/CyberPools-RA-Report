@@ -2,6 +2,31 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+---
+
+## CRITICAL: NO EMOJIS POLICY
+
+**STRICT PROHIBITION: NEVER use emojis anywhere for any reason in any context.**
+
+This includes but is not limited to:
+- NO emojis in documentation (markdown files, README, etc.)
+- NO emojis in code comments
+- NO emojis in commit messages
+- NO emojis in file content of any kind
+- NO checkmarks (✅), crosses (❌), warnings (⚠️), alerts (🚨), keys (🔑), or any other emoji/symbol characters
+- NO exception cases - this rule is absolute
+
+**Why:** CyberPools maintains a strictly professional tone across all documentation and code. Emojis are never used.
+
+**When you see emojis:** Remove them immediately and replace with plain text equivalents:
+- ✅ → [PASS] or "Yes" or simply remove
+- ❌ → [FAIL] or "No" or simply remove
+- ⚠️ → [WARNING] or "Note:" or "Important:"
+- 🚨 → [CRITICAL] or "CRITICAL:" or "IMPORTANT:"
+- 🔑 → [FOUNDATIONAL] or "(foundational)" or similar text
+
+---
+
 ## Repository Overview
 
 This repository contains **TWO major systems**:
@@ -13,7 +38,7 @@ Both systems share the same assessment content but serve different purposes and 
 
 ---
 
-## ⚠️ CRITICAL: Production vs. POC Separation Policy
+## CRITICAL: Production vs. POC Separation Policy
 
 **ALWAYS maintain strict separation between production and proof-of-concept work:**
 
@@ -34,15 +59,15 @@ Both systems share the same assessment content but serve different purposes and 
 - Insurance market research
 - Gap analysis and recommendations
 
-**🚨 RULE: When doing research, exploring ideas, or analyzing alternatives, ALWAYS place documents in `poc-research/docs/`**
+**RULE: When doing research, exploring ideas, or analyzing alternatives, ALWAYS place documents in `poc-research/docs/`**
 
 **Examples:**
-- ✅ Grading model options → `poc-research/docs/`
-- ✅ Insurance market research → `poc-research/docs/`
-- ✅ Alternative assessment approaches → `poc-research/docs/`
-- ✅ Strategic recommendations → `poc-research/docs/`
-- ❌ NEVER put POC concepts in `content/boilerplate.json`
-- ❌ NEVER mix experimental code with production scripts
+- [CORRECT] Grading model options → `poc-research/docs/`
+- [CORRECT] Insurance market research → `poc-research/docs/`
+- [CORRECT] Alternative assessment approaches → `poc-research/docs/`
+- [CORRECT] Strategic recommendations → `poc-research/docs/`
+- [INCORRECT] NEVER put POC concepts in `content/boilerplate.json`
+- [INCORRECT] NEVER mix experimental code with production scripts
 
 **Why this matters:** The production system serves live members. Mixing POC concepts with production files creates confusion about what's deployed vs. what's being explored.
 
@@ -315,7 +340,7 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 - Research documentation on alternative assessment approaches
 - POC scripts and templates
 - Strategic planning and insurance market research
-- **⚠️ NOTHING in this folder is production code or deployed**
+- **IMPORTANT: NOTHING in this folder is production code or deployed**
 
 **Important:** The production system uses a **single overall score (0-100%)** with 51 questions across 9 categories. POC work explores dual-score models and alternative weightings but these are NOT deployed.
 
@@ -325,7 +350,7 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 - `poc-research/docs/INSURANCE_STRATEGIC_ASSESSMENT_EXECUTIVE_SUMMARY.md` - Insurance industry research and recommendations
 - `poc-research/docs/GRADING_MODEL_APPROACHES.md` - Comprehensive grading model documentation
 
-**🚨 REMINDER: When Claude generates research, ideas, or strategic analysis, it must be saved to `poc-research/docs/`, NOT the main directory.**
+**CRITICAL REMINDER: When Claude generates research, ideas, or strategic analysis, it must be saved to `poc-research/docs/`, NOT the main directory.**
 
 ---
 
@@ -335,7 +360,7 @@ Risk Score = Control Rating (1/3/5) × Impact Rating (1/3/5)
 
 When creating executive summaries, research documents, or strategic recommendations, focus EXCLUSIVELY on information and analysis. **Do NOT include project management details.**
 
-**❌ NEVER Include:**
+**NEVER Include:**
 
 **Timeframes:**
 - "9-month timeline"
@@ -351,6 +376,17 @@ When creating executive summaries, research documents, or strategic recommendati
 - ROI calculations ("Value exceeds cost")
 - Cost-benefit analysis
 
+**CRITICAL: Control Implementation Economics:**
+- **NEVER** create sections on "Risk Economics" or "Control Investment"
+- **NEVER** provide cost ranges for security control implementation (MFA, EDR, backups, etc.)
+- **NEVER** calculate ROI for control implementation ("74x return", "breach cost avoided")
+- **NEVER** create phased implementation plans with budget estimates
+- **NEVER** estimate insurance premium savings from control implementation
+- **General statistics** about breach costs are acceptable for context (e.g., "Average breach costs $4.88M")
+- **Control effectiveness** statistics are acceptable (e.g., "MFA blocks 99% of attacks")
+- **But combining these into investment recommendations is strictly prohibited**
+- **Rationale:** We assess and grade security posture. We do NOT advise on control implementation budgets or ROI. That's the organization's decision based on their own financial situation.
+
 **Project Management:**
 - "Decision Required" sections with approval checklists
 - "Authorize budget?" questions
@@ -360,7 +396,7 @@ When creating executive summaries, research documents, or strategic recommendati
 
 **Rationale:** Frank and the business will determine budget, timeline, and resources based on their own constraints. Including these details wastes time - they'll be removed anyway. Focus on the information needed to make informed decisions.
 
-**✅ ALWAYS Include:**
+**ALWAYS Include:**
 
 **Problem Statement:**
 - What problem are we solving?
@@ -414,12 +450,12 @@ When creating executive summaries, research documents, or strategic recommendati
 10. Citations
 
 **What's MISSING (deliberately):**
-- ❌ Timeline section
-- ❌ Resource requirements
-- ❌ Budget estimates
-- ❌ ROI calculations
-- ❌ Decision approval checklist
-- ❌ Next steps with dates
+- [EXCLUDED] Timeline section
+- [EXCLUDED] Resource requirements
+- [EXCLUDED] Budget estimates
+- [EXCLUDED] ROI calculations
+- [EXCLUDED] Decision approval checklist
+- [EXCLUDED] Next steps with dates
 
 **Result:** Pure information and analysis. Stakeholders get what they need to make informed decisions without being boxed into arbitrary timelines or budgets.
 
@@ -454,7 +490,7 @@ MkDocs Material requires specific formatting for proper list rendering:
 - Use **4 spaces** (not 3) for indentation
 - Add a **blank line** after the numbered header
 
-✅ Correct:
+[CORRECT] Example:
 ```markdown
 1. **Header:**
 
@@ -462,7 +498,7 @@ MkDocs Material requires specific formatting for proper list rendering:
     - Bullet item (4 spaces)
 ```
 
-❌ Incorrect (will render bullets as separate numbered items):
+[INCORRECT] Will render bullets as separate numbered items:
 ```markdown
 1. **Header:**
    - Bullet item (3 spaces)
@@ -471,7 +507,7 @@ MkDocs Material requires specific formatting for proper list rendering:
 **Bold headers with bullets:**
 - Add a **blank line** after bold headers before bullets
 
-✅ Correct:
+[CORRECT] Example:
 ```markdown
 **Header:**
 
@@ -479,7 +515,7 @@ MkDocs Material requires specific formatting for proper list rendering:
 - Bullet item
 ```
 
-❌ Incorrect (will render as plain text):
+[INCORRECT] Will render as plain text:
 ```markdown
 **Header:**
 - Bullet item
@@ -589,11 +625,11 @@ python3 scripts/test_docraptor.py
 - Nothing here is deployed
 
 **When Claude does research or creates strategic documents:**
-- ✅ Save to `poc-research/docs/`
-- ✅ Use `poc-research/scripts/` for experimental code
-- ✅ Use `poc-research/templates/` for POC templates
-- ❌ Never save to main directory
-- ❌ Never edit `content/boilerplate.json` with POC text
+- [CORRECT] Save to `poc-research/docs/`
+- [CORRECT] Use `poc-research/scripts/` for experimental code
+- [CORRECT] Use `poc-research/templates/` for POC templates
+- [INCORRECT] Never save to main directory
+- [INCORRECT] Never edit `content/boilerplate.json` with POC text
 
 **This separation is critical** - production system serves live members and must not contain undeployed concepts.
 
